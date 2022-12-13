@@ -78,7 +78,7 @@
 
     <a-scene>
       <a-assets timeout="30000">
-        <a-asset-item id="spinosaurus" src="../Meteorito MariJess.glb" response-type="arraybuffer"></a-asset-item>
+        <a-asset-item id="spinosaurus" src="assets/Meteorito MariJess.glb" response-type="arraybuffer"></a-asset-item>
       </a-assets>
       
       <a-camera position="0 1.2 0"></a-camera>
@@ -87,7 +87,7 @@
       <a-entity environment="preset: forest; lighting: none; shadow: none; lightPosition: 0 2.15 0"
                 hide-in-ar-mode></a-entity>
       
-      <a-entity id="dino" position="1 -5 0" scale="2 2 2">
+      <a-entity id="dino" position="1 -5 0" scale="3 3 3">
         <a-entity position="0 2.15 0" rotation="0 55 0"
                   gltf-model="#spinosaurus"
                   animation-mixer
