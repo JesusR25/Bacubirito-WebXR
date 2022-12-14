@@ -101,6 +101,7 @@
 
     <a-scene>
       <a-assets timeout="30000">
+
         <a-asset-item id="spinosaurus" src="assets/Meteorito MariJess.glb" ></a-asset-item>
         <video id="pogo" src="assets/forget.mp4"  loop="true">
         <img id="play" src="assets/play.png">
@@ -108,14 +109,8 @@
       </a-assets>
       
       <a-camera position="0 1.2 0"></a-camera>
-
-
-
       
-      <!-- Environment for 2D and VR viewing. It's auto-hidden in AR mode. -->
-      
-
-      
+      <!-- Environment for 2D and VR viewing. It's auto-hidden in AR mode. -->    
       <a-entity id="dino" position="0 0 0" scale="0 0 0" animation="property: rotation; to: 0 0 0; loop: true; dur: 10000;" >
         <a-entity position="0 2.15 0" rotation="0 55 0"
                   gltf-model="#spinosaurus"
@@ -129,15 +124,17 @@
                shadow="receive: true"
                ar-shadows="opacity: 0.3"
                visible="false"></a-plane>-->
-    </a-scene>
 
 
-    <!--Escena para video-->
-    <a-scene>
+      <!--Entity para video-->
+    <a-entity id="videoent" visible="false">
       <a-video src="#pogo" width="13" height="5" position="0 2 -5"  >
         <a-image id="videoControls" src="#play" position=" 0 -3 0" scale="0.5 0.5 1" play-pause> </a-image>
       </a-video>
+    </a-entity>
     </a-scene>
+
+
 
     <div id="text">
       <h1>Infografía</h1>
@@ -171,16 +168,26 @@
       }
       function reproducir(){
         document.querySelector("#pogo").play();
+        document.querySelector("#videoent").setAttribute("visible", true)
       }
-
       function setSize(scale) {
         document.getElementById('dino').setAttribute('scale', {x: scale, y: scale, z: scale});
+        mostrarMeteoro()
       }
+      function mostrarMeteoro(){
+        document.querySelector("#videoent").setAttribute("visible", false)
+        document.querySelector("#pogo").pause();
+      }
+      function ocultar(scale){
+        document.getElementById('dino').setAttribute('scale', {x: scale, y: scale, z: scale});
+      }
+
+
       document.getElementById('btn_reproducir').onclick = reproducir.bind();
       document.getElementById('btn_pausa').onclick = pausar.bind();
       document.getElementById('btn_full').onclick = setSize.bind(this, 0.5);
       document.getElementById('btn_mostrar').onclick = setSize.bind(this, 0.5);
-      document.getElementById('btn_ocultar').onclick = setSize.bind(this, 0);
+      document.getElementById('btn_ocultar').onclick = ocultar.bind(this, 0);
 
     </script>
 
