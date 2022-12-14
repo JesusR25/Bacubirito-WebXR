@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>XR Spinosaurus</title>
+    <title>bacubirito</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,13 +86,16 @@
       <!-- Environment for 2D and VR viewing. It's auto-hidden in AR mode. -->
       <a-entity environment="preset: forest; lighting: none; shadow: none; lightPosition: 0 2.15 0"
                 hide-in-ar-mode></a-entity>
+
       
-      <a-entity id="dino" position="1 -5 0" scale="3 3 3">
+      <a-entity id="dino" position="0 0 0" scale="0 0 0" animation="property: rotation; to: 0 0 0; loop: true; dur: 10000;" >
         <a-entity position="0 2.15 0" rotation="0 55 0"
                   gltf-model="#spinosaurus"
                   animation-mixer
                   shadow="cast: true; receive: false"></a-entity>
       </a-entity>  
+
+      <a-video id="forget" src="assets/forget.mp4" width="16" height="9" position="0 5 -10" ></a-video>
       
       <a-entity light="type: ambient; intensity: 0.5;"></a-entity>
       <a-light type="directional"
@@ -107,43 +110,44 @@
                target="dino"
                position="-5 3 1.5"></a-light>
 
-      <!-- This shadow-receiving plane is only visible in AR mode. -->
+      <!-- This shadow-receiving plane is only visible in AR mode. 
       <a-plane height="15" width="15" position="0 0 -3" rotation="-90 0 0"
                shadow="receive: true"
                ar-shadows="opacity: 0.3"
-               visible="false"></a-plane>
+               visible="false"></a-plane>-->
     </a-scene>
 
     <div id="text">
-      <h1>A-Frame Spinosaurus for VR/AR</h1>
+      <h1>Infografía</h1>
     
       <p>
-        Model: <a href="https://sketchfab.com/3d-models/spinosaurus-2135501583704537907645bf723685e7">Spinosaurus</a> by 
-        <a href="https://sketchfab.com/VapTor">Vaptor-Studio</a>.
-      </p>
-      <p>
         Size: <button id="btn_full">Full</button>
-        <button id="btn_half">1/2</button>
-        <button id="btn_quarter">1/4</button>
+        <button id="btn_mostrar">Mostrar Meteoro</button>
+        <button id="btn_ocultar">Ocultar Meteoro</button>
       </p>
       
       <p>
-        This requires browser support for WebXR's AR mode, for example an
+        <!--This requires browser support for WebXR's AR mode, for example an
         <a href="https://developers.google.com/ar/discover/supported-devices">ARCore-compatible</a>
-        Android phone with Chrome version 81 or higher.
+        Android phone with Chrome version 81 or higher.-->
+        Es el quinto más grande del mundo. Fue descubierto en 1863, en Bacubirito, Sin.
       </p>
       
       <p>
-        Powered by <a href="https://aframe.io/blog/aframe-v1.0.0/">A-Frame v1.0.0</a>.
+        Fue trasladado al Centro Civico Constitución en Culiacán para su exhibición desde 1959 hasta 1992.
+      </p>
+
+      <p>
+        Desde 1993 hasta la fecha permanece en el Centro de Ciencias de Sinaloa.
       </p>
     </div>
     <script>
       function setSize(scale) {
         document.getElementById('dino').setAttribute('scale', {x: scale, y: scale, z: scale});
       }
-      document.getElementById('btn_full').onclick = setSize.bind(this, 1);
-      document.getElementById('btn_half').onclick = setSize.bind(this, 0.5);
-      document.getElementById('btn_quarter').onclick = setSize.bind(this, 0.25);
+      document.getElementById('btn_full').onclick = setSize.bind(this, 0.5);
+      document.getElementById('btn_mostrar').onclick = setSize.bind(this, 0.5);
+      document.getElementById('btn_ocultar').onclick = setSize.bind(this, 0);
     </script>
 
     <!-- include the Glitch button to show what the webpage is about and
