@@ -73,25 +73,44 @@
         }
       });    
   </script>
+
+  <script>
+    //Script para control del video (Play y pause)
+    AFRAME.registerComponent('play-pause', {
+        init: function () {
+          var myVideo = document.querySelector('#pogo');
+          var videoControls = document.querySelector('#videoControls');
+          this.el.addEventListener('click', function () {
+            if(myVideo.paused){
+              myVideo.play();
+              videoControls.setAttribute('src', '#stop');
+              console.log("Imprimir");
+            } else {
+              myVideo.pause();
+              videoControls.setAttribute('src' , '#play');
+              console.log("Si entro");
+            }
+          });
+        }
+      });
+  </script>
+
+
   </head>  
   <body>
 
     <a-scene>
       <a-assets timeout="30000">
         <a-asset-item id="spinosaurus" src="assets/Meteorito MariJess.glb" ></a-asset-item>
-        <video id="pogo" src="assets/forget.mp4" autoplay loop="true">
+        <video id="pogo" src="assets/forget.mp4"  loop="true">
         <img id="play" src="assets/play.png">
         <img id="stop" src="assets/pausa.png">
       </a-assets>
       
       <a-camera position="0 1.2 0"></a-camera>
 
-      <!--Entidad del video que ponemos false en visible para que no se muestre-->
-      <a-entity id="video"  visible="true" >
-        <a-video src="#pogo" width="13" height="5" position="0 2 -5"  >
-          <a-image id="videoControls" src="#play" position=" 0 -3 0" scale="0.5 0.5 1" handler> </a-image>
-        </a-video>
-      </a-entity>
+
+
       
       <!-- Environment for 2D and VR viewing. It's auto-hidden in AR mode. -->
       
@@ -105,11 +124,6 @@
       </a-entity>
       <a-sky color="#ECECEC"></a-sky>
       
-      
-      
-      
-      
-
       <!-- This shadow-receiving plane is only visible in AR mode. 
       <a-plane height="15" width="15" position="0 0 -3" rotation="-90 0 0"
                shadow="receive: true"
@@ -117,11 +131,21 @@
                visible="false"></a-plane>-->
     </a-scene>
 
+
+    <!--Escena para video-->
+    <a-scene>
+      <a-video src="#pogo" width="13" height="5" position="0 2 -5"  >
+        <a-image id="videoControls" src="#play" position=" 0 -3 0" scale="0.5 0.5 1" play-pause> </a-image>
+      </a-video>
+    </a-scene>
+
     <div id="text">
       <h1>Infografía</h1>
     
       <p>
         Size: <button id="btn_full">Full</button>
+        <button id="btn_reproducir">Reproducir</button>
+        <button id="btn_pausa">Pausar</button>
         <button id="btn_mostrar">Mostrar Meteoro</button>
         <button id="btn_ocultar">Ocultar Meteoro</button>
       </p>
@@ -142,30 +166,21 @@
       </p>
     </div>
     <script>
+      function pausar(){
+        document.querySelector("#pogo").pause();
+      }
+      function reproducir(){
+        document.querySelector("#pogo").play();
+      }
+
       function setSize(scale) {
         document.getElementById('dino').setAttribute('scale', {x: scale, y: scale, z: scale});
       }
+      document.getElementById('btn_reproducir').onclick = reproducir.bind();
+      document.getElementById('btn_pausa').onclick = pausar.bind();
       document.getElementById('btn_full').onclick = setSize.bind(this, 0.5);
       document.getElementById('btn_mostrar').onclick = setSize.bind(this, 0.5);
       document.getElementById('btn_ocultar').onclick = setSize.bind(this, 0);
-
-
-      //Script para control del video (Play y pause)
-      AFRAME.registerComponent('play-pause', {
-        init: function () {
-          var myVideo = document.querySelector('#pogo');
-          var videoControls = document.querySelector('#videoControls');
-          this.el.addEventListener('click', function () {
-            if(myVideo.paused){
-              myVideo.play();
-              videoControls.setAttribute('src', '#pause');
-            } else {
-              myVideo.pause();
-              videoControls.setAttribute('src' , '#play')
-            }
-          });
-        }
-      });
 
     </script>
 
