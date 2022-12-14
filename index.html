@@ -79,7 +79,7 @@
     <a-scene>
       <a-assets timeout="30000">
         <a-asset-item id="spinosaurus" src="assets/Meteorito MariJess.glb" ></a-asset-item>
-        <video id="pogo" src="assets/forget.mp4" loop="true">
+        <video id="pogo" src="assets/forget.mp4" autoplay loop="true">
         <img id="play" src="assets/play.png">
         <img id="stop" src="assets/pausa.png">
       </a-assets>
@@ -89,7 +89,7 @@
       <!--Entidad del video que ponemos false en visible para que no se muestre-->
       <a-entity id="video"  visible="true" >
         <a-video src="#pogo" width="13" height="5" position="0 2 -5"  >
-          <a-image id="videoControls" src="#play" position=" 0 -3 0" scale="0.5 0.5 1" play-pause> </a-image>
+          <a-image id="videoControls" src="#play" position=" 0 -3 0" scale="0.5 0.5 1" handler> </a-image>
         </a-video>
       </a-entity>
       
@@ -149,18 +149,23 @@
       document.getElementById('btn_mostrar').onclick = setSize.bind(this, 0.5);
       document.getElementById('btn_ocultar').onclick = setSize.bind(this, 0);
 
-      AFRAME.registerComponent('handler', {
-  init: function () {
-    this.el.addEventListener('click', () => {
-      document.getElementById('#pogo').play()
-    });
-  },
-});
 
-
-
-
-    
+      //Script para control del video (Play y pause)
+      AFRAME.registerComponent('play-pause', {
+        init: function () {
+          var myVideo = document.querySelector('#pogo');
+          var videoControls = document.querySelector('#videoControls');
+          this.el.addEventListener('click', function () {
+            if(myVideo.paused){
+              myVideo.play();
+              videoControls.setAttribute('src', '#pause');
+            } else {
+              myVideo.pause();
+              videoControls.setAttribute('src' , '#play')
+            }
+          });
+        }
+      });
 
     </script>
 
