@@ -71,20 +71,49 @@
             if (!this.wasVisible) this.el.setAttribute('visible', false);
           });
         }
-      });    
+      });   
+
+      //CODIGO PARA MENU DEL VIDEO
+      AFRAME.registerComponent('playpause', {
+        init: function() {
+          var myVideo = document.querySelector('#pogo');
+          var videoControls = document.querySelector('#videoControls');
+          this.el.addEventListener('click', function () {
+            if(myVideo.paused){
+              myVideo.play();
+              videoControls.setAttribute('src', '#pause');
+            }else{
+              myVideo.pause();
+              videoControls.setAttribute('src', '#play');
+            }
+          });
+        }
+      });
+      
+      AFRAME.registerComponent('open-desc', {  
+    init: function() {
+        var data = this.data;
+        var el = this.el;      
+        el.addEventListener('click', function() {
+            console.log("hiiiiiiiiiiii");           
+        });
+    },
+
+});
+
   </script>
 
 
   </head>  
   <body>
 
-    <a-scene>
+    <a-scene cursor="rayOrigin:mouse">
       <a-assets timeout="30000">
 
         <a-asset-item id="spinosaurus" src="assets/stannern_meteorite_nhmw-min_a21.glb" ></a-asset-item>
         <video id="pogo" src="assets/forget.mp4"  loop="true">
         <img id="play" src="assets/play.png">
-        <img id="stop" src="assets/pausa.png">
+        <img id="pause" src="assets/pausa.png">
       </a-assets>
       
       <a-camera position="0 1.2 0"></a-camera>
@@ -119,9 +148,9 @@
 
 
       <!--Entity para video-->
-    <a-entity id="videoent" visible="false">
-      <a-video src="#pogo" width="7" height="4" position="0 2 -5"  >
-        <a-image id="videoControls" src="#play" position=" 0 -3 0" scale="0.5 0.5 1" play-pause> </a-image>
+    <a-entity id="videoent" visible="false" open-desc>
+      <a-video src="#pogo" width="7" height="4" position="0 3 -5"  >
+        <a-image id="videoControls" src="#play" position=" 0 -2.5 0" scale="0.5 0.5 1" playpause> </a-image>
       </a-video>
     </a-entity>
 
@@ -139,7 +168,7 @@
       <h1>Infografía</h1>
     
       <p>
-        Size: <button id="btn_full">Full</button>
+        Size: <a href="pagina/composicion.html">Composicion</a>
         <button id="btn_reproducir">Reproducir</button>
         <button id="btn_pausa">Pausar</button>
         <button id="btn_mostrar">Mostrar Meteoro</button>
@@ -185,7 +214,6 @@
 
       document.getElementById('btn_reproducir').onclick = reproducir.bind();
       document.getElementById('btn_pausa').onclick = pausar.bind();
-      document.getElementById('btn_full').onclick = setSize.bind(this, 0.5);
       document.getElementById('btn_mostrar').onclick = setSize.bind(this, 0.5);
       document.getElementById('btn_ocultar').onclick = ocultar.bind(this, 0);
 
