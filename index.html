@@ -25,6 +25,7 @@
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 
     <script>
       // Define a few custom components useful for AR mode. While these are somewhat reusable,
@@ -107,14 +108,10 @@
 
   </head>  
   <body>
-    <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-      <button>
-          HIDE OBJECTS
-      </button>
-  </div>
+    
 
 
-    <a-scene cursor="rayOrigin:mouse">
+    <a-scene>
       <a-assets timeout="30000">
 
         <a-asset-item id="spinosaurus" src="assets/stannern_meteorite_nhmw-min_a21.glb" ></a-asset-item>
@@ -161,7 +158,7 @@
 
 
       <!--Entity para video-->
-    <a-entity id="videoent" visible="false" >
+    <a-entity id="videoent" visible="false" cursor="rayOrigin:mouse">
       <a-video src="#pogo" width="7" height="4" position="0 3 -5"  >
         <a-image id="videoControls" src="#play" position=" 0 -2.5 0" scale="0.5 0.5 1" playpause> </a-image>
       </a-video>
