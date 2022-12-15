@@ -107,6 +107,12 @@
 
   </head>  
   <body>
+    <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+      <button>
+          HIDE OBJECTS
+      </button>
+  </div>
+
 
     <a-scene cursor="rayOrigin:mouse">
       <a-assets timeout="30000">
@@ -118,11 +124,11 @@
       </a-assets>
       
       <a-camera position="0 1.2 0">
-        <a-entity cursor="fuse: true; fuseTimeout: 500"
+     <!--   <a-entity cursor="fuse: true; fuseTimeout: 500"
             position="0 0 -1"
             geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
             material="color: black; shader: flat">
-    </a-entity>
+    </a-entity>-->  
       </a-camera>
       
       <!-- Environment for 2D and VR viewing. It's auto-hidden in AR mode.  Antes position = "0 0 0"-->    
