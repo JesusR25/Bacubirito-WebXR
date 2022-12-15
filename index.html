@@ -110,6 +110,13 @@
         <a-image id="videoControls" src="#play" position=" 0 -3 0" scale="0.5 0.5 1" play-pause> </a-image>
       </a-video>
     </a-entity>
+
+    <!-- This shadow-receiving plane is only visible in AR mode. -->
+    <a-plane height="15" width="15" position="0 0 -3" rotation="-90 0 0"
+    shadow="receive: true"
+    ar-shadows="opacity: 0.3"
+    visible="false"></a-plane>
+
     </a-scene>
 
 
