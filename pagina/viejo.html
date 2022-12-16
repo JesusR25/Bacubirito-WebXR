@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Viejo</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+        <script>
+            // WebXR requires HTTPS, so the site doesn't work if someone manually enters
+            // the URL and ends up using HTTP. To work around this, force redirect from
+            // http to https for non-localhost addresses.
+            if (window.location.protocol == "http:" &&
+                window.location.hostname != "localhost" && 
+                window.location.hostname != "127.0.0.1" &&
+                window.location.hostname != "[::1]") {
+              window.location = window.location.href.replace('http:', 'https:');        
+            }
+          </script>   
+    </head>
+    <body>
+        <a-scene>
+            <a-marker cursor="rayOrigin: mouse">
+                <a-box click-listener-component></a-box>
+           </a-marker>
+           <a-entity camera></a-camera>
+        </a-scene>
+    </body>
+</html>
