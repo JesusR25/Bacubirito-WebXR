@@ -115,7 +115,7 @@
       <a-assets timeout="30000">
 
         <a-asset-item id="spinosaurus" src="assets/stannern_meteorite_nhmw-min_a21.glb" ></a-asset-item>
-        <video id="pogo" src="assets/forget.mp4"  loop="true">
+        <video id="pogo" src="assets/historia.mp4"  loop="true">
         <img id="play" src="assets/play.png">
         <img id="pause" src="assets/pausa.png">
       </a-assets>
@@ -124,7 +124,7 @@
       </a-camera>
       
       <!-- Environment for 2D and VR viewing. It's auto-hidden in AR mode.  Antes position = "0 0 0"-->    
-      <a-entity id="dino" position="2 5.9 1" scale="0 0 0" animation="property: rotation; to: 0 0 0; loop: true; dur: 10000;" >
+      <a-entity id="dino" position="2 5.9 1" scale="0 0 0" animation="property: rotation; to: 0 0 0; loop: true; dur: 10000;" open-desc >
         <a-entity position="0 2.15 0" rotation="0 55 0"
                   gltf-model="#spinosaurus"
                   animation-mixer
