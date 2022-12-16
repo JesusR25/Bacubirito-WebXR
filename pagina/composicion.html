@@ -106,13 +106,21 @@
         </script>
     </head>
     <body>
-        <a-scene cursor="rayOrigin:mouse">
+        <a-scene cursor="rayOrigin:mouse" webxr="optionalFeatures:  hit-test;" ar-hit-test="target:#dino;">
             <a-assets timeout="30000">
+              <a-asset-item id="spinosaurus" src="../assets/Meteorito MariJess.glb" ></a-asset-item>
                 <video id="compo" src="../assets/composicion.mp4"  loop="true"></video>
                 <img id="play" src="../assets/play.png">
                 <img id="pause" src="../assets/pausa.png">
               </a-assets>
               <a-camera position="0 1.2 0"></a-camera>
+
+              <a-entity >
+                <a-entity id="dino" scale="0 0 0" position="0 1 0" rotation="0 55 0"
+                          gltf-model="#spinosaurus" open-desc>
+                </a-entity>
+              </a-entity>
+                
 
               <a-entity environment="preset: forest; lighting: none; shadow: none; lightPosition: 0 2.15 0"
                 hide-in-ar-mode></a-entity>
@@ -179,25 +187,25 @@
             function reproducir(){
               document.querySelector("#compo").play();
               document.querySelector("#videoent").setAttribute("visible", true)
-           //   ocultar.bind(this, 0);
+              ocultar.bind(this, 0);
             }
-            //function setSize(scale) {
-             // document.getElementById('dino').setAttribute('scale', {x: scale, y: scale, z: scale});
+            function setSize(scale) {
+             document.getElementById('dino').setAttribute('scale', {x: scale, y: scale, z: scale});
               
-            //}
-            /*function mostrarMeteoro(){
+            }
+            function mostrarMeteoro(){
               document.querySelector("#videoent").setAttribute("visible", false)
               document.querySelector("#pogo").pause();
             }
             function ocultar(scale){
               document.getElementById('dino').setAttribute('scale', {x: scale, y: scale, z: scale});
-            }*/
+            }
       
       
             document.getElementById('btn_reproducir').onclick = reproducir.bind();
             document.getElementById('btn_pausa').onclick = pausar.bind();
-            //document.getElementById('btn_mostrar').onclick = setSize.bind(this, 0.5);
-            //document.getElementById('btn_ocultar').onclick = ocultar.bind(this, 0);
+            document.getElementById('btn_mostrar').onclick = setSize.bind(this, 0.5);
+            document.getElementById('btn_ocultar').onclick = ocultar.bind(this, 0);
       
           </script>
       
