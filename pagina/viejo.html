@@ -16,11 +16,10 @@
           init: function() {
               var data = this.data;
               var el = this.el;
-              var objeto = document.querySelector('#scene');
+              var objeto = document.querySelector('#dino');
               
-              el.addEventListener('onefingermove', function() {
-                  console.log("hiiiiiiiiiiii");
-                  document.querySelector('#scene').setAttribute("visible", false);
+              el.addEventListener("onefingermove", function() {
+                  console.log("hiiiiiiiiiiii");           
               });
           },
       
@@ -58,6 +57,7 @@
           position="0 0 0"
           scale="0.05 0.05 0.05"
           class="clickable"
+          gesture-handler
         >
         </a-entity>
       </a-marker>
