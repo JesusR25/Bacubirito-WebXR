@@ -106,7 +106,7 @@
         </script>
     </head>
     <body>
-        <a-scene cursor="rayOrigin:mouse" webxr="optionalFeatures:  hit-test;" ar-hit-test="target:#dino;">
+        <a-scene arjs  gesture-detector cursor="rayOrigin:mouse" webxr="optionalFeatures:  hit-test;" ar-hit-test="target:#dino;">
             <a-assets timeout="30000">
               <a-asset-item id="spinosaurus" src="../assets/Meteorito MariJess.glb" ></a-asset-item>
                 <video id="compo" src="../assets/composicion.mp4"  loop="true"></video>
@@ -117,7 +117,8 @@
 
               <a-entity >
                 <a-entity id="dino" scale="0 0 0" position="0 1 0" rotation="0 55 0"
-                          gltf-model="#spinosaurus" open-desc>
+                          gltf-model="#spinosaurus" class="clickable"
+                          gesture-handler open-desc>
                 </a-entity>
               </a-entity>
                 
