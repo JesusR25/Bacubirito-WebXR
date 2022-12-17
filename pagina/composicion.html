@@ -114,7 +114,7 @@
     <body>
         <a-scene cursor="rayOrigin:mouse" webxr="optionalFeatures:  hit-test;" ar-hit-test="target:#dino;">
             <a-assets timeout="30000">
-              <a-asset-item id="spinosaurus" src="../assets/spinosaurus.glb" ></a-asset-item>
+              <a-asset-item id="spinosaurus" src="../assets/bowser.glb" ></a-asset-item>
                 <video id="compo" src="../assets/composicion.mp4"  loop="true"></video>
                 <img id="play" src="../assets/play.png">
                 <img id="pause" src="../assets/pausa.png">
@@ -122,7 +122,7 @@
               <a-camera position="0 1.2 0"></a-camera>
 
               <a-entity >
-                <a-entity id="dino" scale="0 0 0" position="0 1 0" rotation="0 55 0"
+                <a-entity id="dino" scale="0 0 0" position="0 1 -1" rotation="0 55 0"
                           gltf-model="#spinosaurus" class="clickable"
                           gesture-handler open-desc>
                 </a-entity>
@@ -211,7 +211,7 @@
       
             document.getElementById('btn_reproducir').onclick = reproducir.bind();
             document.getElementById('btn_pausa').onclick = pausar.bind();
-            document.getElementById('btn_mostrar').onclick = setSize.bind(this, 0.5);
+            document.getElementById('btn_mostrar').onclick = setSize.bind(this, 0.010);
             document.getElementById('btn_ocultar').onclick = ocultar.bind(this, 0);
       
           </script>
