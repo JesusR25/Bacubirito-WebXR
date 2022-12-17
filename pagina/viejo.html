@@ -10,6 +10,22 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+    <script>
+        AFRAME.registerComponent('open-desc', {  
+          init: function() {
+              var data = this.data;
+              var el = this.el;
+              var objeto = document.querySelector('#scene');
+              
+              el.addEventListener('onefingermove', function() {
+                  console.log("hiiiiiiiiiiii");
+                  document.querySelector('#scene').setAttribute("visible", false);
+              });
+          },
+      
+      });
+    </script>
   </head>
 
   <body>
@@ -42,10 +58,6 @@
           position="0 0 0"
           scale="0.05 0.05 0.05"
           class="clickable"
-          raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-          gesture-handler
         >
         </a-entity>
       </a-marker>
