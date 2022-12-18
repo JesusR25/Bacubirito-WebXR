@@ -25,7 +25,7 @@ AFRAME.registerComponent('for_a_marker', {
               <img id="play" src="../assets/play.png">
               <img id="pause" src="../assets/pausa.png">
         </a-assets>
-        <a-video src="#compo" width="5" height="2" position="0 0 0"  ></a-video>
+        <a-video src="#compo" width="5" height="2" position="0 0 0" for_a_marker ></a-video>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
         <a-marker-camera id="marker" preset="hiro" emitevents="true" for_a_marker>
             <a-text id="text" class="intersectable" scale="2 2 2" position="-1 0 0" rotation="270 0 0" value="text" color="red"></a-text>
