@@ -18,6 +18,9 @@ AFRAME.registerComponent('for_a_marker', {
 });
 </script>
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+    <div id="hola">
+        <h2> Ejemplo de div y span </h2>
+    </div>
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'>
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/bowser.glb" ></a-asset-item>
@@ -27,7 +30,9 @@ AFRAME.registerComponent('for_a_marker', {
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
         <a-marker-camera id="marker" preset="hiro" emitevents="true" for_a_marker>
-            <a-entity id="text" class="intersectable" text="text: Hello World;"></a-entity>
+            <a-video src="#compo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="1 1 1" ></a-video>
+            <a-text id="text" class="intersectable" scale="2 2 2" position="-1 0 0" rotation="270 0 0" value="text" color="red"></a-text>
+            <a-text id="text1" class="intersectable" scale="2 2 2" position="0 0 0" rotation="270 0 0" value="Hola gernte" color="red"></a-text> 
         </a-marker-camera>  
     </a-scene>
 </body>
