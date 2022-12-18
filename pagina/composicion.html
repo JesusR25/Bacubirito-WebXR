@@ -104,15 +104,6 @@
           },
       
       });
-
-      AFRAME.registerComponent('for_a_marker', {
-    init: function () {
-        var text = document.querySelector('#videoControls');
-        text.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
-            alert("do your stuff");
-        });
-    }
-});
       
         </script>
     </head>
@@ -159,9 +150,9 @@
                ar-shadows="opacity: 0.3"
                visible="false"></a-plane>
 
-               <a-entity id="videoent" visible="false" cursor="rayOrigin: mouse">
+               <a-entity id="videoent" visible="false">
                 <a-video src="#compo" width="7" height="4" position="0 3 -5"  >
-                  <a-image id="videoControls" src="#play" position=" 0 -2.5 0" scale="0.5 0.5 1" for_a_marker> </a-image>
+                  <a-image id="videoControls" src="#play" position=" 0 -2.5 0" scale="0.5 0.5 1" playpause> </a-image>
                 </a-video>
               </a-entity>
 
