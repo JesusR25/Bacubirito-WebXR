@@ -17,6 +17,24 @@ AFRAME.registerComponent('for_a_marker', {
         document.querySelector("#compo").play();
     }
 });
+
+AFRAME.registerComponent('vidhandler', {
+  init: function () {
+    this.toggle = false;
+    document.querySelector("#compo").pause(); //reference to the video
+  },
+  tick:function(){  
+   if(document.querySelector("marker").object3D.visible == true){
+     if(!this.toggle){
+       this.toggle = true;
+       document.querySelector("#compo").play();
+     }
+   }else{
+     this.toggle = false;
+     document.querySelector("#compo").pause();
+   }
+  }
+});
 </script>
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'>
@@ -28,7 +46,7 @@ AFRAME.registerComponent('for_a_marker', {
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
         <a-marker-camera id="marker" preset="hiro" emitevents="true" >
-            <a-video src="#compo" width="5" height="2" position="0 0 0" for_a_marker  ></a-video>
+            <a-video vidhandler ></a-video>
         </a-marker-camera>  
     </a-scene>
 </body>
