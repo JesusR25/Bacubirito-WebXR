@@ -25,7 +25,7 @@
           <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
           <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
           <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
-          <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+          <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
       
           <script>
             // Define a few custom components useful for AR mode. While these are somewhat reusable,
@@ -115,7 +115,13 @@
                 <img id="play" src="../assets/play.png">
                 <img id="pause" src="../assets/pausa.png">
               </a-assets>
-              <a-camera position="0 1.2 0"></a-camera>
+              <a-camera position="0 1.2 0">
+                <a-entity cursor="fuse: true; fuseTimeout: 500"
+                    position="0 0 -1"
+                    geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                    material="color: black; shader: flat">
+            </a-entity>
+              </a-camera>
 
               <a-entity >
                 <a-entity id="dino" scale="0 0 0" position="0 1 -1" rotation="0 55 0"
