@@ -6,8 +6,12 @@
 AFRAME.registerComponent('for_a_marker', {
     init: function () {
         var text = document.querySelector('#text');
+        var text2 = document.querySelector('#text1');
         text.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
             alert("do your stuff");
+        });
+        text2.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
+            alert("Diferente");
         });
     }
 });
