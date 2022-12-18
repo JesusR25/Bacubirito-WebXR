@@ -18,9 +18,18 @@ AFRAME.registerComponent('for_a_marker', {
 </script>
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'>
+        <a-assets timeout="30000">
+            <a-asset-item id="spinosaurus" src="../assets/bowser.glb" ></a-asset-item>
+              <video id="compo" src="../assets/composicion.mp4"  loop="true"></video>
+              <img id="play" src="../assets/play.png">
+              <img id="pause" src="../assets/pausa.png">
+        </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
         <a-marker-camera id="marker" preset="hiro" emitevents="true" for_a_marker>
-            <a-text id="text" class="intersectable" scale="2 2 2" position="0 0 0" rotation="270 0 0" value="text" color="red"></a-text>
+            <a-video src="#compo" width="5" height="2" position="0 3 -5"  >
+                <a-image id="videoControls" src="#play" position=" 0 -2.5 0" scale="0.5 0.5 1" playpause> </a-image>
+            </a-video>
+            <a-text id="text" class="intersectable" scale="2 2 2" position="-1 0 0" rotation="270 0 0" value="text" color="red"></a-text>
             <a-text id="text1" class="intersectable" scale="2 2 2" position="0 0 0" rotation="270 0 0" value="Hola gernte" color="red"></a-text> 
         </a-marker-camera>  
     </a-scene>
