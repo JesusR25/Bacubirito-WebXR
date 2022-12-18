@@ -27,8 +27,7 @@ AFRAME.registerComponent('for_a_marker', {
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
         <a-marker-camera id="marker" preset="hiro" emitevents="true" for_a_marker>
-            
-            <a-entity position="0 0 0" material="color: lightgrey" geometry="primitive:plane; width: 7; height: 3;" text="align:center;value:Attack;width:50;color:#322342"></a-entity>
+            <a-entity id="text" class="intersectable" scale="2 2 2" position="-1 0 0" rotation="270 0 0" text="text: Hello World;"></a-entity>
         </a-marker-camera>  
     </a-scene>
 </body>
