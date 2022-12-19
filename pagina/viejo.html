@@ -54,7 +54,7 @@ AFRAME.registerComponent('for_a_marker', {
 AFRAME.registerComponent('videohandler', {
                 init: function () {
                     var marker = this.el;
-                    this.vid = document.querySelector("#vid");
+                    this.vid = document.querySelector("#mivideo");
 
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
