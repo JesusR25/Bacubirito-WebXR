@@ -1,8 +1,37 @@
 <!DOCTYPE html>
 <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.js"></script>
-<script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+<style>
+    .button {
+      background-color: #4CAF50; 
+      border: none;
+      color: white;
+      padding: 7px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      border: 2px solid rgba(9, 148, 28, 0.541);
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    
+    </style>
+  
+  <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+      <button class="button" id="btn1">Play Sound</button>
+      <button class="button" id="btn2">Stop Sound</button>
+      <button class="button" id="btn3">Stop Video</button>
+      <button class="button" id="btn4">Play Video</button>
+    </div>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
 
 <script>
 AFRAME.registerComponent('for_a_marker', {
@@ -23,26 +52,6 @@ AFRAME.registerComponent('for_a_marker', {
     }
 });
 
-AFRAME.registerComponent('registerevents', {
-		init: function () {
-			var marker = this.el;
-            var figura = document.querySelector('#bowser-model');
-
-			// Make the element emit events when found and when lost.
-			marker.setAttribute('emitevents', 'true');
-
-			marker.addEventListener('markerFound', function() {
-				var markerId = marker.id;
-				// TODO: Add your own code here to react to the marker being found.
-			});
-
-			marker.addEventListener('markerLost', function() {
-				var markerId = marker.id;
-				figura.setAttribute('position','0 0 0');
-				// TODO: Add your own code here to react to the marker being lost.
-			});
-		}
-	});
 </script>
 
 
@@ -64,29 +73,46 @@ AFRAME.registerComponent('registerevents', {
               <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
-        <!--<a-marker-camera id="marker" preset="hiro" emitevents="true" for_a_marker>
-            <a-video src="#compo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
-            <a-image id="videoControls" src="#play" position=" 0.5 0 1" scale="0.5 0.5 0.5" class="intersectable"> </a-image>
-            <a-image id="videoPause" src="#pause" position=" 0 0 1" scale="0.5 0.5 0.5" class="intersectable"> </a-image>
-        </a-marker-camera>-->
-        <a-marker-camera
-    preset="hiro"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerA"
-    registerevents
-  >
-    <a-entity
-      id="bowser-model"
-      gltf-model="#bowser"
-      position="0 0 0"
-      scale="0.05 0.05 0.05"
-      class="clickable"
-      gesture-handler
-    >
-    </a-entity>
-  </a-marker-camera> 
+        <a-marker preset="hiro">
+            <video id="mivideo" crossOrigin="anonymous" playsinline webkitplaysinline autoplay controls muted src="../assets/composicion.mp4"></video>
+            <a-video src="#mivideo" position="0 0 0" scale="3 2 2" rotation="270 0 0" ></a-video>
+           
+           <script> 
+              var m = document.querySelector("a-marker")
+              m.addEventListener("markerFound", (e)=>{
+              console.log("found")
+              var v = document.querySelector('#mivideo').play();
+           
+        
+        })
+              m.addEventListener("markerLost", (e)=>{
+              console.log("lost")
+              var v = document.querySelector('#mivideo').pause();
+          
+        })
+        
+        
+        document.getElementById("btn1").addEventListener("click", (e)=>{
+        
+          var v = document.querySelector('#mivideo').muted=false;
+        })
+        document.getElementById("btn2").addEventListener("click", (e)=>{
+        
+          var v = document.querySelector('#mivideo').muted=true;
+        })
+        document.getElementById("btn3").addEventListener("click", (e)=>{
+        
+          var v = document.querySelector('#mivideo').pause();
+        })
+        document.getElementById("btn4").addEventListener("click", (e)=>{
+        
+          var v = document.querySelector('#mivideo').play();
+        })
+        
+        
+             </script>
+              </a-marker>
+              <a-entity camera></a-entity>
     </a-scene>
 </body>
 </html>
