@@ -26,7 +26,7 @@ AFRAME.registerComponent('for_a_marker', {
               <img id="pause" src="../assets/pausa.png">
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
-        <a-marker-camera id="marker" preset="custom" url="/assets/pattern-frame.patt" emitevents="true" for_a_marker>
+        <a-marker-camera id="marker" type='pattern' url="./assets/pattern-frame.patt" emitevents="true" for_a_marker>
             <a-video src="#compo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="1 1 1" ></a-video>
             <a-text id="text" class="intersectable" scale="2 2 2" position="-1 0 0" rotation="270 0 0" value="text" color="red"></a-text>
             <a-text id="text1" class="intersectable" scale="2 2 2" position="0 0 0" rotation="270 0 0" value="Hola gernte" color="red"></a-text> 
