@@ -45,7 +45,7 @@
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;">
              <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
-        <a-marker-camera id="marker" preset="hiro" emitevents="true" videohandler >
+ <!--       <a-marker-camera id="marker" preset="hiro" emitevents="true" videohandler >
             <a-video src="#mivideo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
            
            <script> 
@@ -68,7 +68,7 @@
         })
              </script>
         </a-marker-camera>
-        <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
+         VIDEOOOOOOOOOOOOOO COMPOSICION -->
 
         </a-entity>
 
@@ -89,7 +89,7 @@
   </a-marker> 
 
   <a-marker
-        type='pattern' url='pattern-Willamette.patt'
+  preset="hiro"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
