@@ -3,6 +3,7 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
 <script>
 AFRAME.registerComponent('for_a_marker', {
     init: function () {
@@ -10,6 +11,37 @@ AFRAME.registerComponent('for_a_marker', {
         var video = document.querySelector('#videoControls');
         var pausaimg = document.querySelector('#videoPause');
         var text2 = document.querySelector('#text1');
+        var scene = document.querySelector("a-scene");
+        var m = document.querySelector("#markerA");
+
+        // Create object bola
+        function bola(zaxis) {
+            // if bola exist, remove
+            if (document.querySelector("#bowser-model")) {
+                let bol = document.querySelector("bowser-model");
+                bol.parentNode.removeChild(bol);
+            }
+            // template literal to create object, z axis for marker = 0, for scene = -5
+            var bola = `<a-entity
+      id="bowser-model"
+      gltf-model="#bowser"
+      position="0 0 0"
+      scale="0.05 0.05 0.05"
+      class="clickable"
+      gesture-handler
+    >
+    </a-entity>`;
+            return bola;
+        }
+
+        m.addEventListener("markerFound", (e) => {
+                m.insertAdjacentHTML('beforeend', bola(0));
+            });
+    
+            m.addEventListener("markerLost", (e) => {
+                scene.insertAdjacentHTML('beforeend', bola(-5));
+            });
+
         video.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
             alert("Inicio");
             document.querySelector("#compo").play();
@@ -22,6 +54,8 @@ AFRAME.registerComponent('for_a_marker', {
     }
 });
 </script>
+
+
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div style='top: 10px;text-align: center; z-index: 1; color: grey'>
         Model by <a href="https://sketchfab.com/3d-models/warhammer-40k-space-marine-stormtalon-gunship-f3fb70e7628048b99b635d4e4cd13e7b">tnnv</a><br>
