@@ -67,11 +67,11 @@ AFRAME.registerComponent('for_a_marker', {
               <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
-        <a-marker-camera id="marker" preset="hiro" emitevents="true" for_a_marker>
+        <a-marker-camera id="marker" preset="hiro" emitevents="true" >
             <a-video src="#mivideo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
            
            <script> 
-              var m = document.querySelector("a-marker")
+              var m = document.querySelector("a-marker-camera")
               m.addEventListener("markerFound", (e)=>{
               console.log("found")
               var v = document.querySelector('#mivideo').play();
