@@ -45,7 +45,15 @@
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;">
              <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
-        <a-marker id="marker" preset="hiro" emitevents="true" videohandler >
+        <a-marker id="marker" preset="hiro" emitevents="true" 
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance="0.01"
+        smoothThreshold="5"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA" >
             <a-video src="#mivideo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
            
            <script> 
