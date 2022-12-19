@@ -71,7 +71,7 @@ AFRAME.registerComponent('for_a_marker', {
             <a-video src="#mivideo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
            
            <script> 
-              var m = document.querySelector("a-marker-camera")
+              var m = document.querySelector("#marker")
               m.addEventListener("markerFound", (e)=>{
               console.log("found")
               var v = document.querySelector('#mivideo').play();
