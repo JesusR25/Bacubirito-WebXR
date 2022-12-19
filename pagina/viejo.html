@@ -29,7 +29,7 @@ AFRAME.registerComponent('for_a_marker', {
         Try pinching, panning and swiping (left/right)<br>
         Works with a hiro marker.
       </div>
-    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'>
+    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/bowser.glb" ></a-asset-item>
               <video id="compo" src="../assets/composicion.mp4"  loop="true"></video>
@@ -61,6 +61,7 @@ AFRAME.registerComponent('for_a_marker', {
     >
     </a-entity>
   </a-marker> 
+  <a-entity camera></a-entity>
     </a-scene>
 </body>
 </html>
