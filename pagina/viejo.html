@@ -7,16 +7,27 @@ AFRAME.registerComponent('for_a_marker', {
     init: function () {
         var text = document.querySelector('#text');
         var video = document.querySelector('#videoControls');
+        var pausaimg = document.querySelector('#videoPause');
         var text2 = document.querySelector('#text1');
         video.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
-            alert("do your stuff");
+            alert("Inicio");
             document.querySelector("#compo").play();
+        });
+        pausaimg.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
+            alert("Pausa");
+            document.querySelector("#compo").pause();
         });
 
     }
 });
 </script>
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+    <div style='top: 10px;text-align: center; z-index: 1; color: grey'>
+        Model by <a href="https://sketchfab.com/3d-models/warhammer-40k-space-marine-stormtalon-gunship-f3fb70e7628048b99b635d4e4cd13e7b">tnnv</a><br>
+        Source code <a href="https://github.com/gftruj/webzamples/tree/master/ar">here</a><br>
+        Try pinching, panning and swiping (left/right)<br>
+        Works with a hiro marker.
+      </div>
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'>
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/bowser.glb" ></a-asset-item>
@@ -26,9 +37,10 @@ AFRAME.registerComponent('for_a_marker', {
               <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
-        <a-marker-camera id="marker" preset="hiro" emitevents="true" >
+        <a-marker-camera id="marker" preset="hiro" emitevents="true" for_a_marker>
             <a-video src="#compo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
-            <a-image id="videoControls" src="#play" position=" 0.5 0 1" scale="0.5 0.5 0.5" class="intersectable" for_a_marker> </a-image>
+            <a-image id="videoControls" src="#play" position=" 0.5 0 1" scale="0.5 0.5 0.5" class="intersectable"> </a-image>
+            <a-image id="videoPause" src="#pause" position=" 0 0 1" scale="0.5 0.5 0.5" class="intersectable"> </a-image>
         </a-marker-camera>  
     </a-scene>
 </body>
