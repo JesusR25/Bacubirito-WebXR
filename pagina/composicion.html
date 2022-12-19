@@ -37,7 +37,7 @@
                     this.vid = document.querySelector("#vid");
                     this.vidor = document.querySelector("#vidorigen");
 
-                    if(this.vid.play){
+                    if(this.vid.played){
                       document.getElementById("btn1").addEventListener("click", (e)=>{
         
         this.vid.muted=false;
@@ -55,7 +55,7 @@
       })
                     }
 
-                    if(this.vidor.play){
+                    if(this.vidor.played){
                       document.getElementById("btn1").addEventListener("click", (e)=>{
         
         this.vidor.muted=false;
