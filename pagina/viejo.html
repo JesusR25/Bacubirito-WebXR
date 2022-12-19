@@ -77,7 +77,14 @@ AFRAME.registerComponent('videohandler', {
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Meteorito MariJess.glb" ></a-asset-item>
-              <video id="mivideo" src="../assets/composicion.mp4" loop="true"></video>
+              <video id="mivideo" src="../assets/composicion.mp4" preload="auto"
+              response-type="arraybuffer"
+              loop
+              crossorigin
+              webkit-playsinline
+              autoplay
+              muted
+              playsinline></video>
               <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
               <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
@@ -109,6 +116,24 @@ AFRAME.registerComponent('videohandler', {
              </script>
         </a-marker>
         <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
+
+
+
+    <a-marker
+        type='pattern' url='pattern-Willamette.patt'
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA" >
+        <a-entity
+            id="bowser-model"
+            gltf-model="#spinosaurus"
+            position="0 0 0"
+            scale="0.5 0.5 0.5"
+            class="clickable"
+            gesture-handler >
+        </a-entity>
+  </a-marker> 
 
     </a-scene>
 </body>
