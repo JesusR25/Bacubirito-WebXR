@@ -35,6 +35,7 @@
                 init: function () {
                     var marker = this.el;
                     this.vid = document.querySelector("#vid");
+                    this.vidor = document.querySelector("#vidorigen");
 
                     if(this.vid.play){
                       document.getElementById("btn1").addEventListener("click", (e)=>{
@@ -51,6 +52,24 @@
       document.getElementById("btn4").addEventListener("click", (e)=>{
       
         this.vid.play();
+      })
+                    }
+
+                    if(this.vidor.play){
+                      document.getElementById("btn1").addEventListener("click", (e)=>{
+        
+        this.vidor.muted=false;
+      })
+      document.getElementById("btn2").addEventListener("click", (e)=>{
+        this.vidor.muted=true;
+      })
+      document.getElementById("btn3").addEventListener("click", (e)=>{
+      
+        this.vidor.pause();
+      })
+      document.getElementById("btn4").addEventListener("click", (e)=>{
+      
+        this.vidor.play();
       })
                     }
 
@@ -89,6 +108,17 @@
                     autoplay
                     playsinline
                 ></video>
+                <video
+                    id="vidorigen"
+                    src="../assets/historia.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    playsinline
+                ></video>
             </a-assets>
 
             <a-marker
@@ -105,6 +135,28 @@
             >
                 <a-video
                     src="#vid"
+                    scale="1 1 1"
+                    position="0 0.1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
+            </a-marker>
+
+            <a-marker
+            type='pattern' url='pattern-Hoba.patt'
+                videohandler
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerBA"
+            >
+                <a-video
+                    src="#vidorigen"
                     scale="1 1 1"
                     position="0 0.1 0"
                     rotation="-90 0 0"
