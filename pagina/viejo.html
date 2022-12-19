@@ -51,6 +51,23 @@ AFRAME.registerComponent('for_a_marker', {
     }
 });
 
+AFRAME.registerComponent('videohandler', {
+                init: function () {
+                    var marker = this.el;
+                    this.vid = document.querySelector("#vid");
+
+                    marker.addEventListener('markerFound', function () {
+                        this.toggle = true;
+                        this.vid.play();
+                    }.bind(this));
+
+                    marker.addEventListener('markerLost', function () {
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
+
 </script>
 
 
@@ -67,23 +84,10 @@ AFRAME.registerComponent('for_a_marker', {
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
 
          <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
-         <a-video src="#mivideo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
-        <a-marker id="marker" preset="hiro" emitevents="true" >
-
+        <a-marker id="marker" preset="hiro" videohandler emitevents="true" cursor="fuse: false; rayOrigin: mouse;" raycaster="objects: .clickable"  >
+            <a-video src="#mivideo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
            
            <script> 
-              var m = document.querySelector("#marker");
-              m.addEventListener("markerFound", (e)=>{
-              //console.log("found");
-              var v = document.querySelector('#mivideo').play();
-           
-        
-        });
-              m.addEventListener("markerLost", (e)=>{
-              //console.log("lost");
-              var v = document.querySelector('#mivideo').pause();
-          
-        });
         
         
         document.getElementById("btn1").addEventListener("click", (e)=>{
