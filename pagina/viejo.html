@@ -11,37 +11,6 @@ AFRAME.registerComponent('for_a_marker', {
         var video = document.querySelector('#videoControls');
         var pausaimg = document.querySelector('#videoPause');
         var text2 = document.querySelector('#text1');
-        var scene = document.querySelector("a-scene");
-        var m = document.querySelector("#markerA");
-
-        // Create object bola
-        function bola(zaxis) {
-            // if bola exist, remove
-            if (document.querySelector("#bowser-model")) {
-                let bol = document.querySelector("bowser-model");
-                bol.parentNode.removeChild(bol);
-            }
-            // template literal to create object, z axis for marker = 0, for scene = -5
-            var bola = `<a-entity
-      id="bowser-model"
-      gltf-model="#bowser"
-      position="0 0 0"
-      scale="0.05 0.05 0.05"
-      class="clickable"
-      gesture-handler
-    >
-    </a-entity>`;
-            return bola;
-        }
-
-        m.addEventListener("markerFound", (e) => {
-                m.insertAdjacentHTML('beforeend', bola(0));
-            });
-    
-            m.addEventListener("markerLost", (e) => {
-                scene.insertAdjacentHTML('beforeend', bola(-5));
-            });
-
         video.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
             alert("Inicio");
             document.querySelector("#compo").play();
@@ -53,7 +22,29 @@ AFRAME.registerComponent('for_a_marker', {
 
     }
 });
+
+AFRAME.registerComponent('registerevents', {
+		init: function () {
+			var marker = this.el;
+            var figura = document.querySelector('#bowser-model');
+
+			// Make the element emit events when found and when lost.
+			marker.setAttribute('emitevents', 'true');
+
+			marker.addEventListener('markerFound', function() {
+				var markerId = marker.id;
+				// TODO: Add your own code here to react to the marker being found.
+			});
+
+			marker.addEventListener('markerLost', function() {
+				var markerId = marker.id;
+				figura.setAttribute('position','0 0 0');
+				// TODO: Add your own code here to react to the marker being lost.
+			});
+		}
+	});
 </script>
+
 
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
@@ -84,6 +75,7 @@ AFRAME.registerComponent('for_a_marker', {
     emitevents="true"
     cursor="fuse: false; rayOrigin: mouse;"
     id="markerA"
+    registerevents
   >
     <a-entity
       id="bowser-model"
