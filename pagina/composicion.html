@@ -36,6 +36,24 @@
                     var marker = this.el;
                     this.vid = document.querySelector("#vid");
 
+                    if(this.vid.play){
+                      document.getElementById("btn1").addEventListener("click", (e)=>{
+        
+        this.vid.muted=false;
+      })
+      document.getElementById("btn2").addEventListener("click", (e)=>{
+        this.vid.muted=true;
+      })
+      document.getElementById("btn3").addEventListener("click", (e)=>{
+      
+        this.vid.pause();
+      })
+      document.getElementById("btn4").addEventListener("click", (e)=>{
+      
+        this.vid.play();
+      })
+                    }
+
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
                         this.vid.play();
