@@ -35,7 +35,6 @@
                 init: function () {
                     var marker = this.el;
                     this.vid = document.querySelector("#vid");
-                    this.vidor = document.querySelector("#vidorigen");
 
                     if(this.vid.play){
                       document.getElementById("btn1").addEventListener("click", (e)=>{
@@ -68,7 +67,7 @@
             });
 
 
-            AFRAME.registerComponent('videohandlerOrigen', {
+          AFRAME.registerComponent('videohandlerOrigen', {
                 init: function () {
                     var marker = this.el;
                     this.vidor = document.querySelector("#vidorigen");
