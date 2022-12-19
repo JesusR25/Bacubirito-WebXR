@@ -37,7 +37,7 @@
                     this.vid = document.querySelector("#vid");
                     this.vidor = document.querySelector("#vidorigen");
 
-                    if(this.vid.played){
+                    if(this.vid.play){
                       document.getElementById("btn1").addEventListener("click", (e)=>{
         
         this.vid.muted=false;
@@ -55,7 +55,25 @@
       })
                     }
 
-                    if(this.vidor.played){
+                    marker.addEventListener('markerFound', function () {
+                        this.toggle = true;
+                        this.vid.play();
+                    }.bind(this));
+
+                    marker.addEventListener('markerLost', function () {
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
+
+
+            AFRAME.registerComponent('videohandlerOrigen', {
+                init: function () {
+                    var marker = this.el;
+                    this.vidor = document.querySelector("#vidorigen");
+
+                    if(this.vidor.play){
                       document.getElementById("btn1").addEventListener("click", (e)=>{
         
         this.vidor.muted=false;
