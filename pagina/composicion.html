@@ -84,6 +84,24 @@
                     }.bind(this));
                 },
             });
+
+            AFRAME.registerComponent('videohandlerOriginal', {
+                init: function () {
+                    var marker = this.el;
+                    this.vid = document.querySelector("#vid");
+                    this.vidor = document.querySelector("#vidorigen");
+    
+                    marker.addEventListener('markerFound', function () {
+                        this.toggle = true;
+                        this.vid.play();
+                    }.bind(this));
+
+                    marker.addEventListener('markerLost', function () {
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
         </script>
     </head>
 
@@ -123,6 +141,7 @@
 
             <a-marker
                 preset="hiro"
+                videohandlerOriginal
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
