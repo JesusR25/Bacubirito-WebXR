@@ -8,12 +8,9 @@ AFRAME.registerComponent('for_a_marker', {
         var text = document.querySelector('#text');
         var video = document.querySelector('#compo');
         var text2 = document.querySelector('#text1');
-        text.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
+        video.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
             alert("do your stuff");
             document.querySelector("#compo").play();
-        });
-        text2.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
-            alert("Diferente");
         });
     }
 });
@@ -28,8 +25,8 @@ AFRAME.registerComponent('for_a_marker', {
               <!-- Esto es un comentario -->
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
-        <a-marker-camera id="marker" preset="hiro" emitevents="true" for_a_marker>
-            <a-video src="#compo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
+        <a-marker-camera id="marker" preset="hiro" emitevents="true" 
+            <a-video src="#compo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" for_a_marker></a-video>
             <a-text id="text" class="intersectable" scale="2 2 2" position="-1 0 0" rotation="270 0 0" value="text" color="red"></a-text>
         </a-marker-camera>  
     </a-scene>
