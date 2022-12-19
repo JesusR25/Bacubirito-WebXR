@@ -44,10 +44,23 @@ AFRAME.registerComponent('for_a_marker', {
             <a-image id="videoControls" src="#play" position=" 0.5 0 1" scale="0.5 0.5 0.5" class="intersectable"> </a-image>
             <a-image id="videoPause" src="#pause" position=" 0 0 1" scale="0.5 0.5 0.5" class="intersectable"> </a-image>
         </a-marker-camera>-->
-        <a-marker-camera id="marker"  preset="hiro" raycaster="objects: .clickable" emitevents="true" for_a_marker>
-            <a-entity id="bowser-model" gltf-model="#bowser" position="0 0 0" scale="0.05 0.05 0.05" class="clickable" gesture-handler >
+        <a-marker
+    preset="hiro"
+    raycaster="objects: .clickable"
+    emitevents="true"
+    cursor="fuse: false; rayOrigin: mouse;"
+    id="markerA"
+  >
+    <a-entity
+      id="bowser-model"
+      gltf-model="#bowser"
+      position="0 0 0"
+      scale="0.05 0.05 0.05"
+      class="clickable"
+      gesture-handler
+    >
     </a-entity>
-        </a-marker-camera>  
+  </a-marker> 
     </a-scene>
 </body>
 </html>
