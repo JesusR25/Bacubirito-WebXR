@@ -44,7 +44,7 @@ AFRAME.registerComponent('for_a_marker', {
             <a-image id="videoControls" src="#play" position=" 0.5 0 1" scale="0.5 0.5 0.5" class="intersectable"> </a-image>
             <a-image id="videoPause" src="#pause" position=" 0 0 1" scale="0.5 0.5 0.5" class="intersectable"> </a-image>
         </a-marker-camera>-->
-        <a-marker
+        <a-marker-camera
     preset="hiro"
     raycaster="objects: .clickable"
     emitevents="true"
@@ -60,8 +60,7 @@ AFRAME.registerComponent('for_a_marker', {
       gesture-handler
     >
     </a-entity>
-  </a-marker> 
-  <a-entity camera></a-entity>
+  </a-marker-camera> 
     </a-scene>
 </body>
 </html>
