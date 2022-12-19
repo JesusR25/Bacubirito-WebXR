@@ -43,30 +43,12 @@
               <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
               <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
-        <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
-
-         <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
+        <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;">
+             <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
         <a-marker-camera id="marker" preset="hiro" emitevents="true" videohandler >
             <a-video src="#mivideo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
            
            <script> 
-              AFRAME.registerComponent('videohandler', {
-                init: function () {
-                    var marker = this.el;
-                    this.vid = document.querySelector("#mivideo");
-                    
-
-                    marker.addEventListener('markerFound', function () {
-                        this.toggle = true;
-                        this.vid.play();
-                    }.bind(this));
-
-                    marker.addEventListener('markerLost', function () {
-                        this.toggle = false;
-                        this.vid.pause();
-                    }.bind(this));
-                },
-            });
         
         
         document.getElementById("btn1").addEventListener("click", (e)=>{
@@ -74,9 +56,7 @@
           var v = document.querySelector('#mivideo').muted=false;
         })
         document.getElementById("btn2").addEventListener("click", (e)=>{
-            var marc = document.querySelector('marker');
-            marc.toggle = false;
-          //var v = document.querySelector('#mivideo').muted=true;
+            var v = document.querySelector('#mivideo').muted=true;
         })
         document.getElementById("btn3").addEventListener("click", (e)=>{
         
@@ -90,7 +70,7 @@
         </a-marker-camera>
         <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
 
-
+        </a-entity>
 
     <a-marker
         type='pattern' url='pattern-Willamette.patt'
