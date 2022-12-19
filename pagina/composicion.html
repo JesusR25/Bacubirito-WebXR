@@ -31,14 +31,31 @@
             <button class="button" id="btn4">Play Video</button>
           </div>
         <script>
-
-
-          AFRAME.registerComponent('videohandlerOrigen', {
+            AFRAME.registerComponent('videohandler', {
                 init: function () {
                     var marker = this.el;
+                    this.vid = document.querySelector("#vid");
                     this.vidor = document.querySelector("#vidorigen");
 
-                    if(this.vidor.play){
+                    if(this.vid.played){
+                      document.getElementById("btn1").addEventListener("click", (e)=>{
+        
+        this.vid.muted=false;
+      })
+      document.getElementById("btn2").addEventListener("click", (e)=>{
+        this.vid.muted=true;
+      })
+      document.getElementById("btn3").addEventListener("click", (e)=>{
+      
+        this.vid.pause();
+      })
+      document.getElementById("btn4").addEventListener("click", (e)=>{
+      
+        this.vid.play();
+      })
+                    }
+
+                    if(this.vidor.played){
                       document.getElementById("btn1").addEventListener("click", (e)=>{
         
         this.vidor.muted=false;
@@ -58,12 +75,12 @@
 
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
-                        this.vidor.play();
+                        this.vid.play();
                     }.bind(this));
 
                     marker.addEventListener('markerLost', function () {
                         this.toggle = false;
-                        this.vidor.pause();
+                        this.vid.pause();
                     }.bind(this));
                 },
             });
@@ -128,7 +145,7 @@
 
             <a-marker
             type='pattern' url='pattern-Hoba.patt'
-            videohandlerOrigen
+                videohandler
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
