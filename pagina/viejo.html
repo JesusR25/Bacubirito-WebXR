@@ -46,7 +46,7 @@
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
 
          <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
-        <a-marker id="marker" preset="hiro" emitevents="true" videohandler >
+        <a-marker-camera id="marker" preset="hiro" emitevents="true" videohandler >
             <a-video src="#mivideo" class="intersectable" width="5" height="2" rotation="270 0 0" position="0 0 0" scale="0.5 0.5 0.5" ></a-video>
            
            <script> 
@@ -54,6 +54,7 @@
                 init: function () {
                     var marker = this.el;
                     this.vid = document.querySelector("#mivideo");
+                    
 
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
@@ -73,8 +74,9 @@
           var v = document.querySelector('#mivideo').muted=false;
         })
         document.getElementById("btn2").addEventListener("click", (e)=>{
-        
-          var v = document.querySelector('#mivideo').muted=true;
+            var marc = document.querySelector('marker');
+            marc.toggle = false;
+          //var v = document.querySelector('#mivideo').muted=true;
         })
         document.getElementById("btn3").addEventListener("click", (e)=>{
         
@@ -85,8 +87,7 @@
           var v = document.querySelector('#mivideo').play();
         })
              </script>
-        </a-marker>
-        <a-entity camera></a-entity>
+        </a-marker-camera>
         <!-- VIDEOOOOOOOOOOOOOO COMPOSICION -->
 
 
