@@ -37,24 +37,6 @@
                     this.vid = document.querySelector("#vid");
                     this.vidor = document.querySelector("#vidorigen");
 
-                    if(this.vid.played){
-                      document.getElementById("btn1").addEventListener("click", (e)=>{
-        
-        this.vid.muted=false;
-      })
-      document.getElementById("btn2").addEventListener("click", (e)=>{
-        this.vid.muted=true;
-      })
-      document.getElementById("btn3").addEventListener("click", (e)=>{
-      
-        this.vid.pause();
-      })
-      document.getElementById("btn4").addEventListener("click", (e)=>{
-      
-        this.vid.play();
-      })
-                    }
-
                     if(this.vidor.played){
                       document.getElementById("btn1").addEventListener("click", (e)=>{
         
@@ -85,23 +67,6 @@
                 },
             });
 
-            AFRAME.registerComponent('videohandlerOriginal', {
-                init: function () {
-                    var marker = this.el;
-                    this.vid = document.querySelector("#vid");
-                    this.vidor = document.querySelector("#vidorigen");
-    
-                    marker.addEventListener('markerFound', function () {
-                        this.toggle = true;
-                        this.vid.play();
-                    }.bind(this));
-
-                    marker.addEventListener('markerLost', function () {
-                        this.toggle = false;
-                        this.vid.pause();
-                    }.bind(this));
-                },
-            });
         </script>
     </head>
 
@@ -141,7 +106,6 @@
 
             <a-marker
                 preset="hiro"
-                videohandlerOriginal
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
