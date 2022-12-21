@@ -1,17 +1,59 @@
-<html>
-  <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-  <!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/3.0.0/aframe/build/aframe-ar.js"></script> -->
-  <script src="https://raw.githack.com/jeromeetienne/AR.js/2.2.2/aframe/build/aframe-ar.min.js"></script>
+<!DOCTYPE html>
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 
-  <script src="../js/components.js"></script>
-  <script src="../js/cursor.js" defer></script>
 
-  <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
-      <a-marker preset="hiro" cursor="rayOrigin: mouse" raycaster="objects: a-box">
-        <a-box position="0 0.5 0" color-randomizer></a-box>
-      </a-marker>
-      <a-entity camera></a-entity>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
+        <a-assets timeout="30000">
+            <a-asset-item id="spinosaurus" src="../assets/Texturizado.glb" ></a-asset-item>
+            <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
+              <!-- Esto es un comentario  position="-1 0 1"-->
+        </a-assets>
+        <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
+
+    <a-marker
+        type='pattern' url='../assets/pattern-Willamette.patt'
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA" >
+        <a-entity
+            id="bowser-model"
+            gltf-model="#spinosaurus"
+            position="0 0 0"
+            scale="0.5 0.5 0.5"
+            class="clickable"
+            gesture-handler >
+        </a-entity>
+    </a-marker> 
+
+    <a-marker
+        type='pattern' url='../assets/pattern-Ahnighito.patt'
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerRA" >
+        <a-entity
+            id="bmo"
+            gltf-model="#bowser"
+            position="0 0 0"
+            scale="0.05 0.05 0.05"
+            class="clickable" 
+            gesture-handler>
+        </a-entity>
+    </a-marker> 
+  
+  <a-entity camera></a-entity>
+  
     </a-scene>
-  </body>
+</body>
 </html>
