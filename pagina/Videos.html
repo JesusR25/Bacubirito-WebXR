@@ -61,23 +61,23 @@
             //METODO PARA CONTROLES VIDEO DE HISTORIA
             AFRAME.registerComponent('videohandlerOrigen', {
                 init: function () {
-                    var marker = this.el;
-                    this.vid = document.querySelector("#vidorigen");
+                    var marker2 = this.el;
+                    this.vidor = document.querySelector("#vidorigen");
 
-                    marker.addEventListener('markerFound', function () {
+                    marker2.addEventListener('markerFound', function () {
                         this.toggle = true;
-                        this.vid.play();
+                        this.vidor.play();
                         document.getElementById("btn1").addEventListener("click", (e)=>{
-                            this.vid.muted=false; })
+                            this.vidor.muted=false; })
                         document.getElementById("btn2").addEventListener("click", (e)=>{
-                            this.vid.muted=true; })
+                            this.vidor.muted=true; })
                         document.getElementById("btn3").addEventListener("click", (e)=>{
-                            this.vid.pause(); })
+                            this.vidor.pause(); })
                         document.getElementById("btn4").addEventListener("click", (e)=>{
-                            this.vid.play(); })
+                            this.vidor.play(); })
                     }.bind(this));
 
-                    marker.addEventListener('markerLost', function () {
+                    marker2.addEventListener('markerLost', function () {
                         this.toggle = false;
                         this.vid.pause();
                     }.bind(this));
