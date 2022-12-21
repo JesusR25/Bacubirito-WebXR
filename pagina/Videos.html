@@ -64,8 +64,6 @@
                     this.vid = document.querySelector("#vidorigen");
 
                     marker2.addEventListener('markerFound', function () {
-                        function reproducir(){
-                            this.vid.play(); }
 
                         this.toggle = true;
                         this.vid.play();
@@ -75,7 +73,8 @@
                             this.vid.muted=true; })
                         document.getElementById("btn3").addEventListener("click", (e)=>{
                             this.vid.pause(); })
-                        document.getElementById("btn4").addEventListener("click", reproducir())
+                        document.getElementById("btn4").addEventListener("click", (e)=>{
+                            this.vid.play(); })
                         
                     }.bind(this));
 
@@ -88,7 +87,8 @@
                             this.vid.muted=true; } , false)
                         document.getElementById("btn3").removeEventListener("click", (e)=>{
                             this.vid.pause(); } , false)
-                        document.getElementById("btn4").removeEventListener("click", reproducir())
+                        document.getElementById("btn4").removeEventListener("click", (e)=>{
+                            this.vid.play(); } , false)
                     }.bind(this));
                 },
             });
