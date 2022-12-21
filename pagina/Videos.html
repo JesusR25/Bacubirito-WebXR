@@ -58,6 +58,10 @@
                 },
             });
 
+            function pausarOrigen(video){
+                video.pause();
+            }
+
             AFRAME.registerComponent('origen', {
                 init: function () {
                     var marker2 = this.el;
@@ -91,10 +95,6 @@
                     }.bind(this));
                 },
             });
-
-            function pausarOrigen(video){
-                video.pause();
-            }
         </script>
     </head>
 
