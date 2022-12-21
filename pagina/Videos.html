@@ -65,6 +65,8 @@
                     marker2.addEventListener('markerFound', function () {
                         this.toggle = true;
                         this.vid.play();
+                        document.getElementById("btn1").addEventListener("click", (e)=>{
+                            this.vid.muted=false; })
                     }.bind(this));
 
                     marker2.addEventListener('markerLost', function () {
