@@ -30,33 +30,6 @@
             <button class="button" id="btn3">Stop Video</button>
             <button class="button" id="btn4">Play Video</button>
           </div>
-        <script>
-            //METODO PARA CONTROLES VIDEO DE COMPOSICION
-            AFRAME.registerComponent('videohandler', {
-                init: function () {
-                    var marker = this.el;
-                    this.vid = document.querySelector("#vid");
-
-                    marker.addEventListener('markerFound', function () {
-                        this.toggle = true;
-                        this.vid.play();
-                        document.getElementById("btn1").addEventListener("click", (e)=>{
-                            this.vid.muted=false; })
-                        document.getElementById("btn2").addEventListener("click", (e)=>{
-                            this.vid.muted=true; })
-                        document.getElementById("btn3").addEventListener("click", (e)=>{
-                            this.vid.pause(); })
-                        document.getElementById("btn4").addEventListener("click", (e)=>{
-                            this.vid.play(); })
-                    }.bind(this));
-
-                    marker.addEventListener('markerLost', function () {
-                        this.toggle = false;
-                        this.vid.pause();
-                    }.bind(this));
-                },
-            });
-        </script>
     </head>
 
     <script>
