@@ -84,10 +84,14 @@
                     marker2.addEventListener('markerLost', function () {
                         this.toggle = false;
                         this.vid.pause();
-                        document.getElementById("btn1").removeEventListener("click", activarOrigen(this.vid))
-                        document.getElementById("btn2").removeEventListener("click", mutearOrigen(this.vid))
-                        document.getElementById("btn3").removeEventListener("click", pausarOrigen(this.vid))
-                        document.getElementById("btn4").removeEventListener("click", reproducirOrigen(this.vid))
+                        document.getElementById("btn1").removeEventListener("click", (e)=>{
+                            this.vid.muted=false; } , false)
+                        document.getElementById("btn2").removeEventListener("click", (e)=>{
+                            this.vid.muted=true; } , false)
+                        document.getElementById("btn3").removeEventListener("click", (e)=>{
+                            this.vid.pause(); } , false)
+                        document.getElementById("btn4").removeEventListener("click", (e)=>{
+                            this.vid.play(); } , false)
                     }.bind(this));
                 },
             });
@@ -95,18 +99,7 @@
     </head>
 
     <script>
-        function pausarOrigen(video){
-                video.pause();
-        }
-        function reproducirOrigen(video){
-            video.play();
-        }
-        function mutearOrigen(video){
-            video.muted=true;
-        }
-        function activarOrigen(video){
-            video.muted=false;
-        }
+        
     </script>
 
     <body style="margin: 0; overflow: hidden;">
