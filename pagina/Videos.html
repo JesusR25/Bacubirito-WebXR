@@ -90,8 +90,7 @@
                             this.vid.muted=true; } , false)
                         document.getElementById("btn3").removeEventListener("click", (e)=>{
                             this.vid.pause(); } , false)
-                        document.getElementById("btn4").removeEventListener("click", (e)=>{
-                            this.vid.play(); } , false)
+                        document.getElementById("btn4").onclick = null;
                     }.bind(this));
                 },
             });
