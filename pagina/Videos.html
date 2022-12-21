@@ -31,38 +31,55 @@
             <button class="button" id="btn4">Play Video</button>
           </div>
         <script>
+            //METODO PARA CONTROLES VIDEO DE COMPOSICION
             AFRAME.registerComponent('videohandler', {
                 init: function () {
                     var marker = this.el;
                     this.vid = document.querySelector("#vid");
-                    this.vidor = document.querySelector("#vidorigen");
-
-                    if(this.vidor.played){
-                      document.getElementById("btn1").addEventListener("click", (e)=>{
-        
-        this.vidor.muted=false;
-      })
-      document.getElementById("btn2").addEventListener("click", (e)=>{
-        this.vidor.muted=true;
-      })
-      document.getElementById("btn3").addEventListener("click", (e)=>{
-      
-        this.vidor.pause();
-      })
-      document.getElementById("btn4").addEventListener("click", (e)=>{
-      
-        this.vidor.play();
-      })
-                    }
 
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
-                        this.vidor.play();
+                        this.vid.play();
+                        document.getElementById("btn1").addEventListener("click", (e)=>{
+                            this.vid.muted=false; })
+                        document.getElementById("btn2").addEventListener("click", (e)=>{
+                            this.vid.muted=true; })
+                        document.getElementById("btn3").addEventListener("click", (e)=>{
+                            this.vid.pause(); })
+                        document.getElementById("btn4").addEventListener("click", (e)=>{
+                            this.vid.play(); })
                     }.bind(this));
 
                     marker.addEventListener('markerLost', function () {
                         this.toggle = false;
-                        this.vidor.pause();
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
+
+
+            //METODO PARA CONTROLES VIDEO DE HISTORIA
+            AFRAME.registerComponent('videohandlerOrigen', {
+                init: function () {
+                    var marker = this.el;
+                    this.vid = document.querySelector("#vidorigen");
+
+                    marker.addEventListener('markerFound', function () {
+                        this.toggle = true;
+                        this.vid.play();
+                        document.getElementById("btn1").addEventListener("click", (e)=>{
+                            this.vid.muted=false; })
+                        document.getElementById("btn2").addEventListener("click", (e)=>{
+                            this.vid.muted=true; })
+                        document.getElementById("btn3").addEventListener("click", (e)=>{
+                            this.vid.pause(); })
+                        document.getElementById("btn4").addEventListener("click", (e)=>{
+                            this.vid.play(); })
+                    }.bind(this));
+
+                    marker.addEventListener('markerLost', function () {
+                        this.toggle = false;
+                        this.vid.pause();
                     }.bind(this));
                 },
             });
@@ -88,7 +105,6 @@
                     loop
                     crossorigin
                     webkit-playsinline
-                    autoplay
                     playsinline
                 ></video>
                 <video
@@ -99,13 +115,13 @@
                     loop
                     crossorigin
                     webkit-playsinline
-                    autoplay
                     playsinline
                 ></video>
             </a-assets>
 
             <a-marker
                 preset="hiro"
+                videohandler
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
@@ -127,7 +143,7 @@
 
             <a-marker
             type='pattern' url='../assets/pattern-Hoba.patt'
-                videohandler
+                videohandlerOrigen
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
