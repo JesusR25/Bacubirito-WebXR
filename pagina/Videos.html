@@ -82,7 +82,7 @@
                 ></video>
                 <video
                     id="vidorigen"
-                    src="../assets/forget.mp4"
+                    src="../assets/historia.mp4"
                     preload="auto"
                     response-type="arraybuffer"
                     loop
@@ -92,8 +92,10 @@
                 ></video>
             </a-assets>
 
+        
+
             <a-marker
-            type='pattern' url='../assets/pattern-Hoba.patt'
+            preset="hiro"
                 videohandlerOrigen
                 smooth="true"
                 smoothCount="10"
@@ -102,7 +104,7 @@
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
+                id="markerBA"
             >
                 <a-video
                     src="#vidorigen"
