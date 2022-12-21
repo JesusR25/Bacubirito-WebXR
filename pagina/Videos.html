@@ -24,12 +24,15 @@
           }
           
           </style>
+
+
         <div style='top: 10px;text-align: center; z-index: 1;'>
             <button class="button" id="btn1">Play Sound</button>
             <button class="button" id="btn2">Stop Sound</button>
             <button class="button" id="btn3">Stop Video</button>
             <button class="button" id="btn4">Play Video</button>
           </div>
+
         <script>
             //METODO PARA CONTROLES VIDEO DE COMPOSICION
 
@@ -58,10 +61,6 @@
                 },
             });
 
-            function pausarOrigen(video){
-                video.pause();
-            }
-
             AFRAME.registerComponent('origen', {
                 init: function () {
                     var marker2 = this.el;
@@ -75,7 +74,8 @@
                             this.vid.muted=false; })
                         document.getElementById("btn2").addEventListener("click", (e)=>{
                             this.vid.muted=true; })
-                        document.getElementById("btn3").addEventListener("click", pausarOrigen(this.vid));
+                        document.getElementById("btn3").addEventListener("click", (e)=>{
+                            this.vid.pause(); })
                         document.getElementById("btn4").addEventListener("click", (e)=>{
                             this.vid.play(); })
                         
@@ -99,7 +99,9 @@
     </head>
 
     <script>
-        
+        function pausarOrigen(video){
+                video.pause();
+            }
     </script>
 
     <body style="margin: 0; overflow: hidden;">
