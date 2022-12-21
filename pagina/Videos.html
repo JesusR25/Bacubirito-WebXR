@@ -30,35 +30,7 @@
             <button class="button" id="btn3">Stop Video</button>
             <button class="button" id="btn4">Play Video</button>
           </div>
-    </head>
-
-    <script>
-        //METODO PARA CONTROLES VIDEO DE HISTORIA
-        AFRAME.registerComponent('videohandlerOrigen', {
-                init: function () {
-                    var marker2 = this.el;
-                    this.vidor = document.querySelector("#vidorigen");
-
-                    marker2.addEventListener('markerFound', function () {
-                        this.toggle = true;
-                        this.vidor.play();
-                        document.getElementById("btn1").addEventListener("click", (e)=>{
-                            this.vidor.muted=false; })
-                        document.getElementById("btn2").addEventListener("click", (e)=>{
-                            this.vidor.muted=true; })
-                        document.getElementById("btn3").addEventListener("click", (e)=>{
-                            this.vidor.pause(); })
-                        document.getElementById("btn4").addEventListener("click", (e)=>{
-                            this.vidor.play(); })
-                    }.bind(this));
-
-                    marker2.addEventListener('markerLost', function () {
-                        this.toggle = false;
-                        this.vid.pause();
-                    }.bind(this));
-                },
-            });
-    </script>
+       
 
     <body style="margin: 0; overflow: hidden;">
         <a-scene
@@ -92,10 +64,30 @@
                 ></video>
             </a-assets>
 
-        
+            <a-marker
+                preset="hiro"
+                videohandler
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-video
+                    src="#vid"
+                    scale="1 1 1"
+                    position="0 0.1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
+            </a-marker>
 
             <a-marker
-            preset="hiro"
+            type='pattern' url='../assets/pattern-Hoba.patt'
                 videohandlerOrigen
                 smooth="true"
                 smoothCount="10"
