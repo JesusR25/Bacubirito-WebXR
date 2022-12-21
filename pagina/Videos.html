@@ -56,6 +56,23 @@
                     }.bind(this));
                 },
             });
+
+            AFRAME.registerComponent('origen', {
+                init: function () {
+                    var marker2 = this.el;
+                    this.vid = document.querySelector("#vidorigen");
+
+                    marker2.addEventListener('markerFound', function () {
+                        this.toggle = true;
+                        this.vid.play();
+                    }.bind(this));
+
+                    marker2.addEventListener('markerLost', function () {
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
         </script>
     </head>
 
@@ -119,6 +136,7 @@
 
             <a-marker
             type='pattern' url='../assets/pattern-Hoba.patt'
+            origen
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
