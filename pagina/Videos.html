@@ -60,31 +60,7 @@
     </head>
 
     <script>
-        //METODO PARA CONTROLES VIDEO DE HISTORIA
-        AFRAME.registerComponent('videohandlerOrigen', {
-            init: function () {
-                    var marker = this.el;
-                    this.vid = document.querySelector("#vidorigen");
-
-                    marker.addEventListener('markerFound', function () {
-                        this.toggle = true;
-                        this.vid.play();
-                        document.getElementById("btn1").addEventListener("click", (e)=>{
-                            this.vid.muted=false; })
-                        document.getElementById("btn2").addEventListener("click", (e)=>{
-                            this.vid.muted=true; })
-                        document.getElementById("btn3").addEventListener("click", (e)=>{
-                            this.vid.pause(); })
-                        document.getElementById("btn4").addEventListener("click", (e)=>{
-                            this.vid.play(); })
-                    }.bind(this));
-
-                    marker.addEventListener('markerLost', function () {
-                        this.toggle = false;
-                        this.vid.pause();
-                    }.bind(this));
-                },
-            });
+        
     </script>
 
     <body style="margin: 0; overflow: hidden;">
@@ -143,7 +119,6 @@
 
             <a-marker
             type='pattern' url='../assets/pattern-Hoba.patt'
-                videohandlerOrigen
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
