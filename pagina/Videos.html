@@ -71,8 +71,7 @@
                             this.vid.muted=false; })
                         document.getElementById("btn2").addEventListener("click", (e)=>{
                             this.vid.muted=true; })
-                        document.getElementById("btn3").addEventListener("click", (e)=>{
-                            this.vid.pause(); })
+                        document.getElementById("btn3").addEventListener("click", pausarOrigen(this.vid));
                         document.getElementById("btn4").addEventListener("click", (e)=>{
                             this.vid.play(); })
                         
@@ -92,6 +91,10 @@
                     }.bind(this));
                 },
             });
+
+            function pausarOrigen(video){
+                video.pause();
+            }
         </script>
     </head>
 
