@@ -4,30 +4,6 @@
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 
-<style>
-    .button {
-      background-color: #4CAF50; 
-      border: none;
-      color: white;
-      padding: 7px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 12px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 12px;
-      border: 2px solid rgba(9, 148, 28, 0.541);
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    }
-    
-    </style>
-  <div style='top: 10px;text-align: center; z-index: 1;'>
-      <button class="button" id="btn1">Play Sound</button>
-      <button class="button" id="btn2">Stop Sound</button>
-      <button class="button" id="btn3">Stop Video</button>
-      <button class="button" id="btn4">Play Video</button>
-    </div>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -39,7 +15,6 @@
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Texturizado.glb" ></a-asset-item>
-              <video id="mivideo" src="../assets/composicion.mp4" loop="true"></video>
               <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
               <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
@@ -47,7 +22,7 @@
         </a-entity>
 
     <a-marker
-        type='pattern' url='pattern-Willamette.patt'
+        type='pattern' url='../assets/pattern-Willamette.patt'
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
@@ -63,7 +38,7 @@
   </a-marker> 
 
   <a-marker
-  type='pattern' url='pattern-Ahnighito.patt'
+  type='pattern' url='../assets/pattern-Ahnighito.patt'
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
