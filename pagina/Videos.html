@@ -80,13 +80,13 @@
                         this.toggle = false;
                         this.vid.pause();
                         document.getElementById("btn1").removeEventListener("click", (e)=>{
-                            this.vid.muted=false; })
+                            this.vid.muted=false; } , false)
                         document.getElementById("btn2").removeEventListener("click", (e)=>{
-                            this.vid.muted=true; })
+                            this.vid.muted=true; } , false)
                         document.getElementById("btn3").removeEventListener("click", (e)=>{
-                            this.vid.pause(); })
+                            this.vid.pause(); } , false)
                         document.getElementById("btn4").removeEventListener("click", (e)=>{
-                            this.vid.play(); })
+                            this.vid.play(); } , false)
                     }.bind(this));
                 },
             });
