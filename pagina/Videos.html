@@ -56,10 +56,12 @@
                     }.bind(this));
                 },
             });
+        </script>
+    </head>
 
-
-            //METODO PARA CONTROLES VIDEO DE HISTORIA
-            AFRAME.registerComponent('videohandlerOrigen', {
+    <script>
+        //METODO PARA CONTROLES VIDEO DE HISTORIA
+        AFRAME.registerComponent('videohandlerOrigen', {
                 init: function () {
                     var marker2 = this.el;
                     this.vidor = document.querySelector("#vidorigen");
@@ -83,9 +85,7 @@
                     }.bind(this));
                 },
             });
-
-        </script>
-    </head>
+    </script>
 
     <body style="margin: 0; overflow: hidden;">
         <a-scene
