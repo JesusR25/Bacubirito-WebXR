@@ -26,7 +26,7 @@
           </style>
 
 
-        <div style='top: 10px;text-align: center; z-index: 1; display: none;'>
+        <div id="botones" style='top: 10px;text-align: center; z-index: 1; display: none;'>
             <button class="button" id="btn1">Play Sound</button>
             <button class="button" id="btn2">Stop Sound</button>
             <button class="button" id="btn3">Stop Video</button>
@@ -42,6 +42,11 @@
                     this.vid = document.querySelector("#vid");
 
                     marker.addEventListener('markerFound', function () {
+                        var x = document.getElementById("botones");
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none"; }
                         this.toggle = true;
                         this.vid.play();
                         document.getElementById("btn1").addEventListener("click", (e)=>{
