@@ -43,10 +43,8 @@
 
                     marker.addEventListener('markerFound', function () {
                         var x = document.getElementById("botones");
-                        if (x.style.display === "none") {
                             x.style.display = "block";
-                        } else {
-                            x.style.display = "none"; }
+                        
                         this.toggle = true;
                         this.vid.play();
                         document.getElementById("btn1").addEventListener("click", (e)=>{
@@ -60,6 +58,8 @@
                     }.bind(this));
 
                     marker.addEventListener('markerLost', function () {
+                        var x = document.getElementById("botones");
+                        x.style.display = "none";
                         this.toggle = false;
                         this.vid.pause();
                     }.bind(this));
