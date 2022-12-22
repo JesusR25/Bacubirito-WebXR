@@ -66,9 +66,6 @@
                 init: function () {
                     var marker2 = this.el;
                     this.vid = document.querySelector("#vidorigen");
-                    function reproducir(video){
-                        video.play();
-                    }
 
                     marker2.addEventListener('markerFound', function () {
 
@@ -80,8 +77,8 @@
                             this.vid.muted=true; })
                         document.getElementById("btn3").addEventListener("click", (e)=>{
                             this.vid.pause(); })
-                        document.getElementById("btn4").addEventListener("click",
-                            reproducir(this.vid) )
+                        document.getElementById("btn4").addEventListener("click", (e)=>{
+                            this.vid.play(); })
                         
                     }.bind(this));
 
