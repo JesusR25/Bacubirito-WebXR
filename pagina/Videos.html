@@ -84,13 +84,10 @@
                     marker2.addEventListener('markerLost', function () {
                         this.toggle = false;
                         this.vid.pause();
-                        document.getElementById("btn1").removeEventListener("click", (e)=>{
-                            this.vid.muted=false; } , false)
-                        document.getElementById("btn2").removeEventListener("click", (e)=>{
-                            this.vid.muted=true; } , false)
-                        document.getElementById("btn3").removeEventListener("click", (e)=>{
-                            this.vid.pause(); } , false)
-                        document.getElementById("btn4").onclick = null;
+                        document.getElementById("btn1").removeEventListener("click", (e))
+                        document.getElementById("btn2").removeEventListener("click", (e))
+                        document.getElementById("btn3").removeEventListener("click", (e))
+                        document.getElementById("btn4").removeEventListener("click", (e))
                     }.bind(this));
                 },
             });
@@ -98,7 +95,6 @@
     </head>
 
     <script>
-        
     </script>
 
     <body style="margin: 0; overflow: hidden;">
