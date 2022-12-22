@@ -66,19 +66,22 @@
                 init: function () {
                     var marker2 = this.el;
                     this.vid = document.querySelector("#vidorigen");
+                    function reproducir(video){
+                        video.play();
+                    }
 
                     marker2.addEventListener('markerFound', function () {
 
                         this.toggle = true;
                         this.vid.play();
-                        document.getElementById("btn1").addEventListener("click", (e)=>{
+                        document.getElementById("btn1").addEventListener("click", (e)=> {
                             this.vid.muted=false; })
                         document.getElementById("btn2").addEventListener("click", (e)=>{
                             this.vid.muted=true; })
                         document.getElementById("btn3").addEventListener("click", (e)=>{
                             this.vid.pause(); })
                         document.getElementById("btn4").addEventListener("click", (e)=>{
-                            this.vid.play(); })
+                            reproducir(this.vid) })
                         
                     }.bind(this));
 
