@@ -67,13 +67,6 @@
                     var marker2 = this.el;
                     this.vid = document.querySelector("#vidorigen");
 
-                    function pausar(){
-                        this.vid.pause();
-                    }
-                    function reproducir(){
-                        this.vid.play();
-                    }
-
                     marker2.addEventListener('markerFound', function () {
 
                         this.toggle = true;
@@ -82,8 +75,10 @@
                             this.vid.muted=false; })
                         document.getElementById("btn2").addEventListener("click", (e)=>{
                             this.vid.muted=true; })
-                        document.getElementById("btn3").addEventListener("click", pausar())
-                        document.getElementById("btn4").addEventListener("click",reproducir())
+                        document.getElementById("btn3").addEventListener("click", (e)=>{
+                            this.vid.pause(); })
+                        document.getElementById("btn4").addEventListener("click", (e)=>{
+                            this.vid.play(); })
                         
                     }.bind(this));
 
@@ -92,7 +87,8 @@
                         this.vid.pause();
                         document.getElementById("btn1").removeEventListener("click", (e))
                         document.getElementById("btn2").removeEventListener("click", (e))
-                        document.getElementById("btn3").removeEventListener("click", (e))
+                        document.getElementById("btn3").removeEventListener("click", (e)=>{
+                            this.vid.pause(); })
                         document.getElementById("btn4").removeEventListener("click", (e))
                     }.bind(this));
                 },
