@@ -40,6 +40,13 @@
             <button class="button" id="btn8">Play Video</button>
           </div>
 
+          <div id="botonestipo" style='top: 10px;text-align: center; z-index: 1; display: none;'>
+            <button class="button" id="btn9">Play Sound</button>
+            <button class="button" id="btn10">Stop Sound</button>
+            <button class="button" id="btn11">Stop Video</button>
+            <button class="button" id="btn12">Play Video</button>
+          </div>
+
         <script>
             //METODO PARA CONTROLES VIDEO DE COMPOSICION
 
@@ -104,6 +111,42 @@
                     }.bind(this));
                 },
             });
+
+            AFRAME.registerComponent('tipos', {
+
+                init: function () {
+                    var marker2 = this.el;
+                    this.vid = document.querySelector("#vidtipos");
+
+                    marker2.addEventListener('markerFound', function () {
+                        var x = document.getElementById("botonestipos");
+                        x.style.display = "block";
+
+                        this.toggle = true;
+                        this.vid.play();
+                        document.getElementById("btn9").addEventListener("click", (e)=> {
+                            this.vid.muted=false; })
+                        document.getElementById("btn10").addEventListener("click", (e)=>{
+                            this.vid.muted=true; })
+                        document.getElementById("btn11").addEventListener("click", (e)=>{
+                            this.vid.pause(); })
+                        document.getElementById("btn12").addEventListener("click", (e)=>{
+                            this.vid.play(); })
+                        
+                    }.bind(this));
+
+                    marker2.addEventListener('markerLost', function () {
+                        var x = document.getElementById("botonestipos");
+                        x.style.display = "none";
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
+
+            
+
+
         </script>
     </head>
 
@@ -133,6 +176,16 @@
                 <video
                     id="vidorigen"
                     src="../assets/historia.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    playsinline
+                ></video>
+                <video
+                    id="vidtipos"
+                    src="../assets/tipos.mp4"
                     preload="auto"
                     response-type="arraybuffer"
                     loop
@@ -178,6 +231,27 @@
             >
                 <a-video
                     src="#vidorigen"
+                    scale="1 1 1"
+                    position="0 0.1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
+            </a-marker>
+            <a-marker
+                preset="hiro"
+                tipos
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-video
+                    src="#vidtipos"
                     scale="1 1 1"
                     position="0 0.1 0"
                     rotation="-90 0 0"
