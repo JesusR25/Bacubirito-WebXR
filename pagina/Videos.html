@@ -33,6 +33,13 @@
             <button class="button" id="btn4">Play Video</button>
           </div>
 
+          <div id="botonesorigen" style='top: 10px;text-align: center; z-index: 1; display: none;'>
+            <button class="button" id="btn5">Play Sound</button>
+            <button class="button" id="btn6">Stop Sound</button>
+            <button class="button" id="btn7">Stop Video</button>
+            <button class="button" id="btn8">Play Video</button>
+          </div>
+
         <script>
             //METODO PARA CONTROLES VIDEO DE COMPOSICION
 
@@ -73,28 +80,27 @@
                     this.vid = document.querySelector("#vidorigen");
 
                     marker2.addEventListener('markerFound', function () {
+                        var x = document.getElementById("botonesorigen");
+                        x.style.display = "block";
 
                         this.toggle = true;
                         this.vid.play();
-                        document.getElementById("btn1").addEventListener("click", (e)=> {
+                        document.getElementById("btn5").addEventListener("click", (e)=> {
                             this.vid.muted=false; })
-                        document.getElementById("btn2").addEventListener("click", (e)=>{
+                        document.getElementById("btn6").addEventListener("click", (e)=>{
                             this.vid.muted=true; })
-                        document.getElementById("btn3").addEventListener("click", (e)=>{
+                        document.getElementById("btn7").addEventListener("click", (e)=>{
                             this.vid.pause(); })
-                        document.getElementById("btn4").addEventListener("click", (e)=>{
+                        document.getElementById("btn8").addEventListener("click", (e)=>{
                             this.vid.play(); })
                         
                     }.bind(this));
 
                     marker2.addEventListener('markerLost', function () {
+                        var x = document.getElementById("botonesorigen");
+                        x.style.display = "none";
                         this.toggle = false;
                         this.vid.pause();
-                        document.getElementById("btn1").removeEventListener("click", (e))
-                        document.getElementById("btn2").removeEventListener("click", (e))
-                        document.getElementById("btn3").removeEventListener("click", (e)=>{
-                            this.vid.pause(); })
-                        document.getElementById("btn4").removeEventListener("click", (e))
                     }.bind(this));
                 },
             });
