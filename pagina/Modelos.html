@@ -3,6 +3,7 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+<script src="../js/cursor.js" defer></script>
 <script>
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
@@ -72,7 +73,7 @@
             scale="0.15 0.15 0.15"
             class="clickable"
             rotation="0 0 0"
-             >
+            color-randomizer >
         </a-entity>
         <a-entity
             id="hierro"
