@@ -13,6 +13,17 @@
           });
         }
       });
+
+      AFRAME.registerComponent('gente', {
+                init: function () {
+                    var marker = this.el;
+
+                    marker.addEventListener('markerFound', function () {
+                        document.querySelector("#CobaltoM").addEventListener("click", (e)=>{
+                            console.log("Funciono"); })
+                    }.bind(this));
+                },
+            });
 </script>
 
 <style>
@@ -53,6 +64,7 @@
 
     <a-marker
         type='pattern' url='../assets/pattern-Willamette.patt'
+        gente
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
@@ -66,7 +78,7 @@
             rotation="0 90 90" >
         </a-entity>
         <a-entity
-            id="cobalto"
+            id="CobaltoM"
             gltf-model="#cobalto"
             position="0 -0.6 -0.1"
             scale="0.15 0.15 0.15"
