@@ -16,7 +16,7 @@ if (document.querySelector("#markerA").object3D.visible == true && playing == fa
   // MARKER IS PRESENT
   //alert("MARKER IS PRESENT")
 
-      scene = document.querySelector('#a-scene');
+      scene = document.querySelector('#escena');
    var ARObject01 = document.querySelector('#cobalto');
 
   ARObject01.addEventListener('click', function () { console.log("object01 clickable in AR") });
@@ -60,7 +60,7 @@ if (document.querySelector("#markerA").object3D.visible == true && playing == fa
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div id="footer"></div>
-    <a-scene embedded arjs='debugUIEnabled: false; maxDetectionRate:30; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
+    <a-scene id="escena" embedded arjs='debugUIEnabled: false; maxDetectionRate:30; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
             <a-asset-item id="cobalto" src="../assets/Cobalto.glb" ></a-asset-item>
