@@ -8,22 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
 
-    <script>
-        AFRAME.registerComponent('modelhandler', {
-                init: function () {
-                    var marker = this.el;
 
-                    marker.addEventListener('markerFound', function () {
-                        var el = document.querySelector("#cobaltoent");
-                        el.setAttribute("visible",true);
-                    }.bind(this));
-
-                    marker.addEventListener('markerLost', function () {
-
-                    }.bind(this));
-                },
-            });
-    </script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
@@ -36,23 +21,14 @@
               <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
-        <a-entity
-            id="cobaltoent"
-            gltf-model="#cobalto"
-            position="0 0.6 -0.1"
-            scale="0.22 0.22 0.22"
-            class="clickable"
-            rotation="0 0 0" >
-        </a-entity>
-
+        
 
     <a-marker
         type='pattern' url='../assets/pattern-Willamette.patt'
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-        modelhandler >
+        id="markerA" >
         <a-entity
             id="bowser-model"
             gltf-model="#spinosaurus"
@@ -60,6 +36,14 @@
             scale="2.5 2.5 2.5"
             class="clickable"
             rotation="0 90 90" >
+        </a-entity>
+        <a-entity
+            id="cobalto"
+            gltf-model="#cobalto"
+            position="0 0.6 -0.1"
+            scale="0.22 0.22 0.22"
+            class="clickable"
+            rotation="0 0 0" >
         </a-entity>
         <a-entity
             id="hierro"
