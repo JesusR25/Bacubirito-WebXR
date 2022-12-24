@@ -11,11 +11,27 @@
           let colors = ["red", "green", "blue", "black", "orange", "white"]
           var el = this.el;
           el.addEventListener('click', (e) => {     
-            this.el.setAttribute('color', colors[Math.floor(Math.random() * colors.length)])
+            document.querySelector("#footer").innerHTML = 'Soy cobalto';
           });
         }
       });
 </script>
+
+<style>
+    #footer {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: rgb(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 3em;
+    }
+</style>
 
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,7 +39,7 @@
 
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-
+    <div id="footer"></div>
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
@@ -57,7 +73,8 @@
             position="0 -0.6 -0.1"
             scale="0.15 0.15 0.15"
             class="clickable"
-            rotation="0 0 0" >
+            rotation="0 0 0"
+            color-randomizer >
         </a-entity>
         <a-entity
             id="hierro"
