@@ -12,16 +12,18 @@
         },
         tick: function(t, dt) {
 
-if (document.querySelector("#markerA").object3D.visible == true && playing == false) {
+
+            var marker = this.el;
+
   // MARKER IS PRESENT
   //alert("MARKER IS PRESENT")
 
       scene = document.querySelector('#escena');
-   var ARObject01 = document.querySelector('#cobalto');
+      scene.addEventListener('markerFound', function () {
+        var ARObject01 = document.querySelector('#cobalto');
+        ARObject01.addEventListener('click', function () { console.log("object01 clickable in AR") });
+                    }.bind(this));
 
-  ARObject01.addEventListener('click', function () { console.log("object01 clickable in AR") });
-
-}
         }
 
 });
