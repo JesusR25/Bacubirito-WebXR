@@ -14,7 +14,7 @@
                     var marker = this.el;
 
                     marker.addEventListener('markerFound', function () {
-                        var el = document.querySelector("#cobalto");
+                        var el = document.querySelector("#cobaltoent");
                         el.setAttribute("visible",true);
                     }.bind(this));
 
@@ -37,7 +37,7 @@
         </a-assets>
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
         <a-entity
-            id="cobalto"
+            id="cobaltoent"
             gltf-model="#cobalto"
             position="0 0.6 -0.1"
             scale="0.22 0.22 0.22"
