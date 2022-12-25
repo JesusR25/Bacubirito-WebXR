@@ -34,33 +34,6 @@
       </a-assets>
 
       <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
-      <a-camera
-        id="camera"
-        position="0 8 0"
-        raycaster="objects: .can"
-        cursor="
-          fuse: false;
-          rayOrigin: mouse;">
-      </a-camera>
-
-      <a-entity
-        light="
-          type: directional;
-          intensity: 0.8;
-          castShadow: true;
-          shadowMapHeight:2048;
-          shadowMapWidth:2048;
-          shadowCameraTop: 20;
-          shadowCameraBottom: -20;
-          shadowCameraRight: 20;
-          shadowCameraLeft: -20;
-          target: #camera"
-        xrextras-attach="target: camera; offset: 8 15 4"
-        position="1 4.3 2.5"
-        shadow>
-      </a-entity>
-
-      <a-light type="ambient" intensity="0.5"></a-light>
 
       <a-marker
         type='pattern' url='../assets/pattern-Ahnighito.patt'
@@ -73,9 +46,10 @@
             gltf-model="#bowser"
             position="0 0 0"
             scale="0.05 0.05 0.05"
-            class="can" 
+            class="clickable" 
             >
         </a-entity>
+        <a-entity camera></a-entity>
 
     </a-marker> 
       <!-- Adding the cantap class allows the ground to be clicked -->
