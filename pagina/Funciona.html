@@ -7,6 +7,9 @@
     <!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
     <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
          See github.com/8thwall/web/tree/master/xrextras -->
     <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
@@ -33,7 +36,7 @@
       <a-camera
         id="camera"
         position="0 8 0"
-        raycaster="objects: .cantap"
+        raycaster="objects: .can"
         cursor="
           fuse: false;
           rayOrigin: mouse;">
@@ -61,7 +64,7 @@
       <!-- Adding the cantap class allows the ground to be clicked -->
       <a-box
         id="ground"
-        class="cantap"
+        class="can"
         scale="1000 2 1000"
         position="0 -1 0"
         material="shader: shadow; transparent: true; opacity: 0.4"
