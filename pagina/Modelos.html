@@ -4,6 +4,7 @@
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 <script src="../js/cursor.js" defer></script>
+<script src="../js/tap.js"></script>
 <script>
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
@@ -112,6 +113,7 @@
             gltf-model="#bowser"
             position="0 0 0"
             scale="0.05 0.05 0.05"
+            tap-place
             class="clickable" 
             >
         </a-entity>
