@@ -30,22 +30,31 @@
       </a-assets>
 
       <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
-      <a-camera
-        id="camera"
-        position="0 8 0"
-        raycaster="objects: .cantap"
-        cursor="
-          fuse: false;
-          rayOrigin: mouse;">
-      </a-camera>
+      <a-marker
+        type='pattern' url='../assets/pattern-Ahnighito.patt'
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerRA" >
+        <a-entity class="clickable" gesture-handler>
+            <a-entity
+            id="bmo"
+            gltf-model="#bowser"
+            position="0 0 0"
+            scale="0.05 0.05 0.05"
+            class="clickable" 
+            >
+        </a-entity>
+        </a-entity>
+    </a-marker> 
+    <a-entity camera></a-entity>
       <!-- Adding the cantap class allows the ground to be clicked -->
       <a-box
         id="ground"
         class="cantap"
         scale="1000 2 1000"
         position="0 -1 0"
-        material="shader: shadow; transparent: true; opacity: 0.4"
-        shadow>
+        material="shader: shadow; transparent: true; opacity: 0.4">
       </a-box>
     </a-scene>
   </body>
