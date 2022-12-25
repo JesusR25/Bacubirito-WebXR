@@ -30,6 +30,7 @@
       <a-assets>
         <!-- Credit to Poly by Google for the model: https://poly.google.com/view/6pwiq7hSrHr -->
         <a-asset-item id="treeModel" src="tree.glb"></a-asset-item>
+        <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
       </a-assets>
 
       <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
@@ -61,15 +62,24 @@
 
       <a-light type="ambient" intensity="0.5"></a-light>
 
+      <a-marker
+        type='pattern' url='../assets/pattern-Ahnighito.patt'
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerRA" >
+            <a-entity
+            id="bmo"
+            gltf-model="#bowser"
+            position="0 0 0"
+            scale="0.05 0.05 0.05"
+            class="can" 
+            >
+        </a-entity>
+
+    </a-marker> 
       <!-- Adding the cantap class allows the ground to be clicked -->
-      <a-box
-        id="ground"
-        class="can"
-        scale="1000 2 1000"
-        position="0 -1 0"
-        material="shader: shadow; transparent: true; opacity: 0.4"
-        shadow>
-      </a-box>
+
     </a-scene>
   </body>
 </html>
