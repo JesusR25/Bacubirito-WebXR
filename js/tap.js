@@ -6,6 +6,7 @@ AFRAME.registerComponent('tap-place', {
     init() {
       const ground = document.getElementById('Cob')
       ground.addEventListener('click', (event) => {
+        alert("Mi primer alert");
         console.log("FUnciono gente")
         // Create new entity for the new object
         const newElement = document.createElement('a-entity')
