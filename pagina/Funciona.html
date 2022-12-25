@@ -9,6 +9,7 @@
 
     <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
          See github.com/8thwall/web/tree/master/xrextras -->
+    <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
 
 
     <!-- 8thWall Web - Replace the app key here with your own app key -->
@@ -19,7 +20,6 @@
   <body>
     <!-- We must add the tap-place component to the scene so it has an effect -->
     <a-scene
-    embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'
       tap-place
       >
 
@@ -30,31 +30,42 @@
       </a-assets>
 
       <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
-      <a-marker
-        type='pattern' url='../assets/pattern-Ahnighito.patt'
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerRA" >
-        <a-entity class="clickable" gesture-handler>
-            <a-entity
-            id="bmo"
-            gltf-model="#bowser"
-            position="0 0 0"
-            scale="0.05 0.05 0.05"
-            class="clickable" 
-            >
-        </a-entity>
-        </a-entity>
-    </a-marker> 
-    <a-entity camera></a-entity>
+      <a-camera
+        id="camera"
+        position="0 8 0"
+        raycaster="objects: .cantap"
+        cursor="
+          fuse: false;
+          rayOrigin: mouse;">
+      </a-camera>
+
+      <a-entity
+        light="
+          type: directional;
+          intensity: 0.8;
+          castShadow: true;
+          shadowMapHeight:2048;
+          shadowMapWidth:2048;
+          shadowCameraTop: 20;
+          shadowCameraBottom: -20;
+          shadowCameraRight: 20;
+          shadowCameraLeft: -20;
+          target: #camera"
+        xrextras-attach="target: camera; offset: 8 15 4"
+        position="1 4.3 2.5"
+        shadow>
+      </a-entity>
+
+      <a-light type="ambient" intensity="0.5"></a-light>
+
       <!-- Adding the cantap class allows the ground to be clicked -->
       <a-box
         id="ground"
         class="cantap"
         scale="1000 2 1000"
         position="0 -1 0"
-        material="shader: shadow; transparent: true; opacity: 0.4">
+        material="shader: shadow; transparent: true; opacity: 0.4"
+        shadow>
       </a-box>
     </a-scene>
   </body>
