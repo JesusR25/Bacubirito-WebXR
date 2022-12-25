@@ -4,8 +4,6 @@
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 <script src="../js/cursor.js" defer></script>
-<script src="../js/tap.js" defer></script>
-<script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
 <script>
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
@@ -40,7 +38,7 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div id="footer"></div>
-    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector tap-place>
+    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
             <a-asset-item id="cobalto" src="../assets/Cobalto.glb" ></a-asset-item>
@@ -68,7 +66,7 @@
             rotation="0 90 90" >
         </a-entity>
         <a-entity
-            id="Cob"
+            id="cobalto"
             gltf-model="#cobalto"
             position="0 -0.6 -0.1"
             scale="0.15 0.15 0.15"
