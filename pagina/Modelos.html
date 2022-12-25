@@ -4,7 +4,6 @@
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 <script src="../js/cursor.js" defer></script>
-<script src="../js/tap.js"></script>
 <script>
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
@@ -39,7 +38,7 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div id="footer"></div>
-    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector >
+    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
             <a-asset-item id="cobalto" src="../assets/Cobalto.glb" ></a-asset-item>
@@ -72,7 +71,8 @@
             position="0 -0.6 -0.1"
             scale="0.15 0.15 0.15"
             class="clickable"
-            rotation="0 0 0" >
+            rotation="0 0 0"
+            color-randomizer >
         </a-entity>
         <a-entity
             id="hierro"
@@ -85,10 +85,9 @@
         <a-entity
             id="Azufre"
             gltf-model="#azufre"
-            position="0.4 -0.4 -0.1"
+            position="0.4 -0.6 -0.1"
             scale="0.15 0.15 0.15"
             class="clickable"
-            tap-place
             rotation="0 0 0" >
         </a-entity>
         <a-entity
