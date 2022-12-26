@@ -8,11 +8,9 @@
     
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
+          let colors = ["red", "green", "blue", "black", "orange", "white"]
           var el = this.el;
-          var escena = document.querySelector("#cobalto");
-          escena.addEventListener('click', (e) => {
-            console.log(e.detail.intersection);  
-            alert("Hola gente");
+          el.addEventListener('click', (e) => {     
             document.querySelector("#footer").innerHTML = 'Soy cobalto';
           });
         }
@@ -34,7 +32,6 @@
         font-size: 3em;
     }
 </style>
-
 
     <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -60,8 +57,7 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-        color-randomizer >
+        id="markerA" >
         <a-entity
             id="bowser-model"
             gltf-model="#spinosaurus"
@@ -76,7 +72,8 @@
             position="0 -0.6 -0.1"
             scale="0.15 0.15 0.15"
             class="clickable"
-            rotation="0 0 0" >
+            rotation="0 0 0"
+            color-randomizer >
         </a-entity>
         <a-entity
             id="hierro"
