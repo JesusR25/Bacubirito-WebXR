@@ -10,7 +10,8 @@
           var el = this.el;
           var escena = document.querySelector("#esc");
           escena.addEventListener('click', (e) => {
-            alert("Funciono");     
+            const point = e.detail.intersection.point;
+            alert(point);     
             document.querySelector("#footer").innerHTML = 'Soy cobalto';
           });
         }
@@ -73,8 +74,7 @@
             position="0 -0.6 -0.1"
             scale="0.15 0.15 0.15"
             class="clickable"
-            rotation="0 0 0"
-            color-randomizer >
+            rotation="0 0 0" >
         </a-entity>
         <a-entity
             id="hierro"
