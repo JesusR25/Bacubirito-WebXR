@@ -8,13 +8,6 @@
     
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
-            const scene = AFRAME.scenes[0];
-if (!scene) {
-  return;
-}
-const mouseCursor = document.createElement('a-entity');
-mouseCursor.setAttribute('cursor', 'rayOrigin', 'mouse');
-scene.appendChild(mouseCursor);
           var el = this.el;
           var escena = document.querySelector("#cobalto");
           escena.addEventListener('click', (e) => {
