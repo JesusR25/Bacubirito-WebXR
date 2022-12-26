@@ -1,71 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Hello!</title>
-
+    
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="../sty.css" />
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script>
-      AFRAME.registerComponent("foo", {
-        init: function() {
-          // grab the mesh
-          let mesh = this.el.getObject3D("mesh");
-          // keep the reference to the old material
-          let tmp = mesh.material;
-          // assign the new material
-          mesh.material = new THREE.ShadowMaterial({ opacity: 0.6 });
-          mesh.receiveShadow = true;
-          // free memory
-          tmp.dispose();
-        }
-      });
-    </script>
+    <link rel="stylesheet" href="/style.css">
+    
     <!-- import the webpage's javascript file -->
-    <script src="../js/script.js" defer></script>
-  </head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>  
   <body>
-    <!-- <img src="https://i.imgur.com/wjobVTN.jpeg">-->
-    <video></video>
-
-    <div id="myEmbeddedScene">
-      <a-scene embedded>
-        <a-box
-          position="-1 0.5 -3"
-          rotation="0 45 0"
-          color="#4CC3D9"
-          shadow
-        ></a-box>
-        <a-sphere
-          position="0 1.25 -5"
-          radius="1.25"
-          color="#EF2D5E"
-          shadow
-        ></a-sphere>
-        <a-cylinder
-          position="1 0.75 -3"
-          radius="0.5"
-          height="1.5"
-          color="#FFC65D"
-          shadow
-        ></a-cylinder>
-        <a-plane
-          position="0 0 -4"
-          rotation="-90 0 0"
-          width="8"
-          height="8"
-          foo
-        ></a-plane>
-      </a-scene>
+    <div id="video-holder">
+      <video autoplay></video>
     </div>
-
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js" defer></script>
+      
+     <a-scene
+        renderer="colorManagement: true"
+     >
+      <a-entity camera look-controls="touchEnabled:false;" position="0 1.6 0"></a-entity>
+      <a-plane opacity=".6" width="2" height="1.2" side="double" position="0 3 -6" rotation="0 0 0" color="white">
+        <a-plane width="1" height=".7" side="double" position="0 -0.1 0.1" rotation="0 0 0" color="black">
+          <a-plane width=".8" height=".5" side="double" position="0 0 0.1" rotation="0 0 0" color="white"></a-plane>
+        </a-plane>
+<!-- backboard          -->
+        <a-cylinder position="0 -.5 0" radius="0.35" height=".1" color="red"> 
+<!--    hoop      -->
+          <a-cylinder opacity=".8" position="0 -.3 0" radius="0.27" height=".5" color="white"></a-cylinder>
+<!-- net -->
+        </a-cylinder>
+      </a-plane>
+      <a-sphere position="0 .75 -2" radius=".25" color="orange"></a-sphere>
+<!-- ball -->
+<!--       <a-box position="0 0 -6" rotation="0 0 0" width="4" depth="4" height=".1" color="#7BC8A4"> -->
+<!--       </a-box> -->
+    </a-scene>
+    
   </body>
+  <script>
+const constraints = {
+  video: {
+    facingMode: "environment",
+  }
+};
+
+const video = document.querySelector('video');
+
+navigator.mediaDevices.getUserMedia(constraints).
+  then((stream) => {video.srcObject = stream});
+</script>
 </html>
