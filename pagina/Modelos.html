@@ -5,21 +5,21 @@
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 <script src="../js/cursor.js" defer></script>
 <script>
-
-const scene = AFRAME.scenes[0];
+    
+    AFRAME.registerComponent('color-randomizer', {
+        init: function () {
+            const scene = AFRAME.scenes[0];
 if (!scene) {
   return;
 }
 const mouseCursor = document.createElement('a-entity');
 mouseCursor.setAttribute('cursor', 'rayOrigin', 'mouse');
 scene.appendChild(mouseCursor);
-    
-    AFRAME.registerComponent('color-randomizer', {
-        init: function () {
           var el = this.el;
           var escena = document.querySelector("#bowser-model");
           escena.addEventListener('click', (e) => {
             console.log(e.detail.intersection);  
+            alert("Hola gente");
             document.querySelector("#footer").innerHTML = 'Soy cobalto';
           });
         }
@@ -49,7 +49,7 @@ scene.appendChild(mouseCursor);
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div id="footer"></div>
-    <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector color-randomizer >
+    <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' >
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
             <a-asset-item id="cobalto" src="../assets/Cobalto.glb" ></a-asset-item>
@@ -67,7 +67,8 @@ scene.appendChild(mouseCursor);
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA" >
+        id="markerA"
+        color-randomizer >
         <a-entity
             id="bowser-model"
             gltf-model="#spinosaurus"
