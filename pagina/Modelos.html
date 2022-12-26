@@ -8,13 +8,6 @@
     
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
-            const scene = AFRAME.scenes[0];
-if (!scene) {
-  return;
-}
-const mouseCursor = document.createElement('a-entity');
-mouseCursor.setAttribute('cursor', 'rayOrigin', 'mouse');
-scene.appendChild(mouseCursor);
           var el = this.el;
           var escena = document.querySelector("#Azufre");
           escena.addEventListener('click', (e) => {
@@ -65,8 +58,7 @@ scene.appendChild(mouseCursor);
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-        color-randomizer >
+        id="markerA" >
         <a-entity
             id="bowser-model"
             gltf-model="#spinosaurus"
@@ -97,6 +89,7 @@ scene.appendChild(mouseCursor);
             position="0.4 -0.6 -1"
             scale="0.20 0.20 0.20"
             class="clickable"
+            color-randomizer
             rotation="0 0 0" >
         </a-entity>
         <a-entity
