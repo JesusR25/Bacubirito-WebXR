@@ -53,7 +53,7 @@
 
     <a-marker
         type='pattern' url='../assets/pattern-Willamette.patt'
-        raycaster="objects: a-entity"
+        raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerA" >
@@ -62,7 +62,7 @@
             gltf-model="#spinosaurus"
             position="0 -1 0"
             scale="2 2 2"
-            
+            class="clickable"
             rotation="0 90 90" >
         </a-entity>
         <a-entity
@@ -70,7 +70,7 @@
             gltf-model="#cobalto"
             position="0 -0.6 -0.1"
             scale="0.15 0.15 0.15"
-            
+            class="clickable"
             rotation="0 0 0"
             color-randomizer >
         </a-entity>
@@ -79,7 +79,7 @@
             gltf-model="#Hierro"
             position="-0.4 -0.6 -0.1"
             scale="0.15 0.15 0.15"
-            
+            class="clickable"
             rotation="0 0 0" >
         </a-entity>
         <a-entity
@@ -87,7 +87,7 @@
             gltf-model="#azufre"
             position="0.4 -0.6 -0.1"
             scale="0.15 0.15 0.15"
-            
+            class="clickable"
             rotation="0 0 0" >
         </a-entity>
         <a-entity
@@ -95,7 +95,7 @@
             gltf-model="#niquel"
             position="0.8 -0.4 -0.1"
             scale="0.15 0.15 0.15"
-            
+            class="clickable"
             rotation="0 0 0" >
         </a-entity>
     </a-marker> 
