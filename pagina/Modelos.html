@@ -16,11 +16,9 @@ const mouseCursor = document.createElement('a-entity');
 mouseCursor.setAttribute('cursor', 'rayOrigin', 'mouse');
 scene.appendChild(mouseCursor);
           var el = this.el;
-          var escena = document.querySelector("#bowser-model");
+          var escena = document.querySelector("#Azufre");
           escena.addEventListener('click', (e) => {
-            console.log(e.detail.intersection);  
-            alert("Hola gente");
-            document.querySelector("#footer").innerHTML = 'Soy cobalto';
+            document.querySelector("#footer").innerHTML = 'Soy Azufre';
           });
         }
       });
@@ -96,7 +94,7 @@ scene.appendChild(mouseCursor);
         <a-entity
             id="Azufre"
             gltf-model="#azufre"
-            position="0.4 -0.6 -0.1"
+            position="0.4 -0.6 1"
             scale="0.15 0.15 0.15"
             class="clickable"
             rotation="0 0 0" >
