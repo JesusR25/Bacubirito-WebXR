@@ -1,0 +1,32 @@
+/* CSS files add styling rules to your content */
+
+body {
+    font-family: helvetica, arial, sans-serif;
+    margin: 2em;
+  }
+  
+  h1 {
+    font-style: italic;
+    color: #373fff;
+  }
+  
+  video {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 800px;
+    width: 600px;
+  }
+  
+  a-scene {
+    height: 100%;
+    width: 100%;
+  }
+  
+  #myEmbeddedScene {
+    position: fixed;
+    top:0px;
+    left: 0px;
+    height: 800px;
+    width: 600px;
+  }
