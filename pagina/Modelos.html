@@ -38,7 +38,7 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div id="footer"></div>
-    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
+    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' >
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
             <a-asset-item id="cobalto" src="../assets/Cobalto.glb" ></a-asset-item>
@@ -103,6 +103,7 @@
     <a-marker
         type='pattern' url='../assets/pattern-Ahnighito.patt'
         raycaster="objects: .clickable"
+        gesture-detector
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerRA" >
