@@ -1,72 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+  <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+  <!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/3.0.0/aframe/build/aframe-ar.js"></script> -->
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/2.2.2/aframe/build/aframe-ar.min.js"></script>
 
-    <title>Hello!</title>
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's javascript file -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  </head>  
-  <body>
-    <div id="video-holder">
-      <video autoplay></video>
-    </div>
-      
-     <a-scene renderer="colorManagement: true" open-desc >
-      <a-assets timeout="30000">
-        <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
-          <!-- Esto es un comentario  position="-1 0 1"-->
-    </a-assets>
-
-      <a-entity camera look-controls="touchEnabled:false;" position="0 1.6 0"></a-entity>
-      <a-entity
-            id="bowser-model"
-            gltf-model="#spinosaurus"
-            position="0 .75 -2"
-            scale="2 2 2"
-            rotation="0 90 90"
-             >
-        </a-entity>
-<!-- ball -->
-<!--       <a-box position="0 0 -6" rotation="0 0 0" width="4" depth="4" height=".1" color="#7BC8A4"> -->
-<!--       </a-box> -->
-    </a-scene>
-    
-  </body>
-
-
-
-
+  <script src="../js/cursor.js" defer></script>
   <script>
+    AFRAME.registerComponent('color-randomizer', {
+        init: function () {
+          let colors = ["red", "green", "blue", "black", "orange", "white"]
+          var el = this.el;
+          el.addEventListener('click', (e) => {     
+            this.el.setAttribute('color', colors[Math.floor(Math.random() * colors.length)])
+          });
+        }
+      });
+  </script>
 
-AFRAME.registerComponent('open-desc', {  
-    init: function() {
-        var data = this.data;
-        var obj = document.querySelector("#bowser-model");
-        var el = this.el;      
-        obj.addEventListener('click', function() {
-            console.log("hiiiiiiiiiiii");
-            alert("Funciono");           
-        });
-    },
-
-});
-
-const constraints = {
-  video: {
-    facingMode: "environment",
-  }
-};
-
-const video = document.querySelector('video');
-
-navigator.mediaDevices.getUserMedia(constraints).
-  then((stream) => {video.srcObject = stream});
-</script>
+  <body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs>
+      <a-marker preset="hiro" cursor="rayOrigin: mouse" raycaster="objects: a-box">
+        <a-box position="0 0.5 0" color-randomizer></a-box>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
