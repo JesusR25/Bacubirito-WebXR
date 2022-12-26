@@ -8,10 +8,19 @@
     
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
+            const scene = AFRAME.scenes[0];
+if (!scene) {
+  return;
+}
+const mouseCursor = document.createElement('a-entity');
+mouseCursor.setAttribute('cursor', 'rayOrigin', 'mouse');
+scene.appendChild(mouseCursor);
           var el = this.el;
-          var escena = document.querySelector("#Azufre");
+          var escena = document.querySelector("#bowser-model");
           escena.addEventListener('click', (e) => {
-            document.querySelector("#footer").innerHTML = 'Soy Azufre';
+            console.log(e.detail.intersection);  
+            alert("Hola gente");
+            document.querySelector("#footer").innerHTML = 'Soy cobalto';
           });
         }
       });
@@ -58,7 +67,8 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA" >
+        id="markerA"
+        color-randomizer >
         <a-entity
             id="bowser-model"
             gltf-model="#spinosaurus"
@@ -86,10 +96,9 @@
         <a-entity
             id="Azufre"
             gltf-model="#azufre"
-            position="0.4 -0.6 -1"
-            scale="0.30 0.30 0.30"
+            position="0.4 -0.6 -0.1"
+            scale="0.15 0.15 0.15"
             class="clickable"
-            color-randomizer
             rotation="0 0 0" >
         </a-entity>
         <a-entity
