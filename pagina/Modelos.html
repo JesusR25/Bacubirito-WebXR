@@ -10,7 +10,7 @@
           var el = this.el;
           var escena = document.querySelector("#esc");
           escena.addEventListener('click', (e) => {
-            const point = e.detail.intersection.point;
+            const point = e.detail.intersection;
             alert(point);     
             document.querySelector("#footer").innerHTML = 'Soy cobalto';
           });
