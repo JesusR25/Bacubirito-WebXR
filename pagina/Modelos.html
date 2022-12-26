@@ -40,7 +40,7 @@
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div id="footer"></div>
     <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'
-    color-randomizer >
+     >
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
             <a-asset-item id="cobalto" src="../assets/Cobalto.glb" ></a-asset-item>
@@ -69,9 +69,10 @@
         </a-entity>
         <a-entity
             id="cobalto"
+            color-randomizer
             gltf-model="#cobalto"
             position="0 -0.6 -0.1"
-            scale="0.15 0.15 0.15"
+            scale="0.4 0.4 0.4"
             class="clickable"
             rotation="0 0 0"
              >
