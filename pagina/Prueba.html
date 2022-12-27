@@ -1,46 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.js"></script>
-    <!-- IDK Why If I Use This, The addEventListener('click') won't work-->
-    <!--     <script src = "https://aframe.io/releases/1.0.3/aframe.min.js"></script>    -->
-    <!--     <script src = "https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>  -->
-    <script>
-
-        AFRAME.registerComponent('button', {
+<html> 
+    <head>
+        <title>AR.js Click Places Example</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script type='text/javascript' src='../../../../three.js/build/ar-threex-location-only.js'></script>
+        <script type='text/javascript' src='../../../build/aframe-ar-nft.js'></script>
+        <script>
+        AFRAME.registerComponent('clicker', {
             init: function() {
-
-                const gltf = document.querySelector('#animatedApple');
-                var x = gltf.getAttribute('scale').x;
-                var y = gltf.getAttribute('scale').y;
-                var z = gltf.getAttribute('scale').z;
-
-                // every click, we make our model grow in size :)
-                gltf.addEventListener('click', function(ev, target){
-                    console.log(gltf.getAttribute('scale'));
-                    gltf.setAttribute('scale', x + " " + y + " "+ z);
-                    x += 0.1;
-                    y += 0.1;
-                    z += 0.1;
+                this.el.addEventListener('click', e => {
+                    alert('Box clicked!');
                 });
             }
         });
-    </script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-</head>   
-<body>
-    <a-scene embedded arjs = 'sourceType: webcam; debugUIEnabled:false;'>
-    <a-assets>
-        <a-asset-item id = "apple" src = "../assets/Bueno Posicion.glb"></a-asset-item> <!-- change to your assets -->
-    </a-assets>
-    <a-marker id = "appleM" preset="hiro" emitevents="true" button> <!-- change to your marker, i use default hiro.jpg -->
-        <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable; useWorldCoordinates: true;"></a-entity> <!-- important for addEventListener('click'). Notice the '.clickable'-->
-        <a-entity class="clickable" id ="animatedApple" gltf-model = "#apple" position = "0 0 0" rotation="270 0 0" scale = "0.5 0.5 0.5"></a-entity> <!-- Notice the '.clickable'-->
-
-        <a-text id="aText" value="A for Apple"  color = "purple" position = "0 0 0" rotation="270 0 0" scale = "2 2 2"></a-text>
-    </a-marker>
-    <a-entity camera></a-entity>
+        </script>
+    </head>
+    <body>
+    <a-scene
+        vr-mode-ui="enabled: false"
+        cursor='rayOrigin: mouse'
+        raycaster='near: 0; far: 50000'
+        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
+        renderer='antialias: true; alpha: true'>
+            <a-camera gps-new-camera='simulateLatitude: 51.049; simulateLongitude: -0.723'></a-camera>
+            <a-box gps-new-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
     </a-scene>
-</body>
+    </body>
 </html>
