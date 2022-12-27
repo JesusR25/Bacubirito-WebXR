@@ -18,12 +18,6 @@
                 cobalto.addEventListener('click', function(ev, target){
                     alert("Cobaltooo");
                 });
-            }
-        });
-        AFRAME.registerComponent('hi', {
-            init: function() {
-
-                const hierro = document.querySelector('#Hi');
                 hierro.addEventListener('click', function(ev, target){
                     alert("Hierrro");
                 });
@@ -45,7 +39,7 @@
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable; useWorldCoordinates: true;"></a-entity> <!-- important for addEventListener('click'). Notice the '.clickable'-->
 
         <a-entity id="cob" gltf-model="#cobalto" position="0 -0.6 -0.1" scale="0.15 0.15 0.15" class="clickable" rotation="0 0 0"></a-entity>
-        <a-entity id="Hi" gltf-model="#Hierro" position="-0.8 -0.6 -0.1" scale="0.15 0.15 0.15" class="clickable" rotation="0 0 0" hi></a-entity>
+        <a-entity id="Hi" gltf-model="#Hierro" position="-0.8 -0.6 -0.1" scale="0.15 0.15 0.15" class="clickable" rotation="0 0 0" ></a-entity>
         <a-text id="aText" value="A for Apple"  color = "purple" position = "0 0 0" rotation="270 0 0" scale = "2 2 2"></a-text>
     </a-marker>
     <a-entity camera></a-entity>
