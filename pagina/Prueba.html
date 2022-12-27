@@ -44,7 +44,7 @@
     </a-assets>
     <a-marker id = "appleM" preset="hiro" emitevents="true" button> <!-- change to your marker, i use default hiro.jpg -->
         <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable; useWorldCoordinates: true;"></a-entity> <!-- important for addEventListener('click'). Notice the '.clickable'-->
-        <a-entity class="clickable" id ="animatedApple" gltf-model = "#apple" position = "0 -1 0" rotation="0 90 90" scale = "2 2 2"></a-entity>
+
         <a-entity id="cob" gltf-model="#cobalto" position="0 -0.6 -0.1" scale="0.15 0.15 0.15" class="clickable" rotation="0 0 0"></a-entity>
         <a-entity id="hierro" gltf-model="#Hierro" position="-0.4 -0.6 -0.1" scale="0.15 0.15 0.15" class="clickable" rotation="0 0 0" ></a-entity>
         <a-text id="aText" value="A for Apple"  color = "purple" position = "0 0 0" rotation="270 0 0" scale = "2 2 2"></a-text>
