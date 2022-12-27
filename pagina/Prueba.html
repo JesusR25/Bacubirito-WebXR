@@ -11,17 +11,10 @@
         AFRAME.registerComponent('button', {
             init: function() {
 
-                const gltf = document.querySelector('#animatedApple');
                 const cobalto = document.querySelector('#cob');
                 const hierro = document.querySelector('#hierro');
-                var x = gltf.getAttribute('scale').x;
-                var y = gltf.getAttribute('scale').y;
-                var z = gltf.getAttribute('scale').z;
 
                 // every click, we make our model grow in size :)
-                gltf.addEventListener('click', function(ev, target){
-                    alert("Clickkk");
-                });
                 cobalto.addEventListener('click', function(ev, target){
                     alert("Cobaltooo");
                 });
