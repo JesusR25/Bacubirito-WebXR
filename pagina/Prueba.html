@@ -18,6 +18,7 @@
 
                 // every click, we make our model grow in size :)
                 gltf.addEventListener('click', function(ev, target){
+                    alert("Clickkk");
                     console.log(gltf.getAttribute('scale'));
                     gltf.setAttribute('scale', x + " " + y + " "+ z);
                     x += 0.1;
