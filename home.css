@@ -1,0 +1,33 @@
+:root, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  div.bolaNavidad {
+    left: 10%;
+    top: 10%;
+    width: 20%;
+    height:0;
+    padding-bottom: 20%;
+    background-image: url(https://thumbs.dreamstime.com/b/fondo-de-la-textura-del-azufre-29601236.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: -.75em -.25em 0 0 rgba(0,0,0,.1) inset,
+    .2em .1em 0 0 rgba(255,255,255,.2) inset;
+    animation: bolas 40s infinite linear;
+  }
+  
+  @keyframes bolas {
+    from {
+      background-position: left center;
+    }
+  
+    to {
+      background-position: -800px center;
+    }
+  }

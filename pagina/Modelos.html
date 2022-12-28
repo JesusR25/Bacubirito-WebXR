@@ -55,9 +55,9 @@
 
     <a-marker
         type='pattern' url='../assets/pattern-Willamette.patt'
+        raycaster="objects: .clickable"
         emitevents="true"
-        cursor='rayOrigin: mouse' 
-        raycaster='near: 0; far: 50000'
+        cursor="fuse: false; rayOrigin: mouse;"
         id="markerA" >
         <a-entity
             id="bowser-model"
@@ -72,7 +72,7 @@
             color-randomizer
             gltf-model="#cobalto"
             position="0 -0.6 -0.1"
-            scale="0.4 0.4 0.4"
+            scale="0.15 0.15 0.15"
             class="clickable"
             rotation="0 0 0"
              >
