@@ -5,6 +5,7 @@
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
         <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script>
         AFRAME.registerComponent('clicker', {
             init: function() {
@@ -22,8 +23,18 @@
         raycaster='near: 0; far: 50000'
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
         renderer='antialias: true; alpha: true'>
-            <a-camera gps-new-camera='simulateLatitude: 51.049; simulateLongitude: -0.723'></a-camera>
-            <a-box gps-new-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
+        <a-assets timeout="30000">
+            <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
+              <!-- Esto es un comentario  position="-1 0 1"-->
+        </a-assets>
+            <a-marker preset="hiro">
+                <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+                <a-entity
+                position="0 0 0"
+                scale="0.05 0.05 0.05"
+                gltf-model="#bowser"
+                ></a-entity>
+            </a-marker>
     </a-scene>
     </body>
 </html>
