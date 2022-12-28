@@ -4,8 +4,7 @@
         <title>AR.js Click Places Example</title>
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
-        <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js
-'></script>
+        <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
         <script>
         AFRAME.registerComponent('clicker', {
             init: function() {
@@ -17,14 +16,14 @@
         </script>
     </head>
     <body>
-    <a-scene
-        vr-mode-ui="enabled: false"
-        cursor='rayOrigin: mouse'
-        raycaster='near: 0; far: 50000'
-        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
-        renderer='antialias: true; alpha: true'>
-            <a-camera gps-new-camera='simulateLatitude: 51.049; simulateLongitude: -0.723'></a-camera>
-            <a-box gps-new-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
+    <a-scene vr-mode-ui="enabled: false" cursor='rayOrigin: mouse' raycaster='near: 0; far: 50000' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;' renderer='antialias: true; alpha: true'>
+        <a-assets timeout="30000">
+            <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
+        </a-assets>
+        <a-marker preset="hiro">
+            <a-entity camera></a-entity>
+            <a-entity id="bowser-model" gltf-model="#spinosaurus" position="0 -1 0" scale="2 2 2" rotation="0 90 90" ></a-entity>
+        </a-marker>
     </a-scene>
     </body>
 </html>
