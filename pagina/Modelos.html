@@ -55,9 +55,9 @@
 
     <a-marker
         type='pattern' url='../assets/pattern-Willamette.patt'
-        raycaster="objects: .clickable"
         emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
+        cursor='rayOrigin: mouse' 
+        raycaster='near: 0; far: 50000'
         id="markerA" >
         <a-entity
             id="bowser-model"
