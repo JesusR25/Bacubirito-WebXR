@@ -10,7 +10,9 @@
         init: function () {
           let colors = ["red", "green", "blue", "black", "orange", "white"]
           var el = this.el;
-          el.addEventListener('click', (e) => {     
+          el.addEventListener('click', (e) => {
+            el.removeAttribute('gltf-model');
+            el.setAttribute('gltf-model', '#azufre') 
             document.querySelector("#footer").innerHTML = 'Soy cobalto';
           });
         }
@@ -45,7 +47,7 @@
             <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
             <a-asset-item id="cobalto" src="../assets/EsferaCob.glb" ></a-asset-item>
             <a-asset-item id="Hierro" src="../assets/Hierro.glb" ></a-asset-item>
-            <a-asset-item id="azufre" src="../assets/Azufre.glb" ></a-asset-item>
+            <a-asset-item id="azufre" src="../assets/EsferaAzu.glb" ></a-asset-item>
             <a-asset-item id="niquel" src="../assets/Niquel.glb" ></a-asset-item>
             <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
               <!-- Esto es un comentario  position="-1 0 1"-->
