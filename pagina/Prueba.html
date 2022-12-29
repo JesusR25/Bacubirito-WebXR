@@ -10,7 +10,7 @@
           let colors = ["red", "green", "blue", "black", "orange", "white"]
           var el = this.el;
           el.addEventListener('click', (e) => {     
-            this.el.setAttribute('color', colors[Math.floor(Math.random() * colors.length)])
+            alert("Funciono");
           });
         }
       });
@@ -19,7 +19,7 @@
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
       <a-marker-camera preset='hiro' cursor="rayOrigin: mouse" >
-        <a-sphere position="0 0.5 0" radius="0.25"></a-sphere>
+        <a-sphere position="0 0.5 0" radius="0.25" color-randomizer></a-sphere>
       </a-marker-camera>
     </a-scene>
   </body>
