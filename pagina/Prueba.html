@@ -1,40 +1,46 @@
-<html>
-  <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-  <!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/3.0.0/aframe/build/aframe-ar.js"></script> -->
-  <script src="https://raw.githack.com/jeromeetienne/AR.js/2.2.2/aframe/build/aframe-ar.min.js"></script>
-
-  <script src="../js/cursor.js" defer></script>
-  <script>
-    AFRAME.registerComponent('color-randomizer', {
-        init: function () {
-          let colors = ["red", "green", "blue", "black", "orange", "white"]
-          var el = this.el;
-          el.addEventListener('click', (e) => {     
-            alert("Funciono");
-          });
-        }
-      });
-  </script>
-  
-  <script>
-    AFRAME.registerComponent('otro', {
-        init: function () {
-          let colors = ["red", "green", "blue", "black", "orange", "white"]
-          var el = this.el;
-          el.addEventListener('click', (e) => {     
-            alert("Funciono");
-          });
-        }
-      });
-  </script>
-
-  <body style="margin : 0px; overflow: hidden;">
-    <a-scene arjs>
-      <a-marker-camera preset='hiro' cursor='rayOrigin: mouse'
-      raycaster='near: 0; far: 50000' >
-        <a-sphere position="0 1 0" radius="0.25" color-randomizer></a-sphere>
-        <a-sphere position="0.8 0.5 0" radius="0.20" color="#EF2D5E" otro></a-sphere>
-      </a-marker-camera>
-    </a-scene>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+    <script>
+    AFRAME.registerComponent('foo', {
+      init: function() {
+        this.el.addEventListener("click", (e)=>{
+          console.log(e)
+          document.querySelector("a-animation").emit("buttonpressed")
+          let a = document.createElement("p")
+          a.innerHTML = "CLICK"
+          document.querySelector("#text").appendChild(a)
+        })
+      }
+    })
+    </script>
+  </head>
+<body style="margin : 0px; overflow: hidden;">
+  <div style="z-index: 99; position: fixed; top: 0; right: 0" id="text">
+    
+  </div>
+	<a-scene embedded arjs="sourceType: webcam;">
+    <a-marker preset="hiro" cursor='rayOrigin: mouse'>
+		  <a-box position="0 0 0" scale='0.5 0.5 0.5' material="opacity: 0.5;" foo>
+          <a-animation begin="buttonpressed" dur="2050" attribute="color" from="white" to="blue" direction="alternate"></a-animation>
+      </a-box>
+    </a-marker>
+  <a-camera-static/>
+	</a-scene>
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
   </body>
 </html>
