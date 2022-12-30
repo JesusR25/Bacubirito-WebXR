@@ -3,12 +3,13 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+<script src="../js/cursor.js" defer></script>
 <script>
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
-        let idx = 0;
+          var el = this.el;
           el.addEventListener('click', (e) => {
-            alert("Funciona 1");
+            alert("Model 1");
           });
         }
       });
@@ -16,7 +17,7 @@
         init: function () {
           var el = this.el;
           el.addEventListener('click', (e) => {
-            alert("Funciona 2");
+            alert("Model 2");
           });
         }
       });
@@ -63,6 +64,7 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        
         id="markerA" >
         <a-entity
             id="cobalto"
@@ -70,12 +72,12 @@
             position="0 0 0"
             scale="0.50 0.50 0.50"
             class="clickable"
-            color-randomizer
             rotation="0 0 0"
+            color-randomizer
              >
         </a-entity>
         <a-entity
-            id="azu"
+            id="az"
             gltf-model="#azufre"
             position="0 0 0"
             scale="0.50 0.50 0.50"
