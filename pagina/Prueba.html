@@ -44,7 +44,8 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div id="footer"></div>
-    <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'
+    <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' cursor='rayOrigin: mouse'
+    raycaster='near: 0; far: 50000'
      >
         <a-assets timeout="30000">
             <a-asset-item id="spinosaurus" src="../assets/Bueno Posicion.glb" ></a-asset-item>
@@ -60,17 +61,13 @@
 
     <a-marker
         preset="hiro"
-        raycaster="objects: .clickable"
         emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        
         id="markerA" >
         <a-entity
             id="cobalto"
             gltf-model="#cobalto"
             position="0 0 0"
             scale="0.50 0.50 0.50"
-            class="clickable"
             rotation="0 0 0"
             color-randomizer
              >
@@ -80,7 +77,6 @@
             gltf-model="#azufre"
             position="0.8 0 0"
             scale="0.50 0.50 0.50"
-            class="clickable"
             rotation="0 0 0"
             otro
              >
