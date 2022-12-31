@@ -8,6 +8,7 @@
     AFRAME.registerComponent('color-randomizer', {
         init: function () {
         const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
+        const meteoros = ["metcob", "metniq", "methie", "metazu"];
         let idx = 0;
         var el = this.el;
         //Variables
@@ -20,9 +21,17 @@
         //Evento click
         document.querySelector("#footer").innerHTML = `#${introduccion}`;
           el.addEventListener('click', (e) => {
+            //Cambiar elemento
             el.removeAttribute('gltf-model');
             el.setAttribute('gltf-model', `#${modelList[idx]}`) 
+            //Texto sobre informacion del material
             document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
+            //Mostrar meteoro del elemento
+            var mete = document.querySelector("#mod");
+            mete.setAttribute("visible",true);
+            mete.querySelector("#mod").removeAttribute('gltf-model');
+            mete.querySelector("#mod").setAttribute('gltf-model', `#${meteoros[idx]}`);
+            //Avanzar lista
             idx = (idx + 1) % modelList.length;
           });
         }
@@ -41,7 +50,7 @@
         justify-content: center;
         align-items: center;
         color: white;
-        font-size: 10px;
+        font-size: 12px;
     }
 </style>
 
@@ -59,6 +68,11 @@
             <a-asset-item id="Hierro" src="../assets/EsfTamHie.glb" ></a-asset-item>
             <a-asset-item id="azufre" src="../assets/EsfTamAzu.glb" ></a-asset-item>
             <a-asset-item id="niquel" src="../assets/EsfTamNiq.glb" ></a-asset-item>
+            <!-- Meteoro de elementos-->
+            <a-asset-item id="metcob" src="../assets/CompCob.glb" ></a-asset-item>
+            <a-asset-item id="methie" src="../assets/CompHie.glb" ></a-asset-item>
+            <a-asset-item id="metazu" src="../assets/CompAzu.glb" ></a-asset-item>
+            <a-asset-item id="metniq" src="../assets/CompNiq.glb" ></a-asset-item>
             <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
             <!-- Esto es un comentario  position="-1 0 1"-->
               <!-- Esto es un comentario  position="-1 0 1"-->
@@ -80,6 +94,16 @@
             scale="1 1 1"
             class="clickable"
             rotation="0 0 0"
+             >
+        </a-entity>
+        <a-entity
+            id="mod"
+            gltf-model="#metcob"
+            position="0 -1.5 0"
+            scale="0.5 0.5 0.5"
+            class="clickable"
+            rotation="0 0 0"
+            visible="false"
              >
         </a-entity>
     </a-marker> 
