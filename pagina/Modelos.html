@@ -19,7 +19,7 @@
         let textniq = 'El meteorito de Bacubirito contiene un 6.98% de Niquel.';
         const listtext = [textcob,textniq,texthie,textazu];
         //Evento click
-        document.querySelector("#footer").innerHTML = `#${introduccion}`;
+        document.querySelector("#footer").innerHTML = `${introduccion}`;
           el.addEventListener('click', (e) => {
             //Cambiar elemento
             el.removeAttribute('gltf-model');
@@ -85,6 +85,7 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        color-randomizer
         id="markerA" >
         <a-entity
             id="cobalto"
@@ -93,13 +94,12 @@
             scale="1 1 1"
             class="clickable"
             rotation="0 0 0"
-            color-randomizer
              >
         </a-entity>
         <a-entity
             id="mod"
             gltf-model="#metcob"
-            position="0 1.5 0"
+            position="0 0 1.5"
             scale="0.5 0.5 0.5"
             class="clickable"
             rotation="0 0 0"
