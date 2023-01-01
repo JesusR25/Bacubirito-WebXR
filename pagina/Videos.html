@@ -115,15 +115,15 @@
             AFRAME.registerComponent('tipos', {
 
                 init: function () {
-                    var marker2 = this.el;
+                    var marker3 = this.el;
                     this.vid = document.querySelector("#vidtipos");
 
-                    marker2.addEventListener('markerFound', function () {
+                    marker3.addEventListener('markerFound', function () {
                         var x = document.getElementById("botonestipos");
                         x.style.display = "block";
-
                         this.toggle = true;
                         this.vid.play();
+
                         document.getElementById("btn9").addEventListener("click", (e)=> {
                             this.vid.muted=false; })
                         document.getElementById("btn10").addEventListener("click", (e)=>{
@@ -135,7 +135,7 @@
                         
                     }.bind(this));
 
-                    marker2.addEventListener('markerLost', function () {
+                    marker3.addEventListener('markerLost', function () {
                         var x = document.getElementById("botonestipos");
                         x.style.display = "none";
                         this.toggle = false;
