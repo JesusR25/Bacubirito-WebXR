@@ -21,7 +21,6 @@
         //Evento click
         document.querySelector("#footer").innerHTML = `${introduccion}`;
           el.addEventListener('click', (e) => {
-            alert(`#${idx}`);
             //Cambiar elemento
             el.removeAttribute('gltf-model');
             el.setAttribute('gltf-model', `#${modelList[idx]}`) 
@@ -31,7 +30,9 @@
             var mete = document.querySelector("#mod");
             mete.setAttribute("visible",true);
             mete.removeAttribute('gltf-model');
+            mete.removeAttribute('scale');
             mete.setAttribute('gltf-model', `#${meteoros[idx]}`);
+            mete.setAttribute('scale', '0.5 0.5 0.5');
             //Avanzar lista
             idx = (idx + 1) % modelList.length;
           });
@@ -86,12 +87,12 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
-        color-randomizer
         id="markerA" >
         <a-entity
             id="cobalto"
             gltf-model="#cobalto"
-            position="0 0 0"
+            position="0 0 -1.5"
+            color-randomizer
             scale="1 1 1"
             class="clickable"
             rotation="0 0 0"
