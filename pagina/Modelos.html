@@ -22,8 +22,9 @@
         document.querySelector("#footer").innerHTML = `${introduccion}`;
           el.addEventListener('click', (e) => {
             //Cambiar elemento
-            el.removeAttribute('gltf-model');
-            el.setAttribute('gltf-model', `#${modelList[idx]}`) 
+            var esfera = document.querySelector("#cob");
+            esfera.removeAttribute('gltf-model');
+            esfera.setAttribute('gltf-model', `#${modelList[idx]}`) 
             //Texto sobre informacion del material
             document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
             //Mostrar meteoro del elemento
@@ -90,7 +91,7 @@
         color-randomizer
         id="markerA" >
         <a-entity
-            id="cobalto"
+            id="cob"
             gltf-model="#cobalto"
             position="0 0 -1.2"
             scale="1 1 1"
