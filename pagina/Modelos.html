@@ -11,6 +11,7 @@
         const meteoros = ["metcob", "metniq", "methie", "metazu"];
         let idx = 0;
         var el = this.el;
+        var prin = document.querySelector("#cob");
         //Variables
         let introduccion='El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.';
         let textazu = 'El meteorito de Bacubirito contiene un 0.005% de Azufre.';
@@ -20,7 +21,7 @@
         const listtext = [textcob,textniq,texthie,textazu];
         //Evento click
         document.querySelector("#footer").innerHTML = `${introduccion}`;
-          el.addEventListener('click', (e) => {
+          prin.addEventListener('click', (e) => {
             //Cambiar elemento
             var esfera = document.querySelector("#cob");
             esfera.removeAttribute('gltf-model');
@@ -87,12 +88,12 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        color-randomizer
         id="markerA" >
         <a-entity
             id="cob"
             gltf-model="#cobalto"
             position="0 0 -1"
-            color-randomizer
             scale="1 1 1"
             class="clickable"
             rotation="0 0 0"
