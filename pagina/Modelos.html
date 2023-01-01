@@ -28,6 +28,10 @@
             //Texto sobre informacion del material
             document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
             //Mostrar meteoro del elemento
+            var mete = document.querySelector("#mod");
+            mete.setAttribute("visible",true);
+            mete.removeAttribute('gltf-model');
+            mete.setAttribute('gltf-model', `#${meteoros[idx]}`);
             //Avanzar lista
             idx = (idx + 1) % modelList.length;
           });
