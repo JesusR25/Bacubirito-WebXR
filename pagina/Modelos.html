@@ -23,9 +23,8 @@
         document.querySelector("#footer").innerHTML = `${introduccion}`;
           el.addEventListener('click', (e) => {
             //Cambiar elemento
-            var esfera = document.querySelector("#cob");
-            esfera.removeAttribute('gltf-model');
-            esfera.setAttribute('gltf-model', `#${modelList[idx]}`) 
+            prin.removeAttribute('gltf-model');
+            prin.setAttribute('gltf-model', `#${modelList[idx]}`) 
             //Texto sobre informacion del material
             document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
             //Mostrar meteoro del elemento
