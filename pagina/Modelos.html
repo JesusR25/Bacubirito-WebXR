@@ -21,6 +21,7 @@
         //Evento click
         document.querySelector("#footer").innerHTML = `${introduccion}`;
           el.addEventListener('click', (e) => {
+            alert(`#${idx}`);
             //Cambiar elemento
             el.removeAttribute('gltf-model');
             el.setAttribute('gltf-model', `#${modelList[idx]}`) 
