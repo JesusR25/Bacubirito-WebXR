@@ -29,7 +29,6 @@
             document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
             //Mostrar meteoro del elemento
             var mete = document.querySelector("#mod");
-            mete.setAttribute("visible",true);
             mete.removeAttribute('gltf-model');
             mete.removeAttribute('scale');
             mete.setAttribute('gltf-model', `#${meteoros[idx]}`);
@@ -101,12 +100,10 @@
         </a-entity>
         <a-entity
             id="mod"
-            gltf-model="#metcob"
             position="0 0 1.5"
             scale="0.5 0.5 0.5"
             class="clickable"
             rotation="0 0 0"
-            visible="false"
              >
         </a-entity>
     </a-marker> 
