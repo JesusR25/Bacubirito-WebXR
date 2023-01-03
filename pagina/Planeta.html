@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Earth</title>
+        <meta name="description" content="Inside Earth in VR with A-Frame">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+      </head>
+      <body>
+        <a-scene loading-screen="dotsColor: red; backgroundColor: black" fog="type: exponential" >
+            <a-assets>
+                <img id="moon" src="../assets/moon.jpg"/>
+                <img id="earth" src="../assets/earth.jpg"/>
+                <img id="stars" src="../assets/stars.jpg"/>
+                <img id="clouds" src="../assets/clouds.png"/>
+                <img id="moon_displacement" src="../assets/moon disp.jpg"/>
+            </a-assets>
+            <a-entity>
+            <a-animation
+                attribute="rotation"
+			    easing="linear" 
+			    dur="100000"
+			    fill="forwards"
+			    to="0 360 0"
+			    repeat="indefinite">
+            </a-animation>
+            <a-sphere position="0 .25 0" radius="3.28" material="src:#clouds;opacity: .99">
+            <a-animation 
+                attribute="rotation"
+			    easing="linear" 
+			    dur="220000"
+			    fill="forwards"
+			    from="210 -270 0"      
+			    to="-150 90 0"
+			    repeat="indefinite">
+            </a-animation>
+            </a-sphere>
+            <a-sphere position="0 .25 0" radius="3.25" material="src:#earth; roughness: 1;">
+            <a-animation attribute="rotation"
+			    easing="linear" 
+			    dur="150000"
+			    fill="forwards"
+			    to="0 360 0"
+			    repeat="indefinite">
+            </a-animation>
+            <a-entity position="20 0 1">
+                <a-sphere 
+                  src="#moon" 
+                  displacement-map="#moon_displacement" 
+                  displacement-bias="0.5"
+                  displacement-scale="0.2"           
+                  segments-height="128"
+                  segments-width="128"              
+                  position="0 0 0" 
+                  radius=".75" 
+                  roughness="1"
+                  >
+                </a-sphere>
+                <a-animation attribute="rotation"
+                     easing="linear"         
+                     dur="150000"
+                     fill="forwards"
+                     to="0 360 0"
+                     repeat="indefinite"></a-animation>
+              </a-entity>
+            </a-sphere>
+            </a-entity>
+            <a-entity light="color: #fff4cc; intensity: 1.75" position=".7 0 -1"></a-entity>
+            <a-sky 
+                id="image-360" src="#stars"
+                animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+                animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
+            </a-sky>
+            <a-entity camera="userHeight: 1.6" look-controls position="12 0 0" rotation="0 90 0"></a-entity>
+        </a-scene>
+      </body>
+</html>
