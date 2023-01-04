@@ -4,9 +4,10 @@
         <title>Meteoritos mas grandes</title>
         <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     </head>
     <body>
-        <a-scene id="escena" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'>
+        <a-scene id="escena" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
             <a-assets timeout="3000">
                 <img id="AgpaFicha" src="../assets/MetGrandes/Agpalilik.png"/>
                 <img id="AhniFicha" src="../assets/MetGrandes/Ahnighito.png"/>
@@ -21,7 +22,7 @@
             </a-assets>
 
             <a-marker preset="hiro">
-                <a-entity position="-90 0 0">
+                <a-entity position="0 0 0" rotation="90 0 0">
                     <a-image src="#AgpaFicha"></a-image>
                 </a-entity>
             </a-marker>
