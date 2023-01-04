@@ -21,7 +21,7 @@
                 <img id="WillFicha" src="../assets/MetGrandes/Willamette.png"/>
             </a-assets>
 
-            <a-marker preset="hiro" gesture-handler>
+            <a-marker preset="hiro" gesture-handler raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
                 <a-entity rotation="0 0 0" position="0 0.5 0" >
                     <a-image src="#AgpaFicha" ></a-image>
                 </a-entity>
