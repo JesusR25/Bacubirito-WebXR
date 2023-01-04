@@ -1,3 +1,68 @@
 <html>
-    
+    <head>
+        <meta charset="utf-8" />
+        <title>Meteoritos mas grandes</title>
+        <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    </head>
+    <body>
+        <a-scene id="escena" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'>
+            <a-assets timeout="3000">
+                <img id="AgpaFicha" src="../assets/MetGrandes/Agpalilik.png"/>
+                <img id="AhniFicha" src="../assets/MetGrandes/Ahnighito.png"/>
+                <img id="ArmaFicha" src="../assets/MetGrandes/Armanty.png"/>
+                <img id="BacuFicha" src="../assets/MetGrandes/Bacubirito.png"/>
+                <img id="ChupFicha" src="../assets/MetGrandes/Chupaderos.png"/>
+                <img id="ChacFicha" src="../assets/MetGrandes/ElChaco.png"/>
+                <img id="HobaFicha" src="../assets/MetGrandes/Hoba.png"/>
+                <img id="MbozFicha" src="../assets/MetGrandes/Mbozi.png"/>
+                <img id="MundFicha" src="../assets/MetGrandes/Mundrabilla.png"/>
+                <img id="WillFicha" src="../assets/MetGrandes/Willamette.png"/>
+            </a-assets>
+
+            <a-marker preset="hiro">
+                <a-entity position="0 0 0">
+                    <a-image src="#AgpaFicha"></a-image>
+                </a-entity>
+            </a-marker>
+
+            <a-marker>
+                <a-image src="#AhniFicha"></a-image>
+            </a-marker>
+
+            <a-marker>
+                <a-image src="#ArmaFicha"></a-image>
+            </a-marker>
+            
+            <a-marker>
+                <a-image src="#BacuFicha"></a-image>
+            </a-marker>
+
+            <a-marker>
+                <a-image src="#ChupFicha"></a-image>
+            </a-marker>
+
+            <a-marker>
+                <a-image src="#ChacFicha"></a-image>
+            </a-marker>
+
+            <a-marker>
+                <a-image src="#HobaFicha"></a-image>
+            </a-marker>
+
+            <a-marker>
+                <a-image src="#MbozFicha"></a-image>
+            </a-marker>
+
+            <a-marker>
+                <a-image src="#MundFicha"></a-image>
+            </a-marker>
+
+            <a-marker>
+                <a-image src="#WillFicha"></a-image>
+            </a-marker>
+
+
+        </a-scene>
+    </body>
 </html>
