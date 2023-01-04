@@ -9,12 +9,16 @@
     <body>
         <a-scene id="escena" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector>
             <assets>
-                <img id="luna" src="../assets/MetGrandes/Agpalilik.png"/>
+                <img id="AgpaInfo" src="../assets/MetGrandes/Agpalilik.png"/>
+                <img id="Agpa" src="../assets/MetImg/Met-Agpalilik.png"/>
             </assets>
 
             <a-marker preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
-                <a-entity rotation="-90 0 0" position="0 0 1">
-                    <a-image src="#luna"></a-image>
+                <a-entity rotation="-90 0 0" position="0 0 0.5">
+                    <a-image src="#AgpaInfo"></a-image>
+                </a-entity>
+                <a-entity rotation="-90 0 0" position="0 0 -1">
+                    <a-image src="#Agpa"></a-image>
                 </a-entity>
             </a-marker>
 
