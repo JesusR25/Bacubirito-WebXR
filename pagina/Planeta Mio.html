@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Tierra con Luna</title>
+        <meta name="description" content="360&deg; Image - A-Frame">
         <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
         <style>
             #arriba{
@@ -23,11 +24,11 @@
         <div id="arriba">Se puede ver nuestro planeta desde el espacio. A un lado, se ubica un asteroide rotando</div>
     </head>
     <body>
-        <a-scene>
+        <a-scene >
+            <a-sky src="../assets/stars.jpg" rotation="0 -130 0"></a-sky>
             <assets>
                 <img id="luna" src="../assets/moon.jpg"/>
                 <img id="tierra" src="../assets/earth.jpg"/>
-                <img id="fondo" src="../assets/stars.jpg"/>
                 <img id="nubes" src="../assets/clouds.png"/>
                 <img id="luna_dis" src="../assets/moon disp.jpg"/>
                 <a-asset-item id="meteoro" src="../assets/Meteoro Vista.glb" ></a-asset-item>
