@@ -59,6 +59,15 @@
                         document.querySelector("#agpin").setAttribute("visible", true);
                         document.querySelector("#agpim").setAttribute("visible", true);
                     }.bind(this));
+
+                    marker2.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#ahnin").setAttribute("visible", true);
+                        document.querySelector("#ahnim").setAttribute("visible", true);
+                    }.bind(this));
                 },
             });
             </script>
