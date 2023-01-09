@@ -84,6 +84,7 @@
 
                         //Aqui hacemos todo lo del video del marker correspondiente
                         botones1.style.display = "block";
+                        this.toggle = true;
                         vid.play();
                         document.querySelector("#primero").setAttribute("visible", true);
                         document.getElementById("btn1").addEventListener("click", (e)=>{
@@ -196,8 +197,8 @@
 
 
 
-            <a-video id="primero" visible="false" src="#vid" scale="1 1 1" position="0.2 0 -2" rotation="-90 0 0" class="clickable" videohandler gesture-handler ></a-video>
-            <a-marker id="pri" preset="hiro" smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA"
+            <a-video id="primero" visible="false" src="#vid" scale="1 1 1" position="0.2 0 -2" rotation="-90 0 0" class="clickable" gesture-handler ></a-video>
+            <a-marker id="pri" videohandler preset="hiro" smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA"
             >
             </a-marker>
 
