@@ -52,6 +52,10 @@
                     marker2 = document.querySelector("#ahn");
     
                     marker.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
                         document.querySelector("#agpin").setAttribute("visible", true);
                         document.querySelector("#agpim").setAttribute("visible", true);
                     }.bind(this));
