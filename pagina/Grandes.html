@@ -7,7 +7,36 @@
         <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     </head>
     <body>
-        <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector>
+        <script>
+            AFRAME.registerComponent('videohandler', {
+            init: function () {
+                const listainf = ["agpin", "ahnin", "armin", "bacin", "chuin", "chain", "hobin", "mboin", "munin", "wilin"];
+                const listaimg = ["agpim", "ahnim", "armim", "bacim", "chuim", "chaim", "hobim", "mboim", "munim", "wilim"]
+                marker = document.querySelector("#agp");
+                markerahn = document.querySelector("#ahn");
+
+                marker.addEventListener('markerFound', function () {
+                    for (i = 0; i<listaimg.length; i++){
+                        document.querySelector(`#${listainf[i]}`).setAttribute("visible", false)
+                        document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false)
+                    }
+                    document.querySelector("#agpin").setAttribute("visible", true);
+                    document.querySelector("#agpim").setAttribute("visible", true);
+                }.bind(this));
+
+                markerahn.addEventListener('markerFound', function () {
+                    for (i = 0; i<listaimg.length; i++){
+                        document.querySelector(`#${listainf[i]}`).setAttribute("visible", false)
+                        document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false)
+                    }
+                    document.querySelector("#ahnin").setAttribute("visible", true);
+                    document.querySelector("#ahnim").setAttribute("visible", true);
+                }.bind(this));
+            },
+        });
+        </script>
+
+        <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector videohandler>
             <assets>
                 <!-- Meteorito Agpalilik -->
                 <img id="AgpaInfo" src="../assets/MetGrandes/Agpalilik.png"/>
@@ -42,26 +71,8 @@
 
             </assets>
 
-            <script>
-                AFRAME.registerComponent('videohandler', {
-                init: function () {
-                    const listainf = ["agpin", "ahnin", "armin", "bacin", "chuin", "chain", "hobin", "mboin", "munin", "wilin"];
-                    const listaimg = ["agpim", "ahnim", "armim", "bacim", "chuim", "chaim", "hobim", "mboim", "munim", "wilim"]
-                    marker = document.querySelector("#agp");
-                    infoagpa = document.querySelector("#agpin");
-                    imgagpa = document.querySelector("#agpim");
-
-                    marker.addEventListener('markerFound', function () {
-                        infoagpa.setAttribute("visible", true);
-                        imgagpa.setAttribute("visible", true);
-
-                    }.bind(this));
-                },
-            });
-            </script>
-
             <!-- Marker Meteorito Agpalilik -->
-            <a-entity id="agpin" position="0.2 -1 -2" visible="false" videohandler>
+            <a-entity id="agpin" position="0.2 -1 -2" visible="false">
                 <a-image src="#AgpaInfo"></a-image>
             </a-entity>
             <a-entity id="agpim" position="0.2 1 -2" visible="false">
@@ -72,90 +83,90 @@
 
 
             <!-- Marker Meteorito Ahnighito -->
-            <a-entity id="ahnin">
+            <a-entity id="ahnin" position="0.2 -1 -2" visible="false">
                 <a-image src="#AhniInfo"></a-image>
             </a-entity>
-            <a-entity id="ahnim">
+            <a-entity id="ahnim" position="0.2 -1 -2" visible="false">
                 <a-image src="#Ahni"></a-image>
             </a-entity>
-            <a-marker type='pattern' url='../assets/MarkersMG/pattern-Ahnighito.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+            <a-marker id="ahn" type='pattern' url='../assets/MarkersMG/pattern-Ahnighito.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <!-- Marker Meteorito Armanty -->
-            <a-entity id="armin">
+            <a-entity id="armin" position="0.2 -1 -2" visible="false">
                 <a-image src="#ArmaInfo"></a-image>
             </a-entity>
-            <a-entity id="armim">
+            <a-entity id="armim" position="0.2 -1 -2" visible="false">
                 <a-image src="#Arma"></a-image>
             </a-entity>
             <a-marker type='pattern' url='../assets/MarkersMG/pattern-Armanty.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <!-- Marker Meteorito Bacubirito -->
-            <a-entity id="bacin">
+            <a-entity id="bacin" position="0.2 -1 -2" visible="false">
                 <a-image src="#BacuInfo"></a-image>
             </a-entity>
-            <a-entity id="bacim">
-                <a-image src="#Bacu"></a-image>
+            <a-entity id="bacim" position="0.2 -1 -2" visible="false">
+                <a-image src="#Bacu" ></a-image>
             </a-entity>
             <a-marker type='pattern' url='../assets/MarkersMG/pattern-Bacubirito.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <!-- Marker Meteorito Chupaderos -->
-            <a-entity id="chuin">
+            <a-entity id="chuin" position="0.2 -1 -2" visible="false">
                 <a-image src="#ChupInfo"></a-image>
             </a-entity>
-            <a-entity id="chuim">
+            <a-entity id="chuim" position="0.2 -1 -2" visible="false">
                 <a-image src="#Chup"></a-image>
             </a-entity>
             <a-marker type='pattern' url='../assets/MarkersMG/pattern-Chupaderos.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <!-- Marker Meteorito El chaco -->
-            <a-entity id="chain">
+            <a-entity id="chain" position="0.2 -1 -2" visible="false">
                 <a-image src="#ChacInfo"></a-image>
             </a-entity>
-            <a-entity id="chaim">
+            <a-entity id="chaim" position="0.2 -1 -2" visible="false">
                 <a-image src="#Chac"></a-image>
             </a-entity>
             <a-marker type='pattern' url='../assets/MarkersMG/pattern-ElChaco.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <!-- Marker Meteorito Hoba -->
-            <a-entity id="hobin">
+            <a-entity id="hobin" position="0.2 -1 -2" visible="false">
                 <a-image src="#HobaInfo"></a-image>
             </a-entity>
-            <a-entity id="hobim">
+            <a-entity id="hobim" position="0.2 -1 -2" visible="false">
                 <a-image src="#Hoba"></a-image>
             </a-entity>
             <a-marker type='pattern' url='../assets/MarkersMG/pattern-Hoba.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <!-- Marker Meteorito Mbozi -->
-            <a-entity id="mboin">
+            <a-entity id="mboin" position="0.2 -1 -2" visible="false">
                 <a-image src="#MbozInfo"></a-image>
             </a-entity>
-            <a-entity id="mboim">
+            <a-entity id="mboim" position="0.2 -1 -2" visible="false">
                 <a-image src="#Mboz"></a-image>
             </a-entity>
             <a-marker type='pattern' url='../assets/MarkersMG/pattern-Mbozi.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <!-- Marker Meteorito Mundrabilla -->
-            <a-entity id="munin">
+            <a-entity id="munin" position="0.2 -1 -2" visible="false">
                 <a-image src="#MundInfo"></a-image>
             </a-entity>
-            <a-entity id="munim">
+            <a-entity id="munim" position="0.2 -1 -2" visible="false">
                 <a-image src="#Mund"></a-image>
             </a-entity>
             <a-marker type='pattern' url='../assets/MarkersMG/pattern-Mundrabilla.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <!-- Marker Meteorito Willamete -->
-            <a-entity id="wilin">
+            <a-entity id="wilin" position="0.2 -1 -2" visible="false">
                 <a-image src="#WillInfo"></a-image>
             </a-entity>
-            <a-entity id="wilim">
+            <a-entity id="wilim" position="0.2 -1 -2" visible="false">
                 <a-image src="#Will"></a-image>
             </a-entity>
             <a-marker type='pattern' url='../assets/MarkersMG/pattern-Willamete.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
