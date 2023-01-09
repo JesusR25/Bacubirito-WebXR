@@ -75,7 +75,8 @@
                     marker.addEventListener('markerLost', function () {
                         var x = document.getElementById("botones");
                         x.style.display = "none";
-                        this.vid.pause();
+                        document.querySelector("#primero").setAttribute("position", "0.2 1 -2");
+                        
                     }.bind(this));
                 },
             });
@@ -206,6 +207,7 @@
                 id="markerA"
             >
                 <a-video
+                id="primero"
                     src="#vid"
                     scale="1 1 1"
                     position="0 0.1 0"
