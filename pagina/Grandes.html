@@ -46,25 +46,25 @@
                 AFRAME.registerComponent('videohandler', {
                 init: function () {
                     marker = document.querySelector("#agp");
+                    infoagpa = document.querySelector("#agpin");
+                    imgagpa = document.querySelector("#agpim");
 
                     marker.addEventListener('markerFound', function () {
-                        this.el.setAttribute("position", "0.2 -0.066 -3.74");
-                        console.log(marker.getAttribute("position")); 
-                        this.el.setAttribute("rotation", marker.getAttribute("rotation"));
+                        infoagpa.setAttribute("position", "0.2 -1 -3.74");
+                        imgagpa.setAttribute("position", "0.2 1 -3.74");
                     }.bind(this));
                 },
             });
             </script>
 
             <!-- Marker Meteorito Agpalilik -->
-            <a-box color="tomato" depth="2" height="4" width="0.5" videohandler></a-box>
+            <a-entity id="agpin" rotation="-90 0 0" videohandler>
+                <a-image src="#AgpaInfo"></a-image>
+            </a-entity>
+            <a-entity id="agpim" rotation="-90 0 0">
+                <a-image src="#Agpa"></a-image>
+            </a-entity>
             <a-marker id="agp" type='pattern' url='../assets/MarkersMG/pattern-Agpalilik.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
-                <a-entity rotation="-90 0 0" position="0 0 0.5">
-                    <a-image src="#AgpaInfo"></a-image>
-                </a-entity>
-                <a-entity rotation="-90 0 0" position="0 0 -1">
-                    <a-image src="#Agpa"></a-image>
-                </a-entity>
             </a-marker>
 
             <!-- Marker Meteorito Ahnighito -->
