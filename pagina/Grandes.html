@@ -51,17 +51,19 @@
 
                     marker.addEventListener('markerFound', function () {
                         infoagpa.setAttribute("position", "0.2 -1 -2");
+                        infoagpa.setAttribute("rotation", "-90 0 0");
                         imgagpa.setAttribute("position", "0.2 1 -2");
+                        imgagpa.setAttribute("rotation", "-90 0 0")
                     }.bind(this));
                 },
             });
             </script>
 
             <!-- Marker Meteorito Agpalilik -->
-            <a-entity id="agpin" rotation="-90 0 0" videohandler>
+            <a-entity id="agpin" videohandler>
                 <a-image src="#AgpaInfo"></a-image>
             </a-entity>
-            <a-entity id="agpim" rotation="-90 0 0">
+            <a-entity id="agpim">
                 <a-image src="#Agpa"></a-image>
             </a-entity>
             <a-marker id="agp" type='pattern' url='../assets/MarkersMG/pattern-Agpalilik.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
