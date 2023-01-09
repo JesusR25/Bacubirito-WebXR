@@ -53,99 +53,97 @@
 
             AFRAME.registerComponent('videohandler', {
                 init: function () {
-                    //Declaramos las 3 series de botones
-                    var botones1 = document.getElementById("botones");
-                    var botones2 = document.getElementById("botonesorigen");
-                    var botones3 = document.getElementById("botonestipo");
-                    //Declaramos los 3 markers
-                    var marker = document.querySelector("#pri");
-                    var marker2 = document.querySelector("#seg");
-                    var marker2 = document.querySelector("#ter");
-                    //Videos para pausarlos y reproducirlos
-                    var vid = document.querySelector("#vid");
-                    var vid2 = document.querySelector("#vidorigen");
-                    var vid3 = document.querySelector("#vidtipos");
-                    //Videos para esconderlos y manipularlos
-                    var vidfor = document.querySelector("#primero");
-                    var vidfor2 = document.querySelector("#segundo");
-                    var vidfor3 = document.querySelector("#tercero");
+                    var marker = this.el;
+                    this.vid = document.querySelector("#vid");
 
-
-                    //Empiezan los markers
-                    //Marker 1
                     marker.addEventListener('markerFound', function () {
-                        //Primero escondemos todo de los 2 videos anteriores
-                        botones2.style.display = "none";
-                        vid2.pause();
-                        vidfor2.setAttribute("visible",false);
-                        botones3.style.display = "none";
-                        vid3.pause();
-                        vidfor2.setAttribute("visible",false);
-
-                        //Aqui hacemos todo lo del video del marker correspondiente
-                        botones1.style.display = "block";
+                        var x = document.getElementById("botones");
+                            x.style.display = "block";
                         this.toggle = true;
-                        vid.play();
+                        this.vid.play();
                         document.querySelector("#primero").setAttribute("position","0.2 0 -2");
                         document.getElementById("btn1").addEventListener("click", (e)=>{
-                            vid.muted=false; })
+                            this.vid.muted=false; })
                         document.getElementById("btn2").addEventListener("click", (e)=>{
-                            vid.muted=true; })
+                            this.vid.muted=true; })
                         document.getElementById("btn3").addEventListener("click", (e)=>{
-                            vid.pause(); })
+                            this.vid.pause(); })
                         document.getElementById("btn4").addEventListener("click", (e)=>{
-                            vid.play(); })
+                            this.vid.play(); })
                     }.bind(this));
 
-                    //Marker 2
-                    marker2.addEventListener('markerFound', function () {
-                        //Primero escondemos todo de los 2 videos anteriores
-                        botones1.style.display = "none";
-                        vid.pause();
-                        vidfor.setAttribute("visible",false);
-                        botones3.style.display = "none";
-                        vid3.pause();
-                        vidfor3.setAttribute("visible",false);
-
-                        //Aqui hacemos todo lo del video del marker correspondiente
-                        botones2.style.display = "block";
-                        vid2.play();
-                        document.querySelector("#segundo").setAttribute("visible", true);
-                        document.getElementById("btn5").addEventListener("click", (e)=>{
-                            vid2.muted=false; })
-                        document.getElementById("btn6").addEventListener("click", (e)=>{
-                            vid2.muted=true; })
-                        document.getElementById("btn7").addEventListener("click", (e)=>{
-                            vid2.pause(); })
-                        document.getElementById("btn8").addEventListener("click", (e)=>{
-                            vid2.play(); })
-                    }.bind(this));
-
-                    //Marker 3
-                    marker3.addEventListener('markerFound', function () {
-                        //Primero escondemos todo de los 2 videos anteriores
-                        botones1.style.display = "none";
-                        vid.pause();
-                        vidfor.setAttribute("visible",false);
-                        botones2.style.display = "none";
-                        vid2.pause();
-                        vidfor2.setAttribute("visible",false);
-
-                        //Aqui hacemos todo lo del video del marker correspondiente
-                        botones3.style.display = "block";
-                        vid3.play();
-                        document.querySelector("#tercero").setAttribute("visible", true);
-                        document.getElementById("btn9").addEventListener("click", (e)=>{
-                            vid3.muted=false; })
-                        document.getElementById("btn10").addEventListener("click", (e)=>{
-                            vid3.muted=true; })
-                        document.getElementById("btn11").addEventListener("click", (e)=>{
-                            vid3.pause(); })
-                        document.getElementById("btn12").addEventListener("click", (e)=>{
-                            vid3.play(); })
+                    marker.addEventListener('markerLost', function () {
+                        var x = document.getElementById("botones");
+                        x.style.display = "none";
+                        this.toggle = false;
+                        this.vid.pause();
                     }.bind(this));
                 },
             });
+
+            AFRAME.registerComponent('origen', {
+
+                init: function () {
+                    var marker2 = this.el;
+                    this.vid = document.querySelector("#vidorigen");
+
+                    marker2.addEventListener('markerFound', function () {
+                        var x = document.getElementById("botonesorigen");
+                        x.style.display = "block";
+                        this.toggle = true;
+                        this.vid.play();
+                        document.getElementById("btn5").addEventListener("click", (e)=> {
+                            this.vid.muted=false; })
+                        document.getElementById("btn6").addEventListener("click", (e)=>{
+                            this.vid.muted=true; })
+                        document.getElementById("btn7").addEventListener("click", (e)=>{
+                            this.vid.pause(); })
+                        document.getElementById("btn8").addEventListener("click", (e)=>{
+                            this.vid.play(); })
+                        
+                    }.bind(this));
+
+                    marker2.addEventListener('markerLost', function () {
+                        var x = document.getElementById("botonesorigen");
+                        x.style.display = "none";
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
+
+            AFRAME.registerComponent('tipos', {
+
+                init: function () {
+                    var marker3 = this.el;
+                    this.vid = document.querySelector("#vidtipos");
+                    marker3.addEventListener('markerFound', function () {
+                        var x = document.getElementById("botonestipo");
+                        x.style.display = "block";
+                        this.toggle = true;
+                        this.vid.play();
+                        document.getElementById("btn9").addEventListener("click", (e)=> {
+                            this.vid.muted=false; })
+                        document.getElementById("btn10").addEventListener("click", (e)=>{
+                            this.vid.muted=true; })
+                        document.getElementById("btn11").addEventListener("click", (e)=>{
+                            this.vid.pause(); })
+                        document.getElementById("btn12").addEventListener("click", (e)=>{
+                            this.vid.play(); })
+                        
+                    }.bind(this));
+
+                    marker3.addEventListener('markerLost', function () {
+                        var x = document.getElementById("botonestipo");
+                        x.style.display = "none";
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
+
+            
+
 
         </script>
     </head>
@@ -195,20 +193,69 @@
                 ></video>
             </a-assets>
 
-
-
-            <a-video id="primero" src="#vid" scale="1 1 1" rotation="-90 0 0" class="clickable" gesture-handler ></a-video>
-            <a-marker id="pri" videohandler preset="hiro" smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA"
+            <a-video
+                    id="primero"
+                    src="#vid"
+                    scale="1 1 1"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
+            <a-marker
+                preset="hiro"
+                videohandler
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
             >
             </a-marker>
 
-
-            <a-video id="segundo" visible="false" src="#vidorigen" scale="1 1 1" position="0.2 0 -2" rotation="-90 0 0" class="clickable" gesture-handler ></a-video>
-            <a-marker id="seg" type='pattern' url='../assets/pattern-Hoba.patt' smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerBA">
+            <a-marker
+            type='pattern' url='../assets/pattern-Hoba.patt'
+            origen
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerBA"
+            >
+                <a-video
+                    src="#vidorigen"
+                    scale="1 1 1"
+                    position="0 0.1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
             </a-marker>
-
-            <a-video id="tercero" visible="false" src="#vidtipos" scale="1 1 1" position="0.2 0 -2" rotation="-90 0 0" class="clickable" gesture-handler ></a-video>
-            <a-marker id="ter" type='pattern' url='../assets/pattern-Ahnighito.patt' smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+            <a-marker
+                type='pattern' url='../assets/pattern-Ahnighito.patt'
+                tipos
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-video
+                    src="#vidtipos"
+                    scale="1 1 1"
+                    position="0 0.1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
             </a-marker>
 
             <a-entity camera></a-entity>
