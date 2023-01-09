@@ -59,7 +59,7 @@
                     marker.addEventListener('markerFound', function () {
                         var x = document.getElementById("botones");
                             x.style.display = "block";
-                            document.querySelector("#primero").setAttribute("position", "0.2 1 -2");
+                        
                         this.toggle = true;
                         this.vid.play();
                         document.getElementById("btn1").addEventListener("click", (e)=>{
@@ -75,8 +75,8 @@
                     marker.addEventListener('markerLost', function () {
                         var x = document.getElementById("botones");
                         x.style.display = "none";
-                        document.querySelector("#primero").setAttribute("position", "0.2 1 -2");
-                        
+                        this.toggle = false;
+                        this.vid.pause();
                     }.bind(this));
                 },
             });
@@ -207,9 +207,9 @@
                 id="markerA"
             >
                 <a-video
-                id="primero"
                     src="#vid"
                     scale="1 1 1"
+                    position="0 0.1 0"
                     rotation="-90 0 0"
                     class="clickable"
                     gesture-handler
