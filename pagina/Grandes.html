@@ -52,6 +52,8 @@
                     imgagpa = document.querySelector("#agpim");
 
                     marker.addEventListener('markerFound', function () {
+                        infoagpa.setAttribute("visible", true);
+                        imgagpa.setAttribute("visible", true);
 
                     }.bind(this));
                 },
@@ -59,10 +61,10 @@
             </script>
 
             <!-- Marker Meteorito Agpalilik -->
-            <a-entity id="agpin" position="0.2 -1 -2">
+            <a-entity id="agpin" position="0.2 -1 -2" visible="false">
                 <a-image src="#AgpaInfo"></a-image>
             </a-entity>
-            <a-entity id="agpim" position="0.2 1 -2">
+            <a-entity id="agpim" position="0.2 1 -2" visible="false">
                 <a-image src="#Agpa"></a-image>
             </a-entity>
             <a-marker id="agp" type='pattern' url='../assets/MarkersMG/pattern-Agpalilik.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
