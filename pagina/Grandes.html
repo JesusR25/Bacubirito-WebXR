@@ -42,8 +42,22 @@
 
             </assets>
 
+            <script>
+                AFRAME.registerComponent('videohandler', {
+                init: function () {
+                    marker = document.querySelector("#agp");
+
+                    marker.addEventListener('markerFound', function () {
+                        this.el.setAttribute("position", marker.getAttribute("position")); 
+                        this.el.setAttribute("rotation", marker.getAttribute("rotation"));
+                    }.bind(this));
+                },
+            });
+            </script>
+
             <!-- Marker Meteorito Agpalilik -->
-            <a-marker type='pattern' url='../assets/MarkersMG/pattern-Agpalilik.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+            <a-box color="tomato" depth="2" height="4" width="0.5" videohandler></a-box>
+            <a-marker id="agp" type='pattern' url='../assets/MarkersMG/pattern-Agpalilik.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
                 <a-entity rotation="-90 0 0" position="0 0 0.5">
                     <a-image src="#AgpaInfo"></a-image>
                 </a-entity>
