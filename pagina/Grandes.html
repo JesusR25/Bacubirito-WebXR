@@ -51,9 +51,9 @@
 
                     marker.addEventListener('markerFound', function () {
                         infoagpa.setAttribute("position", "0.2 -1 -2");
-                        infoagpa.setAttribute("rotation", "-90 0 0");
+                        infoagpa.setAttribute("rotation", marker.getAttribute("rotation"));
                         imgagpa.setAttribute("position", "0.2 1 -2");
-                        imgagpa.setAttribute("rotation", "-90 0 0")
+                        imgagpa.setAttribute("rotation", marker.getAttribute("rotation"));
                     }.bind(this));
                 },
             });
