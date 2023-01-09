@@ -48,7 +48,7 @@
                     marker = document.querySelector("#agp");
 
                     marker.addEventListener('markerFound', function () {
-                        this.el.setAttribute("position", marker.getAttribute("position"));
+                        this.el.setAttribute("position", "0.2 -0.066 -3.74");
                         console.log(marker.getAttribute("position")); 
                         this.el.setAttribute("rotation", marker.getAttribute("rotation"));
                     }.bind(this));
