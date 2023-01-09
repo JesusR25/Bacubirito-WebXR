@@ -59,9 +59,9 @@
                     marker.addEventListener('markerFound', function () {
                         var x = document.getElementById("botones");
                             x.style.display = "block";
-                        
                         this.toggle = true;
                         this.vid.play();
+                        document.querySelector("#primero").setAttribute("position","0.2 0 -2");
                         document.getElementById("btn1").addEventListener("click", (e)=>{
                             this.vid.muted=false; })
                         document.getElementById("btn2").addEventListener("click", (e)=>{
@@ -90,7 +90,6 @@
                     marker2.addEventListener('markerFound', function () {
                         var x = document.getElementById("botonesorigen");
                         x.style.display = "block";
-
                         this.toggle = true;
                         this.vid.play();
                         document.getElementById("btn5").addEventListener("click", (e)=> {
@@ -194,6 +193,14 @@
                 ></video>
             </a-assets>
 
+            <a-video
+                    id="primero"
+                    src="#vid"
+                    scale="1 1 1"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
             <a-marker
                 preset="hiro"
                 videohandler
@@ -206,14 +213,6 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
-                <a-video
-                    src="#vid"
-                    scale="1 1 1"
-                    position="0 0.1 0"
-                    rotation="-90 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-video>
             </a-marker>
 
             <a-marker
