@@ -11,7 +11,7 @@
             init: function () {
                 const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
                 const meteoros = ["metcob", "metniq", "methie", "metazu"];
-                let idx = 0;
+                let idx = -1;
                 var el = this.el;
                 var prin = document.querySelector("#cob");
                 //Markeeeeeerr
@@ -58,11 +58,7 @@
                         });
                         //Añadir evento al boton siguiente
                         document.getElementById("btnSig").addEventListener("click", (e)=>{
-                            if(idx = 0){
-
-                            }else{
-                                idx = (idx + 1) % modelList.length;
-                            }
+                            idx = (idx + 1) % modelList.length;
                             prin.removeAttribute('gltf-model');
                             prin.setAttribute('gltf-model', `#${modelList[idx]}`)
                             //Texto sobre informacion del material
