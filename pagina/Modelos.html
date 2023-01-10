@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<head>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
@@ -39,7 +40,6 @@
         }
       });
 </script>
-
 <style>
     #footer {
         position: absolute;
@@ -57,9 +57,33 @@
         color: white;
         font-size: 14px;
     }
+    .button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 1px solid #3498db;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+          }
 </style>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <div style='top: 10px;text-align: center; z-index: 1;'>
+        <button class="button" id="btnAnt">
+            <img src="../assets/ant.png" width="40px">
+        </button>
+        <button class="button" id="btnSig">
+            <img src="../assets/sig.png" width="40px"
+        </button>
+    </div>
+</head>
 
 
 
