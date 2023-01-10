@@ -42,7 +42,7 @@
                                 document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
                                 modelo.removeAttribute('gltf-model');
                                 modelo.removeAttribute('scale');
-                                modelo.setAttribute('scale', '0.5 0.5 0.5');
+                                modelo.setAttribute('scale', '0.4 0.4 0.4');
                                 modelo.setAttribute('gltf-model', `#${meteoros[idx]}`);
                             }else{
                                 idx= idx - 1
@@ -52,7 +52,7 @@
                                 document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
                                 modelo.removeAttribute('gltf-model');
                                 modelo.removeAttribute('scale');
-                                modelo.setAttribute('scale', '0.5 0.5 0.5');
+                                modelo.setAttribute('scale', '0.4 0.4 0.4');
                                 modelo.setAttribute('gltf-model', `#${meteoros[idx]}`);
                             }
                         });
@@ -65,7 +65,7 @@
                             document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
                             modelo.removeAttribute('gltf-model');
                             modelo.removeAttribute('scale');
-                            modelo.setAttribute('scale', '0.5 0.5 0.5');
+                            modelo.setAttribute('scale', '0.4 0.4 0.4');
                             modelo.setAttribute('gltf-model', `#${meteoros[idx]}`);
                         });
                     }.bind(this));
@@ -142,7 +142,7 @@
 
         <a-entity id="cob" gltf-model="#cobalto" visible="false" position="0 1 -4" scale="1 1 1" class="clickable" rotation="0 0 0"
                 animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" cambios></a-entity>
-        <a-entity id="mod" visible="false" position="0 -0.8 -4" class="clickable" rotation="0 0 0" gesture-handler></a-entity>
+        <a-entity id="mod" visible="false" position="-0.2 -0.8 -4" class="clickable" rotation="0 0 0" gesture-handler animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
         <a-marker id="marmol" type='pattern' url='../assets/pattern-Willamette.patt' raycaster="objects: .clickable"
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA"></a-marker>
 
