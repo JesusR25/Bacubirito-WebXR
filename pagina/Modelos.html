@@ -14,6 +14,8 @@
                 let idx = 0;
                 var el = this.el;
                 var prin = document.querySelector("#cob");
+                //Markeeeeeerr
+                var marker = document.querySelector("#marmol");
                 //Variables
                 let introduccion = 'El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.';
                 let textazu = 'El meteorito de Bacubirito contiene un 0.005% de Azufre.';
@@ -21,6 +23,13 @@
                 let texthie = 'El meteorito de Bacubirito contiene un 88.94% de Hierro.';
                 let textniq = 'El meteorito de Bacubirito contiene un 6.98% de Niquel.';
                 const listtext = [textcob, textniq, texthie, textazu];
+
+                //Evento del marker found
+                marker.addEventListener('markerFound', function () {
+                        //Primero escondemos todo de los 2 videos anteriores
+                        console.log(marker.getAttribute("position"));
+                    }.bind(this));
+
                 //Evento click
                 document.querySelector("#footer").innerHTML = `${introduccion}`;
                 el.addEventListener('click', (e) => {
@@ -111,7 +120,7 @@
         <!--    <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>-->
 
 
-        <a-marker type='pattern' url='../assets/pattern-Willamette.patt' raycaster="objects: .clickable"
+        <a-marker id="marmol" type='pattern' url='../assets/pattern-Willamette.patt' raycaster="objects: .clickable"
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" color-randomizer id="markerA">
             <a-entity id="cob" gltf-model="#cobalto" position="0 0 -1" scale="1 1 1" class="clickable" rotation="0 0 0"
                 animation="property: rotation; to: 0 0 360; loop: true; dur: 30000">
