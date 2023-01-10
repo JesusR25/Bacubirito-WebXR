@@ -1,63 +1,65 @@
 <!DOCTYPE html>
+
 <head>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
-<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-<script src="../js/cursor.js" defer></script>
-<script>
-    AFRAME.registerComponent('color-randomizer', {
-        init: function () {
-        const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
-        const meteoros = ["metcob", "metniq", "methie", "metazu"];
-        let idx = 0;
-        var el = this.el;
-        var prin = document.querySelector("#cob");
-        //Variables
-        let introduccion='El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.';
-        let textazu = 'El meteorito de Bacubirito contiene un 0.005% de Azufre.';
-        let textcob = 'El meteorito de Bacubirito tambien contiene un 0.21% de Cobalto.';
-        let texthie = 'El meteorito de Bacubirito contiene un 88.94% de Hierro.';
-        let textniq = 'El meteorito de Bacubirito contiene un 6.98% de Niquel.';
-        const listtext = [textcob,textniq,texthie,textazu];
-        //Evento click
-        document.querySelector("#footer").innerHTML = `${introduccion}`;
-          el.addEventListener('click', (e) => {
-            //Cambiar elemento
-            prin.removeAttribute('gltf-model');
-            prin.setAttribute('gltf-model', `#${modelList[idx]}`) 
-            //Texto sobre informacion del material
-            document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
-            //Mostrar meteoro del elemento
-            var mete = document.querySelector("#mod");
-            mete.removeAttribute('gltf-model');
-            mete.removeAttribute('scale');
-            mete.setAttribute('scale', '0.5 0.5 0.5');
-            mete.setAttribute('gltf-model', `#${meteoros[idx]}`);
-            //Avanzar lista
-            idx = (idx + 1) % modelList.length;
-          });
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+    <script src="../js/cursor.js" defer></script>
+    <script>
+        AFRAME.registerComponent('color-randomizer', {
+            init: function () {
+                const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
+                const meteoros = ["metcob", "metniq", "methie", "metazu"];
+                let idx = 0;
+                var el = this.el;
+                var prin = document.querySelector("#cob");
+                //Variables
+                let introduccion = 'El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.';
+                let textazu = 'El meteorito de Bacubirito contiene un 0.005% de Azufre.';
+                let textcob = 'El meteorito de Bacubirito tambien contiene un 0.21% de Cobalto.';
+                let texthie = 'El meteorito de Bacubirito contiene un 88.94% de Hierro.';
+                let textniq = 'El meteorito de Bacubirito contiene un 6.98% de Niquel.';
+                const listtext = [textcob, textniq, texthie, textazu];
+                //Evento click
+                document.querySelector("#footer").innerHTML = `${introduccion}`;
+                el.addEventListener('click', (e) => {
+                    //Cambiar elemento
+                    prin.removeAttribute('gltf-model');
+                    prin.setAttribute('gltf-model', `#${modelList[idx]}`)
+                    //Texto sobre informacion del material
+                    document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
+                    //Mostrar meteoro del elemento
+                    var mete = document.querySelector("#mod");
+                    mete.removeAttribute('gltf-model');
+                    mete.removeAttribute('scale');
+                    mete.setAttribute('scale', '0.5 0.5 0.5');
+                    mete.setAttribute('gltf-model', `#${meteoros[idx]}`);
+                    //Avanzar lista
+                    idx = (idx + 1) % modelList.length;
+                });
+            }
+        });
+    </script>
+    <style>
+        #footer {
+            position: absolute;
+            bottom: 0;
+            top: 50%;
+            left: 50%;
+            width: 350px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+            background-color: rgb(0, 0, 0, 0.8);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 14px;
         }
-      });
-</script>
-<style>
-    #footer {
-        position: absolute;
-        bottom: 0;
-        top: 50%;
-        left: 50%;
-        width: 350px;
-        height: 100px;
-        transform: translate(-50%,-50%);
-        background-color: rgb(0, 0, 0, 0.8);
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 14px;
-    }
-    .button {
+
+        .button {
             background-color: transparent;
             border: none;
             color: white;
@@ -71,8 +73,8 @@
             border-radius: 12px;
             border: 1px solid #3498db;
             box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
-          }
-</style>
+        }
+    </style>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <div style='top: 10px;text-align: center; z-index: 1;'>
@@ -80,8 +82,7 @@
             <img src="../assets/ant.png" width="40px">
         </button>
         <button class="button" id="btnSig">
-            <img src="../assets/sig.png" width="40px"
-        </button>
+            <img src="../assets/sig.png" width="40px" </button>
     </div>
 </head>
 
@@ -89,74 +90,48 @@
 
 <body style='margin : 5px; overflow: hidden; font-family: Monospace;'>
     <div id="footer"></div>
-    <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' gesture-detector
-     >
+    <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'
+        gesture-detector>
         <a-assets timeout="30000">
-            <a-asset-item id="spinosaurus" src="../assets/ModComp/Bueno Posicion.glb" ></a-asset-item>
-            <a-asset-item id="cobalto" src="../assets/ModComp/EsfTamCob.glb" ></a-asset-item>
-            <a-asset-item id="Hierro" src="../assets/ModComp/EsfTamHie.glb" ></a-asset-item>
-            <a-asset-item id="azufre" src="../assets/ModComp/EsfTamAzu.glb" ></a-asset-item>
-            <a-asset-item id="niquel" src="../assets/ModComp/EsfTamNiq.glb" ></a-asset-item>
+            <a-asset-item id="spinosaurus" src="../assets/ModComp/Bueno Posicion.glb"></a-asset-item>
+            <a-asset-item id="cobalto" src="../assets/ModComp/EsfTamCob.glb"></a-asset-item>
+            <a-asset-item id="Hierro" src="../assets/ModComp/EsfTamHie.glb"></a-asset-item>
+            <a-asset-item id="azufre" src="../assets/ModComp/EsfTamAzu.glb"></a-asset-item>
+            <a-asset-item id="niquel" src="../assets/ModComp/EsfTamNiq.glb"></a-asset-item>
             <!-- Meteoro de elementos-->
-            <a-asset-item id="metcob" src="../assets/ModComp/CompCob.glb" ></a-asset-item>
-            <a-asset-item id="methie" src="../assets/ModComp/CompHie.glb" ></a-asset-item>
-            <a-asset-item id="metazu" src="../assets/ModComp/CompAzu.glb" ></a-asset-item>
-            <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb" ></a-asset-item>
-            <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
+            <a-asset-item id="metcob" src="../assets/ModComp/CompCob.glb"></a-asset-item>
+            <a-asset-item id="methie" src="../assets/ModComp/CompHie.glb"></a-asset-item>
+            <a-asset-item id="metazu" src="../assets/ModComp/CompAzu.glb"></a-asset-item>
+            <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb"></a-asset-item>
+            <a-asset-item id="bowser"
+                src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
             <!-- Esto es un comentario  position="-1 0 1"-->
-              <!-- Esto es un comentario  position="-1 0 1"-->
+            <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
-    <!--    <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>-->
-        
+        <!--    <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>-->
 
-    <a-marker
-        type='pattern' url='../assets/pattern-Willamette.patt'
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        color-randomizer
-        id="markerA" >
-        <a-entity
-            id="cob"
-            gltf-model="#cobalto"
-            position="0 0 -1"
-            scale="1 1 1"
-            class="clickable"
-            rotation="0 0 0"
-            animation="property: rotation; to: 0 0 360; loop: true; dur: 30000"
-             >
-        </a-entity>
-        <a-entity
-            id="mod"
-            position="0 0 1.2"
-            class="clickable"
-            rotation="0 0 0"
-            gesture-handler
-             >
-        </a-entity>
-    </a-marker> 
 
-    <a-marker
-        type='pattern' url='../assets/pattern-Ahnighito.patt'
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerRA" >
-        <a-entity class="clickable" gesture-handler>
-            <a-entity
-            id="bmo"
-            gltf-model="#bowser"
-            scale="0.05 0.05 0.05"
-            position="0 0 0"
-            class="clickable" 
-            gesture-handler
-            >
+        <a-marker type='pattern' url='../assets/pattern-Willamette.patt' raycaster="objects: .clickable"
+            emitevents="true" cursor="fuse: false; rayOrigin: mouse;" color-randomizer id="markerA">
+            <a-entity id="cob" gltf-model="#cobalto" position="0 0 -1" scale="1 1 1" class="clickable" rotation="0 0 0"
+                animation="property: rotation; to: 0 0 360; loop: true; dur: 30000">
             </a-entity>
-        </a-entity>
-    </a-marker> 
-  
-  <a-entity camera></a-entity>
-  
+            <a-entity id="mod" position="0 0 1.2" class="clickable" rotation="0 0 0" gesture-handler>
+            </a-entity>
+        </a-marker>
+
+        <a-marker type='pattern' url='../assets/pattern-Ahnighito.patt' raycaster="objects: .clickable"
+            emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerRA">
+            <a-entity class="clickable" gesture-handler>
+                <a-entity id="bmo" gltf-model="#bowser" scale="0.05 0.05 0.05" position="0 0 0" class="clickable"
+                    gesture-handler>
+                </a-entity>
+            </a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+
     </a-scene>
 </body>
+
 </html>
