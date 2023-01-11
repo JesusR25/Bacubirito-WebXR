@@ -22,8 +22,7 @@ function initScene() {
         meteors.forEach(pos => {
 
             meteor = document.createElement('a-entity')
-            meteor.setAttribute('geometry', { primitive: 'sphere', radius: Math.random() * 3 + 0.5 })
-            meteor.setAttribute('material', { shader: 'flat', src: '#meteor' })
+            meteor.setAttribute('gltf-model', '#metemod');
             meteor.setAttribute('class', 'meteor')
             meteor.object3D.position.set(pos.x, pos.y, pos.z)
 
