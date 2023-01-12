@@ -11,6 +11,7 @@
             <assets>
                 <!-- Necesito Diferentes modelos par: El meteoro y el cinturon -->
                 <a-asset-item id="cinturon" src="../assets/Modelos/MeteLuna.glb" ></a-asset-item>
+                <a-asset-item id="meteoro" src="../assets/Juego/Meteoro Juego.glb" ></a-asset-item>
             </assets>
 
             <!-- Marker Meteorito Agpalilik 0 0 0 -- El primero es para izquierda y derecha. El segundo arriba y abajo. El tercero es mas al fondo o enfrente -->
@@ -33,7 +34,11 @@
                 <a-entity position="0 0 0" gltf-model="#cinturon" scale="1 1 1" animation="property: rotation; easing: linear; dur: 9000; to: 0 180 60; loop: true"></a-entity>
             </a-marker>
 
-            <a-entity camera></a-entity>
+            <a-marker id="marmol" type='pattern' url='../assets/pattern-Hoba.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+                <a-entity gltf-model="#meteoro" scale="1 1 1" position="0 0 0" animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
+            </a-marker>
+
+            <a-entity camera fov="45"></a-entity>
         </a-scene>
     </body>
 </html>
