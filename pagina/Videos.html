@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width">
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
@@ -47,6 +48,42 @@
             <button class="button" id="btn11">Stop Video</button>
             <button class="button" id="btn12">Play Video</button>
           </div>
+
+          <script>
+            let orn = getOrientation();
+                
+            function getOrientation() {
+                let _orn = screen.msOrientation ||
+                (screen.orientation || screen.mozOrientation).type;
+            
+                switch(_orn){
+                    case 'portrait-primary':
+                        alert("Normal")
+                    case 'portrait-secondary':
+                        
+                        break;
+                    case 'landscape-primary':
+                        console.log('This is the laptop/desktop version')
+                        alert("Acostado");
+                        break;
+                    case 'landscape-secondary':
+                        break;
+                    case undefined:
+                        //not supported
+                        break;
+                    default:
+                        //something unknown
+                }
+                return _orn;
+            }
+            
+            window.addEventListener('orientationchange', (ev)=>{
+                orn = getOrientation();
+                console.dir(ev)
+            })
+        </script>
+
+
 
         <script>
             //METODO PARA CONTROLES VIDEO DE COMPOSICION
