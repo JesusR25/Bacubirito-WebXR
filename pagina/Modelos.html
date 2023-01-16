@@ -9,9 +9,6 @@
     <script>
         AFRAME.registerComponent('cambios', {
             init: function () {
-                var botones1 = document.getElementById("botones");
-                var flechas = document.getElementById("flechas");
-                var cuadro = document.getElementById("cuadro");
                 const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
                 const meteoros = ["metcob", "metniq", "methie", "metazu"];
                 let idx = -1;
@@ -20,12 +17,6 @@
                 //Markeeeeeerr
                 var marker = document.querySelector("#marmol");
                 var modelo = document.querySelector("#mod");
-                //Marker video
-                var markervid = document.querySelector("#pri");
-                //Videos para pausarlos y reproducirlos
-                var vid = document.querySelector("#vid");
-                //Videos para esconderlos y manipularlos
-                var vidfor = document.querySelector("#primero");
                 //Variables
                 let introduccion = 'El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.';
                 let textazu = 'El meteorito de Bacubirito contiene un 0.005% de Azufre.';
@@ -33,15 +24,10 @@
                 let texthie = 'El meteorito de Bacubirito contiene un 88.94% de Hierro.';
                 let textniq = 'El meteorito de Bacubirito contiene un 6.98% de Niquel.';
                 const listtext = [textcob, textniq, texthie, textazu];
+                document.querySelector("#footer").innerHTML = `${introduccion}`;
 
                 //Evento del marker found
                 marker.addEventListener('markerFound', function () {
-                    vid.pause();
-                    vidfor.setAttribute("visible",false);
-                    flechas.style.display = "block";
-                    botones1.style.display = "none";
-                    cuadro.style.display="block";
-                    document.querySelector("#footer").innerHTML = `${introduccion}`;
                         //Primero escondemos todo de los 2 videos anteriores
                         console.log(marker.getAttribute("position"));
                         prin.setAttribute("visible", true);
@@ -83,29 +69,6 @@
                             modelo.setAttribute('gltf-model', `#${meteoros[idx]}`);
                         });
                     }.bind(this));
-
-                    //Marker Video
-                    markervid.addEventListener('markerFound', function () {
-                        //Primero escondemos todo de los 2 videos anteriores
-                        prin.setAttribute("visible", false);
-                        modelo.setAttribute("visible", false)
-
-                        //Aqui hacemos todo lo del video del marker correspondiente
-                        flechas.style.display = "none";
-                        cuadro.style.display="none";
-                        botones1.style.display = "block";
-                        vid.play();
-                        document.querySelector("#primero").setAttribute("visible", true);
-                        document.getElementById("btn1").addEventListener("click", (e)=>{
-                            vid.muted=false; })
-                        document.getElementById("btn2").addEventListener("click", (e)=>{
-                            vid.muted=true; })
-                        document.getElementById("btn3").addEventListener("click", (e)=>{
-                            vid.pause(); })
-                        document.getElementById("btn4").addEventListener("click", (e)=>{
-                            vid.play(); })
-                    }.bind(this));
-                
             }
         });
     </script>
@@ -125,7 +88,6 @@
             align-items: center;
             color: white;
             font-size: 14px;
-            display: none;
         }
 
         .button {
@@ -143,47 +105,22 @@
             border: 1px solid #3498db;
             box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
         }
-
-        .butto {
-            background-color: #4CAF50; 
-            border: none;
-            color: white;
-            padding: 7px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 12px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 12px;
-            border: 2px solid rgba(9, 148, 28, 0.541);
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-          }
     </style>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <div id="flechas" style='top: 10px;text-align: center; z-index: 1; display: none;'>
+    <div style='top: 10px;text-align: center; z-index: 1;'>
         <button class="button" id="btnAnt">
             <img src="../assets/ant.png" width="40px">
         </button>
         <button class="button" id="btnSig">
             <img src="../assets/sig.png" width="40px" </button>
     </div>
-
-    <div id="botones" style='top: 20px;text-align: center; z-index: 1; display: none;'>
-        <button class="butto" id="btn1">Play Sound</button>
-        <button class="butto" id="btn2">Stop Sound</button>
-        <button class="butto" id="btn3">Stop Video</button>
-        <button class="butto" id="btn4">Play Video</button>
-      </div>
 </head>
 
 
 
 <body style='margin : 5px; overflow: hidden; font-family: Monospace;'>
-    <div id="cuadro" style='display: none;'>
-        <div id="footer"></div>
-    </div>
+    <div id="footer"></div>
     <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'
         gesture-detector>
         <a-assets timeout="30000">
@@ -208,10 +145,6 @@
         <a-entity id="mod" visible="false" position="-0.2 -0.8 -4" class="clickable" rotation="0 0 0" gesture-handler animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
         <a-marker id="marmol" type='pattern' url='../assets/pattern-Willamette.patt' raycaster="objects: .clickable"
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA"></a-marker>
-
-        <a-video id="primero" visible="false" src="#vid" width="1.5" height="1.5" position="0 0.2 -4" class="clickable" videohandler gesture-handler ></a-video>
-        <a-marker id="pri" type='pattern' url='../assets/pattern-videos.patt' smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
-        </a-marker>
 
 
         <a-entity camera></a-entity>
