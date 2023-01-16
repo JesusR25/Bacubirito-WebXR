@@ -139,16 +139,6 @@
             <a-asset-item id="methie" src="../assets/ModComp/CompHie.glb"></a-asset-item>
             <a-asset-item id="metazu" src="../assets/ModComp/CompAzu.glb"></a-asset-item>
             <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb"></a-asset-item>
-            <video
-                id="vid"
-                src="../assets/composicion.mp4"
-                preload="auto"
-                response-type="arraybuffer"
-                loop
-                crossorigin
-                webkit-playsinline
-                playsinline
-            ></video>
             <!-- Esto es un comentario  position="-1 0 1"-->
             <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
@@ -161,9 +151,7 @@
         <a-marker id="marmol" type='pattern' url='../assets/pattern-Willamette.patt' raycaster="objects: .clickable"
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA"></a-marker>
             
-        <a-video id="primero" visible="false" src="#vid" width="1.5" height="1.5" position="0 0.2 -4" class="clickable" ></a-video>
-        <a-marker id="pri" preset="hiro" smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
-        </a-marker>
+    
 
         <a-entity camera></a-entity>
 
