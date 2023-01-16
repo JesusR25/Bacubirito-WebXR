@@ -50,6 +50,8 @@
                 //Evento del marker found
                 marker.addEventListener('markerFound', function () {
                         //Primero escondemos todo de los 2 videos anteriores
+                        var botonv = document.getElementById("botones");
+                        botonv.style.display = "none"
                         vid.pause();
                         document.querySelector("#primero").setAttribute("visible", false);
                         caja.style.display = "block";
@@ -101,6 +103,8 @@
                         prin.setAttribute("visible", false);
                         modelo.setAttribute("visible", false)
                         //Aqui hacemos todo lo del video del marker correspondiente
+                        var boton = document.getElementById("botones");
+                        boton.style.display = "block"
                         vid.play();
                         document.querySelector("#primero").setAttribute("visible", true);
                     }.bind(this));
@@ -141,9 +145,30 @@
             border: 1px solid #3498db;
             box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
         }
+        .butt {
+            background-color: #4CAF50; 
+            border: none;
+            color: white;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 2px solid rgba(9, 148, 28, 0.541);
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+          }
     </style>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <div id="botones" style='top: 20px;text-align: center; z-index: 1; display: none;'>
+        <button class="butt" id="btn1">Play Sound</button>
+        <button class="butt" id="btn2">Stop Sound</button>
+        <button class="butt" id="btn3">Stop Video</button>
+        <button class="butt" id="btn4">Play Video</button>
+    </div>
     <div id="flechas" style='top: 10px;text-align: center; z-index: 1; display: none;'>
         <button class="button" id="btnAnt">
             <img src="../assets/ant.png" width="40px">
@@ -194,7 +219,7 @@
         <a-marker id="marmol" type='pattern' url='../assets/pattern-Willamette.patt' raycaster="objects: .clickable"
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA"></a-marker>
             
-        <a-video id="primero" visible="false" src="#vid" width="1.5" height="1.5" position="0 0.2 -4" class="clickable" videohandler gesture-handler ></a-video>
+        <a-video id="primero" visible="false" src="#vid" width="1.5" height="1.5" position="0 0 -4" class="clickable" videohandler gesture-handler ></a-video>
         <a-marker id="pri" preset="hiro" smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
         </a-marker>
 
