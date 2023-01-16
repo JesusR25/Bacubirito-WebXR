@@ -6,22 +6,6 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     <script src="../js/cursor.js" defer></script>
-
-    <script>
-        function readDeviceOrientation() {                 
-            if (Math.abs(window.orientation) === 90) {
-                // Landscape
-                document.querySelector("#primero").setAttribute("width", 3);
-                document.querySelector("#primero").setAttribute("height", 1.5);
-            } else {
-                // Portrait
-                document.querySelector("#primero").setAttribute("width", 1.5);
-                document.querySelector("#primero").setAttribute("height", 1.5);
-            }
-        }
-        window.onorientationchange = readDeviceOrientation;
-    </script>
-
     <script>
         AFRAME.registerComponent('cambios', {
             init: function () {
@@ -56,9 +40,6 @@
                         flechas.style.display = "block";
                         prin.setAttribute("visible", true);
                         modelo.setAttribute("visible", true)
-                        botones1.style.display = "none";
-                        vid.pause();
-                        document.querySelector("#primero").setAttribute("visible", false);
                         //Añadir evento al boton anterior
                         document.getElementById("btnAnt").addEventListener("click", (e)=>{
                             if(idx<=0){
@@ -99,22 +80,9 @@
 
                     marvid.addEventListener('markerFound', function () {
                         //Primero escondemos todo de los 2 videos anteriores
-                        caja.style.display = "none";
-                        flechas.style.display = "none";
-                        prin.setAttribute("visible", false);
-                        modelo.setAttribute("visible", false)
                         //Aqui hacemos todo lo del video del marker correspondiente
-                        botones1.style.display = "block";
                         vid.play();
                         document.querySelector("#primero").setAttribute("visible", true);
-                        document.getElementById("btn1").addEventListener("click", (e)=>{
-                            vid.muted=false; })
-                        document.getElementById("btn2").addEventListener("click", (e)=>{
-                            vid.muted=true; })
-                        document.getElementById("btn3").addEventListener("click", (e)=>{
-                            vid.pause(); })
-                        document.getElementById("btn4").addEventListener("click", (e)=>{
-                            vid.play(); })
                     }.bind(this));
 
             }
@@ -153,21 +121,6 @@
             border: 1px solid #3498db;
             box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
         }
-        .butto {
-            background-color: #4CAF50; 
-            border: none;
-            color: white;
-            padding: 7px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 12px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 12px;
-            border: 2px solid rgba(9, 148, 28, 0.541);
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-          }
     </style>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
