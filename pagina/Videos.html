@@ -55,9 +55,8 @@
     if (Math.abs(window.orientation) === 90) {
         // Landscape
         alert("landscape");
-        var prim = document.getElementById("#primero");
-        prim.setAttribute("width","2");
-        prim.setAttribute("height","1");
+        document.querySelector("#tercero").setAttribute("width", 2);
+        document.querySelector("#tercero").setAttribute("height", 1);
         var botones1 = document.getElementById("botones");
         botones1.style.display = "block";
 
@@ -110,7 +109,6 @@ window.onorientationchange = readDeviceOrientation;
                         console.log(marker.getAttribute("position"));
                         document.querySelector("#primero").setAttribute("visible", true);
                         document.getElementById("btn1").addEventListener("click", (e)=>{
-                            document.querySelector("#primero").setAttribute("height", 3);
                             vid.muted=false; })
                         document.getElementById("btn2").addEventListener("click", (e)=>{
                             vid.muted=true; })
