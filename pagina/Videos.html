@@ -102,7 +102,7 @@ window.onorientationchange = readDeviceOrientation;
                         vidfor2.setAttribute("visible",false);
                         botones3.style.display = "none";
                         vid3.pause();
-                        vidfor2.setAttribute("visible",false);
+                        vidfor3.setAttribute("visible",false);
 
                         //Aqui hacemos todo lo del video del marker correspondiente
                         botones1.style.display = "block";
@@ -110,6 +110,7 @@ window.onorientationchange = readDeviceOrientation;
                         console.log(marker.getAttribute("position"));
                         document.querySelector("#primero").setAttribute("visible", true);
                         document.getElementById("btn1").addEventListener("click", (e)=>{
+                            document.querySelector("#primero").setAttribute("height", 3);
                             vid.muted=false; })
                         document.getElementById("btn2").addEventListener("click", (e)=>{
                             vid.muted=true; })
