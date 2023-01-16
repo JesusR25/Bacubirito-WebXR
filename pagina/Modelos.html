@@ -17,6 +17,7 @@
                 //Markeeeeeerr
                 var marker = document.querySelector("#marmol");
                 var modelo = document.querySelector("#mod");
+                var caja = document.getElementById("caja")
                 //Variables
                 let introduccion = 'El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.';
                 let textazu = 'El meteorito de Bacubirito contiene un 0.005% de Azufre.';
@@ -29,7 +30,7 @@
                 //Evento del marker found
                 marker.addEventListener('markerFound', function () {
                         //Primero escondemos todo de los 2 videos anteriores
-                        console.log(marker.getAttribute("position"));
+                        caja.style.display = "block";
                         prin.setAttribute("visible", true);
                         modelo.setAttribute("visible", true)
                         //Añadir evento al boton anterior
@@ -120,7 +121,9 @@
 
 
 <body style='margin : 5px; overflow: hidden; font-family: Monospace;'>
-    <div id="footer"></div>
+    <div id="caja" style="display: none;">
+        <div id="footer"></div>
+    </div>
     <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'
         gesture-detector>
         <a-assets timeout="30000">
