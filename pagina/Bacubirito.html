@@ -34,10 +34,20 @@
     </head>
 
     <body>
-        <a-scene embedded arjs gesture-detector>
+        <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
  
             <a-assets timeout="30000" >
                 <a-asset-item id="bacu" src="../assets/Bacubirito/Bacubirito Mod.glb"></a-asset-item>
+                <video
+                    id="vidtipos"
+                    src="../assets/tipos.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    playsinline
+                ></video>
             </a-assets>
 
             <a-marker preset="hiro">
