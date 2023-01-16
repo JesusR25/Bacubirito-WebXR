@@ -36,6 +36,8 @@
                 //Evento del marker found
                 marker.addEventListener('markerFound', function () {
                         //Primero escondemos todo de los 2 videos anteriores
+                        vid.pause();
+                        document.querySelector("#primero").setAttribute("visible", false);
                         caja.style.display = "block";
                         flechas.style.display = "block";
                         prin.setAttribute("visible", true);
