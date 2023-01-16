@@ -9,10 +9,8 @@
     <script>
         AFRAME.registerComponent('cambios', {
             init: function () {
-                var markervid = document.querySelector("#pri");
                 const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
                 const meteoros = ["metcob", "metniq", "methie", "metazu"];
-                var vid = document.querySelector("#vid");
                 let idx = -1;
                 var el = this.el;
                 var prin = document.querySelector("#cob");
@@ -74,7 +72,6 @@
                             modelo.setAttribute('gltf-model', `#${meteoros[idx]}`);
                         });
                     }.bind(this));
-
             }
         });
     </script>
@@ -143,7 +140,7 @@
             <a-asset-item id="metazu" src="../assets/ModComp/CompAzu.glb"></a-asset-item>
             <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb"></a-asset-item>
             <!-- Esto es un comentario  position="-1 0 1"-->
-            <video id="vid" src="../assets/composicion.mp4" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline playsinline ></video>
+            <video id="vid" src="../assets/composicion.mp4" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline playsinline></video>
             <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
         <!--    <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>-->
