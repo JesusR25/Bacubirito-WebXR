@@ -9,6 +9,11 @@
     <script>
         AFRAME.registerComponent('cambios', {
             init: function () {
+                //Videooooo
+                var markervid = document.querySelector("#pri");
+                var vid = document.querySelector("#vid");
+                var vidfor = document.querySelector("#primero");
+                //Modleos
                 const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
                 const meteoros = ["metcob", "metniq", "methie", "metazu"];
                 let idx = -1;
@@ -71,6 +76,14 @@
                             modelo.setAttribute('scale', '0.4 0.4 0.4');
                             modelo.setAttribute('gltf-model', `#${meteoros[idx]}`);
                         });
+                    }.bind(this));
+
+                    markervid.addEventListener('markerFound', function () {
+                        //Primero escondemos todo de los 2 videos anteriores
+
+                        //Aqui hacemos todo lo del video del marker correspondiente
+                        vid.play();
+                        document.querySelector("#primero").setAttribute("visible", true);
                     }.bind(this));
             }
         });
