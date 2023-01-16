@@ -9,6 +9,11 @@
     <script>
         AFRAME.registerComponent('cambios', {
             init: function () {
+                //Videoossss
+                var marvid = document.querySelector("#pri");
+                var vid = document.querySelector("#vid");
+                var vidfor = document.querySelector("#primero");
+                //Videosssss
                 const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
                 const meteoros = ["metcob", "metniq", "methie", "metazu"];
                 let idx = -1;
@@ -72,6 +77,14 @@
                             modelo.setAttribute('gltf-model', `#${meteoros[idx]}`);
                         });
                     }.bind(this));
+
+                    marvid.addEventListener('markerFound', function () {
+                        //Primero escondemos todo de los 2 videos anteriores
+                        //Aqui hacemos todo lo del video del marker correspondiente
+                        vid.play();
+                        document.querySelector("#primero").setAttribute("visible", true);
+                    }.bind(this));
+
             }
         });
     </script>
