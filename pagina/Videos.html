@@ -54,7 +54,11 @@
                  		
     if (Math.abs(window.orientation) === 90) {
         // Landscape
-        alert("Landscape")
+        var prim = document.getElementById("#primero");
+        prim.setAttribute("scale","2 1 0");
+        var botones1 = document.getElementById("botones");
+        botones1.style.display = "block";
+
     } else {
     	// Portrait
     	alert("portrait")
