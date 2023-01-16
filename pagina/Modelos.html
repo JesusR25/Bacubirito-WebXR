@@ -17,7 +17,8 @@
                 //Markeeeeeerr
                 var marker = document.querySelector("#marmol");
                 var modelo = document.querySelector("#mod");
-                var caja = document.getElementById("caja")
+                var caja = document.getElementById("caja");
+                var flechas = document.getElementById("flechas");
                 //Variables
                 let introduccion = 'El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.';
                 let textazu = 'El meteorito de Bacubirito contiene un 0.005% de Azufre.';
@@ -31,6 +32,7 @@
                 marker.addEventListener('markerFound', function () {
                         //Primero escondemos todo de los 2 videos anteriores
                         caja.style.display = "block";
+                        flechas.style.display = "block";
                         prin.setAttribute("visible", true);
                         modelo.setAttribute("visible", true)
                         //Añadir evento al boton anterior
@@ -109,7 +111,7 @@
     </style>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <div style='top: 10px;text-align: center; z-index: 1;'>
+    <div id="flechas" style='top: 10px;text-align: center; z-index: 1; display: none;'>
         <button class="button" id="btnAnt">
             <img src="../assets/ant.png" width="40px">
         </button>
