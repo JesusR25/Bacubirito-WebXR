@@ -15,13 +15,14 @@
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 14px;
+            font-size: 13px;
             text-align: center;
             z-index: 1;
             }
         </style>
         <div style='top: 10px;text-align: center; z-index: 1;'>
-            <div id="arriba">Se puede ver nuestro planeta desde el espacio. A un lado, se ubica un asteroide rotando</div>
+            <div id="arriba">En esta escena se puede apreciar nuestro planeta, con efecto de movimiento de rotación. A un costado, se puede ver un asteroide. Al mover la pantalla, te permite ver desde diferentes ángulos.
+                </div>
         </div>
     </head>
     <body>
@@ -35,7 +36,7 @@
                 <a-asset-item id="meteoro" src="../assets/Meteoro Vista.glb" ></a-asset-item>
             </assets>
             <!-- Camara -->
-            <a-entity camera="userHeight: 1.6" look-controls position="5 0 10" rotation="0 90 0"></a-entity>
+            <a-entity camera="userHeight: 1.6" look-controls position="5 0 15" rotation="0 90 0"></a-entity>
             <!-- Fondo -->
             <a-sky src="#fondo" rotation="0 -130 0"></a-sky>
             <!-- Los objetos en un solo entity -->
