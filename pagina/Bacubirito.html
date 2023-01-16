@@ -31,50 +31,6 @@
             <button class="button" id="btn8">Play Video</button>
         </div>
 
-        <script>
-            function readDeviceOrientation() {
-                if (Math.abs(window.orientation) === 90) {
-                    // Landscape
-                    document.querySelector("#segundo").setAttribute("width", 3);
-                    document.querySelector("#segundo").setAttribute("height", 1.5);
-                } else {
-                // Portrait
-                document.querySelector("#segundo").setAttribute("width", 1.5);
-                document.querySelector("#segundo").setAttribute("height", 1.5);
-                }
-            }
-            window.onorientationchange = readDeviceOrientation;
-
-            AFRAME.registerComponent('videohandler', {
-                init: function () {
-                    //Declaramos las 3 series de botones
-                    var botones2 = document.getElementById("botonesorigen");
-                    //Declaramos los 3 markers
-                    var marker2 = document.querySelector("#seg");
-                    //Videos para pausarlos y reproducirlos
-                    var vid2 = document.querySelector("#vidorigen");
-                    //Videos para esconderlos y manipularlos
-                    var vidfor2 = document.querySelector("#segundo");
-                    //Marker 2
-                    marker2.addEventListener('markerFound', function () {
-                        //Primero escondemos todo de los 2 videos anteriores
-                        //Aqui hacemos todo lo del video del marker correspondiente
-                        botones2.style.display = "block";
-                        vid2.play();
-                        document.querySelector("#segundo").setAttribute("visible", true);
-                        document.getElementById("btn5").addEventListener("click", (e)=>{
-                            vid2.muted=false; })
-                        document.getElementById("btn6").addEventListener("click", (e)=>{
-                            vid2.muted=true; })
-                        document.getElementById("btn7").addEventListener("click", (e)=>{
-                            vid2.pause(); })
-                        document.getElementById("btn8").addEventListener("click", (e)=>{
-                            vid2.play(); })
-                    }.bind(this));
-                },
-            });
-        </script>
-
     </head>
 
     <body>
@@ -82,16 +38,6 @@
  
             <a-assets timeout="30000" >
                 <a-asset-item id="bacu" src="../assets/Bacubirito/Bacubirito Mod.glb"></a-asset-item>
-                <video
-                    id="vidorigen"
-                    src="../assets/historia.mp4"
-                    preload="auto"
-                    response-type="arraybuffer"
-                    loop
-                    crossorigin
-                    webkit-playsinline
-                    playsinline
-                ></video>
             </a-assets>
 
             <a-marker preset="hiro">
@@ -102,10 +48,6 @@
                 gltf-model="#bacu"
                 animation="property: rotation; to: 0 0 369; loop: true; dur: 30000" gesture-handler
                 ></a-entity>
-            </a-marker>
-
-            <a-video id="segundo" visible="false" src="#vidorigen" width="1.5" height="1.5" position="0 0.2 -4"  class="clickable" gesture-handler videohandler ></a-video>
-            <a-marker id="seg" type='pattern' url='../assets/pattern-Hoba.patt' smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" >
             </a-marker>
 
             <a-entity camera></a-entity>
