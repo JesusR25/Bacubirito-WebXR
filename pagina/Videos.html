@@ -50,37 +50,18 @@
           </div>
 
           <script>
-            let orn = getOrientation();
-                
-            function getOrientation() {
-                let _orn = screen.msOrientation ||
-                (screen.orientation || screen.mozOrientation).type;
-            
-                switch(_orn){
-                    case 'portrait-primary':
-                        alert("Normal")
-                    case 'portrait-secondary':
-                        break;
-                    case 'landscape-primary':
-                        console.log('This is the laptop/desktop version')
-                        alert("Acostado")
-                        break;
-                    case 'landscape-secondary':
-                        alert("Acostado secondary")
-                        break;
-                    case undefined:
-                        //not supported
-                        break;
-                    default:
-                        //something unknown
-                }
-                return _orn;
-            }
-            
-            window.addEventListener('orientationchange', (ev)=>{
-                orn = getOrientation();
-                console.dir(ev)
-            })
+            function readDeviceOrientation() {
+                 		
+    if (Math.abs(window.orientation) === 90) {
+        // Landscape
+        alert("Landscape")
+    } else {
+    	// Portrait
+    	alert("portrait")
+    }
+}
+
+window.onorientationchange = readDeviceOrientation;
         </script>
 
 
