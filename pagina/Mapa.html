@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Bacubirito Pruebas</title>
+        <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+        <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+        <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+        <script> 
+            AFRAME.registerComponent('videohandler', {
+                init: function () {
+                    //Declaramos los 3 markers
+                    var marker2 = document.querySelector("#modelo");
+                    //Videos para pausarlos y reproducirlos
+                    var modelo = document.querySelector("#bac");
+                    //Marker 2
+                    marker2.addEventListener('markerFound', function () {
+                        modelo.setAttribute("visible", true);
+                    }.bind(this));
+                },
+            });
+        </script>
+
+    </head>
+
+    <body>
+        <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
+ 
+            <a-assets>
+                <a-asset-item id="bacu" src="../assets/Bacubirito/SinMapa.glb"></a-asset-item>
+                <video
+                    id="vidorigen"
+                    src="../assets/historia.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    playsinline
+                ></video>
+            </a-assets>
+            
+
+
+            <a-entity id="bac" position="0 0.2 -4" visible="false" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" videohandler gesture-handler></a-entity>
+            <a-marker id="modelo" preset="hiro">
+            </a-marker>
+
+
+            <a-entity camera></a-entity>
+            </a-scene>    
+    </body>
+</html>
