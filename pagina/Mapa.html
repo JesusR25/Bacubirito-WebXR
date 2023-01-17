@@ -19,6 +19,17 @@
                     }.bind(this));
                 },
             });
+
+
+            AFRAME.registerComponent('for_a_marker', {
+              init: function () {
+                var text = document.querySelector('#bac');
+                text.addEventListener("click", function (evt) { //or you could do "mouseenter" [event](https://aframe.io/docs/0.9.0/components/cursor.html#events)
+                alert("do your stuff");
+            });
+    }
+});
+
         </script>
 
     </head>
@@ -28,22 +39,11 @@
  
             <a-assets>
                 <a-asset-item id="bacu" src="../assets/Bacubirito/SinMapa.glb"></a-asset-item>
-                <video
-                    id="vidorigen"
-                    src="../assets/historia.mp4"
-                    preload="auto"
-                    response-type="arraybuffer"
-                    loop
-                    crossorigin
-                    webkit-playsinline
-                    playsinline
-                ></video>
             </a-assets>
             
-
-
-            <a-entity id="bac" position="0 0.2 -4" visible="false" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" videohandler gesture-handler></a-entity>
-            <a-marker id="modelo" preset="hiro">
+            <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
+            <a-entity lass="intersectable" id="bac" position="0 0.2 -4" visible="false" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" videohandler gesture-handler></a-entity>
+            <a-marker id="modelo" preset="hiro" for_a_marker>
             </a-marker>
 
 
