@@ -32,9 +32,31 @@
 
         </script>
 
+<style>
+    #footer {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        left: 50%;
+        width: 350px;
+        height: 100px;
+        transform: translate(-50%, -50%);
+        background-color: rgb(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+    }
+</style>
+
     </head>
 
     <body>
+            <div id="footer">
+                <p>El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.</p>
+            </div>
         <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
  
             <a-assets>
