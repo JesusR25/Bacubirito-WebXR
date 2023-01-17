@@ -37,6 +37,7 @@
                 var marker = document.querySelector("#marmol");
                 var modelo = document.querySelector("#mod");
                 var caja = document.getElementById("caja");
+                var parrafo = document.getElementById("parrafo");
                 var flechas = document.getElementById("flechas");
                 var ant = document.getElementById("flechasant");
                 //Variables
@@ -46,7 +47,7 @@
                 let texthie = 'El meteorito de Bacubirito contiene un 88.94% de Hierro.';
                 let textniq = 'El meteorito de Bacubirito contiene un 6.98% de Niquel.';
                 const listtext = [textcob, textniq, texthie, textazu];
-                document.querySelector("#footer").innerHTML = `${introduccion}`;
+                //document.querySelector("#footer").innerHTML = `${introduccion}`;
 
                 //Evento del marker found
                 marker.addEventListener('markerFound', function () {
@@ -67,7 +68,7 @@
                                 prin.removeAttribute('gltf-model');
                                 prin.setAttribute('gltf-model', `#${modelList[idx]}`)
                                 //Texto sobre informacion del material
-                                document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
+                                document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
                                 modelo.removeAttribute('gltf-model');
                                 modelo.removeAttribute('scale');
                                 modelo.setAttribute('scale', '0.4 0.4 0.4');
@@ -77,7 +78,7 @@
                                 prin.removeAttribute('gltf-model');
                                 prin.setAttribute('gltf-model', `#${modelList[idx]}`)
                                 //Texto sobre informacion del material
-                                document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
+                                document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
                                 modelo.removeAttribute('gltf-model');
                                 modelo.removeAttribute('scale');
                                 modelo.setAttribute('scale', '0.4 0.4 0.4');
@@ -90,7 +91,7 @@
                             prin.removeAttribute('gltf-model');
                             prin.setAttribute('gltf-model', `#${modelList[idx]}`)
                             //Texto sobre informacion del material
-                            document.querySelector("#footer").innerHTML = `#${listtext[idx]}`;
+                            document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
                             modelo.removeAttribute('gltf-model');
                             modelo.removeAttribute('scale');
                             modelo.setAttribute('scale', '0.4 0.4 0.4');
@@ -171,6 +172,9 @@
             border: 2px solid rgba(9, 148, 28, 0.541);
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
           }
+          p {
+  margin: 20px;
+}
     </style>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -201,7 +205,9 @@
 
     
     <div id="caja" style="display: none;">
-        <div id="footer"></div>
+        <div id="footer">
+            <p id="parrafo">El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.</p>
+        </div>
     </div>
     <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'
         gesture-detector>
