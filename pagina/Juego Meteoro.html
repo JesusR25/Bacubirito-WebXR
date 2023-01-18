@@ -5,13 +5,108 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garaje Code Pills | Aframe</title>
+    <title>Juego de Asteroides</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="../js/app.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="../css/styles.css" rel="stylesheet">
+    <script src="../js/script.js" defer></script>
+    
+    <script>
+        window.addEventListener('load', initScene)
+
+const meteors = [
+    { x: 0, y: 0, z: -30 },
+    { x: 0, y: 0, z: 30 },
+    { x: 30, y: 0, z: 0 },
+    { x: -30, y: 0, z: 0 },
+    { x: 20, y: 0, z: 20 },
+    { x: 20, y: 0, z: -20 },
+    { x: -20, y: 0, z: -20 },
+    { x: -20, y: 0, z: 20 }
+]
+
+let meteor, score = 0
+
+function initScene() {
+
+    let orbits = document.querySelectorAll('.orbit')
+
+    orbits.forEach(orbit => {
+
+        meteors.forEach(pos => {
+
+            meteor = document.createElement('a-entity')
+            meteor.setAttribute('gltf-model', '#metemod');
+            meteor.setAttribute('scale', '2 2 2');
+            meteor.setAttribute('class', 'meteor')
+            meteor.object3D.position.set(pos.x, pos.y, pos.z)
+
+            meteor.setAttribute('shootable', '')
+
+            orbit.appendChild(meteor)
+        })
+    })
+    //playPause()
+}
+
+AFRAME.registerComponent('shootable', {
+    init: function () {
+        this.el.addEventListener('click', () => {
+            this.el.parentNode.removeChild(this.el)
+            document.querySelector('[text]').setAttribute('value', `${++score} meteoritos cazados`)
+            if(score == 5){
+                var tiempo = document.getElementById('stopwatch').innerHTML;
+                playPause()
+                swal({
+                    title: "¡Felicidades!",
+                    text: "Has destruido los 32 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria jugar de nuevo?",
+                    icon: "success",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.reload();
+                        } else {
+                            swal("¡Gracias por jugar!");
+                        }
+                    });
+            }
+        })
+    }
+})
+
+    </script>
+    <script>
+        function iniciar(){
+            swal({
+                title: "Instrucciones",
+                text: "Apunta hacia los asteriodes para destruirlos en el menor tiempo posible",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                playPause()
+                } else {
+                    window.history.back();
+                }
+            });
+        }
+    </script>
 </head>
 
-<body>
-
+<body onload="iniciar();">
+    <main>
+        <div class="circle">
+            <div id="stopwatch" class="stopwatch">00:00</div>
+            <div class="buttons">
+                <div class="stop" onclick="iniciar()"></div>
+                <div id="play-pause" class="paused" onclick="playPause()"></div>
+            </div>
+        </div>
+        <div id="seconds-sphere" class="seconds-sphere"></div>
+    </main>
     <a-scene>
 
         <a-assets>
