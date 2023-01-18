@@ -6,9 +6,10 @@
         <style>
             #arriba{
             position: absolute;
-            top: 20px;
+            top: 0%;
+            left: 40%;
             width: 350px;
-            height: 100px;
+            height: 90px;
             background-color: rgb(0, 0, 0, 0.8);
             z-index: 9999;
             display: flex;
@@ -20,12 +21,12 @@
             z-index: 1;
             }
         </style>
+    </head>
+    <body>
         <div style='top: 10px;text-align: center; z-index: 1;'>
             <div id="arriba">En esta escena se puede apreciar nuestro planeta, con efecto de movimiento de rotación. A un costado, se puede ver un asteroide. Al mover la pantalla, te permite ver desde diferentes ángulos.
                 </div>
         </div>
-    </head>
-    <body>
         <a-scene>
             <assets timeout="30000">
                 <img id="luna" src="../assets/moon.jpg"/>
