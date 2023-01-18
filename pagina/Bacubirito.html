@@ -28,10 +28,9 @@
             position: absolute;
             bottom: 0;
             top: 70%;
-            left: 50%;
+            left: 40%;
             width: 350px;
             height: 100px;
-            transform: translate(-50%, -50%);
             background:#FF813E;
             z-index: 9999;
             display: flex;
@@ -104,7 +103,13 @@
 
     </head>
 
-    <body>
+    <body style='margin : 5px; overflow: hidden; font-family: Monospace;'>
+        <div style="z-index: 9999;;text-align: center;">
+            <p class="caja">
+                •	Es el quinto más grande del mundo. Fue descubierto en 1863, en Bacubirito, Sin.<br>
+                •	Fue trasladado al Centro Cívico Constitución en Culiacán para su exhibición desde 1959 hasta 1992.<br>
+                •	Desde 1993 hasta la fecha permanece en el Centro de Ciencias de Sinaloa.
+            </p>
         </div>
         <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
             <a-assets>
