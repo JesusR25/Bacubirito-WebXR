@@ -25,17 +25,29 @@
             }
 
             .caja{
-                background:#FF813E; 
-                color:white; 
-                font-weight:bold; 
-                padding:10px; 
-                border:3px solid #B34F19; 
-                margin-top:10px; 
-                margin-bottom:10px; 
-                text-align:center; 
-                font-size:13px; 
-                border-radius:10px;
+            position: absolute;
+            bottom: 0;
+            top: 70%;
+            left: 50%;
+            width: 350px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+            background:#FF813E;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 13px;
+            font-weight:bold;
+            padding:15px;
+            border:3px solid #B34F19;
+            text-align:center;
+            border-radius:10px;
             }
+            p {
+  margin: 20px;
+}
             
         </style>
 
@@ -117,7 +129,7 @@
 
             <a-marker preset="hiro">
                 <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-                <a-entity position="0 0 -1.5" rotation="0 0 0" scale="1 1 1" gltf-model="#bacu" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" gesture-handler></a-entity>
+                <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#bacu" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" gesture-handler></a-entity>
             </a-marker>
 
             <a-video id="segundo" visible="false" src="#vidorigen" width="1.5" height="1.5" position="0 0.2 -4"  class="clickable" gesture-handler videohandler ></a-video>
