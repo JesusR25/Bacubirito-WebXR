@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <title>Bacubirito</title>
         <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
         <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
@@ -22,8 +23,22 @@
               border: 2px solid rgba(9, 148, 28, 0.541);
               box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
             }
+
+            .caja{
+                background:#FF813E; 
+                color:white; 
+                font-weight:bold; 
+                padding:10px; 
+                border:3px solid #B34F19; 
+                margin-top:40px; 
+                margin-bottom:40px; 
+                text-align:center; 
+                font-size:13px; 
+                border-radius:10px;
+            }
             
         </style>
+
         <div id="botonesorigen" style='top: 20px;text-align: center; z-index: 1; display: none;'>
             <button class="button" id="btn5">Play Sound</button>
             <button class="button" id="btn6">Stop Sound</button>
@@ -78,8 +93,14 @@
     </head>
 
     <body>
+        <div style="z-index: 9999; top: 60%;text-align: center; position: absolute; left: 38%;">
+            <p class="caja">
+                •	Es el quinto más grande del mundo. Fue descubierto en 1863, en Bacubirito, Sin.<br>
+                •	Fue trasladado al Centro Cívico Constitución en Culiacán para su exhibición desde 1959 hasta 1992.<br>
+                •	Desde 1993 hasta la fecha permanece en el Centro de Ciencias de Sinaloa.
+            </p>
+        </div>
         <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
- 
             <a-assets>
                 <a-asset-item id="bacu" src="../assets/Bacubirito/SinMapa.glb"></a-asset-item>
                 <video
