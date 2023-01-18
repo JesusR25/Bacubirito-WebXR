@@ -233,7 +233,6 @@
             <a-asset-item id="metazu" src="../assets/ModComp/CompAzu.glb"></a-asset-item>
             <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb"></a-asset-item>
              <!-- Bacubirito de elementos-->
-             <a-asset-item id="metecob" src="../assets/ModComp/MeteCob.glb"></a-asset-item>
             <!-- Esto es un comentario  position="-1 0 1"-->
             <!-- Esto es un comentario  position="-1 0 1"-->
         </a-assets>
@@ -241,10 +240,8 @@
 
 
         <a-entity id="cob" gltf-model="#cobalto" visible="false" position="0 1 -4" scale="1 1 1" class="clickable" rotation="0 0 0"
-                animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" cambios></a-entity>
-        <a-entity id="crack" gltf-model="#metecob" visible="true" position="0.8 -0.8 -4" scale="0.8 0.8 0.8" class="clickable" rotation="0 0 0"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" cambios></a-entity>
-        <a-entity id="mod" visible="false" position="-0.2 -0.8 -4" class="clickable" rotation="0 0 0" gesture-handler animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 25000" cambios></a-entity>
+        <a-entity id="mod" visible="false" position="1 -0.8 -4" class="clickable" rotation="0 0 0" gesture-handler animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
         <a-marker id="marmol" type='pattern' url='../assets/pattern-Willamette.patt' raycaster="objects: .clickable"
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA"></a-marker>
             
