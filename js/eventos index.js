@@ -102,3 +102,19 @@ function advertencia(){
       }
     });
   }
+
+  function cuerpos(){
+    swal({
+      title: "Resumen",
+      text: "•	Reproduce el video escaneando el marcador “Video”. Puedes volter tu celular para una mejor visualizacion. \n •	Posteriormente, escanea cada marcador un asteroide y  un cinturón de asteroides  ",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location.href = "/pagina/Modelos DInamicos.html";
+      } else {
+      }
+    });
+  }
