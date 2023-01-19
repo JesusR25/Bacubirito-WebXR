@@ -76,8 +76,10 @@
                 init: function () {
                     //Declaramos las 3 series de botones
                     var botones2 = document.getElementById("botonesorigen");
+                    var texto = document.getElementById("texto");
                     //Declaramos los 3 markers
                     var marker2 = document.querySelector("#seg");
+                    var hiro = document.querySelector("meteo");
                     //Videos para pausarlos y reproducirlos
                     var vid2 = document.querySelector("#vidorigen");
                     //Videos para esconderlos y manipularlos
@@ -87,6 +89,7 @@
                         //Primero escondemos todo de los 2 videos anteriores
                         //Aqui hacemos todo lo del video del marker correspondiente
                         botones2.style.display = "block";
+                        texto.style.display = "none";
                         vid2.play();
                         document.querySelector("#segundo").setAttribute("visible", true);
                         document.getElementById("btn5").addEventListener("click", (e)=>{
@@ -98,6 +101,12 @@
                         document.getElementById("btn8").addEventListener("click", (e)=>{
                             vid2.play(); })
                     }.bind(this));
+                    hiro.addEventListener('markerFound', function () {
+                        //Primero escondemos todo de los 2 videos anteriores
+                        //Aqui hacemos todo lo del video del marker correspondiente
+                        texto.style.display = "block";
+                        botones2.style.display = "none";
+                    }.bind(this));
                 },
             });
         </script>
@@ -105,7 +114,7 @@
     </head>
 
     <body style='margin : 5px; overflow: hidden; font-family: Monospace;'>
-        <div style="z-index: 9999;;text-align: center;">
+        <div id="texto" style="z-index: 9999;text-align: center; display: none; ">
             <p class="caja">
                 •	Es el quinto más grande del mundo. Fue descubierto en 1863, en Bacubirito, Sin.<br>
                 •	Fue trasladado al Centro Cívico Constitución en Culiacán para su exhibición desde 1959 hasta 1992.<br>
@@ -127,9 +136,9 @@
                 ></video>
             </a-assets>
 
-            <a-marker preset="hiro">
+            <a-marker id="meteo" preset="hiro">
                 <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-                <a-entity position="0 0 0" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" gesture-handler></a-entity>
+                <a-entity position="0 0 0" rotation="0 0 0" scale="0.6 0.6 0.6" gltf-model="#bacu" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" gesture-handler></a-entity>
             </a-marker>
 
             <a-video id="segundo" visible="false" src="#vidorigen" width="1.5" height="1.5" position="0 0.2 -4"  class="clickable" gesture-handler videohandler ></a-video>
