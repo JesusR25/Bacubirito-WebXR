@@ -23,6 +23,22 @@ function advertencia(){
     });
   }
 
+  function meteorito(){
+    swal({
+      title: "Resumen",
+      text: "•	Marcador disponible: Meteorito. \n •	Escanea el marcador Meteorito para visualizar una representación 3D. Podrás  rotarlo con los gestos que utilices en la pantalla. \n",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location.href = "/pagina/Modelo Bacubirito.html";
+      } else {
+      }
+    });
+  }
+
   function composicion(){
     swal({
       title: "Resumen",
