@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <title>Bacubirito</title>
         <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
         <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
@@ -84,10 +85,13 @@
                     var vid2 = document.querySelector("#vidorigen");
                     //Videos para esconderlos y manipularlos
                     var vidfor2 = document.querySelector("#segundo");
+                    //Modelo
+                    var modelo = document.querySelector("#modelo");
                     //Marker 2
                     marker2.addEventListener('markerFound', function () {
                         //Primero escondemos todo de los 2 videos anteriores
                         //Aqui hacemos todo lo del video del marker correspondiente
+                        modelo.setAttribute("visible", false);
                         botones2.style.display = "block";
                         texto.style.display = "none";
                         vid2.play();
@@ -103,9 +107,12 @@
                     }.bind(this));
                     hiro.addEventListener('markerFound', function () {
                         //Primero escondemos todo de los 2 videos anteriores
-                        //Aqui hacemos todo lo del video del marker correspondiente
-                        texto.style.display = "block";
                         botones2.style.display = "none";
+                        document.querySelector("#segundo").setAttribute("visible", false);
+                        vid2.pause();
+                        //Aqui hacemos todo lo del video del marker correspondiente
+                        modelo.setAttribute("visible", true);
+                        texto.style.display = "block";
                     }.bind(this));
                 },
             });
@@ -121,7 +128,7 @@
                 •	Desde 1993 hasta la fecha permanece en el Centro de Ciencias de Sinaloa.
             </p>
         </div>
-        <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
+        <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
             <a-assets>
                 <a-asset-item id="bacu" src="../assets/Bacubirito/Terminado.glb"></a-asset-item>
                 <video
@@ -136,9 +143,9 @@
                 ></video>
             </a-assets>
 
+            <a-entity id="modelo" visible="false" position="0 0 -4" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" gesture-handler></a-entity>
             <a-marker id="meteo" preset="hiro">
                 <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-                <a-entity position="0 0 0" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" gesture-handler></a-entity>
             </a-marker>
 
             <a-video id="segundo" visible="false" src="#vidorigen" width="1.5" height="1.5" position="0 0.2 -4"  class="clickable" gesture-handler videohandler ></a-video>
