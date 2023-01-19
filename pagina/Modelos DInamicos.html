@@ -78,7 +78,7 @@
                 botones2.style.display = "none";
                 vid2.pause();
                 document.querySelector("#tercero").setAttribute("visible", false);
-                document.querySelector("#meteoro").setAttribute("visible", true);
+                document.querySelector("#figuramet").setAttribute("visible", true);
                 document.querySelector("#modelos").setAttribute("visible", false);
                 //Aqui hacemos todo lo del video del marker correspondiente
 
@@ -88,7 +88,7 @@
                 botones2.style.display = "none";
                 vid2.pause();
                 document.querySelector("#tercero").setAttribute("visible", false);
-                document.querySelector("#meteoro").setAttribute("visible", false);
+                document.querySelector("#figuramet").setAttribute("visible", false);
                 document.querySelector("#modelos").setAttribute("visible", true);
                 //Aqui hacemos todo lo del video del marker correspondiente
 
@@ -133,7 +133,7 @@
             <a-marker id="cinturon"  preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
-            <a-entity gltf-model="#meteoro" visible="false" scale="1 1 1" position="0 0 -4" animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
+            <a-entity id="figuramet" gltf-model="#meteoro" visible="false" scale="1 1 1" position="0 0 -4" animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
             <a-marker id="marmol" type='pattern' url='../assets/MarkersMG/pattern-Armanty.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
             </a-marker>
 
