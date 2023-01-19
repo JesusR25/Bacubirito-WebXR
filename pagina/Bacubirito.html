@@ -114,7 +114,7 @@
         </div>
         <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
             <a-assets>
-                <a-asset-item id="bacu" src="../assets/Bacubirito/SinMapa.glb"></a-asset-item>
+                <a-asset-item id="bacu" src="../assets/Bacubirito/Terminado.glb"></a-asset-item>
                 <video
                     id="vidorigen"
                     src="../assets/historia.mp4"
@@ -129,7 +129,7 @@
 
             <a-marker preset="hiro">
                 <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-                <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#bacu" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" gesture-handler></a-entity>
+                <a-entity position="0 0 0" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" gesture-handler></a-entity>
             </a-marker>
 
             <a-video id="segundo" visible="false" src="#vidorigen" width="1.5" height="1.5" position="0 0.2 -4"  class="clickable" gesture-handler videohandler ></a-video>
