@@ -7,24 +7,11 @@
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     <script src="../js/cursor.js" defer></script>
     <script>
-        //0 para pausado y 1 para reproduciendo
-        var contador = 1;
-        function pausar(){
-            var vid = document.querySelector("#vid");
-            if(contador == 0){
-                vid.play();
-                contador = 1;
-            }else{
-                vid.pause();
-                contador = 0;
-            }
-        }
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90) {
                 // Landscape
                 document.querySelector("#primero").setAttribute("width", 3);
                 document.querySelector("#primero").setAttribute("height", 1.5);
-                document.body.addEventListener("click", pausar);
             } else {
             // Portrait
             document.querySelector("#primero").setAttribute("width", 1.5);
@@ -130,10 +117,8 @@
                         document.getElementById("btn2").addEventListener("click", (e)=>{
                             vid.muted=true; })
                         document.getElementById("btn3").addEventListener("click", (e)=>{
-                            contador = 0;
                             vid.pause(); })
                         document.getElementById("btn4").addEventListener("click", (e)=>{
-                            contador = 1;
                             vid.play(); })
                     }.bind(this));
 
@@ -215,6 +200,12 @@
     <div id="flechasant" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; display: none;'>
         <button class="button" id="btnAnt">
             <img src="../assets/ant.png" width="40px">
+        </button>
+    </div>
+
+    <div id="controles" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; top: 50%; display: none;'>
+        <button class="button" id="control">
+            <img src="../assets/control.png" width="30px">
         </button>
     </div>
 
