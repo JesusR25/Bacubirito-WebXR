@@ -7,9 +7,15 @@
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     <script src="../js/cursor.js" defer></script>
     <script>
+        //0 para pausado y 1 para reproduciendo
+        var contador = 0;
         function pausar(){
             var vid = document.querySelector("#vid");
+            if(contador == 0){
+                vid.play();
+            }else{
                 vid.pause();
+            }
         }
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90) {
@@ -123,8 +129,10 @@
                         document.getElementById("btn2").addEventListener("click", (e)=>{
                             vid.muted=true; })
                         document.getElementById("btn3").addEventListener("click", (e)=>{
+                            contador = 0;
                             vid.pause(); })
                         document.getElementById("btn4").addEventListener("click", (e)=>{
+                            contador = 1;
                             vid.play(); })
                     }.bind(this));
 
