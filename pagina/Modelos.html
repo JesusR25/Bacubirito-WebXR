@@ -22,8 +22,7 @@
                 // Landscape
                 document.querySelector("#primero").setAttribute("width", 3);
                 document.querySelector("#primero").setAttribute("height", 1.5);
-                var escena = document.querySelector("#esc");
-                escena.addEventListener("click", pausar);
+                document.body.addEventListener("click", pausar);
             } else {
             // Portrait
             document.querySelector("#primero").setAttribute("width", 1.5);
