@@ -8,16 +8,19 @@
     <script src="../js/cursor.js" defer></script>
     <script>
         var activo = false;
+        var volteado = false;
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90) {
                 // Landscape
                 document.querySelector("#primero").setAttribute("width", 3);
                 document.querySelector("#primero").setAttribute("height", 1.5);
+                volteado = true;
                 activarbotones();
             } else {
             // Portrait
             document.querySelector("#primero").setAttribute("width", 1.5);
             document.querySelector("#primero").setAttribute("height", 1.5);
+            volteado = false;
             desactivarbotones();
             }
         }
@@ -131,6 +134,16 @@
                         prin.setAttribute("visible", false);
                         modelo.setAttribute("visible", false)
                         activo = true;
+                        if(volteado){
+                            var pausa = document.getElementById("pause");
+                            var play = document.getElementById("play");
+                            pausa.style.display = "block";
+                            play.style.display = "block";
+                            pausa.addEventListener("click", (e)=>{
+                                vid.pause(); })
+                            play.addEventListener("click", (e)=>{
+                                vid.play(); })
+                        }
                         //Aqui hacemos todo lo del video del marker correspondiente
                         var boton = document.getElementById("botones");
                         boton.style.display = "block"
