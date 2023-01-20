@@ -7,16 +7,38 @@
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     <script src="../js/cursor.js" defer></script>
     <script>
+        var activo = false;
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90) {
                 // Landscape
                 document.querySelector("#primero").setAttribute("width", 3);
                 document.querySelector("#primero").setAttribute("height", 1.5);
+                activarbotones();
             } else {
             // Portrait
             document.querySelector("#primero").setAttribute("width", 1.5);
             document.querySelector("#primero").setAttribute("height", 1.5);
+            desactivarbotones();
             }
+        }
+
+        function activarbotones(){
+            if(activo){
+                var pausa = document.getElementById("play");
+                var play = document.getElementById("pause");
+                pausa.style.display = "block";
+                play.style.display = "block";
+                pausa.addEventListener("click", (e)=>{
+                    vid.pause(); })
+                play.addEventListener("click", (e)=>{
+                    vid.play(); })
+            }
+        }
+        function desactivarbotones(){
+            var pausa = document.getElementById("play");
+            var play = document.getElementById("pause");
+            pausa.style.display = "none";
+            play.style.display = "none";
         }
         window.onorientationchange = readDeviceOrientation;
     </script>
@@ -53,6 +75,7 @@
                 //Evento del marker found
                 marker.addEventListener('markerFound', function () {
                         //Primero escondemos todo de los 2 videos anteriores
+                        activo = false;
                         var botonv = document.getElementById("botones");
                         botonv.style.display = "none"
                         vid.pause();
@@ -107,6 +130,7 @@
                         ant.style.display = "none";
                         prin.setAttribute("visible", false);
                         modelo.setAttribute("visible", false)
+                        activo = true;
                         //Aqui hacemos todo lo del video del marker correspondiente
                         var boton = document.getElementById("botones");
                         boton.style.display = "block"
@@ -203,12 +227,12 @@
         </button>
     </div>
 
-    <div id="play" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; top: 50%;'>
+    <div id="play" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; top: 50%; display: none;'>
         <button class="button" id="control">
             <img src="../assets/control.png" width="40px">
         </button>
     </div>
-    <div id="pause" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; top: 30%;'>
+    <div id="pause" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; top: 30%; display: none;'>
         <button class="button" id="control">
             <img src="../assets/controlp.png" width="40px">
         </button>
