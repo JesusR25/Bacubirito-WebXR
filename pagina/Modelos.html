@@ -12,10 +12,21 @@
                 // Landscape
                 document.querySelector("#primero").setAttribute("width", 3);
                 document.querySelector("#primero").setAttribute("height", 1.5);
+                var escena = document.querySelector("#esc");
+                escena.addEventListener("click", pausar);
             } else {
             // Portrait
             document.querySelector("#primero").setAttribute("width", 1.5);
             document.querySelector("#primero").setAttribute("height", 1.5);
+            }
+        }
+
+        function pausar(){
+            var vid = document.querySelector("#vid");
+            if(vid.paused){
+                vid.play();
+            }else{
+                vid.pause();
             }
         }
         window.onorientationchange = readDeviceOrientation;
@@ -23,6 +34,7 @@
     <script>
         AFRAME.registerComponent('cambios', {
             init: function () {
+                //Click en escena
                 //Videoossss
                 var marvid = document.querySelector("#pri");
                 var vid = document.querySelector("#vid");
@@ -246,7 +258,7 @@
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA"></a-marker>
             
         <a-video id="primero" visible="false" src="#vid" width="1.5" height="1.5" position="0 0.2 -4" class="clickable" videohandler gesture-handler ></a-video>
-        <a-marker id="pri"type='pattern' url='../assets/pattern-Willamette.patt' smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+        <a-marker id="pri"type='pattern' url='../assets/pattern-Hoba.patt' smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
         </a-marker>
 
         <a-entity camera></a-entity>
