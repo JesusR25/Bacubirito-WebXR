@@ -223,8 +223,8 @@
             <p id="parrafo">El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.</p>
         </div>
     </div>
-    <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' cursor="rayOrigin: mouse"
-        gesture-detector>
+    <a-scene id="esc" embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false' class="clickable" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"
+        gesture-detector >
         <a-assets>
             <video
                     id="vid"
