@@ -6,7 +6,7 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
         <style>
-            .button {
+            .butt {
               background-color: #4CAF50; 
               border: none;
               color: white;
@@ -21,28 +21,67 @@
               border: 2px solid rgba(9, 148, 28, 0.541);
               box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
             }
+            .button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 1px solid #3498db;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        }
             
         </style>
 
 <div id="botonestipo" style='top: 20px;text-align: center; z-index: 1; display: none;'>
-    <button class="button" id="btn9">Play Sound</button>
-    <button class="button" id="btn10">Stop Sound</button>
-    <button class="button" id="btn11">Stop Video</button>
-    <button class="button" id="btn12">Play Video</button>
+    <button class="butt" id="btn9">Play Sound</button>
+    <button class="butt" id="btn10">Stop Sound</button>
+    <button class="butt" id="btn11">Stop Video</button>
+    <button class="butt" id="btn12">Play Video</button>
   </div>
 
   <script>
+    var activo = false;
+    var volteado = false;
     function readDeviceOrientation() {
         if (Math.abs(window.orientation) === 90) {
             // Landscape
             document.querySelector("#tercero").setAttribute("width", 3);
             document.querySelector("#tercero").setAttribute("height", 1.5);
+            volteado = true;
+            activarbotones();
         } else {
         // Portrait
         document.querySelector("#tercero").setAttribute("width", 1.5);
         document.querySelector("#tercero").setAttribute("height", 1.5);
+        volteado = false;
+        desactivarbotones();
         }
     }
+    function activarbotones(){
+            if(activo){
+                var pausa = document.getElementById("pause");
+                var play = document.getElementById("play");
+                pausa.style.display = "block";
+                play.style.display = "block";
+                pausa.addEventListener("click", (e)=>{
+                    vid2.pause(); })
+                play.addEventListener("click", (e)=>{
+                    vid2.play(); })
+            }
+        }
+        function desactivarbotones(){
+            var pausa = document.getElementById("play");
+            var play = document.getElementById("pause");
+            pausa.style.display = "none";
+            play.style.display = "none";
+        }
     window.onorientationchange = readDeviceOrientation;
 
     AFRAME.registerComponent('videohandler', {
@@ -65,6 +104,17 @@
                 //Aqui hacemos todo lo del video del marker correspondiente
                 botones2.style.display = "block";
                 vid2.play();
+                activo = true;
+                if(volteado){
+                    var pausa = document.getElementById("pause");
+                    var play = document.getElementById("play");
+                    pausa.style.display = "block";
+                    play.style.display = "block";
+                    pausa.addEventListener("click", (e)=>{
+                    vid.pause(); })
+                    play.addEventListener("click", (e)=>{
+                    vid.play(); })
+                }
                 document.querySelector("#tercero").setAttribute("visible", true);
                 document.getElementById("btn9").addEventListener("click", (e)=>{
                     vid2.muted=false; })
@@ -77,6 +127,7 @@
             }.bind(this));
             rota.addEventListener('markerFound', function () {
                 //Primero escondemos todo de los 2 videos anteriores
+                activo = false;
                 botones2.style.display = "none";
                 vid2.pause();
                 document.querySelector("#tercero").setAttribute("visible", false);
@@ -87,6 +138,7 @@
             }.bind(this));
             cinturon.addEventListener('markerFound', function () {
                 //Primero escondemos todo de los 2 videos anteriores
+                activo = false;
                 botones2.style.display = "none";
                 vid2.pause();
                 document.querySelector("#tercero").setAttribute("visible", false);
@@ -102,6 +154,16 @@
 
     </head>
     <body>
+        <div id="play" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; top: 50%; display: none;'>
+            <button class="button" id="control">
+                <img src="../assets/control.png" width="40px">
+            </button>
+        </div>
+        <div id="pause" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; top: 30%; display: none;'>
+            <button class="button" id="control">
+                <img src="../assets/controlp.png" width="40px">
+            </button>
+        </div>
         <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector>
             <assets>
                 <!-- Necesito Diferentes modelos par: El meteoro y el cinturon -->
