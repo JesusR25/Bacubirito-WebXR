@@ -5,8 +5,41 @@
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+        <style>
+            .button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 1px solid #3498db;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        }
+        </style>
+        <script>
+            var pausa = document.getElementById("ocul");
+            pausa.addEventListener("click", (e)=>{
+                const listainf = ["agpin", "ahnin", "armin", "bacin", "chuin", "chain", "hobin", "mboin", "munin", "wilin"];
+                const listaimg = ["agpim", "ahnim", "armim", "bacim", "chuim", "chaim", "hobim", "mboim", "munim", "wilim"];
+                for(i = 0; i < listainf.length; i++){
+                    document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                    document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                }
+                })
+        </script>
     </head>
-    <body>
+    <body style='margin : 5px; overflow: hidden; font-family: Monospace;'>
+        <div id="ocul" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 50%; top: 5%;'>
+            <button class="button" id="ojo">
+                <img src="../assets/oculto.png" width="40px">
+            </button>
+        </div>
 
         <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector >
             <assets>
@@ -47,7 +80,7 @@
                 AFRAME.registerComponent('videohandler', {
                 init: function () {
                     const listainf = ["agpin", "ahnin", "armin", "bacin", "chuin", "chain", "hobin", "mboin", "munin", "wilin"];
-                    const listaimg = ["agpim", "ahnim", "armim", "bacim", "chuim", "chaim", "hobim", "mboim", "munim", "wilim"]
+                    const listaimg = ["agpim", "ahnim", "armim", "bacim", "chuim", "chaim", "hobim", "mboim", "munim", "wilim"];
                     marker = document.querySelector("#agp");
                     marker2 = document.querySelector("#ahn");
                     marker3 = document.querySelector("#arm");
