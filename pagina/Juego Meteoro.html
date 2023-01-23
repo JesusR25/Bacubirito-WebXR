@@ -19,8 +19,7 @@ const meteors = [
     { x: 0, y: 0, z: 30 },
 ]
 
-
-let tiempoglo
+var nivel = 1;
 let meteor, score = 0
 
 function initScene() {
@@ -59,6 +58,7 @@ function segundonivel(){
             if (willDelete) {
                 meteors.unshift({ x: 30, y: 0, z: 0 });
                 initScene();
+                playPause()
             } else {
                 swal("¡Gracias por jugar!");
             }
@@ -125,34 +125,44 @@ function quintonivel(){
 }
 
 function final(){
-    
+    swal({
+        title: "¡Felicidades!",
+        text: "Has destruido los 24 meteoritos y has terminado el juego con un " + tiempo  + ".",
+        icon: "success",
+        button: "Entendido",
+    });
 }
 
 AFRAME.registerComponent('shootable', {
     init: function () {
         this.el.addEventListener('click', () => {
             this.el.parentNode.removeChild(this.el)
+            
             document.querySelector('[text]').setAttribute('value', `${++score} meteoritos cazados`)
-            if(score == 8){
+            if(score == 8 && nivel == 1){
+                nivel = nivel + 1;
                 segundonivel();
                 score = 0;
             }
-            if(score == 12){
+            if(score == 12 && nivel == 2){
                 tercernivel();
                 score = 0;
+                nivel++;
             }
 
-            if(score == 16){
+            if(score == 16 && nivel == 3){
                 cuartonivel();
                 score = 0;
+                nivel++;
             }
 
-            if(score == 20){
+            if(score == 20 && nivel == 4){
                 quintonivel();
                 score = 0;
+                nivel++;
             }
 
-            if(score == 24){
+            if(score == 24 && nivel == 5){
                 final();
             }
         })
