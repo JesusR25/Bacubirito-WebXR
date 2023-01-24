@@ -86,7 +86,7 @@
                     //Primero escondemos todo de los 2 videos anteriores
                 activo = false;
                 document.querySelector("#segundo").setAttribute("visible", false);
-                document.querySelector("#vidorigen").stop();
+                document.querySelector("#vidorigen").pause();
                 //Aqui hacemos todo lo del video del marker correspondiente
                 document.querySelector("#modelo").setAttribute("visible", true);
                 document.getElementById("texto").style.display = "block";
@@ -94,8 +94,7 @@
                 //Boton para cerrar el video
                 document.getElementById("btn6").addEventListener("click", (e) => {
                     document.querySelector("#segundo").setAttribute("visible", false);
-                    document.querySelector("#vidorigen").stop();
-                    vid2.stop();
+                    document.querySelector("#vidorigen").pause();
                     activo = false;
                 })
                 //Boton para pausar video
@@ -106,7 +105,6 @@
                 document.getElementById("btn8").addEventListener("click", (e) => {
                     //Primero escondemos todo de los 2 videos anteriores
                     //Aqui hacemos todo lo del video del marker correspondiente
-                    alert("Hola");
                     document.querySelector("#modelo").setAttribute("visible", false);
                     document.getElementById("texto").style.display = "none";
                     document.querySelector("#vidorigen").play();
@@ -149,9 +147,9 @@
                 pausa.style.display = "block";
                 play.style.display = "block";
                 pausa.addEventListener("click", (e)=>{
-                    vid2.pause(); })
+                    document.querySelector("#vidorigen").pause(); })
                 play.addEventListener("click", (e)=>{
-                    vid2.play(); })
+                    document.querySelector("#vidorigen").play(); })
             }
         }
         function desactivarbotones(){
