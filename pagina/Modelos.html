@@ -35,13 +35,13 @@
             document.querySelector("#vid").play();})
         //Boton para reproducir video
         document.getElementById("btn4").addEventListener("click", (e)=>{
+            alert("Fuera del if");
             document.getElementById("caja").style.display = "none";
             document.getElementById("flechas").style.display = "none";
             document.getElementById("flechasant").style.display = "none";
             document.querySelector("#cob").setAttribute("visible", false);
             document.querySelector("#mod").setAttribute("visible", false);
             activo = true;
-            alert("Fuera del if");
             if (volteado) {
                 document.getElementById("pause").style.display = "block";
                 document.getElementById("play").style.display = "block";
