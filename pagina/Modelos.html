@@ -6,11 +6,10 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     <script src="../js/cursor.js" defer></script>
+
     <script>
         var activo = false;
         var volteado = false;
-        let idx = -1;
-
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90) {
                 // Landscape
@@ -48,89 +47,6 @@
         window.onorientationchange = readDeviceOrientation;
     </script>
     <script>
-        //Boton para mostrar composicion
-        document.getElementById("btn1").addEventListener("click", (e)=>{
-            activo = false;
-            document.querySelector("#vid").pause();
-            document.querySelector("#primero").setAttribute("visible", false);
-            document.getElementById("caja").style.display = "block";
-            document.getElementById("flechas").style.display = "block";
-            document.getElementById("flechasant").style.display = "block";
-            document.querySelector("#cob").setAttribute("visible", true);
-            document.querySelector("#mod").setAttribute("visible", true);
-            asignarflechas();
-
-        })
-        //Boton para cerrar el video
-        document.getElementById("btn2").addEventListener("click", (e)=>{
-            document.querySelector("#primero").setAttribute("visible", false);
-            document.querySelector("#vid").pause();
-            activo = false;
-        })
-        //Boton para pausar
-        document.getElementById("btn3").addEventListener("click", (e)=>{
-            document.querySelector("#vid").play();})
-        //Boton para reproducir video
-        document.getElementById("btn4").addEventListener("click", (e)=>{
-            alert("Fuera del if");
-            document.getElementById("caja").style.display = "none";
-            document.getElementById("flechas").style.display = "none";
-            document.getElementById("flechasant").style.display = "none";
-            document.querySelector("#cob").setAttribute("visible", false);
-            document.querySelector("#mod").setAttribute("visible", false);
-            activo = true;
-            if (volteado) {
-                document.getElementById("pause").style.display = "block";
-                document.getElementById("play").style.display = "block";
-                pausa.addEventListener("click", (e) => {
-                    document.querySelector("#vid").pause();
-                })
-                play.addEventListener("click", (e) => {
-                    document.querySelector("#vid").play();
-                })
-            }
-            document.querySelector("#vid").play();
-            document.querySelector("#primero").setAttribute("visible", true);
-        })
-        
-        function asignarflechas(){
-            //Primer boton flecha
-            document.getElementById("btnAnt").addEventListener("click", (e) => {
-                if (idx <= 0) {
-                    idx = 3
-                    document.querySelector("#cob").removeAttribute('gltf-model');
-                    document.querySelector("#cob").setAttribute('gltf-model', `#${modelList[idx]}`);
-                    //Texto sobre informacion del material
-                    document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
-                    document.querySelector("#mod").removeAttribute('gltf-model');
-                    document.querySelector("#mod").removeAttribute('scale');
-                    document.querySelector("#mod").setAttribute('scale', '0.4 0.4 0.4');
-                    document.querySelector("#mod").setAttribute('gltf-model', `#${meteoros[idx]}`);
-                } else {
-                    idx = idx - 1
-                    document.querySelector("#cob").removeAttribute('gltf-model');
-                    document.querySelector("#cob").setAttribute('gltf-model', `#${modelList[idx]}`);
-                    //Texto sobre informacion del material
-                    document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
-                    document.querySelector("#mod").removeAttribute('gltf-model');
-                    document.querySelector("#mod").removeAttribute('scale');
-                    document.querySelector("#mod").setAttribute('scale', '0.4 0.4 0.4');
-                    document.querySelector("#mod").setAttribute('gltf-model', `#${meteoros[idx]}`);
-                }
-            });
-            //Segundo boton flecha
-            document.getElementById("btnSig").addEventListener("click", (e) => {
-                idx = (idx + 1) % modelList.length;
-                document.querySelector("#cob").removeAttribute('gltf-model');
-                document.querySelector("#cob").setAttribute('gltf-model', `#${modelList[idx]}`);
-                //Texto sobre informacion del material
-                document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
-                document.querySelector("#mod").removeAttribute('gltf-model');
-                document.querySelector("#mod").removeAttribute('scale');
-                document.querySelector("#mod").setAttribute('scale', '0.4 0.4 0.4');
-                document.querySelector("#mod").setAttribute('gltf-model', `#${meteoros[idx]}`);
-            });
-        }
         AFRAME.registerComponent('cambios', {
             init: function () {
                 //Click en escena
@@ -141,6 +57,7 @@
                 //Videosssss
                 const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
                 const meteoros = ["metcob", "metniq", "methie", "metazu"];
+                let idx = -1;
                 var el = this.el;
                 var prin = document.querySelector("#cob");
                 //Markeeeeeerr
@@ -233,11 +150,20 @@
                         boton.style.display = "block"
                         vid.play();
                         document.querySelector("#primero").setAttribute("visible", true);
+                        document.getElementById("btn1").addEventListener("click", (e)=>{
+                            vid.muted=false; })
+                        document.getElementById("btn2").addEventListener("click", (e)=>{
+                            vid.muted=true; })
+                        document.getElementById("btn3").addEventListener("click", (e)=>{
+                            vid.pause(); })
+                        document.getElementById("btn4").addEventListener("click", (e)=>{
+                            vid.play(); })
                     }.bind(this));
 
             }
         });
     </script>
+
     <style>
         #footer {
             position: absolute;
