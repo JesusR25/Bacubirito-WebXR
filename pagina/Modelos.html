@@ -227,7 +227,25 @@
     </div>
     <script>
         document.getElementById("btn4").addEventListener("click", (e)=>{
-            alert("Porfa"); });
+            document.getElementById("caja").style.display = "none";
+            document.getElementById("flechas").style.display = "none";
+            document.getElementById("flechasant").style.display = "none";
+            document.querySelector("#cob").setAttribute("visible", false);
+            document.querySelector("#mod").setAttribute("visible", false);
+            activo = true;
+            if (volteado) {
+                document.getElementById("pause").style.display = "block";
+                document.getElementById("play").style.display = "block";
+                pausa.addEventListener("click", (e) => {
+                    document.querySelector("#vid").pause();
+                })
+                play.addEventListener("click", (e) => {
+                    document.querySelector("#vid").play();
+                })
+            }
+            document.querySelector("#vid").play();
+            document.querySelector("#primero").setAttribute("visible", true);
+        });
     </script>
 </head>
 
