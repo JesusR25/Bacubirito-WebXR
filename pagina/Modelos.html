@@ -12,6 +12,12 @@
         var volteado = false;
         const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
         const meteoros = ["metcob", "metniq", "methie", "metazu"];
+        let introduccion = 'El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.';
+        let textazu = 'El meteorito de Bacubirito contiene un 0.005% de Azufre.';
+        let textcob = 'El meteorito de Bacubirito tambien contiene un 0.21% de Cobalto.';
+        let texthie = 'El meteorito de Bacubirito contiene un 88.94% de Hierro.';
+        let textniq = 'El meteorito de Bacubirito contiene un 6.98% de Niquel.';
+        const listtext = [textcob, textniq, texthie, textazu];
         let idx = -1;
 
         function readDeviceOrientation() {
@@ -69,12 +75,6 @@
                 var flechas = document.getElementById("flechas");
                 var ant = document.getElementById("flechasant");
                 //Variables
-                let introduccion = 'El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.';
-                let textazu = 'El meteorito de Bacubirito contiene un 0.005% de Azufre.';
-                let textcob = 'El meteorito de Bacubirito tambien contiene un 0.21% de Cobalto.';
-                let texthie = 'El meteorito de Bacubirito contiene un 88.94% de Hierro.';
-                let textniq = 'El meteorito de Bacubirito contiene un 6.98% de Niquel.';
-                const listtext = [textcob, textniq, texthie, textazu];
                 //document.querySelector("#footer").innerHTML = `${introduccion}`;
 
                 //Evento del marker found
