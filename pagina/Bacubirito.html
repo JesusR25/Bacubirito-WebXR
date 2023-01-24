@@ -10,9 +10,9 @@
 
         <style>
             .butt {
-              background-color: #4CAF50; 
+              background: url(../assets/Imagenes/btn2.png) center;
               border: none;
-              color: white;
+              color: #F1EA41;
               padding: 7px;
               text-align: center;
               text-decoration: none;
@@ -21,7 +21,7 @@
               margin: 4px 2px;
               cursor: pointer;
               border-radius: 12px;
-              border: 2px solid rgba(9, 148, 28, 0.541);
+              border: 2px solid rgba(235, 152, 78);
               box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
             }
 
@@ -167,7 +167,6 @@
                     var texto = document.getElementById("texto");
                     //Declaramos los 3 markers
                     var marker2 = document.querySelector("#seg");
-                    var hiro = document.querySelector("#meteo");
                     //Videos para pausarlos y reproducirlos
                     var vid2 = document.querySelector("#vidorigen");
                     //Videos para esconderlos y manipularlos
@@ -194,16 +193,6 @@
                                 vid.play(); })
                         }
                         document.querySelector("#segundo").setAttribute("visible", true);
-                    }.bind(this));
-                    hiro.addEventListener('markerFound', function () {
-                        //Primero escondemos todo de los 2 videos anteriores
-                        activo = false;
-                        botones2.style.display = "none";
-                        document.querySelector("#segundo").setAttribute("visible", false);
-                        vid2.pause();
-                        //Aqui hacemos todo lo del video del marker correspondiente
-                        modelo.setAttribute("visible", true);
-                        texto.style.display = "block";
                     }.bind(this));
                 },
             });
@@ -246,9 +235,6 @@
             </a-assets>
 
             <a-entity id="modelo" visible="false" position="0 0 -4" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" gesture-handler></a-entity>
-            <a-marker id="meteo" preset="hiro">
-                <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-            </a-marker>
 
             <a-video id="segundo" visible="false" src="#vidorigen" width="1.5" height="1.5" position="0 0.2 -4"  class="clickable" gesture-handler videohandler ></a-video>
             <a-marker id="seg" type='pattern' url='../assets/MarkersMG/pattern-MicrosoftTeams-image (1).patt' smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" >
