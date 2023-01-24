@@ -10,6 +10,9 @@
     <script>
         var activo = false;
         var volteado = false;
+        const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
+        const meteoros = ["metcob", "metniq", "methie", "metazu"];
+        let idx = -1;
 
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90) {
@@ -56,9 +59,6 @@
                 var vid = document.querySelector("#vid");
                 var vidfor = document.querySelector("#primero");
                 //Videosssss
-                const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
-                const meteoros = ["metcob", "metniq", "methie", "metazu"];
-                let idx = -1;
                 var el = this.el;
                 var prin = document.querySelector("#cob");
                 //Markeeeeeerr
