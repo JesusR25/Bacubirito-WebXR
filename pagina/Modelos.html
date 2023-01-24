@@ -11,9 +11,6 @@
         var activo = false;
         var volteado = false;
 
-        document.getElementById("btn4").addEventListener("click", (e)=>{
-            alert("Hola");
-        })
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90) {
                 // Landscape
@@ -229,7 +226,8 @@
         <button class="butt" id="btn4">Reproducir</button>
     </div>
     <script>
-
+        document.getElementById("btn4").addEventListener("click", (e)=>{
+            alert("Porfa"); });
     </script>
 </head>
 
