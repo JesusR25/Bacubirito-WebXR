@@ -70,16 +70,65 @@
             
         </style>
 
-        <div id="botonesorigen" style='top: 20px;text-align: center; z-index: 1; display: none;'>
-            <button class="butt" id="btn5">Play Sound</button>
-            <button class="butt" id="btn6">Stop Sound</button>
-            <button class="butt" id="btn7">Stop Video</button>
-            <button class="butt" id="btn8">Play Video</button>
+        <div id="botonesorigen" style='top: 20px;text-align: center; z-index: 1;'>
+            <button class="butt" id="btn5">Meteorito</button>
+            <button class="butt" id="btn6">Cerrar</button>
+            <button class="butt" id="btn7">Pausar</button>
+            <button class="butt" id="btn8">Reproducir</button>
         </div>
 
         <script>
             var activo = false;
             var volteado = false;
+
+            //Boton para mostrar meteoro
+            document.getElementById("btn5").addEventListener("click", (e) => {
+                    //Primero escondemos todo de los 2 videos anteriores
+                activo = false;
+                document.querySelector("#segundo").setAttribute("visible", false);
+                vid2.pause();
+                //Aqui hacemos todo lo del video del marker correspondiente
+                modelo.setAttribute("visible", true);
+                texto.style.display = "block";
+                })
+                //Boton para cerrar el video
+                document.getElementById("btn6").addEventListener("click", (e) => {
+                    document.querySelector("#segundo").setAttribute("visible", false);
+                    modelo.setAttribute("visible", false);
+                    botones2.style.display = "block";
+                    texto.style.display = "none";
+                    vid2.stop();
+                    activo = false;
+                })
+                //Boton para pausar video
+                document.getElementById("btn7").addEventListener("click", (e) => {
+                    vid2.pause();
+                })
+                //Boton para reproducir video
+                document.getElementById("btn8").addEventListener("click", (e) => {
+                    //Primero escondemos todo de los 2 videos anteriores
+                    //Aqui hacemos todo lo del video del marker correspondiente
+                    modelo.setAttribute("visible", false);
+                    botones2.style.display = "block";
+                    texto.style.display = "none";
+                    vid2.play();
+                    activo = true;
+                    if (volteado) {
+                        var pausa = document.getElementById("pause");
+                        var play = document.getElementById("play");
+                        pausa.style.display = "block";
+                        play.style.display = "block";
+                        pausa.addEventListener("click", (e) => {
+                            vid.pause();
+                        })
+                        play.addEventListener("click", (e) => {
+                            vid.play();
+                        })
+                    }
+                    document.querySelector("#segundo").setAttribute("visible", true);
+                })
+                
+
             function readDeviceOrientation() {
                 if (Math.abs(window.orientation) === 90) {
                     // Landscape
@@ -149,14 +198,6 @@
                                 vid.play(); })
                         }
                         document.querySelector("#segundo").setAttribute("visible", true);
-                        document.getElementById("btn5").addEventListener("click", (e)=>{
-                            vid2.muted=false; })
-                        document.getElementById("btn6").addEventListener("click", (e)=>{
-                            vid2.muted=true; })
-                        document.getElementById("btn7").addEventListener("click", (e)=>{
-                            vid2.pause(); })
-                        document.getElementById("btn8").addEventListener("click", (e)=>{
-                            vid2.play(); })
                     }.bind(this));
                     hiro.addEventListener('markerFound', function () {
                         //Primero escondemos todo de los 2 videos anteriores
@@ -176,7 +217,7 @@
 
 
     <body style='margin : 5px; overflow: hidden; font-family: Monospace;'>
-        <div id="texto" style="z-index: 9999;text-align: center; ">
+        <div id="texto" style="z-index: 9999;text-align: center; display: none;">
             <p class="caja">
                 •	Es el quinto más grande del mundo. Fue descubierto en 1863, en Bacubirito, Sin.<br>
                 •	Fue trasladado al Centro Cívico Constitución en Culiacán para su exhibición desde 1959 hasta 1992.<br>
