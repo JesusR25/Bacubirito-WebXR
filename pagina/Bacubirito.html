@@ -86,33 +86,31 @@
                     //Primero escondemos todo de los 2 videos anteriores
                 activo = false;
                 document.querySelector("#segundo").setAttribute("visible", false);
-                vid2.pause();
+                document.querySelector("#vidorigen").stop();
                 //Aqui hacemos todo lo del video del marker correspondiente
-                modelo.setAttribute("visible", true);
-                texto.style.display = "block";
+                document.querySelector("#modelo").setAttribute("visible", true);
+                document.getElementById("texto").style.display = "block";
                 })
                 //Boton para cerrar el video
                 document.getElementById("btn6").addEventListener("click", (e) => {
                     document.querySelector("#segundo").setAttribute("visible", false);
-                    modelo.setAttribute("visible", false);
-                    botones2.style.display = "block";
-                    texto.style.display = "none";
+                    document.querySelector("#vidorigen").stop();
                     vid2.stop();
                     activo = false;
                 })
                 //Boton para pausar video
                 document.getElementById("btn7").addEventListener("click", (e) => {
-                    vid2.pause();
+                    document.querySelector("#vidorigen").pause();
                 })
                 //Boton para reproducir video
                 document.getElementById("btn8").addEventListener("click", (e) => {
                     //Primero escondemos todo de los 2 videos anteriores
                     //Aqui hacemos todo lo del video del marker correspondiente
                     alert("Hola");
-                    modelo.setAttribute("visible", false);
-                    botones2.style.display = "block";
-                    texto.style.display = "none";
-                    vid2.play();
+                    document.querySelector("#modelo").setAttribute("visible", false);
+                    document.getElementById("texto").style.display = "none";
+                    document.querySelector("#vidorigen").play();
+                    document.querySelector("#segundo").setAttribute("visible", true);
                     activo = true;
                     if (volteado) {
                         var pausa = document.getElementById("pause");
@@ -120,13 +118,12 @@
                         pausa.style.display = "block";
                         play.style.display = "block";
                         pausa.addEventListener("click", (e) => {
-                            vid.pause();
+                            document.querySelector("#vidorigen").pause();
                         })
                         play.addEventListener("click", (e) => {
-                            vid.play();
+                            document.querySelector("#vidorigen").play();
                         })
                     }
-                    document.querySelector("#segundo").setAttribute("visible", true);
                 })
                 
 
