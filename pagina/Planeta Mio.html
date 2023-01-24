@@ -34,7 +34,7 @@
                 <img id="fondo" src="../assets/fonig.jpg"/>
                 <img id="nubes" src="../assets/clouds.png"/>
                 <img id="luna_dis" src="../assets/moon disp.jpg"/>
-                <a-asset-item id="meteoro" src="../assets/Meteoro Vista.glb" ></a-asset-item>
+                <a-asset-item id="meteoro" src="../assets/Modelos/Meteoro planeta.glb" ></a-asset-item>
             </assets>
             <!-- Camara -->
             <a-entity camera="userHeight: 1.6" look-controls position="5 0 17" rotation="0 90 0"></a-entity>
@@ -44,7 +44,7 @@
             <a-entity>
                 <a-sphere position="0 .25 0" radius="3.28" material="src:#nubes;opacity: .99" animation="property: rotation; easing: linear; dur: 220000; from: 210 -270 0; to: -150 90 0; loop: true"></a-sphere>
                 <a-sphere position="0 .25 0" radius="3.25" src="#tierra" animation="property:rotation; dur:150000; easing: linear; to: 0 360 0; loop: true"></a-sphere>
-                <a-entity gltf-model="#meteoro" position="10 .25 0" scale="3 3 3" animation="property: rotation; dur:20000; easing:linear; to: 0 360 250; loop: true"></a-entity>
+                <a-entity gltf-model="#meteoro" position="10 .25 0" scale="3 3 3" animation="property: rotation; dur:20000; easing:linear; to: 0 360 360; loop: true"></a-entity>
             </a-entity>
         </a-scene>
     </body>

@@ -25,8 +25,7 @@
         <script>
             var pausa = document.getElementById("ocul");
             pausa.addEventListener("click", (e)=>{
-                const listainf = ["agpin", "ahnin", "armin", "bacin", "chuin", "chain", "hobin", "mboin", "munin", "wilin"];
-                const listaimg = ["agpim", "ahnim", "armim", "bacim", "chuim", "chaim", "hobim", "mboim", "munim", "wilim"];
+                alert("Si funciona");
                 for(i = 0; i < listainf.length; i++){
                     document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
                     document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
@@ -166,6 +165,7 @@
 
                     marker9.addEventListener('markerFound', function () {
                         for(i = 0; i < listainf.length; i++){
+                            alert("Soy mundrabilla");
                             document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
                             document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
                         }
@@ -175,6 +175,7 @@
 
                     marker10.addEventListener('markerFound', function () {
                         for(i = 0; i < listainf.length; i++){
+                            alert("Soy willi");
                             document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
                             document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
                         }
