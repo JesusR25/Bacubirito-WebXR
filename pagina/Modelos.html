@@ -41,8 +41,8 @@
             document.querySelector("#cob").setAttribute("visible", false);
             document.querySelector("#mod").setAttribute("visible", false);
             activo = true;
+            alert("Fuera del if");
             if (volteado) {
-                alert("Si entro");
                 document.getElementById("pause").style.display = "block";
                 document.getElementById("play").style.display = "block";
                 pausa.addEventListener("click", (e) => {
