@@ -16,7 +16,7 @@
             <a-assets>
                 <a-asset-item id="bacu" src="../assets/Bacubirito/Azul.glb"></a-asset-item>
             </a-assets>
-            <a-marker id="meteo" preset="hiro">
+            <a-marker id="meteo" type='pattern' url='../assets/MarcadoresF/pattern-Meteorito.patt'>
                 <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
                 <a-entity id="modelo" position="0 0 0" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" gesture-handler></a-entity>
             </a-marker>
