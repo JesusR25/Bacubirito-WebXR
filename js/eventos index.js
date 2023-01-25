@@ -65,7 +65,7 @@ function advertencia(){
     })
     .then((willDelete) => {
       if (willDelete) {
-        window.location.href = "/pagina/Grandes.html";
+        window.location.href = "/pagina/pruebas.html";
       } else {
       }
     });
