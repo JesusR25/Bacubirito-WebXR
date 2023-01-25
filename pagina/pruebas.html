@@ -68,109 +68,11 @@
             <script>
                 AFRAME.registerComponent('videohandler', {
                 init: function () {
-                    const listainf = ["agpin", "ahnin", "armin", "bacin", "chuin", "chain", "hobin", "mboin", "munin", "wilin"];
-                    const listaimg = ["agpim", "ahnim", "armim", "bacim", "chuim", "chaim", "hobim", "mboim", "munim", "wilim"];
                     marker = document.querySelector("#agp");
-                    marker2 = document.querySelector("#ahn");
-                    marker3 = document.querySelector("#arm");
-                    marker4 = document.querySelector("#bac");
-                    marker5 = document.querySelector("#chu");
-                    marker6 = document.querySelector("#cha");
-                    marker7 = document.querySelector("#hob");
-                    marker8 = document.querySelector("#mbo");
-                    marker9 = document.querySelector("#mun");
-                    marker10 = document.querySelector("#wil");
     
                     marker.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
                         document.querySelector("#agpin").setAttribute("visible", true);
                         document.querySelector("#agpim").setAttribute("visible", true);
-                    }.bind(this));
-
-                    marker2.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
-                        document.querySelector("#ahnin").setAttribute("visible", true);
-                        document.querySelector("#ahnim").setAttribute("visible", true);
-                    }.bind(this));
-
-                    marker3.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
-                        document.querySelector("#armin").setAttribute("visible", true);
-                        document.querySelector("#armim").setAttribute("visible", true);
-                    }.bind(this));
-
-                    marker4.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
-                        document.querySelector("#bacin").setAttribute("visible", true);
-                        document.querySelector("#bacim").setAttribute("visible", true);
-                    }.bind(this));
-
-                    marker5.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
-                        document.querySelector("#chuin").setAttribute("visible", true);
-                        document.querySelector("#chuim").setAttribute("visible", true);
-                    }.bind(this));
-
-                    marker6.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
-                        document.querySelector("#chain").setAttribute("visible", true);
-                        document.querySelector("#chaim").setAttribute("visible", true);
-                    }.bind(this));
-
-                    marker7.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
-                        document.querySelector("#hobin").setAttribute("visible", true);
-                        document.querySelector("#hobim").setAttribute("visible", true);
-                    }.bind(this));
-
-                    marker8.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
-                        document.querySelector("#mboin").setAttribute("visible", true);
-                        document.querySelector("#mboim").setAttribute("visible", true);
-                    }.bind(this));
-
-                    marker9.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            alert("Soy mundrabilla");
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
-                        document.querySelector("#munin").setAttribute("visible", true);
-                        document.querySelector("#munim").setAttribute("visible", true);
-                    }.bind(this));
-
-                    marker10.addEventListener('markerFound', function () {
-                        for(i = 0; i < listainf.length; i++){
-                            alert("Soy willi");
-                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
-                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
-                        }
-                        document.querySelector("#wilin").setAttribute("visible", true);
-                        document.querySelector("#wilim").setAttribute("visible", true);
                     }.bind(this));
                 },
             });
