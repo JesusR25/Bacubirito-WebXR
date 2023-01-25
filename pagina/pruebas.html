@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Meteoritos mas grandes</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+        <style>
+            .button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 1px solid #3498db;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        }
+        </style>
+    </head>
+    <body style='margin : 5px; overflow: hidden; font-family: Monospace;'>
+        <div id="ocul" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 50%; top: 5%;'>
+            <button class="button" id="ojo">
+                <img src="../assets/oculto.png" width="40px">
+            </button>
+        </div>
+
+        <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector >
+            <assets>
+                <!-- Meteorito Agpalilik -->
+                <img id="AgpaInfo" src="../assets/MetGrandes/Agpalilik.png"/>
+                <img id="Agpa" src="../assets/MetImg/Met-Agpalilik.png"/>
+                <!-- Meteorito Ahnighito -->
+                <img id="AhniInfo" src="../assets/MetGrandes/Ahnighito.png"/>
+                <img id="Ahni" src="../assets/MetImg/Met-Ahnighito.png"/>
+                <!-- Meteorito Armanty -->
+                <img id="ArmaInfo" src="../assets/MetGrandes/Armanty.png"/>
+                <img id="Arma" src="../assets/MetImg/Met-Armanty.png"/>
+                <!-- Meteorito Bacubirito -->
+                <img id="BacuInfo" src="../assets/MetGrandes/Bacubirito.png"/>
+                <img id="Bacu" src="../assets/MetImg/Met-Bacubirito.png"/>
+                <!-- Meteorito Chupaderos -->
+                <img id="ChupInfo" src="../assets/MetGrandes/Chupaderos.png"/>
+                <img id="Chup" src="../assets/MetImg/Met-Chupaderos.png"/>
+                <!-- Meteorito El Chaco -->
+                <img id="ChacInfo" src="../assets/MetGrandes/ElChaco.png"/>
+                <img id="Chac" src="../assets/MetImg/Met-ElChaco.png"/>
+                <!-- Meteorito Hoba -->
+                <img id="HobaInfo" src="../assets/MetGrandes/Hoba.png"/>
+                <img id="Hoba" src="../assets/MetImg/Met-Hoba.png"/>
+                <!-- Meteorito Mbozi -->
+                <img id="MbozInfo" src="../assets/MetGrandes/Mbozi.png"/>
+                <img id="Mboz" src="../assets/MetImg/Met-Mbozi.png"/>
+                <!-- Meteorito Mundrabilla -->
+                <img id="MundInfo" src="../assets/MetGrandes/Mundrabilla.png"/>
+                <img id="Mund" src="../assets/MetImg/Met-Mundrabilla.png"/>
+                <!-- Meteorito Willamete -->
+                <img id="WillInfo" src="../assets/MetGrandes/Willamette.png"/>
+                <img id="Will" src="../assets/MetImg/Met-Willamette.png"/>
+
+            </assets>
+
+            <script>
+                AFRAME.registerComponent('videohandler', {
+                init: function () {
+                    const listainf = ["agpin", "ahnin", "armin", "bacin", "chuin", "chain", "hobin", "mboin", "munin", "wilin"];
+                    const listaimg = ["agpim", "ahnim", "armim", "bacim", "chuim", "chaim", "hobim", "mboim", "munim", "wilim"];
+                    marker = document.querySelector("#agp");
+                    marker2 = document.querySelector("#ahn");
+                    marker3 = document.querySelector("#arm");
+                    marker4 = document.querySelector("#bac");
+                    marker5 = document.querySelector("#chu");
+                    marker6 = document.querySelector("#cha");
+                    marker7 = document.querySelector("#hob");
+                    marker8 = document.querySelector("#mbo");
+                    marker9 = document.querySelector("#mun");
+                    marker10 = document.querySelector("#wil");
+    
+                    marker.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#agpin").setAttribute("visible", true);
+                        document.querySelector("#agpim").setAttribute("visible", true);
+                    }.bind(this));
+
+                    marker2.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#ahnin").setAttribute("visible", true);
+                        document.querySelector("#ahnim").setAttribute("visible", true);
+                    }.bind(this));
+
+                    marker3.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#armin").setAttribute("visible", true);
+                        document.querySelector("#armim").setAttribute("visible", true);
+                    }.bind(this));
+
+                    marker4.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#bacin").setAttribute("visible", true);
+                        document.querySelector("#bacim").setAttribute("visible", true);
+                    }.bind(this));
+
+                    marker5.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#chuin").setAttribute("visible", true);
+                        document.querySelector("#chuim").setAttribute("visible", true);
+                    }.bind(this));
+
+                    marker6.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#chain").setAttribute("visible", true);
+                        document.querySelector("#chaim").setAttribute("visible", true);
+                    }.bind(this));
+
+                    marker7.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#hobin").setAttribute("visible", true);
+                        document.querySelector("#hobim").setAttribute("visible", true);
+                    }.bind(this));
+
+                    marker8.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#mboin").setAttribute("visible", true);
+                        document.querySelector("#mboim").setAttribute("visible", true);
+                    }.bind(this));
+
+                    marker9.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            alert("Soy mundrabilla");
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#munin").setAttribute("visible", true);
+                        document.querySelector("#munim").setAttribute("visible", true);
+                    }.bind(this));
+
+                    marker10.addEventListener('markerFound', function () {
+                        for(i = 0; i < listainf.length; i++){
+                            alert("Soy willi");
+                            document.querySelector(`#${listaimg[i]}`).setAttribute("visible", false);
+                            document.querySelector(`#${listainf[i]}`).setAttribute("visible", false);
+                        }
+                        document.querySelector("#wilin").setAttribute("visible", true);
+                        document.querySelector("#wilim").setAttribute("visible", true);
+                    }.bind(this));
+                },
+            });
+            </script>
+
+            <!-- Marker Meteorito Agpalilik -->
+            <a-entity id="agpin" position="0 -0.5 -2.3" visible="false" gesture-handler videohandler>
+                <a-image src="#AgpaInfo"></a-image>
+            </a-entity>
+            <a-entity id="agpim" position="0 0.5 -2.3" visible="false">
+                <a-image src="#Agpa"></a-image>
+            </a-entity>
+            <a-marker id="agp" type='pattern' url='../assets/MarkersMG/pattern-Agpalilik.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
