@@ -30,6 +30,31 @@
             </button>
         </div>
 
+        <script>
+            document.getElementById("ojo").addEventListener("click", (e) => {
+                document.querySelector("#agpin").setAttribute("visible", false);
+                document.querySelector("#agpim").setAttribute("visible", false);
+                document.querySelector("#munin").setAttribute("visible", false);
+                document.querySelector("#munim").setAttribute("visible", false);
+                document.querySelector("#ahnin").setAttribute("visible", false);
+                document.querySelector("#ahnim").setAttribute("visible", false);
+                document.querySelector("#armin").setAttribute("visible", false);
+                document.querySelector("#armim").setAttribute("visible", false);
+                document.querySelector("#bacin").setAttribute("visible", false);
+                document.querySelector("#bacim").setAttribute("visible", false);
+                document.querySelector("#chuin").setAttribute("visible", false);
+                document.querySelector("#chuim").setAttribute("visible", false);
+                document.querySelector("#chain").setAttribute("visible", false);
+                document.querySelector("#chaim").setAttribute("visible", false);
+                document.querySelector("#hobin").setAttribute("visible", false);
+                document.querySelector("#hobim").setAttribute("visible", false);
+                document.querySelector("#mboin").setAttribute("visible", false);
+                document.querySelector("#mboim").setAttribute("visible", false);
+                document.querySelector("#wilin").setAttribute("visible", false);
+                document.querySelector("#wilim").setAttribute("visible", false);
+            });
+        </script>
+
         <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector >
             <assets>
                 <!-- Meteorito Agpalilik -->
