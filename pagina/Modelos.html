@@ -233,6 +233,8 @@
                 if (idx <= 0) {
                     idx = 3
                     document.querySelector("#cob").removeAttribute('gltf-model');
+                    document.querySelector("#cob").removeAttribute('scale');
+                    document.querySelector("#cob").setAttribute('scale', '0.6 0.6 0.6');
                     document.querySelector("#cob").setAttribute('gltf-model', `#${modelList[idx]}`);
                     //Texto sobre informacion del material
                     document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
@@ -243,6 +245,8 @@
                 } else {
                     idx = idx - 1
                     document.querySelector("#cob").removeAttribute('gltf-model');
+                    document.querySelector("#cob").removeAttribute('scale');
+                    document.querySelector("#cob").setAttribute('scale', '0.6 0.6 0.6');
                     document.querySelector("#cob").setAttribute('gltf-model', `#${modelList[idx]}`);
                     //Texto sobre informacion del material
                     document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
@@ -256,6 +260,8 @@
             document.getElementById("btnSig").addEventListener("click", (e) => {
                 idx = (idx + 1) % modelList.length;
                 document.querySelector("#cob").removeAttribute('gltf-model');
+                document.querySelector("#cob").removeAttribute('scale');
+                document.querySelector("#cob").setAttribute('scale', '0.6 0.6 0.6');
                 document.querySelector("#cob").setAttribute('gltf-model', `#${modelList[idx]}`);
                 //Texto sobre informacion del material
                 document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
@@ -358,10 +364,10 @@
                     playsinline
                 ></video>
             <a-asset-item id="spinosaurus" src="../assets/ModComp/Bueno Posicion.glb"></a-asset-item>
-            <a-asset-item id="cobalto" src="../assets/ModComp/EsfTamCob.glb"></a-asset-item>
-            <a-asset-item id="Hierro" src="../assets/ModComp/EsfTamHie.glb"></a-asset-item>
-            <a-asset-item id="azufre" src="../assets/ModComp/EsfTamAzu.glb"></a-asset-item>
-            <a-asset-item id="niquel" src="../assets/ModComp/EsfTamNiq.glb"></a-asset-item>
+            <a-asset-item id="cobalto" src="../assets/Bacubirito/BacuCob.glb"></a-asset-item>
+            <a-asset-item id="Hierro" src="../assets/Bacubirito/BacuHie.glb"></a-asset-item>
+            <a-asset-item id="azufre" src="../assets/Bacubirito/BacuAzuf.glb"></a-asset-item>
+            <a-asset-item id="niquel" src="../assets/Bacubirito/BacuNiq.glb"></a-asset-item>
             <!-- Meteoro de elementos-->
             <a-asset-item id="metcob" src="../assets/ModComp/CompCob.glb"></a-asset-item>
             <a-asset-item id="methie" src="../assets/ModComp/CompHie.glb"></a-asset-item>
