@@ -69,11 +69,19 @@
                 AFRAME.registerComponent('videohandler', {
                 init: function () {
                     marker = document.querySelector("#agp");
+                    ola = document.querySelector("#mun");
     
                     marker.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", true);
                         document.querySelector("#agpim").setAttribute("visible", true);
-                    }.bind(this));
+                    });
+
+                    ola.addEventListener('markerFound', function () {
+                        document.querySelector("#agpin").setAttribute("visible", false);
+                        document.querySelector("#agpim").setAttribute("visible", false);
+                        document.querySelector("#munin").setAttribute("visible", true);
+                        document.querySelector("#munim").setAttribute("visible", true);
+                    });
                 },
             });
             </script>
@@ -86,6 +94,16 @@
                 <a-image src="#Agpa"></a-image>
             </a-entity>
             <a-marker id="agp" type='pattern' url='../assets/MarkersMG/pattern-Agpalilik.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+            </a-marker>
+
+            <!-- Marker Meteorito Mundrabilla -->
+            <a-entity id="munin" position="0 -0.5 -2.3" visible="false" gesture-handler>
+                <a-image src="#MundInfo"></a-image>
+            </a-entity>
+            <a-entity id="munim" position="0 0.5 -2.3" visible="false" >
+                <a-image src="#Mund"></a-image>
+            </a-entity>
+            <a-marker id="mun" type='pattern' url='../assets/MarkersMG/pattern-MicrosoftTeams-image.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <a-entity camera></a-entity>
