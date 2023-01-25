@@ -76,6 +76,7 @@
                     chupa = document.querySelector("#chu");
                     chaco = document.querySelector("#cha");
                     hobi = document.querySelector("#hob");
+                    bozi = document.querySelector("#mbo");
     
                     marker.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", true);
@@ -94,6 +95,8 @@
                         document.querySelector("#chaim").setAttribute("visible", false);
                         document.querySelector("#hobin").setAttribute("visible", false);
                         document.querySelector("#hobim").setAttribute("visible", false);
+                        document.querySelector("#mboin").setAttribute("visible", false);
+                        document.querySelector("#mboim").setAttribute("visible", false);
                     });
 
                     ola.addEventListener('markerFound', function () {
@@ -113,6 +116,8 @@
                         document.querySelector("#chuim").setAttribute("visible", false);
                         document.querySelector("#hobin").setAttribute("visible", false);
                         document.querySelector("#hobim").setAttribute("visible", false);
+                        document.querySelector("#mboin").setAttribute("visible", false);
+                        document.querySelector("#mboim").setAttribute("visible", false);
                     });
                     anhito.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", false);
@@ -131,6 +136,8 @@
                         document.querySelector("#chaim").setAttribute("visible", false);
                         document.querySelector("#hobin").setAttribute("visible", false);
                         document.querySelector("#hobim").setAttribute("visible", false);
+                        document.querySelector("#mboin").setAttribute("visible", false);
+                        document.querySelector("#mboim").setAttribute("visible", false);
                     });
                     army.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", false);
@@ -149,6 +156,8 @@
                         document.querySelector("#chaim").setAttribute("visible", false);
                         document.querySelector("#hobin").setAttribute("visible", false);
                         document.querySelector("#hobim").setAttribute("visible", false);
+                        document.querySelector("#mboin").setAttribute("visible", false);
+                        document.querySelector("#mboim").setAttribute("visible", false);
                     });
                     bato.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", false);
@@ -167,6 +176,8 @@
                         document.querySelector("#chaim").setAttribute("visible", false);
                         document.querySelector("#hobin").setAttribute("visible", false);
                         document.querySelector("#hobim").setAttribute("visible", false);
+                        document.querySelector("#mboin").setAttribute("visible", false);
+                        document.querySelector("#mboim").setAttribute("visible", false);
                     });
                     chupa.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", false);
@@ -185,6 +196,8 @@
                         document.querySelector("#chaim").setAttribute("visible", false);
                         document.querySelector("#hobin").setAttribute("visible", false);
                         document.querySelector("#hobim").setAttribute("visible", false);
+                        document.querySelector("#mboin").setAttribute("visible", false);
+                        document.querySelector("#mboim").setAttribute("visible", false);
                     });
 
                     chaco.addEventListener('markerFound', function () {
@@ -204,6 +217,8 @@
                         document.querySelector("#chaim").setAttribute("visible", true);
                         document.querySelector("#hobin").setAttribute("visible", false);
                         document.querySelector("#hobim").setAttribute("visible", false);
+                        document.querySelector("#mboin").setAttribute("visible", false);
+                        document.querySelector("#mboim").setAttribute("visible", false);
                     });
                     hobi.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", false);
@@ -222,6 +237,28 @@
                         document.querySelector("#chaim").setAttribute("visible", false);
                         document.querySelector("#hobin").setAttribute("visible", true);
                         document.querySelector("#hobim").setAttribute("visible", true);
+                        document.querySelector("#mboin").setAttribute("visible", false);
+                        document.querySelector("#mboim").setAttribute("visible", false);
+                    });
+                    bozi.addEventListener('markerFound', function () {
+                        document.querySelector("#agpin").setAttribute("visible", false);
+                        document.querySelector("#agpim").setAttribute("visible", false);
+                        document.querySelector("#munin").setAttribute("visible", false);
+                        document.querySelector("#munim").setAttribute("visible", false);
+                        document.querySelector("#ahnin").setAttribute("visible", false);
+                        document.querySelector("#ahnim").setAttribute("visible", false);
+                        document.querySelector("#armin").setAttribute("visible", false);
+                        document.querySelector("#armim").setAttribute("visible", false);
+                        document.querySelector("#bacin").setAttribute("visible", false);
+                        document.querySelector("#bacim").setAttribute("visible", false);
+                        document.querySelector("#chuin").setAttribute("visible", false);
+                        document.querySelector("#chuim").setAttribute("visible", false);
+                        document.querySelector("#chain").setAttribute("visible", false);
+                        document.querySelector("#chaim").setAttribute("visible", false);
+                        document.querySelector("#hobin").setAttribute("visible", false);
+                        document.querySelector("#hobim").setAttribute("visible", false);
+                        document.querySelector("#mboin").setAttribute("visible", true);
+                        document.querySelector("#mboim").setAttribute("visible", true);
                     });
                 },
             });
@@ -306,7 +343,18 @@
             </a-entity>
             <a-marker id="hob" type='pattern' url='../assets/MarkersMG/pattern-Hoba.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
+
+            <!-- Marker Meteorito Mbozi -->
+            <a-entity id="mboin" position="0 -0.5 -2.3" visible="false" gesture-handler>
+                <a-image src="#MbozInfo"></a-image>
+            </a-entity>
+            <a-entity id="mboim" position="0 0.5 -2.3" visible="false" >
+                <a-image src="#Mboz"></a-image>
+            </a-entity>
+            <a-marker id="mbo" type='pattern' url='../assets/MarkersMG/pattern-Mbozi.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+            </a-marker>
             <a-entity camera></a-entity>
+
         </a-scene>
     </body>
 </html>
