@@ -73,6 +73,7 @@
                     anhito = document.querySelector("#ahn");
                     army = document.querySelector("#arm");
                     bato = document.querySelector("#bac");
+                    chupa = document.querySelector("#chu");
     
                     marker.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", true);
@@ -85,6 +86,8 @@
                         document.querySelector("#armim").setAttribute("visible", false);
                         document.querySelector("#bacin").setAttribute("visible", false);
                         document.querySelector("#bacim").setAttribute("visible", false);
+                        document.querySelector("#chuin").setAttribute("visible", false);
+                        document.querySelector("#chuim").setAttribute("visible", false);
                     });
 
                     ola.addEventListener('markerFound', function () {
@@ -98,6 +101,8 @@
                         document.querySelector("#armim").setAttribute("visible", false);
                         document.querySelector("#bacin").setAttribute("visible", false);
                         document.querySelector("#bacim").setAttribute("visible", false);
+                        document.querySelector("#chuin").setAttribute("visible", false);
+                        document.querySelector("#chuim").setAttribute("visible", false);
                     });
                     anhito.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", false);
@@ -110,6 +115,8 @@
                         document.querySelector("#armim").setAttribute("visible", false);
                         document.querySelector("#bacin").setAttribute("visible", false);
                         document.querySelector("#bacim").setAttribute("visible", false);
+                        document.querySelector("#chuin").setAttribute("visible", false);
+                        document.querySelector("#chuim").setAttribute("visible", false);
                     });
                     army.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", false);
@@ -122,6 +129,8 @@
                         document.querySelector("#armim").setAttribute("visible", true);
                         document.querySelector("#bacin").setAttribute("visible", false);
                         document.querySelector("#bacim").setAttribute("visible", false);
+                        document.querySelector("#chuin").setAttribute("visible", false);
+                        document.querySelector("#chuim").setAttribute("visible", false);
                     });
                     bato.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", false);
@@ -134,6 +143,22 @@
                         document.querySelector("#armim").setAttribute("visible", false);
                         document.querySelector("#bacin").setAttribute("visible", true);
                         document.querySelector("#bacim").setAttribute("visible", true);
+                        document.querySelector("#chuin").setAttribute("visible", false);
+                        document.querySelector("#chuim").setAttribute("visible", false);
+                    });
+                    chupa.addEventListener('markerFound', function () {
+                        document.querySelector("#agpin").setAttribute("visible", false);
+                        document.querySelector("#agpim").setAttribute("visible", false);
+                        document.querySelector("#munin").setAttribute("visible", false);
+                        document.querySelector("#munim").setAttribute("visible", false);
+                        document.querySelector("#ahnin").setAttribute("visible", false);
+                        document.querySelector("#ahnim").setAttribute("visible", false);
+                        document.querySelector("#armin").setAttribute("visible", false);
+                        document.querySelector("#armim").setAttribute("visible", false);
+                        document.querySelector("#bacin").setAttribute("visible", false);
+                        document.querySelector("#bacim").setAttribute("visible", false);
+                        document.querySelector("#chuin").setAttribute("visible", true);
+                        document.querySelector("#chuim").setAttribute("visible", true);
                     });
                 },
             });
@@ -187,6 +212,16 @@
                 <a-image src="#Bacu" ></a-image>
             </a-entity>
             <a-marker id="bac" type='pattern' url='../assets/MarkersMG/pattern-Bacubirito.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+            </a-marker>
+
+            <!-- Marker Meteorito Chupaderos -->
+            <a-entity id="chuin" position="0 -0.5 -2.3" visible="false" gesture-handler>
+                <a-image src="#ChupInfo"></a-image>
+            </a-entity>
+            <a-entity id="chuim" position="0 0.5 -2.3" visible="false">
+                <a-image src="#Chup"></a-image>
+            </a-entity>
+            <a-marker id="chu" type='pattern' url='../assets/MarkersMG/pattern-Chupaderos.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <a-entity camera></a-entity>
