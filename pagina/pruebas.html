@@ -71,6 +71,7 @@
                     marker = document.querySelector("#agp");
                     ola = document.querySelector("#mun");
                     anhito = document.querySelector("#ahn");
+                    army = document.querySelector("#arm");
     
                     marker.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", true);
@@ -79,6 +80,8 @@
                         document.querySelector("#munim").setAttribute("visible", false);
                         document.querySelector("#ahnin").setAttribute("visible", false);
                         document.querySelector("#ahnim").setAttribute("visible", false);
+                        document.querySelector("#armin").setAttribute("visible", false);
+                        document.querySelector("#armim").setAttribute("visible", false);
                     });
 
                     ola.addEventListener('markerFound', function () {
@@ -88,6 +91,8 @@
                         document.querySelector("#munim").setAttribute("visible", true);
                         document.querySelector("#ahnin").setAttribute("visible", false);
                         document.querySelector("#ahnim").setAttribute("visible", false);
+                        document.querySelector("#armin").setAttribute("visible", false);
+                        document.querySelector("#armim").setAttribute("visible", false);
                     });
                     anhito.addEventListener('markerFound', function () {
                         document.querySelector("#agpin").setAttribute("visible", false);
@@ -96,6 +101,18 @@
                         document.querySelector("#munim").setAttribute("visible", false);
                         document.querySelector("#ahnin").setAttribute("visible", true);
                         document.querySelector("#ahnim").setAttribute("visible", true);
+                        document.querySelector("#armin").setAttribute("visible", false);
+                        document.querySelector("#armim").setAttribute("visible", false);
+                    });
+                    army.addEventListener('markerFound', function () {
+                        document.querySelector("#agpin").setAttribute("visible", false);
+                        document.querySelector("#agpim").setAttribute("visible", false);
+                        document.querySelector("#munin").setAttribute("visible", false);
+                        document.querySelector("#munim").setAttribute("visible", false);
+                        document.querySelector("#ahnin").setAttribute("visible", false);
+                        document.querySelector("#ahnim").setAttribute("visible", false);
+                        document.querySelector("#armin").setAttribute("visible", true);
+                        document.querySelector("#armim").setAttribute("visible", true);
                     });
                 },
             });
@@ -129,6 +146,16 @@
                 <a-image src="#Ahni"></a-image>
             </a-entity>
             <a-marker id="ahn" type='pattern' url='../assets/MarkersMG/pattern-Ahnighito.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+            </a-marker>
+
+            <!-- Marker Meteorito Armanty -->
+            <a-entity id="armin" position="0 -0.5 -2.3" visible="false" gesture-handler>
+                <a-image src="#ArmaInfo"></a-image>
+            </a-entity>
+            <a-entity id="armim" position="0 0.5 -2.3" visible="false">
+                <a-image src="#Arma"></a-image>
+            </a-entity>
+            <a-marker id="arm" type='pattern' url='../assets/MarkersMG/pattern-Armanty.patt' raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
             <a-entity camera></a-entity>
