@@ -203,12 +203,11 @@
             cinturon.addEventListener('markerFound', function () {
                 //Primero escondemos todo de los 2 videos anteriores
                 activo = false;
-                botones2.style.display = "none";
                 vid2.pause();
                 document.querySelector("#tercero").setAttribute("visible", false);
                 document.querySelector("#figuramet").setAttribute("visible", false);
-                document.querySelector("#modelos").setAttribute("visible", true);
                 //Aqui hacemos todo lo del video del marker correspondiente
+                alert("Hola gente");
 
             }.bind(this));
         },
@@ -231,7 +230,6 @@
         <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector>
             <assets>
                 <!-- Necesito Diferentes modelos par: El meteoro y el cinturon -->
-                <a-asset-item id="cinturon" src="../assets/Modelos/MeteLuna.glb" ></a-asset-item>
                 <a-asset-item id="meteoro" src="../assets/Juego/Meteoro Juego.glb" ></a-asset-item>
                 <video
                 id="vidtipos"
@@ -246,18 +244,6 @@
             </assets>
 
             <!-- Marker Meteorito Agpalilik 0 0 0 -- El primero es para izquierda y derecha. El segundo arriba y abajo. El tercero es mas al fondo o enfrente -->
-            <a-entity id="modelos" position="0 0 -4" visible="false" animation="property: rotation; easing: linear; dur: 30000; to: 0 0 360; loop: true">
-                <a-entity position="2 0.5 -4.3" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 9000; to: 0 180 60; loop: true"></a-entity>
-                <a-entity position="2 1.5 -4" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 9000; to: 0 180 60; loop: true"></a-entity>
-                <a-entity position="-2 0.9 -4" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 9000; to: 0 180 60; loop: true"></a-entity>
-                <a-entity position="-1.9 1.6 -4" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 9000; to: 0 180 60; loop: true"></a-entity>
-                <a-entity position="0 0 -4" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 100000; to: 0 180 60; loop: true"></a-entity>
-                <a-entity position="1 1 -4" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 100000; to: 0 180 60; loop: true"></a-entity>
-                <a-entity position="0 1.5 -4" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 100000; to: 0 180 60; loop: true"></a-entity>
-                <a-entity position="0 1.2 -4" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 100000; to: 0 180 60; loop: true"></a-entity>
-                <a-entity position="-0.9 1.8 -4" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 100000; to: 0 180 60; loop: true"></a-entity>
-                <a-entity position="1 0.4 -4" gltf-model="#cinturon" scale="0.2 0.2 0.2" animation="property: rotation; easing: linear; dur: 100000; to: 0 180 60; loop: true"></a-entity>
-            </a-entity>
             <a-marker id="cinturon"  preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             </a-marker>
 
