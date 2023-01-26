@@ -204,7 +204,18 @@
                 document.querySelector("#tercero").setAttribute("visible", false);
                 document.querySelector("#figuramet").setAttribute("visible", false);
                 //Aqui hacemos todo lo del video del marker correspondiente
-                alert("Hola gente");
+                swal({
+                    title: "Cinturon de asteroides",
+                    text: "¿Deseas ser redirigido a 'Cinturon de asteroides'?",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            window.location.href = "../pagina/cinturon.html";
+                        } else {
+                        }
+                    });
             }.bind(this));
         },
     });
