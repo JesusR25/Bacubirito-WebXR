@@ -110,7 +110,7 @@ function redirigir(){
   }).then((result) => {
     /* Read more about handling dismissals below */
     if (result.dismiss === Swal.DismissReason.timer) {
-      window.location.href = "index.html";
+      window.location.href = "Menu.html";
     }
   });
 }
