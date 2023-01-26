@@ -43,7 +43,7 @@
     <button class="butt" id="btn9">Reproducir</button>
     <button class="butt" id="btn10">Pausar</button>
     <button class="butt" id="btn11">Cerrar</button>
-    <button class="butt" id="btn12">Play Video</button>
+    <button class="butt" id="btn12">Sin usar</button>
   </div>
 
   <script>
@@ -61,6 +61,7 @@
                 //Boton para cerrar el video
                 document.getElementById("btn11").addEventListener("click", (e) => {
                     document.querySelector("#vidtipos").pause();
+                    document.querySelector("#tercero").setAttribute("visible", false);
                     activo = false;
                 });
                 //Boton para pausar video
@@ -158,13 +159,35 @@
                 }
                 document.querySelector("#tercero").setAttribute("visible", true);
                 document.getElementById("btn9").addEventListener("click", (e)=>{
-                    vid2.muted=false; })
+                    //Primero escondemos todo de los 2 videos anteriores
+                    //Aqui hacemos todo lo del video del marker correspondiente
+                    document.querySelector("#modelos").setAttribute("visible", false);
+                    document.querySelector("#figuramet").setAttribute("visible", false);
+                    document.querySelector("#vidtipos").play();
+                    document.querySelector("#tercero").setAttribute("visible", true);
+                    activo = true;
+                    if (volteado) {
+                        var pausa = document.getElementById("pause");
+                        var play = document.getElementById("play");
+                        pausa.style.display = "block";
+                        play.style.display = "block";
+                        pausa.addEventListener("click", (e) => {
+                            document.querySelector("#vidtipos").pause();
+                        })
+                        play.addEventListener("click", (e) => {
+                            document.querySelector("#vidotipos").play();
+                        })
+                    } })
                 document.getElementById("btn10").addEventListener("click", (e)=>{
-                    vid2.muted=true; })
+                    document.querySelector("#vidtipos").pause(); })
                 document.getElementById("btn11").addEventListener("click", (e)=>{
-                    vid2.pause(); })
+                    document.querySelector("#vidtipos").pause();
+                    document.querySelector("#tercero").setAttribute("visible", false);
+                    activo = false; })
                 document.getElementById("btn12").addEventListener("click", (e)=>{
-                    vid2.play(); })
+                    activo = false;
+                document.querySelector("#tercero").setAttribute("visible", false);
+                document.querySelector("#vidtipos").pause(); })
             }.bind(this));
             rota.addEventListener('markerFound', function () {
                 //Primero escondemos todo de los 2 videos anteriores
