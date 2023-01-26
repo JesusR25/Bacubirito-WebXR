@@ -7,9 +7,9 @@
         <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
         <style>
             .butt {
-              background-color: #4CAF50; 
+                background: url(../assets/Imagenes/btn2.png) center;
               border: none;
-              color: white;
+              color: #F1EA41;
               padding: 7px;
               text-align: center;
               text-decoration: none;
@@ -18,7 +18,7 @@
               margin: 4px 2px;
               cursor: pointer;
               border-radius: 12px;
-              border: 2px solid rgba(9, 148, 28, 0.541);
+              border: 2px solid rgba(235, 152, 78);
               box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
             }
             .button {
@@ -129,7 +129,6 @@
     AFRAME.registerComponent('videohandler', {
         init: function () {
             //Declaramos las 3 series de botones
-            var botones2 = document.getElementById("botonestipo");
             //Declaramos los 3 markers
             var marker2 = document.querySelector("#ter");
             var rota = document.querySelector("#marmol");
@@ -144,7 +143,6 @@
                 document.querySelector("#figuramet").setAttribute("visible", false);
                 document.querySelector("#modelos").setAttribute("visible", false);
                 //Aqui hacemos todo lo del video del marker correspondiente
-                botones2.style.display = "block";
                 vid2.play();
                 activo = true;
                 if(volteado){
@@ -192,7 +190,6 @@
             rota.addEventListener('markerFound', function () {
                 //Primero escondemos todo de los 2 videos anteriores
                 activo = false;
-                botones2.style.display = "none";
                 vid2.pause();
                 document.querySelector("#tercero").setAttribute("visible", false);
                 document.querySelector("#figuramet").setAttribute("visible", true);
@@ -208,7 +205,6 @@
                 document.querySelector("#figuramet").setAttribute("visible", false);
                 //Aqui hacemos todo lo del video del marker correspondiente
                 alert("Hola gente");
-
             }.bind(this));
         },
     });
