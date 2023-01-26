@@ -36,7 +36,7 @@ body {
     max-width: 525px;
     min-height: 670px;
     position: relative;
-    background: url(../gato.png) repeat center;
+    background: url(../meteo.jpg) repeat center;
     background-size: 50%;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
   }
