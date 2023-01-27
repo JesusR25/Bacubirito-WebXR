@@ -1,7 +1,8 @@
 function onQRCodeScanned(scannedText)
 {
     if(scannedText == 'Composición Química'){
-        
+        document.querySelector("#modelo").setAttribute("visible", true);
+        document.getElementById("texto").style.display = "block";
     }
 }
 
