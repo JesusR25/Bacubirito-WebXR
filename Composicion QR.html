@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <title>Bacubirito con Lector</title>
+    <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
+    <script type="text/javascript" src="/js/marcadores/bacubirito.js"></script>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <style>
+        .qrscanner video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            background-size: cover;
+            height: auto;
+            width: auto;
+        }
+
+        .butt {
+            background: url(../assets/Imagenes/btn2.png) center;
+            border: none;
+            color: #F1EA41;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 2px solid rgba(235, 152, 78);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        
+        #footer {
+            position: absolute;
+            bottom: 0;
+            top: 50%;
+            left: 50%;
+            width: 370px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+            background: url(../assets/Imagenes/Recurso\ 11.png) center ;
+            border:3px solid #B34F19;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 12px;
+        }
+        
+    </style>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+    <div id="botonesorigen" style='position: absolute; top: 2%; left: 15%; text-align: center; z-index: 1;'>
+        <button class="butt" id="btn5">Meteorito</button>
+        <button class="butt" id="btn6">Cerrar</button>
+        <button class="butt" id="btn7">Pausar</button>
+        <button class="butt" id="btn8">Reproducir</button>
+    </div>
+            
+    </script>
+
+    <div id="caja" style="z-index: 9999; text-align: center;">
+        <div id="footer">
+            <p id="parrafo">El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.</p>
+        </div>
+
+    
+
+
+    <div class="qrscanner" id="scanner"></div>
+    <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
+        arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
+        <a-assets>
+            <a-asset-item id="bacu" src="../assets/Bacubirito/Terminado.glb"></a-asset-item>
+            <video id="vidorigen" src="../assets/historia.mp4" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline playsinline></video>
+        </a-assets>
+        
+        <a-video id="segundo" visible="false" src="#vidorigen" width="1.5" height="1.5" position="0 0 -4"  class="clickable" ></a-video>
+        <a-entity id="modelo" visible="false" position="0 0 -4" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" gesture-handler></a-entity>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+
+</body>
+
+</html>

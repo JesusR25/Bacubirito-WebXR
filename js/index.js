@@ -94,7 +94,7 @@ function redirigir(){
   Swal.fire({
     icon: 'success',
     title: "Inicio de sesion correcto",
-    html: "Seras redireccionado al Menu",
+    html: "Cargando el perfil del usuario",
     timer: 2000,
     timerProgressBar: true,
     didOpen: () => {

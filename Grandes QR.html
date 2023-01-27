@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Bacubirito con Lector</title>
+    <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
+    <script type="text/javascript" src="/js/marcadores/bacubirito.js"></script>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <style>
+        .qrscanner video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            background-size: cover;
+            height: auto;
+            width: auto;
+        }
+        #imagen{
+            top: 30%;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+    <div id="imagen"">
+        <img width="400" src="https://www.hubspot.com/hubfs/image-hubspot-centering-css.jpeg">
+    </div>
+
+
+    <div class="qrscanner" id="scanner"></div>
+    <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
+        arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
+        <a-entity camera></a-entity>
+    </a-scene>
+
+</body>
+
+</html>
