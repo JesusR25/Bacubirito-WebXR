@@ -11,7 +11,11 @@
         <script type="text/javascript">
             function onQRCodeScanned(scannedText)
             {
-                alert(scannedText);
+                var scannedTextMemo = document.getElementById("scannedTextMemo");
+                if(scannedTextMemo)
+                {
+                    scannedTextMemo.value = scannedText;
+                }
             }
             
             //funtion returning a promise with a video stream
@@ -62,9 +66,6 @@
     </head>
     <body>
         <div class="qrscanner" id="scanner">
-            <div>
-                <video class="qrPreviewVideo" autoplay="" tabindex="0" src="" playsinline="true"></video>
-            </div>
         </div>
     </body>
     
