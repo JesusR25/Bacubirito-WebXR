@@ -57,7 +57,6 @@
             text-align: justify;
             border-radius: 10px;
         }
-
         
     </style>
 </head>
@@ -70,6 +69,61 @@
         <button class="butt" id="btn8">Reproducir</button>
     </div>
 
+    <script>
+        var activo = false;
+        var volteado = false;
+        //Boton para mostrar meteoro
+        document.getElementById("btn5").addEventListener("click", (e) => {
+                    //Primero escondemos todo de los 2 videos anteriores
+                activo = false;
+                document.querySelector("#segundo").setAttribute("visible", false);
+                document.querySelector("#vidorigen").pause();
+                //Aqui hacemos todo lo del video del marker correspondiente
+                document.querySelector("#modelo").setAttribute("visible", true);
+                document.getElementById("texto").style.display = "block";
+                });
+
+        //Boton para cerrar el video
+        document.getElementById("btn6").addEventListener("click", (e) => {
+                    document.querySelector("#segundo").setAttribute("visible", false);
+                    document.querySelector("#vidorigen").pause();
+                    activo = false;
+                });
+        
+        //Boton para pausar video
+        document.getElementById("btn7").addEventListener("click", (e) => {
+                    document.querySelector("#vidorigen").pause();
+                });
+
+        //Boton para reproducir video
+        document.getElementById("btn8").addEventListener("click", (e) => {
+                    //Primero escondemos todo de los 2 videos anteriores
+                    //Aqui hacemos todo lo del video del marker correspondiente
+                    document.querySelector("#modelo").setAttribute("visible", false);
+                    document.getElementById("texto").style.display = "none";
+                    document.querySelector("#vidorigen").play();
+                    document.querySelector("#segundo").setAttribute("visible", true);
+                    activo = true;
+                });
+
+                function readDeviceOrientation() {
+                if (Math.abs(window.orientation) === 90) {
+                    // Landscape
+                    document.querySelector("#segundo").setAttribute("width", 3);
+                    document.querySelector("#segundo").setAttribute("height", 1.5);
+                    volteado = true;
+                } else {
+                // Portrait
+                document.querySelector("#segundo").setAttribute("width", 1.5);
+                document.querySelector("#segundo").setAttribute("height", 1.5);
+                volteado = false;
+                }
+            }
+
+            window.onorientationchange = readDeviceOrientation;
+            
+    </script>
+
 
     <div id="texto" style="z-index: 9999;text-align: center; display: none; ">
         <p class="caja">
@@ -77,8 +131,11 @@
             • Fue trasladado al Centro Cívico Constitución en Culiacán para su exhibición desde 1959 hasta 1992.<br>
             • Desde 1993 hasta la fecha permanece en el Centro de Ciencias de Sinaloa.
         </p>
-
     </div>
+
+    
+
+
     <div class="qrscanner" id="scanner"></div>
     <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
         arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
