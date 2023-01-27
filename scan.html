@@ -17,11 +17,7 @@
         <script type="text/javascript">
             function onQRCodeScanned(scannedText)
             {
-                var scannedTextMemo = document.getElementById("scannedTextMemo");
-                if(scannedTextMemo)
-                {
-                    scannedTextMemo.value = scannedText;
-                }
+                alert(scannedText);
             }
             
             //funtion returning a promise with a video stream
