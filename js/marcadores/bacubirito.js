@@ -5,6 +5,13 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#modelo").setAttribute("visible", true);
         document.getElementById("texto").style.display = "block";
     }
+    if(scannedText == 'Reproducir Video'){
+        document.querySelector("#modelo").setAttribute("visible", false);
+        document.getElementById("texto").style.display = "none";
+        //Mostrar video
+        document.querySelector("#segundo").setAttribute("visible", true);
+        document.querySelector("#vidorigen").play();
+    }
 }
 
 //funtion returning a promise with a video stream
