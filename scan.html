@@ -3,8 +3,14 @@
         <title>Scanner Propio</title>
         <style>
             .qrscanner video {
-                max-width: 95%;
-                max-height: 75%;
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%;
+                min-height: 100%;
+                background-size: cover;
+                height: auto;
+                width: auto;
             }
         </style>
         <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
@@ -65,8 +71,7 @@
           </script> 
     </head>
     <body>
-        <div class="qrscanner" id="scanner">
-        </div>
+        <div class="qrscanner" id="scanner"></div>
     </body>
     
 </html>
