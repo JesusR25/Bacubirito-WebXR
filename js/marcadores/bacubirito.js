@@ -1,5 +1,8 @@
 function onQRCodeScanned(scannedText)
 {
+    if(scannedText == 'Composición Química'){
+        alert("Hola");
+    }
     alert(scannedText);
 }
 
