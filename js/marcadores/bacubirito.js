@@ -1,9 +1,8 @@
 function onQRCodeScanned(scannedText)
 {
     if(scannedText == 'Composición Química'){
-        alert("Hola");
+        
     }
-    alert(scannedText);
 }
 
 //funtion returning a promise with a video stream
