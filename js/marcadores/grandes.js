@@ -1,6 +1,5 @@
 function onQRCodeScanned(scannedText)
 {
-    alert(scannedText);
     if(scannedText == 'Agpalilik'){
         document.getElementById("imagenes").style.display = "block";
     }
