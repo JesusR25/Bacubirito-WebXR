@@ -20,17 +20,9 @@
         }
         /* Moviles */
         @media screen and (max-width: 640px) {
-            div.container {
-            width: 50%;
-            max-width: 960px;
-            z-index: 9999;
-            position: absolute;
-        }
-
         img {
             width: 40%;
             height: 20%;
-            margin-top: 40%;
         }
         }
         /* Tablets */
@@ -38,25 +30,21 @@
         }
         /* Computadora */
         @media screen and (min-width: 1280px) {
-            div.container {
-            width: 96%;
-            max-width: 960px;
-        }
 
         img {
-            width: 20%;
+            width: 30%;
             height: 40%;
-            margin-left: 60%;
-            margin-top: 10%;
+            margin-left: 55%;
+            margin-top: 2%;
         }
         }
     </style>
 </head>
 
-<body style='margin : 0px; padding:0; overflow: hidden; font-family: Monospace;'>
-    <div id="imagenes">
-        <img  src="/assets/MetGrandes/Agpalilik.png" width="960" height="640" />
-        <img  src="/assets/MetImg/Met-Agpalilik.png" width="960" height="640" />
+<body style='margin : 0px;  overflow: hidden; font-family: Monospace;'>
+    <div id="imagenes" style="z-index: 9999; position: absolute;  ">
+        <img  src="/assets/MetGrandes/Agpalilik.png"  />
+        <img  src="/assets/MetImg/Met-Agpalilik.png" />
     </div>
 
 
