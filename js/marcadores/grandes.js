@@ -1,8 +1,8 @@
 function onQRCodeScanned(scannedText)
 {
     alert(scannedText);
-    if(scannedText == 'Reproducir Video'){
-        
+    if(scannedText == 'Agpalilik'){
+        document.getElementById("imagenes").style.display = "block";
     }
 }
 
