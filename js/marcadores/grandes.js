@@ -26,9 +26,7 @@ function provideVideoQQ()
         
         return navigator.mediaDevices.getUserMedia({
             video: {
-              'optional': [{
-                'sourceId': ids.length === 1 ? ids[0] : ids[1]//this way QQ browser opens the rear camera
-                }]
+                facingMode: 'environment'
             }
         });        
     });                
