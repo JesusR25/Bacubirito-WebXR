@@ -3,6 +3,10 @@ function onQRCodeScanned(scannedText)
     if(scannedText == 'Agpalilik'){
         document.getElementById("imagenes").style.display = "block";
     }
+    if(scannedText == 'Ahnighito'){
+        document.getElementById("inf").src="../../assets/MetGrandes/Ahnighito.png";
+        document.getElementById("ima").src="../../assets/MetImg/Met-Ahnighito.png";
+    }
 }
 
 //funtion returning a promise with a video stream
