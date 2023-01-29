@@ -2,6 +2,7 @@ function ocultar(){
     document.getElementById('imagenes').style.display = "none";
 }
 
+
 function onQRCodeScanned(scannedText)
 {
     if(scannedText == 'Agpalilik'){
