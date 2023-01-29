@@ -43,12 +43,12 @@ function onQRCodeScanned(scannedText)
     if(scannedText == 'Willamette'){
         document.getElementById("imagenes").style.display = "block";
         document.getElementById("inf").src="../../assets/MetGrandes/Willamette.png";
-        document.getElementById("ima").src="../../assets/MetImg/Met-Willamette.png";
+        document.getElementById("ima").src="../../assets/MetGrandes/wasa.png";
     }
     if(scannedText == 'Armanty'){
         document.getElementById("imagenes").style.display = "block";
         document.getElementById("inf").src="../../assets/MetGrandes/Armanty.png";
-        document.getElementById("ima").src="../../assets/MetGrandes/wasa.png";
+        document.getElementById("ima").src="../../assets/MetImg/Met-Armanty.png";
     }
 }
 
