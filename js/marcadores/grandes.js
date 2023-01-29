@@ -48,11 +48,7 @@ function onQRCodeScanned(scannedText)
     if(scannedText == 'Armanty'){
         document.getElementById("imagenes").style.display = "block";
         document.getElementById("inf").src="../../assets/MetGrandes/Armanty.png";
-        document.getElementById("ima").src="../../assets/MetImg/Met-Armanty.png";
-    }
-    if(scannedText == 'Gato'){
-        document.getElementById("imagenes").style.display = "block";
-        document.getElementById("inf").src="../../assets/MetGrandes/wasa.png";
+        document.getElementById("ima").src="../../assets/MetGrandes/gato.png";
     }
 }
 
