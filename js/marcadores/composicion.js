@@ -11,9 +11,7 @@ const listtext = [textcob, textniq, texthie, textazu];
 var idx = -1;
 
 function onQRCodeScanned(scannedText) {
-  alert(scannedText);
-  if (scannedText == 'Composicion') {
-    
+  if (scannedText == 'Composición Química') {
     document.getElementById("composicion").style.display = "none";
     mostrar();
 
