@@ -14,7 +14,7 @@ function onQRCodeScanned(scannedText) {
   if (scannedText == 'Composición Química') {
     document.getElementById("composicion").style.display = "none";
     mostrar();
-
+    asignarflechas();
   }
   if(scannedText == 'Reproducir Video'){
     document.querySelector("#comp").play();
