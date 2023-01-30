@@ -75,13 +75,14 @@
         @media screen and (max-width: 640px) {
             .vid{
                 position: absolute;
-                top: 30%;
-                left: 0%;
+                top: 15%;
+                left: 25%;
                 text-align: center;
-                z-index: 1;
-                width: 220;
+                z-index: 1;               
+            }
+            .veo{
+                width: 320;
                 height: 150;
-                
             }
         }
 
@@ -92,14 +93,14 @@
         @media screen and (min-width: 1280px) {
             .vid{
                 position: absolute;
-                top: 9%;
-                left: 13%;
+                top: 15%;
+                left: 25%;
                 text-align: center;
-                z-index: 1;
+                z-index: 1;               
+            }
+            .veo{
                 width: 720;
                 height: 450;
-                display: none;
-                
             }
         }
     </style>
@@ -114,7 +115,7 @@
     </div>
 
     <div class="vid" id="composicion">
-        <video controls>
+        <video class="veo" controls>
             <source src="assets/composicion.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
@@ -128,7 +129,7 @@
 
         <div id="flechas" style='position: absolute;top: 15%;text-align: center; z-index: 9999; right: 0%; display: none;'>
             <button class="button" id="btnSig">
-                <img src="../assets/sig.png" width="40px" </button>
+                <img src="../assets/sig.png" width="40px"> </button>
         </div>
 
         <div id="flechasant" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; display: none;'>
