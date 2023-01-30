@@ -119,3 +119,37 @@ function mostrar() {
   document.querySelector("#mod").setAttribute("visible", true);
 }
 
+function botonReproducir(){
+  alert("Funciono reproducir");
+  document.getElementById("caja").style.display = "none";
+  document.getElementById("flechas").style.display = "none";
+  document.getElementById("flechasant").style.display = "none";
+  document.querySelector("#cob").setAttribute("visible", false);
+  document.querySelector("#mod").setAttribute("visible", false);
+  activo = true;
+  /*
+  if (volteado) {
+    document.getElementById("pause").style.display = "block";
+    document.getElementById("play").style.display = "block";
+    pausa.addEventListener("click", (e) => {
+      document.querySelector("#vid").pause();
+    });
+    play.addEventListener("click", (e) => {
+      document.querySelector("#vid").play();
+    });
+  }*/
+  document.querySelector("#vid").play();
+  document.querySelector("#primero").setAttribute("visible", true);
+}
+
+function botonPausar(){
+  alert("Funciono pausa");
+  document.querySelector("#vid").pause();
+}
+
+function botonOcultar(){
+  alert("Funciono ocultar");
+  document.querySelector("#primero").setAttribute("visible", false);
+  document.querySelector("#vid").pause();
+  activo = false;
+}
