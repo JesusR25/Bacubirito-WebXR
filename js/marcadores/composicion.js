@@ -17,6 +17,7 @@ function onQRCodeScanned(scannedText) {
 
   }
   if(scannedText == 'Reproducir Video'){
+    document.querySelector("#comp").play();
     document.getElementById("composicion").style.display = "block";
   }
 }
