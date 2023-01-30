@@ -11,8 +11,9 @@ const listtext = [textcob, textniq, texthie, textazu];
 var idx = -1;
 
 function onQRCodeScanned(scannedText) {
+  alert(scannedText);
   if (scannedText == 'Composicion') {
-    alert("Holaaaaa");
+    
     document.getElementById("composicion").style.display = "none";
     mostrar();
 
