@@ -36,6 +36,21 @@
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
+        .button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 1px solid #3498db;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        }
         
         #footer {
             position: absolute;
@@ -60,7 +75,7 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div id="botonesorigen" style='position: absolute; top: 2%; left: 15%; text-align: center; z-index: 1;'>
-        <button class="butt" id="btn5">Meteorito</button>
+        <button class="butt" id="btn5">Composicion</button>
         <button class="butt" id="btn6">Cerrar</button>
         <button class="butt" id="btn7">Pausar</button>
         <button class="butt" id="btn8">Reproducir</button>
@@ -72,6 +87,18 @@
         <div id="footer">
             <p id="parrafo">El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.</p>
         </div>
+
+        <div id="flechas" style='position: absolute;top: 40%;text-align: center; z-index: 9999; right: 0%; '>
+            <button class="button" id="btnSig">
+                <img src="../assets/sig.png" width="40px" </button>
+        </div>
+
+        <div id="flechasant" style='position: absolute;top: 40%;text-align: center; z-index: 9999; left: 0%; '>
+            <button class="button" id="btnAnt">
+                <img src="../assets/ant.png" width="40px">
+            </button>
+        </div>
+
 
     <div class="qrscanner" id="scanner"></div>
     <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
@@ -90,9 +117,9 @@
             <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb"></a-asset-item>
         </a-assets>
         
-        <a-entity id="cob" gltf-model="#cobalto" position="0 0.5 -4" scale="0.6 0.6 0.6" class="clickable" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 25000"></a-entity>
-        <a-entity id="mod" gltf-model="#metcob" position="0 -0.6 -4" scale="0.4 0.4 0.4" class="clickable" rotation="0 0 0" gesture-handler animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
-
+        <a-entity id="cob" gltf-model="#cobalto" visible="false" position="0 0.5 -4" scale="0.6 0.6 0.6" class="clickable" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 25000"></a-entity>
+        <a-entity id="mod" gltf-model="#metcob" visible="false" position="0 -0.6 -4" scale="0.4 0.4 0.4" class="clickable" rotation="0 0 0" gesture-handler animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
+        <a-video id="primero" visible="false" src="#vid" width="1.5" height="1.5" position="0 0.2 -4" class="clickable"></a-video>
         <a-entity camera></a-entity>
     </a-scene>
 
