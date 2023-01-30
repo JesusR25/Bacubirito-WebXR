@@ -11,8 +11,13 @@ const listtext = [textcob, textniq, texthie, textazu];
 var idx = -1;
 
 function onQRCodeScanned(scannedText) {
-  if (scannedText == "Composicion") {
+  if (scannedText == 'Composicion') {
+    document.getElementById("composicion").style.display = "none";
     mostrar();
+
+  }
+  if(scannedText == 'Reproducir Video'){
+    document.getElementById("composicion").style.display = "block";
   }
 }
 
