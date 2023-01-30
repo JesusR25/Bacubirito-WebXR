@@ -116,8 +116,8 @@ function asignarflechas() {
 
 function mostrar() {
   activo = false;
-  document.querySelector("#vid").pause();
-  document.querySelector("#primero").setAttribute("visible", false);
+  document.querySelector("#comp").pause();
+  document.getElementById("composicion").style.display = "none";
   document.getElementById("caja").style.display = "block";
   document.getElementById("flechas").style.display = "block";
   document.getElementById("flechasant").style.display = "block";
@@ -126,7 +126,6 @@ function mostrar() {
 }
 
 function botonReproducir(){
-  alert("Funciono reproducir");
   document.getElementById("caja").style.display = "none";
   document.getElementById("flechas").style.display = "none";
   document.getElementById("flechasant").style.display = "none";
@@ -149,12 +148,10 @@ function botonReproducir(){
 }
 
 function botonPausar(){
-  alert("Funciono pausa");
   document.querySelector("#comp").pause();
 }
 
 function botonOcultar(){
-  alert("Funciono ocultar");
   document.getElementById("composicion").style.display = "none";
   document.querySelector("#comp").pause();
   activo = false;
