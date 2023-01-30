@@ -1,14 +1,6 @@
-
-
 function onQRCodeScanned(scannedText)
 {
-    if(scannedText == 'Reproducir Video'){
-        document.querySelector("#modelo").setAttribute("visible", false);
-        document.getElementById("texto").style.display = "none";
-        //Mostrar video
-        document.querySelector("#segundo").setAttribute("visible", true);
-        document.querySelector("#vidorigen").play();
-    }
+    alert("Hola gente");
 }
 
 //funtion returning a promise with a video stream
