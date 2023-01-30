@@ -78,7 +78,8 @@
                 top: 20%;
                 left: 0%;
                 text-align: center;
-                z-index: 1;               
+                z-index: 1;  
+                display: none;             
             }
             .veo{
                 width: 420;
@@ -96,7 +97,8 @@
                 top: 15%;
                 left: 25%;
                 text-align: center;
-                z-index: 1;               
+                z-index: 1;   
+                display: none;            
             }
             .veo{
                 width: 720;
@@ -115,7 +117,7 @@
     </div>
 
     <div class="vid" id="composicion">
-        <video class="veo" controls>
+        <video id="comp" class="veo" controls>
             <source src="assets/composicion.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
@@ -181,7 +183,6 @@
             <a-entity id="mod" visible="false" position="0 -0.6 -4" scale="0.4 0.4 0.4"
                 class="clickable" rotation="0 0 0"
                 animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
-            <a-video id="primero" src="#vid" visible="false" width="3" height="1.5" position="0 0 -4" class="clickable"></a-video>
             <a-entity camera></a-entity>
         </a-scene>
 

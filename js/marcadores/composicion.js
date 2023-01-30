@@ -143,18 +143,18 @@ function botonReproducir(){
       document.querySelector("#vid").play();
     });
   }*/
-  document.querySelector("#vid").play();
-  document.querySelector("#primero").setAttribute("visible", true);
+  document.querySelector("#comp").play();
+  document.getElementById("composicion").style.display = "block";
 }
 
 function botonPausar(){
   alert("Funciono pausa");
-  document.querySelector("#vid").pause();
+  document.querySelector("#comp").pause();
 }
 
 function botonOcultar(){
   alert("Funciono ocultar");
-  document.querySelector("#primero").setAttribute("visible", false);
-  document.querySelector("#vid").pause();
+  document.getElementById("composicion").style.display = "none";
+  document.querySelector("#comp").pause();
   activo = false;
 }
