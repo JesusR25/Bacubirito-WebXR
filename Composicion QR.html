@@ -51,7 +51,7 @@
             border: 1px solid #3498db;
             box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
         }
-        
+
         #footer {
             position: absolute;
             bottom: 0;
@@ -60,8 +60,8 @@
             width: 370px;
             height: 100px;
             transform: translate(-50%, -50%);
-            background: url(../assets/Imagenes/Recurso\ 11.png) center ;
-            border:3px solid #B34F19;
+            background: url(../assets/Imagenes/Recurso\ 11.png) center;
+            border: 3px solid #B34F19;
             z-index: 9999;
             display: flex;
             justify-content: center;
@@ -69,7 +69,6 @@
             color: white;
             font-size: 12px;
         }
-        
     </style>
 </head>
 
@@ -80,48 +79,79 @@
         <button class="butt" id="btn7">Pausar</button>
         <button class="butt" id="btn8">Reproducir</button>
     </div>
-            
-    </script>
 
-    <div id="caja" style="z-index: 9999; text-align: center;">
+
+    <div id="caja" style="z-index: 9999; text-align: center; display: none;">
         <div id="footer">
-            <p id="parrafo">El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.</p>
+            <p id="parrafo">El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver
+                cada uno de ellos.</p>
         </div>
 
-        <div id="flechas" style='position: absolute;top: 40%;text-align: center; z-index: 9999; right: 0%; '>
+        <div id="flechas" style='position: absolute;top: 15%;text-align: center; z-index: 9999; right: 0%; display: none;'>
             <button class="button" id="btnSig">
                 <img src="../assets/sig.png" width="40px" </button>
         </div>
 
-        <div id="flechasant" style='position: absolute;top: 40%;text-align: center; z-index: 9999; left: 0%; '>
+        <div id="flechasant" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; display: none;'>
             <button class="button" id="btnAnt">
                 <img src="../assets/ant.png" width="40px">
             </button>
         </div>
 
+        <script>
+            //Boton para reproducir video
+            document.getElementById("btn5").addEventListener("click", (e) => {
+                mostrar();
+                asignarflechas();
+            });
+            //Boton para pausar video
+            document.getElementById("btn7").addEventListener("click", (e) => {
+                document.querySelector("#vid").pause();
+            });
+            //Boton para cerrar video
+            document.getElementById("btn6").addEventListener("click", (e) => {
+                document.querySelector("#primero").setAttribute("visible", false);
+  document.querySelector("#vid").pause();
+            });
+            //Boton para reproducir video
+            document.getElementById("btn8").addEventListener("click", (e) => {
+                document.getElementById("caja").style.display = "none";
+                document.getElementById("flechas").style.display = "none";
+                document.getElementById("flechasant").style.display = "none";
+                document.querySelector("#cob").setAttribute("visible", false);
+                document.querySelector("#mod").setAttribute("visible", false);
+                activo = true;
+                document.querySelector("#vid").play();
+                document.querySelector("#primero").setAttribute("visible", true);
+            });
+        </script>
 
-    <div class="qrscanner" id="scanner"></div>
-    <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
-        arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
-        <a-assets>
-            <video id="vid" src="../assets/composicion.mp4" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline playsinline ></video>
-            <a-asset-item id="spinosaurus" src="../assets/ModComp/Bueno Posicion.glb"></a-asset-item>
-            <a-asset-item id="cobalto" src="../assets/Bacubirito/BacuCob.glb"></a-asset-item>
-            <a-asset-item id="Hierro" src="../assets/Bacubirito/BacuHie.glb"></a-asset-item>
-            <a-asset-item id="azufre" src="../assets/Bacubirito/BacuAzuf.glb"></a-asset-item>
-            <a-asset-item id="niquel" src="../assets/Bacubirito/BacuNiq.glb"></a-asset-item>
-            <!-- Meteoro de elementos-->
-            <a-asset-item id="metcob" src="../assets/ModComp/CompCob.glb"></a-asset-item>
-            <a-asset-item id="methie" src="../assets/ModComp/CompHie.glb"></a-asset-item>
-            <a-asset-item id="metazu" src="../assets/ModComp/CompAzu.glb"></a-asset-item>
-            <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb"></a-asset-item>
-        </a-assets>
-        
-        <a-entity id="cob" gltf-model="#cobalto" visible="false" position="0 0.5 -4" scale="0.6 0.6 0.6" class="clickable" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 25000"></a-entity>
-        <a-entity id="mod" gltf-model="#metcob" visible="false" position="0 -0.6 -4" scale="0.4 0.4 0.4" class="clickable" rotation="0 0 0" gesture-handler animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
-        <a-video id="primero" visible="false" src="#vid" width="1.5" height="1.5" position="0 0.2 -4" class="clickable"></a-video>
-        <a-entity camera></a-entity>
-    </a-scene>
+        <div class="qrscanner" id="scanner"></div>
+        <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
+            arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
+            <a-assets>
+                <video id="vid" src="/assets/composicion.mp4" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline playsinline></video>
+                <a-asset-item id="spinosaurus" src="../assets/ModComp/Bueno Posicion.glb"></a-asset-item>
+                <a-asset-item id="cobalto" src="../assets/Bacubirito/BacuCob.glb"></a-asset-item>
+                <a-asset-item id="Hierro" src="../assets/Bacubirito/BacuHie.glb"></a-asset-item>
+                <a-asset-item id="azufre" src="../assets/Bacubirito/BacuAzuf.glb"></a-asset-item>
+                <a-asset-item id="niquel" src="../assets/Bacubirito/BacuNiq.glb"></a-asset-item>
+                <!-- Meteoro de elementos-->
+                <a-asset-item id="metcob" src="../assets/ModComp/CompCob.glb"></a-asset-item>
+                <a-asset-item id="methie" src="../assets/ModComp/CompHie.glb"></a-asset-item>
+                <a-asset-item id="metazu" src="../assets/ModComp/CompAzu.glb"></a-asset-item>
+                <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb"></a-asset-item>
+            </a-assets>
+
+            <a-video id="primero" src="#vid" visible="false" width="3" height="1.5" position="0 0 -4" class="clickable"></a-video>
+            <a-entity id="cob" visible="false" position="0 0.5 -4" scale="0.6 0.6 0.6"
+                class="clickable" rotation="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 25000"></a-entity>
+            <a-entity id="mod" visible="false" position="0 -0.6 -4" scale="0.4 0.4 0.4"
+                class="clickable" rotation="0 0 0"
+                animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
+            <a-entity camera></a-entity>
+        </a-scene>
 
 </body>
 

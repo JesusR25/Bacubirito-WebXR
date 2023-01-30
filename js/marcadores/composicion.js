@@ -8,24 +8,11 @@ let textcob = "El meteorito de Bacubirito tambien contiene un 0.21% de Cobalto."
 let texthie = "El meteorito de Bacubirito contiene un 88.94% de Hierro.";
 let textniq = "El meteorito de Bacubirito contiene un 6.98% de Niquel.";
 const listtext = [textcob, textniq, texthie, textazu];
-let idx = -1;
-
- //Boton para reproducir video
- document.getElementById("btn5").addEventListener("click", (e) => {
-    alert("Hola");
-});
+var idx = -1;
 
 function onQRCodeScanned(scannedText) {
   if (scannedText == "Composicion") {
-    activo = false;
-    document.querySelector("#vid").pause();
-    document.querySelector("#primero").setAttribute("visible", false);
-    document.getElementById("caja").style.display = "block";
-    document.getElementById("flechas").style.display = "block";
-    document.getElementById("flechasant").style.display = "block";
-    document.querySelector("#cob").setAttribute("visible", true);
-    document.querySelector("#mod").setAttribute("visible", true);
-    asignarflechas();
+    mostrar();
   }
 }
 
@@ -70,47 +57,65 @@ function JsQRScannerReady() {
   }
 }
 
-function asignarflechas(){
-    //Primer boton flecha
-    document.getElementById("btnAnt").addEventListener("click", (e) => {
-        if (idx <= 0) {
-            idx = 3
-            document.querySelector("#cob").removeAttribute('gltf-model');
-            document.querySelector("#cob").removeAttribute('scale');
-            document.querySelector("#cob").setAttribute('scale', '0.6 0.6 0.6');
-            document.querySelector("#cob").setAttribute('gltf-model', `#${modelList[idx]}`);
-            //Texto sobre informacion del material
-            document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
-            document.querySelector("#mod").removeAttribute('gltf-model');
-            document.querySelector("#mod").removeAttribute('scale');
-            document.querySelector("#mod").setAttribute('scale', '0.4 0.4 0.4');
-            document.querySelector("#mod").setAttribute('gltf-model', `#${meteoros[idx]}`);
-        } else {
-            idx = idx - 1
-            document.querySelector("#cob").removeAttribute('gltf-model');
-            document.querySelector("#cob").removeAttribute('scale');
-            document.querySelector("#cob").setAttribute('scale', '0.6 0.6 0.6');
-            document.querySelector("#cob").setAttribute('gltf-model', `#${modelList[idx]}`);
-            //Texto sobre informacion del material
-            document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
-            document.querySelector("#mod").removeAttribute('gltf-model');
-            document.querySelector("#mod").removeAttribute('scale');
-            document.querySelector("#mod").setAttribute('scale', '0.4 0.4 0.4');
-            document.querySelector("#mod").setAttribute('gltf-model', `#${meteoros[idx]}`);
-        }
-    });
-    //Segundo boton flecha
-    document.getElementById("btnSig").addEventListener("click", (e) => {
-        idx = (idx + 1) % modelList.length;
-        document.querySelector("#cob").removeAttribute('gltf-model');
-        document.querySelector("#cob").removeAttribute('scale');
-        document.querySelector("#cob").setAttribute('scale', '0.6 0.6 0.6');
-        document.querySelector("#cob").setAttribute('gltf-model', `#${modelList[idx]}`);
-        //Texto sobre informacion del material
-        document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
-        document.querySelector("#mod").removeAttribute('gltf-model');
-        document.querySelector("#mod").removeAttribute('scale');
-        document.querySelector("#mod").setAttribute('scale', '0.4 0.4 0.4');
-        document.querySelector("#mod").setAttribute('gltf-model', `#${meteoros[idx]}`);
-    });
+function asignarflechas() {
+  //Primer boton flecha
+  document.getElementById("btnAnt").addEventListener("click", (e) => {
+    if (idx <= 0) {
+      idx = 3;
+      alert(idx);
+      document.querySelector("#cob").removeAttribute("gltf-model");
+      document.querySelector("#cob").removeAttribute("scale");
+      document.querySelector("#cob").setAttribute("scale", "0.6 0.6 0.6");
+      document.querySelector("#cob").setAttribute("gltf-model", `#${modelList[idx]}`);
+      //Texto sobre informacion del material
+      document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
+      document.querySelector("#mod").removeAttribute("gltf-model");
+      document.querySelector("#mod").removeAttribute("scale");
+      document.querySelector("#mod").setAttribute("scale", "0.4 0.4 0.4");
+      document
+        .querySelector("#mod")
+        .setAttribute("gltf-model", `#${meteoros[idx]}`);
+    } else {
+      idx = idx - 1;
+      document.querySelector("#cob").removeAttribute("gltf-model");
+      document.querySelector("#cob").removeAttribute("scale");
+      document.querySelector("#cob").setAttribute("scale", "0.6 0.6 0.6");
+      document
+        .querySelector("#cob")
+        .setAttribute("gltf-model", `#${modelList[idx]}`);
+      //Texto sobre informacion del material
+      document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
+      document.querySelector("#mod").removeAttribute("gltf-model");
+      document.querySelector("#mod").removeAttribute("scale");
+      document.querySelector("#mod").setAttribute("scale", "0.4 0.4 0.4");
+      document.querySelector("#mod").setAttribute("gltf-model", `#${meteoros[idx]}`);
+    }
+  });
+  //Segundo boton flecha
+  document.getElementById("btnSig").addEventListener("click", (e) => {
+    idx = (idx + 1) % modelList.length;
+    alert(idx);
+    document.querySelector("#cob").removeAttribute("gltf-model");
+    document.querySelector("#cob").removeAttribute("scale");
+    document.querySelector("#cob").setAttribute("scale", "0.6 0.6 0.6");
+    document.querySelector("#cob").setAttribute("gltf-model", `#${modelList[idx]}`);
+    //Texto sobre informacion del material
+    document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
+    document.querySelector("#mod").removeAttribute("gltf-model");
+    document.querySelector("#mod").removeAttribute("scale");
+    document.querySelector("#mod").setAttribute("scale", "0.4 0.4 0.4");
+    document.querySelector("#mod").setAttribute("gltf-model", `#${meteoros[idx]}`);
+  });
 }
+
+function mostrar() {
+  activo = false;
+  document.querySelector("#vid").pause();
+  document.querySelector("#primero").setAttribute("visible", false);
+  document.getElementById("caja").style.display = "block";
+  document.getElementById("flechas").style.display = "block";
+  document.getElementById("flechasant").style.display = "block";
+  document.querySelector("#cob").setAttribute("visible", true);
+  document.querySelector("#mod").setAttribute("visible", true);
+}
+
