@@ -9,7 +9,7 @@
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <style>
-        
+
         .qrscanner video {
             position: fixed;
             right: 0;
@@ -70,6 +70,35 @@
             color: white;
             font-size: 12px;
         }
+
+        /* Moviles */
+        @media screen and (max-width: 640px) {
+            video{
+                position: absolute;
+                top: 15%;
+                left: 25%;
+                text-align: center;
+                z-index: 1;
+                width: 420;
+                height: 150;
+            }
+        }
+
+        /* Tablets */
+        @media screen and (min-width: 640px) and (max-width: 1280px) {}
+
+        /* Computadora */
+        @media screen and (min-width: 1280px) {
+            video{
+                position: absolute;
+                top: 15%;
+                left: 25%;
+                text-align: center;
+                z-index: 1;
+                width: 720;
+                height: 450;
+            }
+        }
     </style>
 </head>
 
@@ -81,11 +110,12 @@
         <button class="butt" id="btn8">Reproducir</button>
     </div>
 
-
-    <video width="720" height="450" controls style="position: absolute; z-index: 9999; text-align: center; top: 25%; left: 30%;" >
-        <source src="assets/composicion.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video>
+    <div class="videos">
+        <video controls>
+            <source src="assets/composicion.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
 
     <div id="caja" style="z-index: 9999; text-align: center; display: none;">
         <div id="footer">
