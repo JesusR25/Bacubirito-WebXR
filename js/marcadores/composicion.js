@@ -59,8 +59,7 @@ function JsQRScannerReady() {
 
 function mostrar() {
   activo = false;
-  document.querySelector("#comp").pause();
-  document.getElementById("composicion").style.display = "none";
+  
   document.getElementById("caja").style.display = "block";
   document.getElementById("flechas").style.display = "block";
   document.getElementById("flechasant").style.display = "block";
@@ -86,16 +85,13 @@ function botonReproducir(){
       document.querySelector("#vid").play();
     });
   }*/
-  document.querySelector("#comp").play();
-  document.getElementById("composicion").style.display = "block";
+  
 }
 
 function botonPausar(){
-  document.querySelector("#comp").pause();
+  
 }
 
 function botonOcultar(){
-  document.getElementById("composicion").style.display = "none";
-  document.querySelector("#comp").pause();
   activo = false;
 }

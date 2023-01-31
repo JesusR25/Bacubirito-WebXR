@@ -58,6 +58,41 @@
             text-align: justify;
             border-radius: 10px;
         }
+
+        /* Moviles */
+        @media screen and (max-width: 640px) {
+            .vid{
+                position: absolute;
+                top: 20%;
+                left: 0%;
+                text-align: center;
+                z-index: 1;  
+                display: none;             
+            }
+            .veo{
+                width: 420;
+                height: 250;
+            }
+        }
+
+        /* Tablets */
+        @media screen and (min-width: 640px) and (max-width: 1280px) {}
+
+        /* Computadora */
+        @media screen and (min-width: 1280px) {
+            .vid{
+                position: absolute;
+                top: 15%;
+                left: 25%;
+                text-align: center;
+                z-index: 1;   
+                      
+            }
+            .veo{
+                width: 720;
+                height: 450;
+            }
+        }
         
     </style>
 </head>
@@ -68,6 +103,13 @@
         <button class="butt" id="btn6">Cerrar</button>
         <button class="butt" id="btn7">Pausar</button>
         <button class="butt" id="btn8">Reproducir</button>
+    </div>
+
+    <div class="vid" id="historia">
+        <video id="hist" class="veo" controls>
+            <source src="assets/historia.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
     </div>
 
     <script>
@@ -142,10 +184,8 @@
         arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
         <a-assets>
             <a-asset-item id="bacu" src="../assets/Bacubirito/Terminado.glb"></a-asset-item>
-            <video id="vidorigen" src="../assets/historia.mp4" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline playsinline></video>
         </a-assets>
         
-        <a-video id="segundo" visible="false" src="#vidorigen" width="1.5" height="1.5" position="0 0 -4"  class="clickable" ></a-video>
         <a-entity id="modelo" visible="false" position="0 0 -4" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu"
             animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" gesture-handler></a-entity>
 
