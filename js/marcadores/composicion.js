@@ -12,11 +12,15 @@ var idx = -1;
 
 function onQRCodeScanned(scannedText) {
   if (scannedText == 'Composición Química') {
-    document.getElementById("composicion").style.display = "none";
     mostrar();
     asignarflechas();
   }
-  if(scannedText == 'Reproducir Video'){
+  if (scannedText == "Reproducir Video") {
+    document.getElementById("caja").style.display = "none";
+    document.getElementById("flechas").style.display = "none";
+    document.getElementById("flechasant").style.display = "none";
+    document.querySelector("#cob").setAttribute("visible", false);
+    document.querySelector("#mod").setAttribute("visible", false);
     document.querySelector("#comp").play();
     document.getElementById("composicion").style.display = "block";
   }
