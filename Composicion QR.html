@@ -184,7 +184,6 @@
             //Segundo boton flecha
             document.getElementById("btnSig").addEventListener("click", (e) => {
                 idx = (idx + 1) % modelList.length;
-                alert(idx);
                 document.querySelector("#cob").removeAttribute("gltf-model");
                 document.querySelector("#cob").removeAttribute("scale");
                 document.querySelector("#cob").setAttribute("scale", "0.6 0.6 0.6");
