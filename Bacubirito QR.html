@@ -67,7 +67,7 @@
                 left: 0%;
                 text-align: center;
                 z-index: 1;  
-                         
+                display: none;             
             }
             .veo{
                 width: 420;
@@ -86,7 +86,7 @@
                 left: 25%;
                 text-align: center;
                 z-index: 1;   
-                      
+                display: none;            
             }
             .veo{
                 width: 720;
@@ -119,8 +119,8 @@
         document.getElementById("btn5").addEventListener("click", (e) => {
                     //Primero escondemos todo de los 2 videos anteriores
                 activo = false;
-                document.querySelector("#segundo").setAttribute("visible", false);
-                document.querySelector("#vidorigen").pause();
+                document.querySelector("#hist").pause();
+                document.getElementById("historia").style.display = "none";
                 //Aqui hacemos todo lo del video del marker correspondiente
                 document.querySelector("#modelo").setAttribute("visible", true);
                 document.getElementById("texto").style.display = "block";
@@ -128,14 +128,14 @@
 
         //Boton para cerrar el video
         document.getElementById("btn6").addEventListener("click", (e) => {
-                    document.querySelector("#segundo").setAttribute("visible", false);
-                    document.querySelector("#vidorigen").pause();
+            document.querySelector("#hist").pause();
+                    document.getElementById("historia").style.display = "none";
                     activo = false;
                 });
         
         //Boton para pausar video
         document.getElementById("btn7").addEventListener("click", (e) => {
-                    document.querySelector("#vidorigen").pause();
+                    document.querySelector("#hist").pause();
                 });
 
         //Boton para reproducir video
@@ -144,26 +144,10 @@
                     //Aqui hacemos todo lo del video del marker correspondiente
                     document.querySelector("#modelo").setAttribute("visible", false);
                     document.getElementById("texto").style.display = "none";
-                    document.querySelector("#vidorigen").play();
-                    document.querySelector("#segundo").setAttribute("visible", true);
+                    document.querySelector("#hist").play();
+                    document.getElementById("historia").style.display = "block";
                     activo = true;
                 });
-
-                function readDeviceOrientation() {
-                if (Math.abs(window.orientation) === 90) {
-                    // Landscape
-                    document.querySelector("#segundo").setAttribute("width", 3);
-                    document.querySelector("#segundo").setAttribute("height", 1.5);
-                    volteado = true;
-                } else {
-                // Portrait
-                document.querySelector("#segundo").setAttribute("width", 1.5);
-                document.querySelector("#segundo").setAttribute("height", 1.5);
-                volteado = false;
-                }
-            }
-
-            window.onorientationchange = readDeviceOrientation;
             
     </script>
 
