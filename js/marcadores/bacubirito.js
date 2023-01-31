@@ -6,8 +6,8 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#modelo").setAttribute("visible", false);
         document.getElementById("texto").style.display = "none";
         //Mostrar video
-        document.querySelector("#segundo").setAttribute("visible", true);
-        document.querySelector("#vidorigen").play();
+        document.querySelector("#hist").play();
+        document.getElementById("historia").style.display = "block";
     }
 }
 
