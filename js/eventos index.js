@@ -17,7 +17,7 @@ function advertencia(){
     })
     .then((willDelete) => {
       if (willDelete) {
-        window.location.href = "/pagina/Bacubirito.html";
+        window.location.href = "Bacubirito QR.html";
       } else {
       }
     });
@@ -49,7 +49,7 @@ function advertencia(){
     })
     .then((willDelete) => {
       if (willDelete) {
-        window.location.href = "/pagina/Modelos.html";
+        window.location.href = "Composicion QR.html";
       } else {
       }
     });
@@ -58,14 +58,14 @@ function advertencia(){
   function grandes(){
     swal({
       title: "Resumen",
-      text: "•	En esta escena se usan todos los marcadores ubicados en el Pasillo A. \n	•	Escanea el marcador que representa a cada meteorito para visualizar su información más relevante acerca de cada uno de los meteoritos encontrados en nuestro planeta.",
+      text: "•	En esta escena se usan todos los marcadores ubicados en el Pasillo A. \n	•	Escanea el marcador que representa a cada meteorito para visualizar su información más relevante acerca de cada uno de los meteoritos encontrados en nuestro planeta. \n •	Da click en la imagen para ocultarla.",
       icon: "warning",
       buttons: true,
       dangerMode: true,
     })
     .then((willDelete) => {
       if (willDelete) {
-        window.location.href = "/pagina/pruebas.html";
+        window.location.href = "Grandes QR.html";
       } else {
       }
     });
