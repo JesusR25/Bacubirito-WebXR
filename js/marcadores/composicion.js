@@ -13,7 +13,6 @@ var idx = -1;
 function onQRCodeScanned(scannedText) {
   if (scannedText == 'Composición Química') {
     mostrar();
-    asignarflechas();
   }
   if (scannedText == "Reproducir Video") {
     document.getElementById("caja").style.display = "none";
