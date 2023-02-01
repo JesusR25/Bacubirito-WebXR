@@ -92,7 +92,7 @@ function botonReproducir(){
 }
 
 function botonPausar(){
-  window.history.back();
+
 }
 
 function botonOcultar(){
