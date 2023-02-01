@@ -1,7 +1,9 @@
 var activo = false;
 var volteado = false;
+alert("En js");
 
 function onQRCodeScanned(scannedText) {
+  alert(scannedText);
   if (scannedText == 'Composición Química') {
     mostrar();
   }
