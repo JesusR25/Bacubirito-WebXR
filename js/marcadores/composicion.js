@@ -2,7 +2,6 @@ var activo = false;
 var volteado = false;
 
 function onQRCodeScanned(scannedText) {
-  alert(scannedText);
   if (scannedText == 'Composición Química') {
     mostrar();
   }
