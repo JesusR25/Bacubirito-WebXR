@@ -5,8 +5,7 @@ function ocultar(){
 
 function onQRCodeScanned(scannedText)
 {
-    alert(scannedText);
-    if(scannedText == 'Composición Química'){
+    if(scannedText == 'Agpalilik'){
         document.getElementById("imagenes").style.display = "block";
         document.getElementById("inf").src="../../assets/MetGrandes/Agpalilik.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-Agpalilik.png";
