@@ -2,6 +2,7 @@
 
 function onQRCodeScanned(scannedText)
 {
+    alert(scannedText);
     if(scannedText == 'Reproducir Video'){
         document.querySelector("#modelo").setAttribute("visible", false);
         document.getElementById("texto").style.display = "none";
