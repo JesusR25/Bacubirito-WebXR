@@ -10,6 +10,28 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href="../css/styles.css" rel="stylesheet">
     <script src="../js/script.js" defer></script>
+    <style>
+        video-holder {
+  width: 100vw;
+  height: 100vh;
+}
+
+video {
+  height: 100vh;
+}
+    </style>
+    <script>
+        const constraints = {
+                video: {
+                    facingMode: "environment",
+                }
+            };
+    
+            const video = document.querySelector('video');
+    
+            navigator.mediaDevices.getUserMedia(constraints).
+                then((stream) => { video.srcObject = stream });
+    </script>
     
     <script>
         window.addEventListener('load', initScene)
@@ -200,15 +222,15 @@ AFRAME.registerComponent('shootable', {
         </div>
         <div id="seconds-sphere" class="seconds-sphere"></div>
     </main>
+    <div id="video-holder">
+        <video autoplay></video>
+      </div>
     <a-scene vr-mode-ui="enabled: false">
 
         <a-assets>
-            <img src="../assets/fonig.jpg" id="sky">
             <img src="../assets/MetImg/Met-Agpalilik.png" id="meteor">
             <a-asset-item src="../assets/Modelos/Meteoro planeta.glb" id="metemod"></a-asset-item>
         </a-assets>
-
-        <a-sky src="#sky"></a-sky>
 
 
         <a-entity class="orbit" position="0 3 0" rotation="0 0 0"

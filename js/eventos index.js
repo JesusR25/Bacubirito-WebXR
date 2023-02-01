@@ -8,99 +8,105 @@ function advertencia(){
   }
 
   function historia(){
-    swal({
-      title: "Resumen",
-      text: "•	En esta escena está disponible el marcador Video. \n •	Conoce los principales acontecimientos del meteorito, escanea el marcador para reproducir el video. \n •	Posiciónate sobre cada botón para visualizar una breve ayuda.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
+    Swal.fire({
+      title: 'Resumen',
+      html: '•	En esta escena está disponible el marcador <b> Video. </b> <br><br> •	Conoce los principales acontecimientos del meteorito, escanea el marcador para reproducir el video. <br><br> •	Posiciónate sobre cada botón para visualizar una breve ayuda.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
         window.location.href = "Bacubirito QR.html";
-      } else {
       }
-    });
+    })
   }
 
   function meteorito(){
-    swal({
-      title: "Resumen",
-      text: "•	Marcador disponible: Meteorito. \n •	Escanea el marcador Meteorito para visualizar una representación 3D. Podrás  rotarlo con los gestos que utilices en la pantalla. \n",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
+    Swal.fire({
+      title: 'Resumen',
+      html: '•	Marcador disponible: <b> Meteorito.</b> <br><br> •	Escanea el marcador Meteorito para visualizar una representación 3D. Podrás  rotarlo con los gestos que utilices en la pantalla.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
         window.location.href = "/pagina/Modelo Bacubirito.html";
-      } else {
       }
-    });
+    })
   }
 
   function composicion(){
-    swal({
-      title: "Resumen",
-      text: "•	En esta escena están disponibles los marcadores Composición y Video. \n	•	Escanea el marcador Video para reproducir el video que relata la composición química del Meteorito de Bacubirito. Escanea el marcador de Composición para visualizar qué elementos químicos forman parte del meteorito. \n •	Posiciónate sobre cada botón para visualizar una breve ayuda.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
+    Swal.fire({
+      title: 'Resumen',
+      html: '•	En esta escena están disponibles los marcadores <b> Composición </b> y <b> Video </b>. <br><br>	•	Escanea el marcador <b>Video</b> para reproducir el video que relata la composición química del Meteorito de Bacubirito <br><br>.• Escanea el marcador de <b>Composición</b> para visualizar qué elementos químicos forman parte del meteorito. <br><br> •	Posiciónate sobre cada botón para visualizar una breve ayuda.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
         window.location.href = "Composicion QR.html";
-      } else {
       }
-    });
+    })
   }
 
   function grandes(){
-    swal({
-      title: "Resumen",
-      text: "•	En esta escena se usan todos los marcadores ubicados en el Pasillo A. \n	•	Escanea el marcador que representa a cada meteorito para visualizar su información más relevante acerca de cada uno de los meteoritos encontrados en nuestro planeta. \n •	Da click en la imagen para ocultarla.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
+    Swal.fire({
+      title: 'Resumen',
+      html: '•	En esta escena se usan todos los marcadores ubicados en el Pasillo A. <br><br>	•	Escanea el marcador que representa a cada meteorito para visualizar su información más relevante acerca de cada uno de los meteoritos encontrados en nuestro planeta. <br><br> •	Da click en la imagen para ocultarla.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
         window.location.href = "Grandes QR.html";
-      } else {
       }
-    });
+    })
   }
 
   function vista(){
-    swal({
-      title: "Resumen",
-      text: "•	En esta escena se puede apreciar nuestro planeta, con efecto de movimiento de rotación. A un costado, se puede ver un asteroide. ",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
+    Swal.fire({
+      title: 'Resumen',
+      html: '•	En esta escena se puede apreciar nuestro planeta, con efecto de movimiento de rotación. A un costado, se puede ver un asteroide.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
         window.location.href = "/pagina/Planeta Mio.html";
-      } else {
       }
-    });
+    })
   }
 
   function juego(){
-    swal({
-      title: "Resumen",
-      text: "•	El objetivo es destruir la mayor cantidad de asteroides en el menor tiempo posible.  ",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
+    Swal.fire({
+      title: 'Resumen',
+      html: '•	El objetivo es destruir la mayor cantidad de asteroides en el menor tiempo posible',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
         window.location.href = "/pagina/Juego Meteoro.html";
-      } else {
       }
-    });
+    })
   }
 
   function cuerpos(){

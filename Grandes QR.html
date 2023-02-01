@@ -20,6 +20,38 @@
             width: auto;
         }
 
+        .butt {
+            background: url(../assets/Imagenes/btn2.png) center;
+            border: none;
+            color: #F1EA41;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 2px solid rgba(235, 152, 78);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 1px solid #3498db;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        }
+
         /* Moviles */
         @media screen and (max-width: 640px) {
             div.container {
@@ -68,6 +100,16 @@
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+    <div id="botonesorigen" style='position: absolute; top: 2%; left: 15%; text-align: center; z-index: 1;'>
+        <button class="butt" id="btn7">Volver</button>
+    </div>
+
+    <script>
+        document.getElementById("btn7").addEventListener("click", (e) => {
+                window.history.back();
+            });
+    </script>
 
     <div id="imagenes" onclick="ocultar();" style="z-index: 9999; position: fixed; display: none;  ">
         <img id="inf" src="/assets/MetGrandes/Agpalilik.png" width="960" height="640" />

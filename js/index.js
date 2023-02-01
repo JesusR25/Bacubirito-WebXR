@@ -90,7 +90,15 @@ onAuthStateChanged(auth, (user) => {
 });
 
 function redirigir(){
-  let timerInterval;
+  Swal.fire({
+    icon: 'warning',
+    title: 'Advertencia',
+    html: 'Esta es una aplicación de realidad aumentada con fines educativos, en ningún momento se pone en riesgo la seguridad del usuario. \n En caso de que el usuario sea un menor de edad, se sugiere que esté supervisado por un adulto. \n Se recomienda estar atento al espacio físico donde se use la aplicación para evitar alguna situación de riesgo. \n Esta aplicación no requiere de ningún dispositivo adicional para su uso.',
+    confirmButtonText: 'Entendido',
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      let timerInterval;
   Swal.fire({
     icon: 'success',
     title: "Inicio de sesion correcto",
@@ -113,5 +121,8 @@ function redirigir(){
       window.location.href = "Menu.html";
     }
   });
+    }
+  })
 }
+
 
