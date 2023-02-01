@@ -1,75 +1,34 @@
 <html>
 
 <head>
-    <title>Bacubirito con Lector</title>
+    <title>Modelo de Bacubirito</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
-    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script>
-        AFRAME.registerComponent("controller", {
-            init: function () {
-                // track markerFound/markerLost
-                // grab the model reference
-                // hammerjs input helper
-                const hammertime = new Hammer(document.body);
-                // scale
-                // scale is tricky, because it resets
-                var currentScale = 1;
-                hammertime.get('pinch').set({ enable: true });
-                hammertime.on("pinchstart", (ev) => {
-                    currentScale = this.mesh.scale.x;
-                })
-                hammertime.on("pinchmove", (ev) => {
-                    if (!this.modelVisible) return;
-                    this.mesh.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
-                });
-     
-                // rotation
-                // pan left/right for rotation
-                this.isPanning = false;
-                hammertime.on("panleft", () => {
-                    this.isPanning = true
-                    this.mesh.rotation.y -= 4 * Math.PI / 360;
-                })
-               
-                hammertime.on("panright", () => {
-                    this.isPanning = true
-                    this.mesh.rotation.y += 4 * Math.PI / 360;
-                })
-                hammertime.on("panend", () => this.isPanning = false)
-                hammertime.on("pancancel", () => this.isPanning = false)
-
-                hammertime.on("swipeleft",  ({velocity}) => {
-                    this.swipeVelocity = velocity
-                })
-                hammertime.on("swiperight", ({velocity}) => {
-                    this.swipeVelocity = velocity
-                })
-            },
-            tick: function() {
-                this.mesh.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
-                this.swipeVelocity *= 0.93;
-                if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
-            }
-        })
-    </script>
+    <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
+    <script type="text/javascript" src="/js/marcadores/grandes.js"></script>
+    <style>
+        .qrscanner video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            background-size: cover;
+            height: auto;
+            width: auto;
+        }
+    </style>
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
 
     <div class="qrscanner" id="scanner"></div>
-    <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
-        arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
-        <a-assets>
-            <a-asset-item id="bacu" src="../assets/Bacubirito/Terminado.glb"></a-asset-item>
-        </a-assets>
-        
-        <a-entity id="modelo" visible="true" position="0 0 -4" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" controller></a-entity>
-
-        <a-entity camera></a-entity>
+    <a-scene>
+        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
     </a-scene>
 
 </body>
