@@ -30,13 +30,11 @@
                 // pan left/right for rotation
                 this.isPanning = false;
                 hammertime.on("panleft", () => {
-                    if (!this.modelVisible) return;
                     this.isPanning = true
                     this.mesh.rotation.y -= 4 * Math.PI / 360;
                 })
                
                 hammertime.on("panright", () => {
-                    if (!this.modelVisible) return;
                     this.isPanning = true
                     this.mesh.rotation.y += 4 * Math.PI / 360;
                 })
@@ -44,16 +42,13 @@
                 hammertime.on("pancancel", () => this.isPanning = false)
 
                 hammertime.on("swipeleft",  ({velocity}) => {
-                    if (!this.modelVisible) return;
                     this.swipeVelocity = velocity
                 })
                 hammertime.on("swiperight", ({velocity}) => {
-                    if (!this.modelVisible) return;
                     this.swipeVelocity = velocity
                 })
             },
             tick: function() {
-                if (!(this.modelVisible && this.swipeVelocity &&!this.isPanning)) return;
                 this.mesh.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
                 this.swipeVelocity *= 0.93;
                 if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
