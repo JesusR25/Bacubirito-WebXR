@@ -91,7 +91,7 @@ function botonReproducir(){
 }
 
 function botonPausar(){
-  document.querySelector("#comp").pause();
+  window.history.back();
 }
 
 function botonOcultar(){
