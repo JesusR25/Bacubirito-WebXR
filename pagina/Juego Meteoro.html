@@ -17,22 +17,16 @@
 }
 
 video {
-  height: 100vh;
+    position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            background-size: cover;
+            height: auto;
+            width: auto;
 }
     </style>
-    <script>
-        const constraints = {
-                video: {
-                    facingMode: "environment",
-                }
-            };
-    
-            const video = document.querySelector('video');
-    
-            navigator.mediaDevices.getUserMedia(constraints).
-                then((stream) => { video.srcObject = stream });
-    </script>
-    
     <script>
         window.addEventListener('load', initScene)
 
@@ -225,6 +219,18 @@ AFRAME.registerComponent('shootable', {
     <div id="video-holder">
         <video autoplay></video>
       </div>
+      <script>
+        const constraints = {
+                video: {
+                    facingMode: "environment",
+                }
+            };
+    
+            const video = document.querySelector('video');
+    
+            navigator.mediaDevices.getUserMedia(constraints).
+                then((stream) => { video.srcObject = stream });
+    </script>
     <a-scene vr-mode-ui="enabled: false">
 
         <a-assets>
