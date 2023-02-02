@@ -1,6 +1,8 @@
 function onQRCodeScanned(scannedText)
 {
-    alert(scannedText);
+    if(scannedText == 'Cometa'){
+        alert("Hola");
+    }
 }
 
 //funtion returning a promise with a video stream
