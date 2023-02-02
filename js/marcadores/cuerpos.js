@@ -2,6 +2,14 @@ function onQRCodeScanned(scannedText)
 {
     if(scannedText == 'Cometa'){
         document.querySelector("#cometa").setAttribute("visible", true);
+        Swal.fire({
+            title: 'Cometa',
+            text: 'Un cometa pasara a traves de tu pantalla.',
+            imageUrl: 'https://dam.ngenespanol.com/wp-content/uploads/2021/09/cometa-bernardinelli-bernstein.jpg',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
     }
 }
 
