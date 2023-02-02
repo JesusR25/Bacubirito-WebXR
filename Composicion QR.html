@@ -213,7 +213,28 @@
         </script>
 
         <div class="qrscanner" id="scanner"></div>
-        
+        <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
+            arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
+            <a-assets>
+                <a-asset-item id="spinosaurus" src="../assets/ModComp/Bueno Posicion.glb"></a-asset-item>
+                <a-asset-item id="cobalto" src="../assets/Bacubirito/BacuCob.glb"></a-asset-item>
+                <a-asset-item id="Hierro" src="../assets/Bacubirito/BacuHie.glb"></a-asset-item>
+                <a-asset-item id="azufre" src="../assets/Bacubirito/BacuAzuf.glb"></a-asset-item>
+                <a-asset-item id="niquel" src="../assets/Bacubirito/BacuNiq.glb"></a-asset-item>
+                <!-- Meteoro de elementos-->
+                <a-asset-item id="metcob" src="../assets/ModComp/CompCob.glb"></a-asset-item>
+                <a-asset-item id="methie" src="../assets/ModComp/CompHie.glb"></a-asset-item>
+                <a-asset-item id="metazu" src="../assets/ModComp/CompAzu.glb"></a-asset-item>
+                <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb"></a-asset-item>
+            </a-assets>
+            <a-entity id="cob" visible="false" position="0 0.7 -4" scale="0.6 0.6 0.6"
+                class="clickable" rotation="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 25000"></a-entity>
+            <a-entity id="mod" visible="false" position="0 -0.8 -4" scale="0.4 0.4 0.4"
+                class="clickable" rotation="0 0 0"
+                animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
+            <a-entity camera></a-entity>
+        </a-scene>
 
 </body>
 
