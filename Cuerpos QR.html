@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
     <script type="text/javascript" src="/js/marcadores/cuerpos.js"></script>
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <style>
         .qrscanner video {
             position: fixed;
@@ -24,6 +23,7 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div class="qrscanner" id="scanner"></div>
+
     <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
         arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
         <a-assets>
