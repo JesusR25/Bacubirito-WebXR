@@ -1,7 +1,8 @@
 function onQRCodeScanned(scannedText)
 {
     if(scannedText == 'Cometa'){
-        alert("Hola");
+        document.querySelector("#cometa").setAttribute("visible", true);
+        alert("Hola Cometa");
     }
 }
 
