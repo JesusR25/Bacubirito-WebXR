@@ -12,12 +12,12 @@
     <script src="../js/script.js" defer></script>
     <style>
         video-holder {
-  width: 100vw;
-  height: 100vh;
-}
+            width: 100vw;
+            height: 100vh;
+        }
 
-video {
-    position: fixed;
+        video {
+            position: fixed;
             right: 0;
             bottom: 0;
             min-width: 100%;
@@ -25,182 +25,198 @@ video {
             background-size: cover;
             height: auto;
             width: auto;
-}
+        }
+
+        .butt {
+            background: url(../assets/Imagenes/btn2.png) center;
+            border: none;
+            color: #F1EA41;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 2px solid rgba(235, 152, 78);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
     </style>
     <script>
         window.addEventListener('load', initScene)
 
-const meteors = [
-    { x: 0, y: 0, z: -30 },
-    { x: 0, y: 0, z: 30 },
-]
+        const meteors = [
+            { x: 0, y: 0, z: -30 },
+            { x: 0, y: 0, z: 30 },
+        ]
 
-var nivel = 1;
-let meteor, score = 0
+        var nivel = 1;
+        let meteor, score = 0
 
-function initScene() {
+        function initScene() {
 
-    let orbits = document.querySelectorAll('.orbit')
+            let orbits = document.querySelectorAll('.orbit')
 
-    orbits.forEach(orbit => {
+            orbits.forEach(orbit => {
 
-        meteors.forEach(pos => {
+                meteors.forEach(pos => {
 
-            meteor = document.createElement('a-entity')
-            meteor.setAttribute('gltf-model', '#metemod');
-            meteor.setAttribute('scale', '4 4 4');
-            meteor.setAttribute('class', 'meteor')
-            meteor.object3D.position.set(pos.x, pos.y, pos.z)
+                    meteor = document.createElement('a-entity')
+                    meteor.setAttribute('gltf-model', '#metemod');
+                    meteor.setAttribute('scale', '4 4 4');
+                    meteor.setAttribute('class', 'meteor')
+                    meteor.object3D.position.set(pos.x, pos.y, pos.z)
 
-            meteor.setAttribute('shootable', '')
+                    meteor.setAttribute('shootable', '')
 
-            orbit.appendChild(meteor)
+                    orbit.appendChild(meteor)
+                })
+            })
+            //playPause()
+        }
+
+        function segundonivel() {
+            var tiempo = document.getElementById('stopwatch').innerHTML;
+            playPause()
+            swal({
+                title: "¡Felicidades!",
+                text: "Has destruido los 8 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el segundo nivel?",
+                icon: "success",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        meteors.unshift({ x: 30, y: 0, z: 0 });
+                        initScene();
+                        playPause()
+                    } else {
+                        swal("¡Gracias por jugar!");
+                    }
+                });
+        }
+        function tercernivel() {
+            var tiempo = document.getElementById('stopwatch').innerHTML;
+            playPause()
+            swal({
+                title: "¡Felicidades!",
+                text: "Has destruido los 12 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
+                icon: "success",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        meteors.unshift({ x: -30, y: 0, z: 0 });
+                        initScene();
+                    } else {
+                        swal("¡Gracias por jugar!");
+                    }
+                });
+        }
+
+        function cuartonivel() {
+            var tiempo = document.getElementById('stopwatch').innerHTML;
+            playPause()
+            swal({
+                title: "¡Felicidades!",
+                text: "Has destruido los 16 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
+                icon: "success",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        meteors.unshift({ x: 20, y: 0, z: 20 });
+                        initScene();
+                    } else {
+                        swal("¡Gracias por jugar!");
+                    }
+                });
+        }
+
+        function quintonivel() {
+            var tiempo = document.getElementById('stopwatch').innerHTML;
+            playPause()
+            swal({
+                title: "¡Felicidades!",
+                text: "Has destruido los 20 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
+                icon: "success",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        meteors.unshift({ x: 20, y: 0, z: -20 },);
+                        initScene();
+                    } else {
+                        swal("¡Gracias por jugar!");
+                    }
+                });
+        }
+
+        function final() {
+            swal({
+                title: "¡Felicidades!",
+                text: "Has destruido los 24 meteoritos y has terminado el juego con un " + tiempo + ".",
+                icon: "success",
+                button: "Entendido",
+            });
+        }
+
+        AFRAME.registerComponent('shootable', {
+            init: function () {
+                this.el.addEventListener('click', () => {
+                    this.el.parentNode.removeChild(this.el)
+
+                    document.querySelector('[text]').setAttribute('value', `${++score} meteoritos cazados`)
+                    if (score == 8 && nivel == 1) {
+                        nivel = nivel + 1;
+                        segundonivel();
+                        score = 0;
+                    }
+                    if (score == 12 && nivel == 2) {
+                        tercernivel();
+                        score = 0;
+                        nivel++;
+                    }
+
+                    if (score == 16 && nivel == 3) {
+                        cuartonivel();
+                        score = 0;
+                        nivel++;
+                    }
+
+                    if (score == 20 && nivel == 4) {
+                        quintonivel();
+                        score = 0;
+                        nivel++;
+                    }
+
+                    if (score == 24 && nivel == 5) {
+                        final();
+                    }
+                })
+            }
         })
-    })
-    //playPause()
-}
-
-function segundonivel(){
-    var tiempo = document.getElementById('stopwatch').innerHTML;
-    playPause()
-    swal({
-        title: "¡Felicidades!",
-        text: "Has destruido los 8 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el segundo nivel?",
-        icon: "success",
-        buttons: true,
-        dangerMode: true,
-    })
-        .then((willDelete) => {
-            if (willDelete) {
-                meteors.unshift({ x: 30, y: 0, z: 0 });
-                initScene();
-                playPause()
-            } else {
-                swal("¡Gracias por jugar!");
-            }
-        });
-}
-function tercernivel(){
-    var tiempo = document.getElementById('stopwatch').innerHTML;
-    playPause()
-    swal({
-        title: "¡Felicidades!",
-        text: "Has destruido los 12 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
-        icon: "success",
-        buttons: true,
-        dangerMode: true,
-    })
-        .then((willDelete) => {
-            if (willDelete) {
-                meteors.unshift({ x: -30, y: 0, z: 0 });
-                initScene();
-            } else {
-                swal("¡Gracias por jugar!");
-            }
-        });
-}
-
-function cuartonivel(){
-    var tiempo = document.getElementById('stopwatch').innerHTML;
-    playPause()
-    swal({
-        title: "¡Felicidades!",
-        text: "Has destruido los 16 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
-        icon: "success",
-        buttons: true,
-        dangerMode: true,
-    })
-        .then((willDelete) => {
-            if (willDelete) {
-                meteors.unshift({ x: 20, y: 0, z: 20 });
-                initScene();
-            } else {
-                swal("¡Gracias por jugar!");
-            }
-        });
-}
-
-function quintonivel(){
-    var tiempo = document.getElementById('stopwatch').innerHTML;
-    playPause()
-    swal({
-        title: "¡Felicidades!",
-        text: "Has destruido los 20 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
-        icon: "success",
-        buttons: true,
-        dangerMode: true,
-    })
-        .then((willDelete) => {
-            if (willDelete) {
-                meteors.unshift({ x: 20, y: 0, z: -20 },);
-                initScene();
-            } else {
-                swal("¡Gracias por jugar!");
-            }
-        });
-}
-
-function final(){
-    swal({
-        title: "¡Felicidades!",
-        text: "Has destruido los 24 meteoritos y has terminado el juego con un " + tiempo  + ".",
-        icon: "success",
-        button: "Entendido",
-    });
-}
-
-AFRAME.registerComponent('shootable', {
-    init: function () {
-        this.el.addEventListener('click', () => {
-            this.el.parentNode.removeChild(this.el)
-            
-            document.querySelector('[text]').setAttribute('value', `${++score} meteoritos cazados`)
-            if(score == 8 && nivel == 1){
-                nivel = nivel + 1;
-                segundonivel();
-                score = 0;
-            }
-            if(score == 12 && nivel == 2){
-                tercernivel();
-                score = 0;
-                nivel++;
-            }
-
-            if(score == 16 && nivel == 3){
-                cuartonivel();
-                score = 0;
-                nivel++;
-            }
-
-            if(score == 20 && nivel == 4){
-                quintonivel();
-                score = 0;
-                nivel++;
-            }
-
-            if(score == 24 && nivel == 5){
-                final();
-            }
-        })
-    }
-})
 
     </script>
     <script>
-        function iniciar(){
+        function iniciar() {
             swal({
                 title: "Instrucciones",
                 text: "Apunta hacia los asteriodes para destruirlos en el menor tiempo posible",
                 buttons: true,
                 dangerMode: true,
             })
-            .then((willDelete) => {
-                if (willDelete) {
-                playPause()
-                } else {
-                    window.history.back();
-                }
-            });
+                .then((willDelete) => {
+                    if (willDelete) {
+                        playPause()
+                    } else {
+                        window.history.back();
+                    }
+                });
         }
     </script>
 </head>
@@ -218,18 +234,26 @@ AFRAME.registerComponent('shootable', {
     </main>
     <div id="video-holder">
         <video autoplay></video>
-      </div>
-      <script>
+    </div>
+    <script>
         const constraints = {
-                video: {
-                    facingMode: "environment",
-                }
-            };
-    
-            const video = document.querySelector('video');
-    
-            navigator.mediaDevices.getUserMedia(constraints).
-                then((stream) => { video.srcObject = stream });
+            video: {
+                facingMode: "environment",
+            }
+        };
+
+        const video = document.querySelector('video');
+
+        navigator.mediaDevices.getUserMedia(constraints).
+            then((stream) => { video.srcObject = stream });
+    </script>
+    <div id="botonesorigen" style='position: absolute; bottom: 2%; left: 1%; text-align: center; z-index: 1;'>
+        <button class="butt" id="btn7">Volver</button>
+    </div>
+    <script>
+        document.getElementById("btn7").addEventListener("click", (e) => {
+            window.history.back();
+        });
     </script>
     <a-scene vr-mode-ui="enabled: false">
 
