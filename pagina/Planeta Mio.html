@@ -4,11 +4,6 @@
     <title>Tierra con Luna</title>
     <meta name="description" content="360&deg; Image - A-Frame">
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script>
-        document.getElementById("btn7").addEventListener("click", (e) => {
-            window.history.back();
-        });
-    </script>
     <style>
         #arriba {
             position: absolute;
@@ -54,6 +49,11 @@
     <div id="botonesorigen" style='position: absolute; bottom: 2%; left: 1%; text-align: center; z-index: 1;'>
         <button class="butt" id="btn7">Volver</button>
     </div>
+    <script>
+        document.getElementById("btn7").addEventListener("click", (e) => {
+            window.history.back();
+        });
+    </script>
     <a-scene vr-mode-ui="enabled: false">
         <assets timeout="30000">
             <img id="luna" src="../assets/moon.jpg" />
