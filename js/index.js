@@ -22,11 +22,17 @@
 
   var botonreg = document.getElementById("registrar");
   var botonini = document.getElementById("iniciar");
+  var botoninv = document.getElementById("invitado");
+
+  botoninv.addEventListener("click", (e) => {
+    invitado();
+  });
 
   botonreg.addEventListener("click", (e) => {
     var email = document.getElementById('email').value;
     var password = document.getElementById('pass').value;
     var username = document.getElementById('user').value;
+    var escolaridad = document.getElementById('esc').value;
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -36,8 +42,15 @@
         set(ref(database, 'users/' + user.uid),{
           username: username,
           email: email,
+          escolaridad: escolaridad,
         })
-        alert('user created!!');
+        Swal.fire({
+          icon: 'success',
+          html: '¡Registro guardado exitosamente!',
+          showConfirmButton: false,
+          confirmButtonText: 'Aceptar',
+          timer: 1500
+        });
         // ...
       })
       .catch((error) => {
@@ -125,4 +138,22 @@ function redirigir(){
   })
 }
 
-
+function invitado() {
+  Swal
+    .fire({
+      title: "Ingresa tu escolaridad",
+      input: "text",
+      showCancelButton: true,
+      confirmButtonText: "Ingresar",
+      cancelButtonText: "Cancelar",
+    })
+    .then(resultado => {
+      if (resultado.value) {
+        let nombre = resultado.value;
+        const nodo = ref(database, 'mi-dato')
+        set(nodo, {
+          Escolaridad: nombre
+        })
+      }
+    });
+}
