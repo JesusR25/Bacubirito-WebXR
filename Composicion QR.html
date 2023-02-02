@@ -87,21 +87,34 @@
         }
 
         /* Tablets */
-        @media screen and (min-width: 640px) and (max-width: 1280px) {}
+        @media screen and (min-width: 640px) and (max-width: 1280px) {
+            .vid{
+                position: absolute;
+                top: 10%;
+                left: 0%;
+                text-align: center;
+                z-index: 1;  
+                display: none;             
+            }
+            .veo{
+                width: 820;
+                height: 650;
+            }
+        }
 
         /* Computadora */
         @media screen and (min-width: 1280px) {
             .vid{
                 position: absolute;
-                top: 15%;
-                left: 25%;
+                top: 5%;
+                left: 15%;
                 text-align: center;
                 z-index: 1;   
                 display: none;            
             }
             .veo{
-                width: 720;
-                height: 450;
+                width: 920;
+                height: 620;
             }
         }
     </style>
