@@ -166,8 +166,6 @@
                 if (idx <= 0) {
                     idx = 3;
                     document.querySelector("#cob").removeAttribute("gltf-model");
-                    document.querySelector("#cob").removeAttribute("scale");
-                    document.querySelector("#cob").setAttribute("scale", "0.6 0.6 0.6");
                     document.querySelector("#cob").setAttribute("gltf-model", `#${modelList[idx]}`);
                     //Texto sobre informacion del material
                     document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
@@ -180,8 +178,6 @@
                 } else {
                     idx = idx - 1;
                     document.querySelector("#cob").removeAttribute("gltf-model");
-                    document.querySelector("#cob").removeAttribute("scale");
-                    document.querySelector("#cob").setAttribute("scale", "0.6 0.6 0.6");
                     document
                         .querySelector("#cob")
                         .setAttribute("gltf-model", `#${modelList[idx]}`);
@@ -197,8 +193,6 @@
             document.getElementById("btnSig").addEventListener("click", (e) => {
                 idx = (idx + 1) % modelList.length;
                 document.querySelector("#cob").removeAttribute("gltf-model");
-                document.querySelector("#cob").removeAttribute("scale");
-                document.querySelector("#cob").setAttribute("scale", "0.6 0.6 0.6");
                 document.querySelector("#cob").setAttribute("gltf-model", `#${modelList[idx]}`);
                 //Texto sobre informacion del material
                 document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
@@ -240,7 +234,7 @@
                 <a-asset-item id="metazu" src="../assets/ModComp/CompAzu.glb"></a-asset-item>
                 <a-asset-item id="metniq" src="../assets/ModComp/CompNiq.glb"></a-asset-item>
             </a-assets>
-            <a-entity id="cob" visible="false" position="0 0.7 -4" scale="0.6 0.6 0.6"
+            <a-entity id="cob" visible="false" position="0 0.7 -4"
                 class="clickable" rotation="0 0 0"
                 animation="property: rotation; to: 0 360 0; loop: true; dur: 25000"></a-entity>
             <a-entity id="mod" visible="false" position="0 -0.8 -4" scale="0.4 0.4 0.4"
