@@ -8,9 +8,13 @@
         <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
         <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
         <script>
-            var marker2 = document.querySelector("#meteo");
-            marker2.addEventListener('markerFound', function () {
-                alert("Hola");
+            AFRAME.registerComponent('videohandler', {
+                init: function () {
+                    var marker2 = document.querySelector("#meteo");
+                    marker2.addEventListener('markerFound', function () {
+                        alert("Hola");
+                    });
+                },
             });
         </script>
     </head>
@@ -21,11 +25,9 @@
             <a-assets>
                 <a-asset-item id="bacu" src="../assets/Bacubirito/Terminado.glb"></a-asset-item>
             </a-assets>
-            <a-marker id="meteo" type='pattern' url='../assets/MarcadoresF/pattern-Meteorito.patt'>
-                <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+            <a-marker id="meteo" type='pattern' url='../assets/MarcadoresF/pattern-Meteorito.patt' videohandler>
                 <a-entity id="modelo" position="0 0 0" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" gesture-handler></a-entity>
             </a-marker>
-
             <a-entity camera></a-entity>
             </a-scene>    
     </body>
