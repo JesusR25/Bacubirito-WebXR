@@ -60,12 +60,12 @@
 
     <body style='margin : 5px; overflow: hidden; font-family: Monospace;'>
         </div>
-        <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded >
+        <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;" arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
             <a-assets>
                 <a-asset-item id="bacu" src="../assets/Bacubirito/Terminado.glb"></a-asset-item>
             </a-assets>
+            <a-entity id="modelo" visible="true" position="0 0 -4" rotation="0 0 0" scale="0.5 0.5 0.5" gltf-model="#bacu" ></a-entity>
             <a-marker id="meteo" type='pattern' url='../assets/MarcadoresF/pattern-Meteorito.patt' controller>
-                <a-entity id="modelo" visible="true" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" gltf-model="#bacu" ></a-entity>
             </a-marker>
             <a-entity camera></a-entity>
             </a-scene>    
