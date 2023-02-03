@@ -17,6 +17,21 @@
 video {
   height: 100vh;
 }
+.butt {
+            background: url(../assets/Imagenes/btn2.png) center;
+            border: none;
+            color: #F1EA41;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 2px solid rgba(235, 152, 78);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
     </style>
 </head>
 
@@ -24,6 +39,14 @@ video {
     <div id="video-holder">
         <video autoplay></video>
       </div>
+      <div id="botonesorigen" style='position: absolute; bottom: 2%; left: 1%; text-align: center; z-index: 1;'>
+        <button class="butt" id="btn7">Volver</button>
+    </div>
+    <script>
+        document.getElementById("btn7").addEventListener("click", (e) => {
+            window.history.back();
+        });
+    </script>
     <a-scene>
         <a-assets>
             <img src="../assets/fonig.jpg" id="sky">

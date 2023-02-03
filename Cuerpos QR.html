@@ -20,18 +20,44 @@
             height: auto;
             width: auto;
         }
+        .butt {
+            background: url(../assets/Imagenes/btn2.png) center;
+            border: none;
+            color: #F1EA41;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 2px solid rgba(235, 152, 78);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
     </style>
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div class="qrscanner" id="scanner"></div>
+    <div id="botonesorigen" style='position: absolute; bottom: 2%; left: 1%; text-align: center; z-index: 1;'>
+        <button class="butt" id="btn7">Volver</button>
+    </div>
+    <script>
+        document.getElementById("btn7").addEventListener("click", (e) => {
+            window.history.back();
+        });
+    </script>
 
     <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
         arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
         <a-assets>
             <a-asset-item id="bacu" src="../assets/Cuerpos/CometaM.glb"></a-asset-item>
+            <a-asset-item id="aste" src="../assets/Cuerpos/Asteroide.glb"></a-asset-item>
         </a-assets>
         <a-entity id="cometa" visible="false" position="-3 0 -4" rotation="0 0 90" scale="0.5 0.5 0.5" gltf-model="#bacu"
+            animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"></a-entity>
+        <a-entity id="asteroide" visible="false" position="-3 0 -4" rotation="0 0 0" scale="0.2 0.2 0.2" gltf-model="#aste"
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"></a-entity>
         <a-entity camera></a-entity>
     </a-scene>
