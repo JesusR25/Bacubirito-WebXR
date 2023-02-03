@@ -33,6 +33,8 @@
     var password = document.getElementById('pass').value;
     var username = document.getElementById('user').value;
     var escolaridad = document.getElementById('esc').value;
+    var select = document.querySelector("#valores");
+    var valor = select.value;
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -42,7 +44,7 @@
         set(ref(database, 'users/' + user.uid),{
           username: username,
           email: email,
-          escolaridad: escolaridad,
+          escolaridad: valor,
         })
         Swal.fire({
           icon: 'success',
