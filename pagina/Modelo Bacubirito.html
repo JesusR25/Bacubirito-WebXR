@@ -14,7 +14,9 @@
                     const event = new Event('markerFound');
                     marker2.addEventListener('markerFound', function () {
                         alert("Hola");
-                    });
+                    },false);
+
+                    marker2.dispatchEvent(event);
                 },
             });
         </script>
@@ -27,7 +29,7 @@
                 <a-asset-item id="bacu" src="../assets/Bacubirito/Terminado.glb"></a-asset-item>
             </a-assets>
             <a-marker id="meteo" type='pattern' url='../assets/MarcadoresF/pattern-Meteorito.patt' videohandler>
-                <a-entity id="modelo" visible="true" position="0 0 -4" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" gesture-handler></a-entity>
+                <a-entity id="modelo" visible="true" position="0 0 0" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" gesture-handler></a-entity>
             </a-marker>
             <a-entity camera></a-entity>
             </a-scene>    
