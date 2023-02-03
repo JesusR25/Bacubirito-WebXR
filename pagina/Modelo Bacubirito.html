@@ -10,8 +10,8 @@
         <script>
             AFRAME.registerComponent('videohandler', {
                 init: function () {
-                    alert("adios");
                     var marker2 = document.querySelector("#meteo");
+                    const event = new Event('markerFound');
                     marker2.addEventListener('markerFound', function () {
                         alert("Hola");
                     });
