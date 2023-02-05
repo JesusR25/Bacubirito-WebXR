@@ -170,8 +170,6 @@
                     //Texto sobre informacion del material
                     document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
                     document.querySelector("#mod").removeAttribute("gltf-model");
-                    document.querySelector("#mod").removeAttribute("scale");
-                    document.querySelector("#mod").setAttribute("scale", "0.4 0.4 0.4");
                     document
                         .querySelector("#mod")
                         .setAttribute("gltf-model", `#${meteoros[idx]}`);
@@ -184,8 +182,6 @@
                     //Texto sobre informacion del material
                     document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
                     document.querySelector("#mod").removeAttribute("gltf-model");
-                    document.querySelector("#mod").removeAttribute("scale");
-                    document.querySelector("#mod").setAttribute("scale", "0.4 0.4 0.4");
                     document.querySelector("#mod").setAttribute("gltf-model", `#${meteoros[idx]}`);
                 }
             });
@@ -197,8 +193,6 @@
                 //Texto sobre informacion del material
                 document.querySelector("#parrafo").innerHTML = `#${listtext[idx]}`;
                 document.querySelector("#mod").removeAttribute("gltf-model");
-                document.querySelector("#mod").removeAttribute("scale");
-                document.querySelector("#mod").setAttribute("scale", "0.4 0.4 0.4");
                 document.querySelector("#mod").setAttribute("gltf-model", `#${meteoros[idx]}`);
             });
             //Boton para reproducir video
@@ -237,7 +231,7 @@
             <a-entity id="cob" visible="false" position="0 0.7 -4"
                 class="clickable" rotation="0 0 0"
                 animation="property: rotation; to: 0 360 0; loop: true; dur: 25000"></a-entity>
-            <a-entity id="mod" visible="false" position="0 -0.8 -4" scale="0.4 0.4 0.4"
+            <a-entity id="mod" visible="false" position="0 -0.8 -4"
                 class="clickable" rotation="0 0 0"
                 animation="property: rotation; to: 0 360 360; loop: true; dur: 30000"></a-entity>
             <a-entity camera></a-entity>

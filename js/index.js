@@ -33,6 +33,8 @@
     var password = document.getElementById('pass').value;
     var username = document.getElementById('user').value;
     var escolaridad = document.getElementById('esc').value;
+    var select = document.querySelector("#valores");
+    var valor = select.value;
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -42,7 +44,7 @@
         set(ref(database, 'users/' + user.uid),{
           username: username,
           email: email,
-          escolaridad: escolaridad,
+          escolaridad: valor,
         })
         Swal.fire({
           icon: 'success',
@@ -142,17 +144,25 @@ function invitado() {
   Swal
     .fire({
       title: "Ingresa tu escolaridad",
-      input: "text",
+      html:'<select class="select-css" id="mySelectElement"><option>Primaria</option><option>Secundaria</option><option>Bachillerato</option><option>Licenciatura/Ingenieria</option><option>Posgrado</option><option>Otros</option></select>',
       showCancelButton: true,
       confirmButtonText: "Ingresar",
       cancelButtonText: "Cancelar",
     })
     .then(resultado => {
       if (resultado.value) {
+        var select = document.querySelector("#mySelectElement");
+        var valor = select.value;
         let nombre = resultado.value;
-        const nodo = ref(database, 'mi-dato')
+        var hoy = new Date();
+        var fecha = hoy.getDate() + '-' + ( hoy.getMonth() + 1 ) + '-' + hoy.getFullYear();
+        var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+        var fechaYHora = fecha + ' ' + hora;
+        alert(fechaYHora);
+
+        const nodo = ref(database, 'mi-dato/' + fechaYHora)
         set(nodo, {
-          Escolaridad: nombre
+          Escolaridad: valor
         })
       }
     });

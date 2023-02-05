@@ -2,12 +2,16 @@
 
 <head>
     <title>Meteoritos más grandes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width"/>
     <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
     <script type="text/javascript" src="/js/marcadores/grandes.js"></script>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+        function readDeviceOrientation() {
+            document.getElementById("inf").style.width = "20%";
+        }
+        window.onorientationchange = readDeviceOrientation;
+    </script>
     <style>
         .qrscanner video {
             position: fixed;
@@ -67,17 +71,17 @@
             }
         }
 
-        @media screen and (max-width:640px) and (orientation:landscape){
+        @media (orientation: landscape){
             div.container {
-                width: 96%;
+                width: 40%;
                 max-width: 960px;
             }
 
             img {
-                width: 40%;
-                height: 20%;
-                margin-left: 10%;
-                margin-top: 5%;
+                width: 20%;
+                height: 10%;
+                margin-left: 5%;
+                margin-top: 2%;
             }
         }
 
@@ -106,8 +110,8 @@
             img {
                 width: 20%;
                 height: 40%;
-                margin-left: 60%;
-                margin-top: 10%;
+                margin-left: 40%;
+                margin-top: 4%;
             }
         }
     </style>
@@ -125,7 +129,7 @@
             });
     </script>
 
-    <div id="imagenes" onclick="ocultar();" style="z-index: 9999; position: fixed; display: none;  ">
+    <div id="imagenes" onclick="ocultar();" style="z-index: 9999; position: fixed; display: flex;  ">
         <img id="inf" src="/assets/MetGrandes/Agpalilik.png" width="960" height="640" />
         <img id="ima" src="/assets/MetImg/Met-Agpalilik.png" width="960" height="640" />
     </div>
