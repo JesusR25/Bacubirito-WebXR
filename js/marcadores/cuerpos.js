@@ -46,7 +46,7 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
     }
-    if(scannedText == 'Cinturón De Asteroides'){
+    if(scannedText == 'Cinturón de Asteroides'){
         document.querySelector("#hist").pause();
         document.getElementById("historia").style.display = "none";
         document.querySelector("#asteroide").setAttribute("visible", false);
