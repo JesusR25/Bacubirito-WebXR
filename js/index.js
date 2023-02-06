@@ -158,12 +158,11 @@ function invitado() {
         var fecha = hoy.getDate() + '-' + ( hoy.getMonth() + 1 ) + '-' + hoy.getFullYear();
         var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
         var fechaYHora = fecha + ' ' + hora;
-        alert(fechaYHora);
-
         const nodo = ref(database, 'mi-dato/' + fechaYHora)
         set(nodo, {
           Escolaridad: valor
         })
+        window.location.href = "Menu.html";
       }
     });
 }
