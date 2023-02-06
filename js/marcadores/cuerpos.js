@@ -9,6 +9,8 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "block";
     }
     if(scannedText == 'Cometa'){
+        document.querySelector("#hist").pause();
+        document.getElementById("historia").style.display = "none";
         document.querySelector("#cometa").setAttribute("visible", true);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
@@ -22,6 +24,8 @@ function onQRCodeScanned(scannedText)
           })
     }
     if(scannedText == 'Meteorito'){
+        document.querySelector("#hist").pause();
+        document.getElementById("historia").style.display = "none";
         document.querySelector("#meteorito").setAttribute("visible", true);
         document.querySelector("#cometa").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
@@ -35,11 +39,15 @@ function onQRCodeScanned(scannedText)
           })
     }
     if(scannedText == 'Asteroide'){
+        document.querySelector("#hist").pause();
+        document.getElementById("historia").style.display = "none";
         document.querySelector("#asteroide").setAttribute("visible", true);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
     }
     if(scannedText == 'Cinturón De Asteroides'){
+        document.querySelector("#hist").pause();
+        document.getElementById("historia").style.display = "none";
         document.querySelector("#asteroide").setAttribute("visible", false);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
