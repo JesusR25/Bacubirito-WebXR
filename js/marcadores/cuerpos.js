@@ -1,5 +1,6 @@
 function onQRCodeScanned(scannedText)
 {
+    alert(scannedText);
     if(scannedText == 'Reproducir Video'){
         document.querySelector("#cometa").setAttribute("visible", false);
         document.querySelector("#meteorito").setAttribute("visible", false);
