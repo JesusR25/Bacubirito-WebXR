@@ -127,6 +127,7 @@
         <button class="butt" id="btn6">Cerrar</button>
         <button class="butt" id="btn8">Reproducir</button>
     </div>
+    <div class="qrscanner" id="scanner"></div>
 
     <div class="vid" id="composicion">
         <video id="comp" class="veo" controls>
@@ -212,8 +213,6 @@
                 botonReproducir();
             });
         </script>
-
-        <div class="qrscanner" id="scanner"></div>
         <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
             arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
             <a-assets>
