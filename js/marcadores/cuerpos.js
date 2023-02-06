@@ -1,7 +1,16 @@
 function onQRCodeScanned(scannedText)
 {
+    if(scannedText == 'Reproducir Video'){
+        document.querySelector("#cometa").setAttribute("visible", false);
+        document.querySelector("#meteorito").setAttribute("visible", false);
+        document.querySelector("#asteroide").setAttribute("visible", false);
+        //Mostrar video
+        document.querySelector("#hist").play();
+        document.getElementById("historia").style.display = "block";
+    }
     if(scannedText == 'Cometa'){
         document.querySelector("#cometa").setAttribute("visible", true);
+        document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
         Swal.fire({
             title: 'Cometa',
@@ -12,9 +21,10 @@ function onQRCodeScanned(scannedText)
             imageAlt: 'Custom image',
           })
     }
-    if(scannedText == 'Asteroide'){
-        document.querySelector("#asteroide").setAttribute("visible", true);
+    if(scannedText == 'Meteorito'){
+        document.querySelector("#meteorito").setAttribute("visible", true);
         document.querySelector("#cometa").setAttribute("visible", false);
+        document.querySelector("#asteroide").setAttribute("visible", false);
         Swal.fire({
             title: 'Asteroide',
             text: 'Un asteroide pasara a traves de tu pantalla.',
@@ -24,8 +34,14 @@ function onQRCodeScanned(scannedText)
             imageAlt: 'Custom image',
           })
     }
+    if(scannedText == 'Asteroide'){
+        document.querySelector("#asteroide").setAttribute("visible", true);
+        document.querySelector("#meteorito").setAttribute("visible", false);
+        document.querySelector("#cometa").setAttribute("visible", false);
+    }
     if(scannedText == 'Cinturón De Asteroides'){
         document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
         Swal.fire({
             title: 'Cinturón de asteroides',
