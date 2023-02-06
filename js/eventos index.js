@@ -110,17 +110,18 @@ function advertencia(){
   }
 
   function cuerpos(){
-    swal({
-      title: "Resumen",
-      text: "•	Reproduce el video escaneando el marcador “Video”. Puedes volter tu celular para una mejor visualizacion. \n •	Posteriormente, escanea cada marcador un asteroide y  un cinturón de asteroides  ",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        window.location.href = "/pagina/Modelos DInamicos.html";
-      } else {
+    Swal.fire({
+      title: 'Resumen',
+      html: '•	Reproduce el video escaneando el marcador <b>Video</b>. Puedes volter tu celular para una mejor visualizacion. <br><br> •	Posteriormente, escanea cada marcador un <b>asteroide</b> y  un <b>cinturón de asteroides</b>.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "Cuerpos QR.html";
       }
-    });
+    })
   }
