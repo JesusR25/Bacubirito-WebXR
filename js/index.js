@@ -32,7 +32,6 @@
     var email = document.getElementById('email').value;
     var password = document.getElementById('pass').value;
     var username = document.getElementById('user').value;
-    var escolaridad = document.getElementById('esc').value;
     var select = document.querySelector("#valores");
     var valor = select.value;
 
@@ -49,9 +48,13 @@
         Swal.fire({
           icon: 'success',
           html: '¡Registro guardado exitosamente!',
-          showConfirmButton: false,
+          showConfirmButton: true,
           confirmButtonText: 'Aceptar',
-          timer: 1500
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            window.location.href = "Menu.html";
+          }
         });
         // ...
       })
