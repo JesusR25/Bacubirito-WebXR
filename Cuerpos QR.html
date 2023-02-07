@@ -87,13 +87,37 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div class="qrscanner" id="scanner"></div>
-    <div id="botonesorigen" style='position: absolute; bottom: 2%; left: 1%; text-align: center; z-index: 1;'>
+    <div id="botonesorigen" style='position: absolute; top: 2%; left: 7%; text-align: center; z-index: 1;'>
         <button class="butt" id="btn7">Menu Principal</button>
+        <button class="butt" id="btn5">Ocultar</button>
+        <button class="butt" id="btn6">Cerrar</button>
+        <button class="butt" id="btn8">Reproducir</button>
     </div>
     <script>
         document.getElementById("btn7").addEventListener("click", (e) => {
             window.history.back();
         });
+        document.getElementById("btn5").addEventListener("click", (e) => {
+            document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#cometa").setAttribute("visible", false);
+            document.querySelector("#asteroide").setAttribute("visible", false);
+        });
+        //Boton para cerrar el video
+        document.getElementById("btn6").addEventListener("click", (e) => {
+            document.querySelector("#hist").pause();
+                    document.getElementById("historia").style.display = "none";
+                    activo = false;
+                });
+        
+        //Boton para pausar video
+        document.getElementById("btn8").addEventListener("click", (e) => {
+            //Aqui hacemos todo lo del video del marker correspondiente
+            document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#cometa").setAttribute("visible", false);
+            document.querySelector("#asteroide").setAttribute("visible", false);
+            document.querySelector("#modelo").setAttribute("visible", true);
+                document.getElementById("texto").style.display = "block";
+                });
     </script>
     <div class="vid" id="historia">
         <video id="hist" class="veo" controls>
