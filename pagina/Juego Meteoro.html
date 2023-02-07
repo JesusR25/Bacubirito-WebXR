@@ -9,14 +9,11 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href="../css/styles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
+    <script type="text/javascript" src="/js/marcadores/juego.js"></script>
     <script src="../js/script.js" defer></script>
     <style>
-        video-holder {
-            width: 100vw;
-            height: 100vh;
-        }
-
-        video {
+        .qrscanner video {
             position: fixed;
             right: 0;
             bottom: 0;
@@ -222,20 +219,7 @@
 </head>
 
 <body onload="iniciar();">
-    <div id="video-holder">
-        <video autoplay></video>
-    </div>
-    <script>
-        const constraints = {
-            video: {
-                facingMode: "environment",
-            }
-        };
-        const video = document.querySelector('video');
-
-        navigator.mediaDevices.getUserMedia(constraints).
-            then((stream) => { video.srcObject = stream });
-    </script>
+    <div class="qrscanner" id="scanner"></div>
     <main>
         <div class="circle">
             <div id="stopwatch" class="stopwatch">00:00</div>
