@@ -5,7 +5,6 @@ function ocultar(){
 
 function onQRCodeScanned(scannedText)
 {
-    alert(scannedText);
     if(scannedText == 'Agpalilik'){
         document.getElementById("imagenes").style.display = "block";
         document.getElementById("inf").src="../../assets/MetGrandes/Agpalilik.png";

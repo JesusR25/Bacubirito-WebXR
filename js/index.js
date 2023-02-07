@@ -162,7 +162,6 @@ function invitado() {
         set(nodo, {
           Escolaridad: valor
         })
-        window.location.href = "Menu.html";
       }
     });
 }
