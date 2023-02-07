@@ -125,3 +125,20 @@ function advertencia(){
       }
     })
   }
+
+  function cinturon(){
+    Swal.fire({
+      title: 'Resumen',
+      html: '•	Esta es una vista previa sobre un <b>cinturón de asteroides</b>.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "/pagina/cinturon.html";
+      }
+    })
+  }
