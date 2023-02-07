@@ -31,9 +31,9 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#cometa").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
         Swal.fire({
-            title: 'Asteroide',
+            title: 'Meteorito',
             text: 'Da click en el boton ocultar para ocultar el Meteorito.',
-            imageUrl: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/164A7/production/_101630319_f0055887-asteroid_artwork-spl.jpg',
+            imageUrl: 'https://thumbs.dreamstime.com/b/meteorito-asteroide-bola-de-fuego-apocalipsis-tierra-89615502.jpg',
             imageWidth: 200,
             imageHeight: 100,
             imageAlt: 'Custom image',
