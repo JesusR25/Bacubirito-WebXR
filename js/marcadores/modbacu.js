@@ -3,7 +3,6 @@ function onQRCodeScanned(scannedText)
     alert(scannedText);
     if(scannedText == 'Meteorito'){
         document.querySelector("#modelo").setAttribute("position", "0 0 -4");
-        document.querySelector("#modelo").setAttribute("scale", "0.8 0.8 0.8");
         document.querySelector("#modelo").setAttribute("visible", true);
     }
 }
