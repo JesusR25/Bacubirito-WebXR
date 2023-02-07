@@ -162,9 +162,11 @@ function invitado() {
         set(nodo, {
           Escolaridad: valor
         })
+        let timerInterval;
         Swal.fire({
           icon: 'success',
-          title: "Cargando el menu.",
+          title: "Inicio de sesion correcto",
+          html: "Cargando el perfil del usuario",
           timer: 2000,
           timerProgressBar: true,
           didOpen: () => {
