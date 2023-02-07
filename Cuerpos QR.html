@@ -107,7 +107,7 @@
         arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
         <a-assets>
             <a-asset-item id="bacu" src="../assets/Cuerpos/CometaM.glb"></a-asset-item>
-            <a-asset-item id="aste" src="../assets/Cuerpos/Asteroide.glb"></a-asset-item>
+            <a-asset-item id="aste" src="../assets/Modelos/Meteoro planeta.glb"></a-asset-item>
             <a-asset-item id="as" src="../assets/Cuerpos/Ast.glb"></a-asset-item>
         </a-assets>
         <a-entity id="cometa" visible="false" position="-2.5 0 -4" rotation="0 0 90" scale="0.5 0.5 0.5" gltf-model="#bacu"
@@ -116,7 +116,7 @@
         <a-entity id="asteroide" visible="false" position="-2.5 0 -4" rotation="0 0 0" scale="0.2 0.2 0.2" gltf-model="#aste"
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
             animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
-        <a-entity id="meteorito" visible="false" position="-2.5 0 -4" rotation="0 0 0" scale="0.2 0.2 0.2" gltf-model="#as"
+        <a-entity id="meteorito" visible="false" position="-2.5 0 -4" rotation="0 0 0" scale="1 1 1" gltf-model="#as"
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
             animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
         <a-entity camera></a-entity>

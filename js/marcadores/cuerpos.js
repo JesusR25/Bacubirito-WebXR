@@ -17,7 +17,7 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#asteroide").setAttribute("visible", false);
         Swal.fire({
             title: 'Cometa',
-            text: 'Un Cometa pasará a través de tu pantalla.',
+            text: 'Da click en el boton ocultar para ocultar el Cometa',
             imageUrl: 'https://dam.ngenespanol.com/wp-content/uploads/2021/09/cometa-bernardinelli-bernstein.jpg',
             imageWidth: 200,
             imageHeight: 100,
@@ -32,7 +32,7 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#asteroide").setAttribute("visible", false);
         Swal.fire({
             title: 'Asteroide',
-            text: 'Un Meteorito pasará a través de tu pantalla.',
+            text: 'Da click en el boton ocultar para ocultar el Meteorito.',
             imageUrl: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/164A7/production/_101630319_f0055887-asteroid_artwork-spl.jpg',
             imageWidth: 200,
             imageHeight: 100,
@@ -47,7 +47,7 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#cometa").setAttribute("visible", false);
         Swal.fire({
             title: 'Asteroide',
-            text: 'Un Asteroide pasará a través de tu pantalla.',
+            text: 'Da click en el boton ocultar para ocultar el Asteroide',
             imageUrl: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/164A7/production/_101630319_f0055887-asteroid_artwork-spl.jpg',
             imageWidth: 200,
             imageHeight: 100,
