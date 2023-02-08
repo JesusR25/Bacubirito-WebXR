@@ -7,20 +7,6 @@
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
     <script type="text/javascript" src="/js/marcadores/composicion.js"></script>
-    <script>
-        function readDeviceOrientation() {
-            if (Math.abs(window.orientation) === 90) {
-                //Landscape
-                document.querySelector("#mod").setAttribute("scale", "0.6");
-                document.querySelector("#cob").setAttribute("scale", "0.6");
-                document.querySelector("#cob").setAttribute("position", "0 0.5 -4");
-                document.querySelector("#mod").setAttribute("position", "0 -0.6 -4");
-            } else {
-                //Portrait
-            }
-        }
-        window.onorientationchange = readDeviceOrientation;
-    </script>
     <style>
 
         .qrscanner video {
@@ -167,6 +153,24 @@
         </div>
 
         <script>
+            function readDeviceOrientation() {
+            if (Math.abs(window.orientation) === 90) {
+                //Landscape
+                document.getElementById("botonesorigen").style.left = "17%";
+                document.getElementById("flechas").style.top = "7%";
+                document.getElementById("flechasant").style.top = "7%";
+                /*
+                document.querySelector("#mod").setAttribute("scale", "0.6");
+                document.querySelector("#cob").setAttribute("scale", "0.6");
+                document.querySelector("#cob").setAttribute("position", "0 0.5 -4");
+                document.querySelector("#mod").setAttribute("position", "0 -0.6 -4");
+                */
+            } else {
+                //Portrait
+            }
+        }
+        window.onorientationchange = readDeviceOrientation;
+
             const modelList = ["cobalto", "niquel", "Hierro", "azufre"];
             const meteoros = ["metcob", "metniq", "methie", "metazu"];
             let introduccion = "El meteorito de bacubirito esta compuesto por 4 elementos. Haga click en la esfera para ver cada uno de ellos.";
