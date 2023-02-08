@@ -156,16 +156,10 @@
             function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90) {
                 //Landscape
-                document.getElementById("botonesorigen").style.left = "28%";
-                document.getElementById("flechas").style.top = "4%";
-                document.getElementById("flechasant").style.top = "4%";
-                documen.getElementById("footer").style.color = "white";
-                
-                document.querySelector("#mod").setAttribute("scale", "0.4");
-                document.querySelector("#cob").setAttribute("scale", "0.4");
-                document.querySelector("#cob").setAttribute("position", "-0.5 0 -4");
-                document.querySelector("#mod").setAttribute("position", "0.5 0 -4");
-                
+                document.querySelector("#mod").setAttribute("scale", "0.5");
+                document.querySelector("#cob").setAttribute("scale", "0.5");
+                document.querySelector("#cob").setAttribute("position", "0 0.4 -4");
+                document.querySelector("#mod").setAttribute("position", "0 -0.4 -4");
             } else {
                 //Portrait
             }
