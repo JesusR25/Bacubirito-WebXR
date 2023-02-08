@@ -101,13 +101,17 @@
         <div id="botonesorigen" style='position: absolute; bottom: 2%; left: 30%; text-align: center; z-index: 1;'>
             <button class="butt" id="btn7">Menu Principal</button>
             <button class="butt" id="btn8">Ocultar</button>
+            <button class="butt" id="btn9">Mostrar</button>
         </div>
         <script>
             document.getElementById("btn7").addEventListener("click", (e) => {
                 window.history.back();
             });
+            document.getElementById("btn9").addEventListener("click", (e) => {
+                document.querySelector("#modelo").setAttribute("scale", "0.8 0.8 0.8");
+            });
             document.getElementById("btn8").addEventListener("click", (e) => {
-                document.querySelector("#modelo").setAttribute("animation", "property: position; to: 0 0 -1000; dur: 3000; easing: linear;");
+                document.querySelector("#modelo").emit("foo");
             });
         </script>
         <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
@@ -115,7 +119,7 @@
             <a-assets>
                 <a-asset-item id="bacu" src="../assets/Bacubirito/Terminado.glb"></a-asset-item>
             </a-assets>
-            <a-entity id="modelo" visible="false" position="0 0 -4" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu"></a-entity>
+            <a-entity id="modelo" visible="true" position="0 0 -4" rotation="0 0 0" scale="0.8 0.8 0.8" gltf-model="#bacu" animation="property: scale; to: 0 0 0; dur: 3000; easing: linear; startEvents: foo;"></a-entity>
             <a-marker id="meteo" type='pattern' url='../assets/MarcadoresF/pattern-Meteorito.patt'>
                 <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
             </a-marker>
