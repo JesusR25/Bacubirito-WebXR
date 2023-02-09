@@ -112,7 +112,7 @@ function advertencia(){
   function cuerpos(){
     Swal.fire({
       title: 'Resumen',
-      html: '•	Reproduce el video escaneando el marcador <b>Video</b>. Puedes volter tu celular para una mejor visualizacion. <br><br> •	Posteriormente, escanea cada marcador un <b>asteroide</b> y  un <b>cinturón de asteroides</b>.',
+      html: '•	Reproduce el video escaneando el marcador <b>Video</b>. Puedes volter tu celular para una mejor visualizacion. <br><br> •	Posteriormente, escanea cada marcador un <b>asteroide</b> y  un <b>cinturón de asteroides</b>. <br><br> •	Para una visualización mejor, mantenga el celular en posición horizontal',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -129,7 +129,7 @@ function advertencia(){
   function cinturon(){
     Swal.fire({
       title: 'Resumen',
-      html: '•	Esta es una vista previa sobre un <b>cinturón de asteroides</b>.',
+      html: '•	Esta es una vista previa sobre un <b>cinturón de asteroides</b>. <br><br> •	Puede interactuar con la pantalla para rotar la vista.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
