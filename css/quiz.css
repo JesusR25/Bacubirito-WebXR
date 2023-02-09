@@ -104,6 +104,8 @@ html {
   }
   .final-score {
     color: #00000099;
+    line-height: 100%;
+    font-size: 20px;
   }
   .summary {
     font-size: 1rem;
