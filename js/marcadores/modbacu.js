@@ -7,7 +7,6 @@ function onQRCodeScanned(scannedText)
     }
 }
 
-
 //funtion returning a promise with a video stream
 function provideVideoQQ()
 {
