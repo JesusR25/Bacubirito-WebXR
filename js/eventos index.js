@@ -142,3 +142,20 @@ function advertencia(){
       }
     })
   }
+
+  function quiz(){
+    Swal.fire({
+      title: 'Resumen',
+      html: '•	En esta escena, deberás responder un examen que contempla los conocimientos adquiridos con la pagina web.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "/pagina/Quiz.html";
+      }
+    })
+  }
