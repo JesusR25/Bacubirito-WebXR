@@ -1,5 +1,6 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+  import { getFirestore, collection, getDocs, onSnapshot, addDoc, deleteDoc, doc, getDoc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js"
   import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
@@ -18,6 +19,7 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
+  const db = getFirestore();
   const auth = getAuth();
 
   var botonreg = document.getElementById("registrar");
@@ -30,21 +32,28 @@
 
   botonreg.addEventListener("click", (e) => {
     var email = document.getElementById('email').value;
-    var password = document.getElementById('pass').value;
-    var username = document.getElementById('user').value;
+    var contraseña = document.getElementById('pass').value;
+    var nombre = document.getElementById('user').value;
     var select = document.querySelector("#valores");
-    var valor = select.value;
+    var escolaridad = select.value;
 
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, contraseña)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-
         set(ref(database, 'users/' + user.uid),{
-          username: username,
+          nombre: nombre,
           email: email,
-          escolaridad: valor,
+          escolaridad: escolaridad,
+          contraseña: contraseña
         })
+        //GUARDAR DOCUMENTO TAMBIEN
+        setDoc(doc(db, "usuarios", email), {
+          nombre: nombre,
+          email: email,
+          escolaridad: escolaridad,
+          contraseña: contraseña
+        });
         Swal.fire({
           icon: 'success',
           html: '¡Registro guardado exitosamente!',
