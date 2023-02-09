@@ -130,6 +130,19 @@
     <script>
         var activo = false;
         var volteado = false;
+        //PANTALLA AL GIRAR
+            function readDeviceOrientation() {
+                if (Math.abs(window.orientation) === 90) {
+                    //Landscape
+                    document.querySelector("#modelo").setAttribute("scale", "0.6 0.6 0.6");
+                    document.querySelector("#modelo").setAttribute("position", "0 0.1 -4");
+                } else {
+                    //Portrait
+                    document.querySelector("#modelo").setAttribute("scale", "0.8 0.8 0.8");
+                    document.querySelector("#modelo").setAttribute("position", "0 0 -4");
+                }
+            }
+            window.onorientationchange = readDeviceOrientation;
         //Boton para mostrar meteoro
         document.getElementById("btn5").addEventListener("click", (e) => {
                     //Primero escondemos todo de los 2 videos anteriores
