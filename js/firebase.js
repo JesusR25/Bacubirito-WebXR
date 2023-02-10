@@ -1,6 +1,6 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
-  import { getFirestore, collection, getDocs, onSnapshot, addDoc, deleteDoc, doc, getDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js"
+  import { getFirestore, collection, getDocs, onSnapshot, addDoc, deleteDoc, doc, getDoc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js"
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,4 +19,15 @@
 
   export const saveTask = (title, description) =>
     addDoc(collection(db, 'usuarios'), {title, description})
+
+  export const quiz = (aciertos, email, nombre, desempeño, fecha, hora) =>
+  setDoc(doc(db, "quiz", nombre), {
+    aciertos: aciertos,
+    email: email,
+    nombre, nombre,
+    desempeño, desempeño,
+    fecha: fecha,
+    hora: hora
+  });
+  addDoc(collection(db, 'usuarios'), {aciertos, email, nombre, desempeño, fecha, hora})
   

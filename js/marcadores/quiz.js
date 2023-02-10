@@ -1,5 +1,7 @@
 // QUESTIONS
 
+export {quiz} from '../firebase.js'
+
 const questions = [
     {
       "question": "¿Cómo se llama el Meteorito encontrado en Sinaloa?",
