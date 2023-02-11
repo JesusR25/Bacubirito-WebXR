@@ -1,6 +1,5 @@
 // QUESTIONS
-
-export {quiz} from '../firebase.js'
+import { quiz } from '../firebase.js';
 
 const questions = [
     {
@@ -75,9 +74,11 @@ const questions = [
   let currentQuestion = 0;
   let selectedAnswersData = [];
   let Respuestas = [];
+  let desempeño = "";
   let RespCorrectas = ["Bacubirito", "Falso", "Falso", "Verdadero", "Verdadero", "Falso", "Falso", "Meteorito", "Verdadero", "Verdadero"];
   const totalQuestions =questions.length;
-  
+  let nombre = "Prueba";
+  let email = "Prueba@hotmail.com"
   const container = document.querySelector('.quiz-container');
   const questionEl = document.querySelector('.question');
   const option1 = document.querySelector('.option1');
@@ -138,8 +139,11 @@ const questions = [
       Respuestas.push(valor);
       const question = questions[currentQuestion];
       if(question.Correcta == valor){
+        desempeño = desempeño + "C "
         correctas++;
         console.log(correctas);
+      }else{
+        desempeño = desempeño + "I "
       }
       selectedAnswersData.push()
       //Finally we incement the current question number ( to be used as the index for each array)
@@ -153,6 +157,10 @@ const questions = [
       }
       //If the quiz is finished then we hide the questions container and show the results 
       if(currentQuestion == totalQuestions) {
+        var date = new Date();
+        var fecha = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+        var hora =  date.toLocaleTimeString();
+        quiz(correctas,email, nombre, desempeño, fecha, hora );
         console.log(Respuestas);
           container.style.display = 'none';
           result.innerHTML =

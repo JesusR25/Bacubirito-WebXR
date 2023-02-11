@@ -4,6 +4,7 @@
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
+
   // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyAoCQK1rZdXPeQhcc9RBxcdpeyHTZbIUno",
@@ -29,5 +30,4 @@
     fecha: fecha,
     hora: hora
   });
-  addDoc(collection(db, 'usuarios'), {aciertos, email, nombre, desempeño, fecha, hora})
   
