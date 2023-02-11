@@ -1,3 +1,13 @@
+import {getLoggedUser} from './firebase.js'
+
+
+const user = getLoggedUser();
+if(!user){
+  alert("Sigue activo");
+}else{
+  alert("Esta inactivo");
+}
+
 function advertencia(){
     swal({
       title: "Advertencia",

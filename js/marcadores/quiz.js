@@ -205,3 +205,4 @@ const questions = [
   nextButton.addEventListener('click', loadNextQuestion);
   previousButton.addEventListener('click',loadPreviousQuestion);
   result.addEventListener('click',restartQuiz);
+  
