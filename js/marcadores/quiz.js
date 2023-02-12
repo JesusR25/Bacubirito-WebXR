@@ -93,8 +93,7 @@ const questions = [
   const valor4 = document.getElementById("opcion4");
   let correctas = 0;
   let usuario = getLoggedUser();
-  let email = usuario.email;
-  console.log(email);
+  console.log(usuario);
   
   //Function to generate question 
   function generateQuestions (index) {

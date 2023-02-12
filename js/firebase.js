@@ -140,6 +140,7 @@ export const getLoggedUser = () => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      console.log("Hola");
       return user;
     } else {
       console.log("entrar como invitado");
