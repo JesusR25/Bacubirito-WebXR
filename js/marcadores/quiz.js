@@ -1,5 +1,5 @@
 // QUESTIONS
-import { quiz } from '../firebase.js';
+import { quiz, getLoggedUser } from '../firebase.js';
 
 const questions = [
     {
@@ -77,8 +77,6 @@ const questions = [
   let desempeño = "";
   let RespCorrectas = ["Bacubirito", "Falso", "Falso", "Verdadero", "Verdadero", "Falso", "Falso", "Meteorito", "Verdadero", "Verdadero"];
   const totalQuestions =questions.length;
-  let nombre = "Prueba";
-  let email = "Prueba@hotmail.com"
   const container = document.querySelector('.quiz-container');
   const questionEl = document.querySelector('.question');
   const option1 = document.querySelector('.option1');
@@ -94,6 +92,9 @@ const questions = [
   const valor3 = document.getElementById("opcion3");
   const valor4 = document.getElementById("opcion4");
   let correctas = 0;
+  let usuario = getLoggedUser();
+  let email = usuario.email;
+  console.log(email);
   
   //Function to generate question 
   function generateQuestions (index) {

@@ -70,8 +70,6 @@ export const quiz = (aciertos, email, nombre, desempeño, fecha, hora) =>
     aciertos: aciertos,
     email: email,
     nombre,
-    nombre,
-    desempeño,
     desempeño,
     fecha: fecha,
     hora: hora,
@@ -142,9 +140,10 @@ export const getLoggedUser = () => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
-        console.log("entrar como invitado");
+      return user;
     } else {
       console.log("entrar como invitado");
+
     }
   });
 };
