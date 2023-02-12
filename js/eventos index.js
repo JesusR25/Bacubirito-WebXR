@@ -2,10 +2,10 @@ import {getLoggedUser} from './firebase.js'
 
 
 const user = getLoggedUser();
-if(!user){
-  alert("Sigue activo");
+if(user == null){
+  alert("Sigue inactivo");
 }else{
-  alert("Esta inactivo");
+  alert("Esta activo");
 }
 
 function advertencia(){
