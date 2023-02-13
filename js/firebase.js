@@ -78,26 +78,48 @@ export const getLoggedUser = async () => {
 export const saveTask = (title, description) =>
   addDoc(collection(db, "usuarios"), { title, description });
 
-export const quiz = async (aciertos, desempeño, fecha, hora) =>{
+export const quiz = async (aciertos, desempeño, fecha, hora) => {
   let vari = auth.currentUser;
-  if(vari == null){
-    console.log("Hola");
+  if (vari == null) {
+    const i = collection(db, "usuarios");
+    const qe = query(i, where("invitadoID", "!=", null));
+    const consultai = await getDocs(qe);
+    let idv;
+    consultai.forEach((doc) => {
+      idv = doc.get("invitadoID");
+    });
+    idv = idv;
+    const veces = collection(db, "quiz");
+    const consulta = query(veces, where("invitadoID", "==", idv));
+    const resul = await getDocs(consulta);
+    let conteo = 0;
+    resul.forEach((doc) => {
+      conteo++;
+    });
+    setDoc(doc(db, "quiz", idv + " " + conteo), {
+      aciertos: aciertos,
+      invitadoID: idv,
+      desempeño,
+      fecha: fecha,
+      hora: hora,
+    });
+  } else {
+    const inv = collection(db, "quiz");
+    const q = query(inv, where("email", "==", auth.currentUser.email));
+    const consulta = await getDocs(q);
+    let final = 0;
+    consulta.forEach((doc) => {
+      final++;
+    });
+    setDoc(doc(db, "quiz", auth.currentUser.email + " " + final), {
+      aciertos: aciertos,
+      email: auth.currentUser.email,
+      desempeño,
+      fecha: fecha,
+      hora: hora,
+    });
   }
-  const inv = collection(db, "usuarios");
-  const q = query(inv, where("email", "==", auth.currentUser.email));
-  const consulta = await getDocs(q);
-  let final = 0;
-  consulta.forEach((doc) => {
-    final++;
-  });
-  setDoc(doc(db, "quiz", auth.currentUser.email + " " + final), {
-    aciertos: aciertos,
-    email: auth.currentUser.email,
-    desempeño,
-    fecha: fecha,
-    hora: hora,
-  });
-}
+};
 //Iniciar sesion
 export const login = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
