@@ -79,7 +79,7 @@ export const saveTask = (title, description) =>
   addDoc(collection(db, "usuarios"), { title, description });
 
 export const quiz = async (aciertos, desempeño, fecha, hora) =>{
-  let vari = auth.currentUser.email;
+  let vari = auth.currentUser;
   if(vari == null){
     console.log("Hola");
   }
