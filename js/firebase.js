@@ -43,7 +43,7 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const db = getFirestore();
 const auth = getAuth(app);
-
+let usuario = auth.currentUser
 //Ingresas como invitado
 export const obtener = async (escolaridad) => {
   const inv = collection(db, "usuarios");
@@ -62,18 +62,38 @@ export const obtener = async (escolaridad) => {
   });
 };
 
+//Obtener informacion del usuario activo
+export const getLoggedUser = async () => {
+  await onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log("Hola");
+       let men = document.querySelector('.oculto');
+       men.innerHTML = user.uid ;
+    } else {
+      console.log("entrar como invitado");
+    }
+  });
+};
+
 export const saveTask = (title, description) =>
   addDoc(collection(db, "usuarios"), { title, description });
 
-export const quiz = (aciertos, email, nombre, desempeño, fecha, hora) =>
-  setDoc(doc(db, "quiz", nombre), {
+export const quiz = async (aciertos, desempeño, fecha, hora) =>{
+  const inv = collection(db, "usuarios");
+  const q = query(inv, where("email", "==", auth.currentUser.email));
+  const consulta = await getDocs(q);
+  let final = 0;
+  consulta.forEach((doc) => {
+    final++;
+  });
+  setDoc(doc(db, "quiz", auth.currentUser.email + " " + final), {
     aciertos: aciertos,
-    email: email,
-    nombre,
+    email: auth.currentUser.email,
     desempeño,
     fecha: fecha,
     hora: hora,
   });
+}
 //Iniciar sesion
 export const login = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
@@ -84,7 +104,6 @@ export const login = (email, password) => {
       update(ref(database, "users/" + user.uid), {
         last_login: dt,
       });
-      // ...
       redirigir();
     })
     .catch((error) => {
@@ -98,12 +117,12 @@ export const login = (email, password) => {
     });
 };
 
+
 //Registrarse
 export const loginWithEmail = (nombre, email, escolaridad, contra) => {
   createUserWithEmailAndPassword(auth, email, contra)
     .then((userCredential) => {
       // Signed in
-      const user = userCredential.user;
       //GUARDAR DOCUMENTO TAMBIEN
       setDoc(doc(db, "usuarios", email), {
         nombre: nombre,
@@ -133,20 +152,6 @@ export const loginWithEmail = (nombre, email, escolaridad, contra) => {
       alert(errorMessage);
       // ..
     });
-};
-
-//Obtener informacion del usuario activo
-export const getLoggedUser = () => {
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log("Hola");
-      return user.email;
-    } else {
-      console.log("entrar como invitado");
-
-    }
-  });
 };
 
 function redirigir() {

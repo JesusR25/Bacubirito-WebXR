@@ -1,5 +1,5 @@
 // QUESTIONS
-import { quiz, getLoggedUser } from '../firebase.js';
+import {quiz} from '../firebase.js'
 
 const questions = [
     {
@@ -92,9 +92,6 @@ const questions = [
   const valor3 = document.getElementById("opcion3");
   const valor4 = document.getElementById("opcion4");
   let correctas = 0;
-  let usuario = getLoggedUser();
-  console.log(usuario);
-  
   //Function to generate question 
   function generateQuestions (index) {
     if (index == 0 || index == 7) {
@@ -160,7 +157,7 @@ const questions = [
         var date = new Date();
         var fecha = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
         var hora =  date.toLocaleTimeString();
-        quiz(correctas,email, nombre, desempeño, fecha, hora );
+        quiz(correctas, desempeño, fecha, hora );
         console.log(Respuestas);
           container.style.display = 'none';
           result.innerHTML =

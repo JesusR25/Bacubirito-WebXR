@@ -11,6 +11,7 @@ botonreg.addEventListener("click", (e) => {
   var nombre = document.getElementById("user").value;
   var select = document.querySelector("#valores");
   var escolaridad = select.value;
+  email = email.toLowerCase()
 
   loginWithEmail(nombre, email, escolaridad, contraseña);
 });
