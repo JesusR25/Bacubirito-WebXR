@@ -181,12 +181,12 @@
                     this.el.parentNode.removeChild(this.el)
 
                     document.querySelector('[text]').setAttribute('value', `${++score} meteoritos cazados`)
-                    if (score == 8 && nivel == 1) {
+                    if (score == 2 && nivel == 1) {
                         nivel = nivel + 1;
                         segundonivel();
                         score = 0;
                     }
-                    if (score == 12 && nivel == 2) {
+                    if (score == 3 && nivel == 2) {
                         tercernivel();
                         score = 0;
                         nivel++;
