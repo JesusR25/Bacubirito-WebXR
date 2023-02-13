@@ -62,19 +62,6 @@ export const obtener = async (escolaridad) => {
   });
 };
 
-//Obtener informacion del usuario activo
-export const getLoggedUser = async () => {
-  await onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log("Hola");
-       let men = document.querySelector('.oculto');
-       men.innerHTML = user.uid ;
-    } else {
-      console.log("entrar como invitado");
-    }
-  });
-};
-
 export const saveTask = (title, description) =>
   addDoc(collection(db, "usuarios"), { title, description });
 
@@ -215,3 +202,47 @@ function redirigir() {
     }
   });
 }
+
+export const juego = async ( nivel, tiempo) => {
+  let vari = auth.currentUser;
+  var date = new Date();
+  var fecha = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+  var hora =  date.toLocaleTimeString();
+  if (vari == null) {
+    const i = collection(db, "usuarios");
+    const qe = query(i, where("invitadoID", "!=", null));
+    const consultai = await getDocs(qe);
+    let idv;
+    consultai.forEach((doc) => {
+      idv = doc.get("invitadoID");
+    });
+    idv = idv;
+    const veces = collection(db, "quiz");
+    const consulta = query(veces, where("invitadoID", "==", idv));
+    const resul = await getDocs(consulta);
+    let conteo = 0;
+    resul.forEach((doc) => {
+      conteo++;
+    });
+    setDoc(doc(db, "quiz", idv + " " + conteo), {
+      invitadoID: idv,
+      fecha: fecha,
+      hora: hora,
+    });
+  } else {
+    const inv = collection(db, "quiz");
+    const q = query(inv, where("email", "==", auth.currentUser.email));
+    const consulta = await getDocs(q);
+    let final = 0;
+    consulta.forEach((doc) => {
+      final++;
+    });
+    setDoc(doc(db, "quiz", auth.currentUser.email + " " + final), {
+      email: auth.currentUser.email,
+      fecha: fecha,
+      hora: hora,
+      nivel: nivel,
+      tiempo: tiempo
+    });
+  }
+};
