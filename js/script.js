@@ -6,6 +6,7 @@ let stopwatchInterval;
 let runningTime = 0;
 
 
+
 const playPause = () => {
     const isPaused = !playPauseButton.classList.contains('running');
     if (isPaused) {
@@ -39,6 +40,10 @@ const start = () => {
         runningTime = Date.now() - startTime;
         stopwatch.textContent = calculateTime(runningTime);
     }, 1000)
+}
+
+function obtener(){
+    alert(stopwatch.textContent);
 }
 
 const calculateTime = runningTime => {

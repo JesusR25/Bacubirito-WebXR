@@ -27,7 +27,7 @@ botoninv.addEventListener("click", (e) => {
     Swal
     .fire({
       title: "Ingresa tu escolaridad",
-      html:'<select class="select-css" id="mySelectElement"><option>Primaria</option><option>Secundaria</option><option>Bachillerato</option><option>Licenciatura/Ingenieria</option><option>Posgrado</option><option>Otros</option></select>',
+      html:'<select class="select-css2" id="mySelectElement"><option>Primaria</option><option>Secundaria</option><option>Bachillerato</option><option>Licenciatura/Ingenieria</option><option>Posgrado</option><option>Otros</option></select>',
       showCancelButton: true,
       confirmButtonText: "Ingresar",
       cancelButtonText: "Cancelar",
