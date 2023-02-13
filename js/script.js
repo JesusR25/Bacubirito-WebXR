@@ -62,6 +62,7 @@ function obtener(){
         let tiempo = ts +":" + tm;
         nivel++;
         segundos = runningTime;
+        alert(tiempo);
         return tiempo;
     }
 }
