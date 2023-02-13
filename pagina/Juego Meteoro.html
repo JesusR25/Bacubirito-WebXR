@@ -52,7 +52,7 @@
 
         var nivel = 1;
         let meteor, score = 0
-        let tiempo;
+        let tiempor;
 
         function initScene() {
 
@@ -79,8 +79,8 @@
         function segundonivel() {
             var tiempo = document.getElementById('stopwatch').innerHTML;
             playPause()
-            tiempo = obtener();
-            juego(nivel, tiempo);
+            tiempor = obtener();
+            juego(nivel, tiempor);
             swal({
                 title: "¡Felicidades!",
                 text: "Has destruido los 8 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el segundo nivel?",
@@ -101,6 +101,8 @@
         function tercernivel() {
             var tiempo = document.getElementById('stopwatch').innerHTML;
             playPause()
+            tiempor = obtener();
+            juego(nivel, tiempor);
             swal({
                 title: "¡Felicidades!",
                 text: "Has destruido los 12 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
@@ -121,6 +123,8 @@
         function cuartonivel() {
             var tiempo = document.getElementById('stopwatch').innerHTML;
             playPause()
+            tiempor = obtener();
+            juego(nivel, tiempor);
             swal({
                 title: "¡Felicidades!",
                 text: "Has destruido los 16 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
@@ -141,6 +145,8 @@
         function quintonivel() {
             var tiempo = document.getElementById('stopwatch').innerHTML;
             playPause()
+            tiempor = obtener();
+            juego(nivel, tiempor);
             swal({
                 title: "¡Felicidades!",
                 text: "Has destruido los 20 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
@@ -159,6 +165,8 @@
         }
 
         function final() {
+            tiempor = document.getElementById('stopwatch').innerHTML;;
+            juego(nivel, tiempor);
             swal({
                 title: "¡Felicidades!",
                 text: "Has destruido los 24 meteoritos y has terminado el juego con un " + tiempo + ".",
@@ -173,12 +181,12 @@
                     this.el.parentNode.removeChild(this.el)
 
                     document.querySelector('[text]').setAttribute('value', `${++score} meteoritos cazados`)
-                    if (score == 8 && nivel == 1) {
+                    if (score == 2 && nivel == 1) {
                         nivel = nivel + 1;
                         segundonivel();
                         score = 0;
                     }
-                    if (score == 12 && nivel == 2) {
+                    if (score == 3 && nivel == 2) {
                         tercernivel();
                         score = 0;
                         nivel++;
