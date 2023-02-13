@@ -217,27 +217,29 @@ export const juego = async ( nivel, tiempo) => {
       idv = doc.get("invitadoID");
     });
     idv = idv;
-    const veces = collection(db, "quiz");
+    const veces = collection(db, "score");
     const consulta = query(veces, where("invitadoID", "==", idv));
     const resul = await getDocs(consulta);
     let conteo = 0;
     resul.forEach((doc) => {
       conteo++;
     });
-    setDoc(doc(db, "quiz", idv + " " + conteo), {
+    setDoc(doc(db, "score", idv + " " + conteo), {
       invitadoID: idv,
       fecha: fecha,
       hora: hora,
+      nivel: nivel,
+      tiempo: tiempo
     });
   } else {
-    const inv = collection(db, "quiz");
+    const inv = collection(db, "score");
     const q = query(inv, where("email", "==", auth.currentUser.email));
     const consulta = await getDocs(q);
     let final = 0;
     consulta.forEach((doc) => {
       final++;
     });
-    setDoc(doc(db, "quiz", auth.currentUser.email + " " + final), {
+    setDoc(doc(db, "score", auth.currentUser.email + " " + final), {
       email: auth.currentUser.email,
       fecha: fecha,
       hora: hora,
