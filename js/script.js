@@ -52,22 +52,16 @@ function obtener(){
     if(nivel == 1){
         nivel++;
         segundos = runningTime;
-        alert(segundos);
         return stopwatch.textContent;
     }else{
-        alert(runningTime);
-        alert(segundos);
         minutos = Math.floor(runningTime - segundos);
-        alert(minutos);
-        let ts = Math.floor(runningTime / 1000);
-        alert(ts);
+        let ts = Math.floor(minutos / 1000);
         let tm = Math.floor(ts / 60);
-        ts = (total_seconds % 60).toString().padStart(2, "0");
+        ts = (ts % 60).toString().padStart(2, "0");
         tm = tm.toString().padStart(2, "0");
-        let tiempo = ts +":" + tm;
+        let tiempo = tm +":" + ts;
         nivel++;
         segundos = runningTime;
-        alert(tiempo);
         return tiempo;
     }
 }
