@@ -94,6 +94,23 @@
         <button class="butt" id="btn8">Reproducir</button>
     </div>
     <script>
+        function readDeviceOrientation() {
+            if (Math.abs(window.orientation) === 90) {
+                //Para video
+                document.getElementById("historia").style.left = "15%";
+                document.getElementById("historia").style.top = "16%";
+                document.getElementById("hist").style.width = "580";
+                document.getElementById("hist").style.height = "250";
+            } else {
+                //Para video
+                document.getElementById("historia").style.left = "0%";
+                document.getElementById("historia").style.top = "20%";
+                document.getElementById("hist").style.width = "420";
+                document.getElementById("hist").style.height = "250";
+            }
+        }
+        window.onorientationchange = readDeviceOrientation;
+
         document.getElementById("btn7").addEventListener("click", (e) => {
             window.history.back();
         });
