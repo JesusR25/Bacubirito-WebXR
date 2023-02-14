@@ -6,9 +6,10 @@ function ocultar(){
 function onQRCodeScanned(scannedText)
 {
     if(scannedText == 'Agpalilik'){
-        document.getElementById("imagenes").style.display = "block";
+        document.getElementById("imagenes").removeAttribute('src');
         document.getElementById("inf").src="../../assets/MetGrandes/Agpalilik.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-Agpalilik.png";
+        document.getElementById("imagenes").style.display = "block";
     }
     if(scannedText == 'Ahnighito'){
         document.getElementById("imagenes").style.display = "block";

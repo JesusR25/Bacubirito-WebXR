@@ -112,7 +112,7 @@ function advertencia(){
   function cuerpos(){
     Swal.fire({
       title: 'Resumen',
-      html: '•	Reproduce el video escaneando el marcador <b>Video</b>. Puedes volter tu celular para una mejor visualizacion. <br><br> •	Posteriormente, escanea cada marcador un <b>asteroide</b> y  un <b>cinturón de asteroides</b>. <br><br> •	Para una visualización mejor, mantenga el celular en posición horizontal',
+      html: '•	Reproduce el video escaneando el marcador <b>Video</b>. Gira tu celular para reproducir el contenido en posición horizontal. <br><br> •	Posteriormente, escanea cada marcador como <b>asteroide</b> y  un <b>cinturón de asteroides</b> para una representación en 3D. <br><br> •	Para una mejor visualización, mantenga el celular en posición horizontal',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
