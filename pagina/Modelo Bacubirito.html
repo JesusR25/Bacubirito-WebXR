@@ -50,13 +50,13 @@
                     hammertime.on("panup", () => {
                         if (!this.modelVisible) return;
                         this.isPanning = true
-                        this.mesh.rotation.x += 4 * Math.PI / 360;
+                        this.mesh.rotation.x -= 4 * Math.PI / 360;
                     })
 
                     hammertime.on("pandown", () => {
                         if (!this.modelVisible) return;
                         this.isPanning = true
-                        this.mesh.rotation.x -= 4 * Math.PI / 360;
+                        this.mesh.rotation.x += 4 * Math.PI / 360;
                     })
 
 
