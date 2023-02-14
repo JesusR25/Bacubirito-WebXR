@@ -82,16 +82,6 @@
                     })
                 },
                 tick: function () {
-                    //Para rotacion en y
-                    if ((this.modelVisible && this.swipeVelocity && this.isPanning)){
-                        return;
-                    }else{
-                        this.mesh.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
-                        //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
-                        this.swipeVelocity *= 0.93;
-                        if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
-                    }
-                    //Para rotacion en eje x
                     if (!(this.modelVisible && this.swipeVelocity && !this.isPanning)){
                         return;
                     }else{
@@ -100,6 +90,7 @@
                         this.swipeVelocity *= 0.93;
                         if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
                     }
+                    
                     
                 }
             })
