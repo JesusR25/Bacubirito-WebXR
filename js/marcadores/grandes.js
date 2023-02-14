@@ -12,9 +12,10 @@ function onQRCodeScanned(scannedText)
         document.getElementById("imagenes").style.display = "block";
     }
     if(scannedText == 'Ahnighito'){
-        document.getElementById("imagenes").style.display = "block";
+        document.getElementById("imagenes").removeAttribute('src');
         document.getElementById("inf").src="../../assets/MetGrandes/Ahnighito.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-Ahnighito.png";
+        document.getElementById("imagenes").style.display = "block";
     }
     if(scannedText == 'Bacubirito'){
         document.getElementById("imagenes").style.display = "block";
@@ -22,39 +23,46 @@ function onQRCodeScanned(scannedText)
         document.getElementById("ima").src="../../assets/MetImg/Met-Bacubirito.png";
     }
     if(scannedText == 'Chupaderos'){
-        document.getElementById("imagenes").style.display = "block";
+        document.getElementById("imagenes").removeAttribute('src');
         document.getElementById("inf").src="../../assets/MetGrandes/Chupaderos.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-Chupaderos.png";
+        document.getElementById("imagenes").style.display = "block";
     }
     if(scannedText == 'El Chaco'){
-        document.getElementById("imagenes").style.display = "block";
+        document.getElementById("imagenes").removeAttribute('src');
         document.getElementById("inf").src="../../assets/MetGrandes/ElChaco.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-ElChaco.png";
+        document.getElementById("imagenes").style.display = "block";
     }
     if(scannedText == 'Hoba'){
-        document.getElementById("imagenes").style.display = "block";
+        document.getElementById("imagenes").removeAttribute('src');
         document.getElementById("inf").src="../../assets/MetGrandes/Hoba.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-Hoba.png";
+        document.getElementById("imagenes").style.display = "block";
     }
     if(scannedText == 'Mbozi'){
-        document.getElementById("imagenes").style.display = "block";
+        document.getElementById("imagenes").removeAttribute('src');
         document.getElementById("inf").src="../../assets/MetGrandes/Mbozi.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-Mbozi.png";
+        document.getElementById("imagenes").style.display = "block";
     }
     if(scannedText == 'Mundrabilla'){
-        document.getElementById("imagenes").style.display = "block";
+        document.getElementById("imagenes").removeAttribute('src');
         document.getElementById("inf").src="../../assets/MetGrandes/Mundrabilla.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-Mundrabilla.png";
+        document.getElementById("imagenes").style.display = "block";
     }
     if(scannedText == 'Willamette'){
-        document.getElementById("imagenes").style.display = "block";
+        document.getElementById("imagenes").removeAttribute('src');
         document.getElementById("inf").src="../../assets/MetGrandes/Willamette.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-Willamette.png";
+        document.getElementById("imagenes").style.display = "block";
     }
     if(scannedText == 'Armanty'){
-        document.getElementById("imagenes").style.display = "block";
+        document.getElementById("imagenes").removeAttribute('src');
         document.getElementById("inf").src="../../assets/MetGrandes/Armanty.png";
         document.getElementById("ima").src="../../assets/MetImg/Met-Armanty.png";
+        document.getElementById("imagenes").style.display = "block";
     }
 }
 
