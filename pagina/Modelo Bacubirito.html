@@ -35,6 +35,7 @@
                     // rotation
                     // pan left/right for rotation
                     this.isPanning = false;
+                    var xrot = false;
                     hammertime.on("panleft", () => {
                         if (!this.modelVisible) return;
                         this.isPanning = true
@@ -49,19 +50,19 @@
 
                     hammertime.on("panup", () => {
                         if (!this.modelVisible) return;
-                        this.isPanning = true
+                        xrot = true;
                         this.mesh.rotation.x -= 4 * Math.PI / 360;
                     })
 
                     hammertime.on("pandown", () => {
                         if (!this.modelVisible) return;
-                        this.isPanning = true
+                        xrot = true;
                         this.mesh.rotation.x += 4 * Math.PI / 360;
                     })
 
 
-                    hammertime.on("panend", () => this.isPanning = false)
-                    hammertime.on("pancancel", () => this.isPanning = false)
+                    hammertime.on("panend", () => this.isPanning = false, xrot = false)
+                    hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
 
                     hammertime.on("swipeleft", ({ velocity }) => {
                         if (!this.modelVisible) return;
@@ -86,6 +87,9 @@
                     this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
                     this.swipeVelocity *= 0.93;
                     if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
+                    if(this.modelVisible && this.swipeVelocity && xrot){
+                        alert("Giro en x");
+                    }
                 }
             })
         </script>
