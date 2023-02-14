@@ -87,9 +87,7 @@
                     this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
                     this.swipeVelocity *= 0.93;
                     if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
-                    if(this.modelVisible && this.swipeVelocity && xrot){
-                        alert("Giro en x");
-                    }
+                    
                 }
             })
         </script>
