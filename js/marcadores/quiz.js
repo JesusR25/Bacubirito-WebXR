@@ -128,7 +128,7 @@ const questions = [
       const selectedOption = document.querySelector('input[type="radio"]:checked');
       //Check if there is a radio input checked
       if(!selectedOption) {
-          alert('Please select your answer!');
+          alert('¡Por favor seleccione su respuesta!');
           return;
       }
       //Validacion de respuesta
