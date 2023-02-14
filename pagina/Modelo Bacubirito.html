@@ -61,8 +61,8 @@
                     })
 
 
-                    hammertime.on("panend", () => this.isPanning = false, xrot = false)
-                    hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
+                    hammertime.on("panend", () => this.isPanning = false)
+                    hammertime.on("pancancel", () => this.isPanning = false)
 
                     hammertime.on("swipeleft", ({ velocity }) => {
                         if (!this.modelVisible) return;
