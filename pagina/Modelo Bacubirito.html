@@ -84,6 +84,7 @@
                 tick: function () {
                     //Para rotacion en y
                     if ((this.modelVisible && this.swipeVelocity && this.isPanning)){
+                        return;
                     }else{
                         this.mesh.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
                         //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
