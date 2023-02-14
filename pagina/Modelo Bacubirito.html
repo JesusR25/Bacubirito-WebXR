@@ -71,14 +71,7 @@
                         if (!this.modelVisible) return;
                         this.swipeVelocity = velocity
                     })
-                    hammertime.on("swipeup", ({ velocity }) => {
-                        if (!this.modelVisible) return;
-                        this.swipeVelocity = velocity
-                    })
-                    hammertime.on("swipedown", ({ velocity }) => {
-                        if (!this.modelVisible) return;
-                        this.swipeVelocity = velocity
-                    })
+                    
                 },
                 tick: function () {
                     if (!(this.modelVisible && this.swipeVelocity && !this.isPanning)) return;
