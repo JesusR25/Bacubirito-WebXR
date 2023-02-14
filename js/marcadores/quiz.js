@@ -128,7 +128,11 @@ const questions = [
       const selectedOption = document.querySelector('input[type="radio"]:checked');
       //Check if there is a radio input checked
       if(!selectedOption) {
-          alert('¡Por favor seleccione su respuesta!');
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: '¡Por favor selecicona una respuesta!',
+        })
           return;
       }
       //Validacion de respuesta
