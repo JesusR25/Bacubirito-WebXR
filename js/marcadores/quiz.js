@@ -163,42 +163,41 @@ const questions = [
         var hora =  date.toLocaleTimeString();
         quiz(correctas, desempeño, fecha, hora );
         container.style.display = 'none';
-        if(correctas <= 3){
+        if(correctas <= 5){
           result.innerHTML =
            `<h1 class="final-score">Calificación obtenida: ${correctas} de 10 </h1>
            <div class="summary" style='display: flex;'>
-              <h1>Respuestas Correcta</h1>
-              <p>Possible - Personality Traits, see below for a summary based on your results:</p>
-              <p>15 - 21- You Need Help</p>
-              <p>10 - 15 - Good Soul</p>
-              <p>5 - 10 - Meh </p>
-              <p>5 - Are You Even Real</p>
+              <h1>Mensaje</h1>
+              <p>Te sugerimos ver de nueva cuenta los videos y vuelve a intentarlo.</p>
           </div>
-          <button class="restart">Restart Quiz</button>
+          <button class="restart">Reiniciar prueba</button>
            `;
-        }else if(correctas <=6){
+        }else if(correctas <=7){
           result.innerHTML =
            `<h1 class="final-score">Calificación obtenida: ${correctas} de 10 </h1>
            <div class="summary" style='display: flex;'>
-              <h1>¡Eres!</h1>
+              <h1>Mensaje</h1>
+              <p>Tu desempeño es aceptable. Si deseas mejorar tu puntuación vuelve a intentarlo.</p>
           </div>
-          <button class="restart">Restart Quiz</button>
+          <button class="restart">Reiniciar prueba</button>
            `;
         }else if(correctas <= 9){
           result.innerHTML =
            `<h1 class="final-score">Calificación obtenida: ${correctas} de 10 </h1>
            <div class="summary" style='display: flex;'>
-              <h1>¡Eres un experto en cuerpos celestes!</h1>
+              <h1>Mensaje</h1>
+              <p>Tu desempeño es aceptable. Si deseas mejorar tu puntuación vuelve a intentarlo.</p>
           </div>
-          <button class="restart">Restart Quiz</button>
+          <button class="restart">Reiniciar prueba</button>
            `;
         }else{
           result.innerHTML =
            `<h1 class="final-score">Calificación obtenida: ${correctas} de 10 </h1>
            <div class="summary" style='display: flex;'>
-              <h1>¡Eres un experto en cuerpos celestes!</h1>
+              <h1>Mensaje</h1>
+              <p>Excelente, lo has hecho muy bien.</p>
           </div>
-          <button class="restart">Restart Quiz</button>
+          <button class="restart">Reiniciar prueba</button>
            `;
         }
           return;
