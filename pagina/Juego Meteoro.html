@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Asteroides</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="../css/styles.css" rel="stylesheet">
     <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
     <script type="text/javascript" src="/js/marcadores/juego.js"></script>
@@ -105,21 +104,23 @@
             playPause()
             tiempor = obtener();
             juego(nivel, tiempor);
-            swal({
-                title: "¡Felicidades!",
-                text: "Has destruido los 12 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
-                icon: "success",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        meteors.unshift({ x: -30, y: 0, z: 0 });
+            Swal.fire({
+                title: '¡Felicidades!',
+                text: "Has destruido los 12 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el segundo nivel?",
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Denegar',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    meteors.unshift({ x: -30, y: 0, z: 0 });
                         initScene();
-                    } else {
-                        swal("¡Gracias por jugar!");
-                    }
-                });
+                }else{
+                    swal("¡Gracias por jugar!");
+                }
+            })
         }
 
         function cuartonivel() {
@@ -127,21 +128,23 @@
             playPause()
             tiempor = obtener();
             juego(nivel, tiempor);
-            swal({
-                title: "¡Felicidades!",
-                text: "Has destruido los 16 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
-                icon: "success",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        meteors.unshift({ x: 20, y: 0, z: 20 });
+            Swal.fire({
+                title: '¡Felicidades!',
+                text: "Has destruido los 16 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el segundo nivel?",
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Denegar',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    meteors.unshift({ x: 20, y: 0, z: 20 });
                         initScene();
-                    } else {
-                        swal("¡Gracias por jugar!");
-                    }
-                });
+                }else{
+                    swal("¡Gracias por jugar!");
+                }
+            })
         }
 
         function quintonivel() {
@@ -149,32 +152,34 @@
             playPause()
             tiempor = obtener();
             juego(nivel, tiempor);
-            swal({
-                title: "¡Felicidades!",
-                text: "Has destruido los 20 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el tercer nivel?",
-                icon: "success",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        meteors.unshift({ x: 20, y: 0, z: -20 },);
+            Swal.fire({
+                title: '¡Felicidades!',
+                text: "Has destruido los 20 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el segundo nivel?",
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Denegar',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    meteors.unshift({ x: 20, y: 0, z: -20 },);
                         initScene();
-                    } else {
-                        swal("¡Gracias por jugar!");
-                    }
-                });
+                }else{
+                    swal("¡Gracias por jugar!");
+                }
+            })
         }
 
         function final() {
             tiempor = document.getElementById('stopwatch').innerHTML;;
             juego(nivel, tiempor);
-            swal({
-                title: "¡Felicidades!",
-                text: "Has destruido los 24 meteoritos y has terminado el juego con un " + tiempo + ".",
-                icon: "success",
-                button: "Entendido",
-            });
+            Swal.fire({
+                icon: 'success',
+                title: '¡Felicidades!',
+                text: 'Has destruido los 24 meteoritos y has terminado el juego con un ' + tiempo + '.',
+                confirmButtonText: 'Entendido'
+            })
         }
 
         AFRAME.registerComponent('shootable', {
@@ -216,19 +221,22 @@
     </script>
     <script>
         function iniciar() {
-            swal({
-                title: "Instrucciones",
+            Swal.fire({
+                title: 'Instrucciones',
                 text: "Apunta hacia los asteriodes para destruirlos en el menor tiempo posible",
-                buttons: true,
-                dangerMode: true,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Entendido',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    playPause();
+                }else{
+                    window.history.back();
+                }
             })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        playPause()
-                    } else {
-                        window.history.back();
-                    }
-                });
         }
     </script>
 </head>
