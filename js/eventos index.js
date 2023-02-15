@@ -129,7 +129,7 @@ function advertencia(){
   function cinturon(){
     Swal.fire({
       title: 'Resumen',
-      html: '•	Esta es una vista previa sobre un <b>cinturón de asteroides</b>. <br><br> •	Puede interactuar con la pantalla para rotar la vista.',
+      html: '•	En esta escena podrás visualizar como orbitan los asteroides en el <b>cinturón de asteroides</b>. <br><br> •	Puede interactuar con la pantalla para rotar la vista.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
