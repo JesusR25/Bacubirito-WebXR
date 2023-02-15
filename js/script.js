@@ -66,6 +66,10 @@ function obtener(){
     }
 }
 
+function mejores (){
+    
+}
+
 const calculateTime = runningTime => {
     total_seconds = Math.floor(runningTime / 1000);
     total_minutes = Math.floor(total_seconds / 60);

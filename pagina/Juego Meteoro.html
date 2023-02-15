@@ -42,7 +42,7 @@
         }
     </style>
     <script type="module">
-        import {juego} from '../js/firebase.js'
+        import {juego, marcador} from '../js/firebase.js'
         window.addEventListener('load', initScene)
 
         const meteors = [
@@ -245,10 +245,15 @@
     </main>
     <div id="botonesorigen" style='position: absolute; bottom: 2%; left: 1%; text-align: center; z-index: 1;'>
         <button class="butt" id="btn7">Menu Principal</button>
+        <button class="butt" id="btn8">Marcador</button>
     </div>
-    <script>
+    <script type="module">
+        import {marcador} from '../js/firebase.js'
         document.getElementById("btn7").addEventListener("click", (e) => {
             window.history.back();
+        });
+        document.getElementById("btn8").addEventListener("click", (e) => {
+            marcador();
         });
     </script>
     <a-scene vr-mode-ui="enabled: false" loading-screen="enabled:false">

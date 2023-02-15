@@ -248,3 +248,35 @@ export const juego = async ( nivel, tiempo) => {
     });
   }
 };
+
+
+export const marcador = async () => {
+  const veces = collection(db, "score");
+  const consulta = query(veces);
+  const resul = await getDocs(consulta);
+  let conteo = 0;
+  let numact = 0;
+  let numant = 0;
+  let cont = 1;
+  let tiempo;
+  let mejusu = [];
+  resul.forEach((doc) => {
+    if(cont == 1){
+      tiempo = doc.get("tiempo")
+      numact = tiempo.replace(/[^0-9]+/g, "");
+      mejusu.push(doc);
+      cont++;
+    }else{
+      numant = numact;
+      tiempo = doc.get("tiempo")
+      numact = tiempo.replace(/[^0-9]+/g, "");
+      if(numant < numact){
+
+        mejusu.push(doc);
+      }else{
+        mejusu.unshift(doc);
+      }
+    }
+  });
+  
+};
