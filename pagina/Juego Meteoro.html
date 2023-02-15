@@ -8,6 +8,7 @@
     <title>Juego de Asteroides</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <link href="../css/styles.css" rel="stylesheet">
     <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
     <script type="text/javascript" src="/js/marcadores/juego.js"></script>
@@ -81,22 +82,23 @@
             playPause()
             tiempor = obtener();
             juego(nivel, tiempor);
-            swal({
-                title: "¡Felicidades!",
+            Swal.fire({
+                title: '¡Felicidades!',
                 text: "Has destruido los 8 meteoritos en un tiempo de " + tiempo + ". ¿Te gustaria continuar con el segundo nivel?",
-                icon: "success",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        meteors.unshift({ x: 30, y: 0, z: 0 });
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    meteors.unshift({ x: 30, y: 0, z: 0 });
                         initScene();
                         playPause()
-                    } else {
-                        swal("¡Gracias por jugar!");
-                    }
-                });
+                }else{
+                    swal("¡Gracias por jugar!");
+                }
+            })
         }
         function tercernivel() {
             var tiempo = document.getElementById('stopwatch').innerHTML;
