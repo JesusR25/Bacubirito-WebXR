@@ -27,7 +27,7 @@ function advertencia(){
   function meteorito(){
     Swal.fire({
       title: 'Resumen',
-      html: '•	Marcador disponible: <b> Meteorito.</b> <br><br> •	Escanea el marcador Meteorito para visualizar una representación 3D. Podrás  rotarlo con los gestos que utilices en la pantalla. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.' ,
+      html: '•	Marcador disponible: <b> Meteorito.</b> y <b>Video</b> <br><br> •	Escanea el marcador Meteorito para visualizar una representación 3D. Podrás  rotarlo con los gestos que utilices en la pantalla. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.' ,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
