@@ -282,7 +282,7 @@ export const marcador = async () => {
   Swal
     .fire({
       title: "Marcador",
-      html:'<b>1.-</b> ' +  mejusu[0].get("email") + " ",
+      html:'<b>1.-</b> ' +  mejusu[0].get("email") + " : " + mejusu[0].get("tiempo") + "<br> <b>2.-</b> " + +  mejusu[1].get("email") + " : " + mejusu[1].get("tiempo"),
       confirmButtonText: "Entendido",
     })
     .then(resultado => {
