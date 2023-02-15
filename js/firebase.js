@@ -278,5 +278,15 @@ export const marcador = async () => {
       }
     }
   });
+
+  Swal
+    .fire({
+      title: "Marcador",
+      html:'<b>1.-</b> ' +  mejusu[0].get("email") + " ",
+      confirmButtonText: "Entendido",
+    })
+    .then(resultado => {
   
+    });
+
 };
