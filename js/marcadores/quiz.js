@@ -162,8 +162,8 @@ const questions = [
         var fecha = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
         var hora =  date.toLocaleTimeString();
         quiz(correctas, desempeño, fecha, hora );
-        console.log(Respuestas);
-          container.style.display = 'none';
+        container.style.display = 'none';
+        if(correctas <= 3){
           result.innerHTML =
            `<h1 class="final-score">Calificación obtenida: ${correctas} de 10 </h1>
            <div class="summary" style='display: flex;'>
@@ -176,6 +176,31 @@ const questions = [
           </div>
           <button class="restart">Restart Quiz</button>
            `;
+        }else if(correctas <=6){
+          result.innerHTML =
+           `<h1 class="final-score">Calificación obtenida: ${correctas} de 10 </h1>
+           <div class="summary" style='display: flex;'>
+              <h1>¡Eres!</h1>
+          </div>
+          <button class="restart">Restart Quiz</button>
+           `;
+        }else if(correctas <= 9){
+          result.innerHTML =
+           `<h1 class="final-score">Calificación obtenida: ${correctas} de 10 </h1>
+           <div class="summary" style='display: flex;'>
+              <h1>¡Eres un experto en cuerpos celestes!</h1>
+          </div>
+          <button class="restart">Restart Quiz</button>
+           `;
+        }else{
+          result.innerHTML =
+           `<h1 class="final-score">Calificación obtenida: ${correctas} de 10 </h1>
+           <div class="summary" style='display: flex;'>
+              <h1>¡Eres un experto en cuerpos celestes!</h1>
+          </div>
+          <button class="restart">Restart Quiz</button>
+           `;
+        }
           return;
       }
       generateQuestions(currentQuestion);

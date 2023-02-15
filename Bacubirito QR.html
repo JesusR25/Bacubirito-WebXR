@@ -51,7 +51,7 @@
             justify-content: center;
             align-items: center;
             color: black;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             padding: 15px;
             border: 3px solid #B34F19;
@@ -134,15 +134,24 @@
             function readDeviceOrientation() {
                 if (Math.abs(window.orientation) === 90) {
                     //Landscape
-                    document.querySelector("#modelo").setAttribute("scale", "0.6 0.6 0.6");
+                    document.querySelector("#modelo").setAttribute("scale", "1 1 1");
                     document.querySelector("#modelo").setAttribute("position", "0 0.2 -4");
                     document.getElementById("botonesorigen").style.left = "28%";
+                    //Para video
+                    document.getElementById("historia").style.left = "15%";
+                    document.getElementById("historia").style.top = "16%";
+                    document.getElementById("hist").style.width = "580";
+                    document.getElementById("hist").style.height = "250";
                 } else {
                     //Portrait
-                    document.querySelector("#modelo").setAttribute("scale", "0.8 0.8 0.8");
-                    document.querySelector("#modelo").setAttribute("position", "0 0 -4");
+                    document.querySelector("#modelo").setAttribute("scale", "1.8 1.8 1.8");
+                    document.querySelector("#modelo").setAttribute("position", "0 -0.1 -4");
                     document.getElementById("botonesorigen").style.left = "7%";
-
+                    //Para video
+                    document.getElementById("historia").style.left = "0%";
+                    document.getElementById("historia").style.top = "20%";
+                    document.getElementById("hist").style.width = "420";
+                    document.getElementById("hist").style.height = "250";
                 }
             }
             window.onorientationchange = readDeviceOrientation;
@@ -183,7 +192,7 @@
     </script>
 
 
-    <div id="texto" style="z-index: 9999;text-align: center; display: none; ">
+    <div id="texto" style="z-index: 9999;text-align: center; display: block; ">
         <p class="caja">
             • Es el quinto más grande del mundo. Fue descubierto en 1863, en Bacubirito, Sin.<br><br>
             • Fue trasladado al Centro Cívico Constitución en Culiacán para su exhibición desde 1959 hasta 1992.<br><br>
