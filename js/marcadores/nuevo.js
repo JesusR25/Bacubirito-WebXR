@@ -10,15 +10,6 @@ var puntuacion1 = "10"
 var nombre2 = "Manuel";
 var puntuacion2 = "4";
 
-Swal
-    .fire({
-      title: "Mejores puntuacions",
-      html:'Hola <b>' + nombre1 + '</b> : ' + +puntuacion1 + " <br> Adios <b>" + nombre2 +  "</b>" ,
-      confirmButtonText: "Entendido",
-    })
-    .then(resultado => {
-  
-    });
 
 botonacerca.addEventListener("click", (e) => {
   Swal
