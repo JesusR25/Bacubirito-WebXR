@@ -171,7 +171,7 @@ function redirigir() {
   Swal.fire({
     icon: "warning",
     title: "Advertencia",
-    html: "Esta es una aplicación de realidad aumentada con fines educativos, en ningún momento se pone en riesgo la seguridad del usuario. \n En caso de que el usuario sea un menor de edad, se sugiere que esté supervisado por un adulto. \n Se recomienda estar atento al espacio físico donde se use la aplicación para evitar alguna situación de riesgo. \n Esta aplicación no requiere de ningún dispositivo adicional para su uso.",
+    html: "Esta es una aplicación de realidad aumentada con fines educativos, en ningún momento se pone en riesgo la seguridad del usuario. <br><br> En caso de que el usuario sea un menor de edad, se sugiere que esté supervisado por un adulto. <br><br> Se recomienda estar atento al espacio físico donde se use la aplicación para evitar alguna situación de riesgo. <br><br> Esta aplicación no requiere de ningún dispositivo adicional para su uso.",
     confirmButtonText: "Entendido",
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */

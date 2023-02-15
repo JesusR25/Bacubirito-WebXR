@@ -1,6 +1,7 @@
 function onQRCodeScanned(scannedText)
 {
     if(scannedText == 'Reproducir Video'){
+        document.getElementById("btn5").innerHTML = 'Ocultar';
         document.querySelector("#cometa").setAttribute("visible", false);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
@@ -9,6 +10,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "block";
     }
     if(scannedText == 'Cometa'){
+        document.getElementById("btn5").innerHTML = 'Ocultar Cometa';
         document.querySelector("#hist").pause();
         document.getElementById("historia").style.display = "none";
         document.querySelector("#cometa").setAttribute("visible", true);
@@ -24,6 +26,7 @@ function onQRCodeScanned(scannedText)
           })
     }
     if(scannedText == 'Meteorito'){
+        document.getElementById("btn5").innerHTML = 'Ocultar Meteorito';
         document.querySelector("#hist").pause();
         document.getElementById("historia").style.display = "none";
         document.querySelector("#meteorito").setAttribute("visible", true);
@@ -39,6 +42,7 @@ function onQRCodeScanned(scannedText)
           })
     }
     if(scannedText == 'Asteroide'){
+        document.getElementById("btn5").innerHTML = 'Ocultar Asteroide';
         document.querySelector("#hist").pause();
         document.getElementById("historia").style.display = "none";
         document.querySelector("#asteroide").setAttribute("visible", true);
@@ -52,27 +56,6 @@ function onQRCodeScanned(scannedText)
             imageHeight: 100,
             imageAlt: 'Custom image',
           })
-    }
-    if(scannedText == 'Cinturón de Asteroides'){
-        document.querySelector("#hist").pause();
-        document.getElementById("historia").style.display = "none";
-        document.querySelector("#asteroide").setAttribute("visible", false);
-        document.querySelector("#meteorito").setAttribute("visible", false);
-        document.querySelector("#cometa").setAttribute("visible", false);
-        Swal.fire({
-            title: 'Cinturón de asteroides',
-            text: 'Para ver el cinturon de asteroides es necesario pasar a otra pagina.',
-            showCancelButton: true,
-            confirmButtonText: 'Aceptar',
-            cancelButtonText: `Cancelar`,
-          }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                window.location.href = "/pagina/cinturon.html"
-            } else if (result.isDenied) {
-              
-            }
-          });
     }
 }
 
