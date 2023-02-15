@@ -270,8 +270,8 @@ export const marcador = async () => {
       numant = numact;
       tiempo = doc.get("tiempo")
       numact = tiempo.replace(/[^0-9]+/g, "");
-      if(numant < numact){
-
+      if(numant <= numact){
+        console.log(numant + "menor que" + numact);
         mejusu.push(doc);
       }else{
         mejusu.unshift(doc);
@@ -279,10 +279,11 @@ export const marcador = async () => {
     }
   });
 
+
   Swal
     .fire({
       title: "Marcador",
-      html:'<b>1.-</b> ' +  mejusu[0].get("email") + " : " + mejusu[0].get("tiempo") + "<br> <b>2.-</b> " +  mejusu[1].get("email") + " : " + mejusu[1].get("tiempo") + "<br> <b>3.-</b> " +  mejusu[2].get("email") + " : " + mejusu[2].get("tiempo") + + "<br> <b>4.-</b> " +  mejusu[3].get("email") + " : " + mejusu[3].get("tiempo") + + "<br> <b>5.-</b> " +  mejusu[4].get("email") + " : " + mejusu[4].get("tiempo"),
+      html:'<b>1.-</b> ' +  mejusu[0].get("email") + " : " + mejusu[0].get("tiempo") + "<br> <b>2.-</b> " +  mejusu[1].get("email") + " : " + mejusu[1].get("tiempo") + "<br> <b>3.-</b> " +  mejusu[2].get("email") + " : " + mejusu[2].get("tiempo") + "<br> <b>4.-</b> " +  mejusu[3].get("email") + " : " + mejusu[3].get("tiempo") + "<br> <b>5.-</b> " +  mejusu[4].get("email") + " : " + mejusu[4].get("tiempo"),
       confirmButtonText: "Entendido",
     })
     .then(resultado => {
