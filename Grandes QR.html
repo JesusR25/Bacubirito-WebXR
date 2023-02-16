@@ -25,8 +25,8 @@
             var x = window.matchMedia("(max-width: 640px)");
             var xt = window.matchMedia("(max-width: 1280px)");
             myFunction(x) // Call listener function at run time
-            myFunctiont(xt);
-            xt.addEventListener(myFunctiont);
+            myFunctiont(xt)
+            xt.addEventListener(myFunctiont)
             x.addListener(myFunction) // Attach listener function on state changes
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90 && cel == true) {
