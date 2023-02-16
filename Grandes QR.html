@@ -18,7 +18,7 @@
                 }
             }
             var x = window.matchMedia("(max-width: 640px)");
-            var xt = windows.matchMedia("(max-width: 1280px)");
+            var xt = window.matchMedia("(max-width: 1280px)");
             myFunction(x,xt) // Call listener function at run time
             x.addListener(myFunction) // Attach listener function on state changes
         function readDeviceOrientation() {
