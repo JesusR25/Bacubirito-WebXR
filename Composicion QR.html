@@ -153,8 +153,22 @@
         </div>
 
         <script>
+            var activo = false;
+        var volteado = false;
+        let cel = false;
+        var g = false;
+        function myFunction(x) {
+                if (x.matches) { // If media query matches
+                    cel = true;
+                } else{
+
+                }}
+            var x = window.matchMedia("(max-width: 640px)");
+            myFunction(x) // Call listener function at run time
+            x.addListener(myFunction) // Attach listener function on state changes
+
             function readDeviceOrientation() {
-            if (Math.abs(window.orientation) === 90) {
+            if (Math.abs(window.orientation) === 90 && cel == true) {
                 //Landscape
                 document.getElementById("botonesorigen").style.left = "28%";
                 document.getElementById("flechas").style.top = "4%";
@@ -184,6 +198,24 @@
                 document.querySelector("#cob").setAttribute("scale", "1");
                 document.querySelector("#cob").setAttribute("position", "0 0.7 -4");
                 document.querySelector("#mod").setAttribute("position", "0 -0.8 -4");
+                g = true;
+            }
+            if (Math.abs(window.orientation) === 90 && cel == false) {
+                 //Landscape
+                    document.getElementById("botonesorigen").style.left = "28%";
+                    //Para video
+                    document.getElementById("composicion").style.left = "15%";
+                    document.getElementById("composicion").style.top = "8%";
+                    document.getElementById("comp").style.width = "820";
+                    document.getElementById("comp").style.height = "650";
+            }
+            if(cel == false && g == true){
+                    document.getElementById("botonesorigen").style.left = "7%";
+                    //Para video
+                    document.getElementById("composicion").style.left = "15%";
+                    document.getElementById("composicion").style.top = "8%";
+                    document.getElementById("comp").style.width = "820";
+                    document.getElementById("comp").style.height = "650";
             }
         }
         window.onorientationchange = readDeviceOrientation;
