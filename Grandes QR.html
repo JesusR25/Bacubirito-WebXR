@@ -17,6 +17,7 @@
             }
             function myFunctiont(xt) {
                 if (xt.matches) { // If media query matches
+                    alert("Es tablet");
                     tablet = true;
                 } else {
                 }
@@ -78,6 +79,7 @@
                 document.getElementById("botonesorigen").style.left = "40%";
             }
         }
+        window.onorientationchange = readDeviceOrientation;
         window.onorientationchange = readDeviceOrientationt;
     </script>
     <style>
