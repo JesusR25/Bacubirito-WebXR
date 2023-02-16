@@ -94,8 +94,21 @@
         <button class="butt" id="btn8">Reproducir</button>
     </div>
     <script>
+        var activo = false;
+        var volteado = false;
+        let cel = false;
+        var g = false;
+        function myFunction(x) {
+                if (x.matches) { // If media query matches
+                    cel = true;
+                } else{
+
+                }}
+            var x = window.matchMedia("(max-width: 640px)");
+            myFunction(x) // Call listener function at run time
+            x.addListener(myFunction) // Attach listener function on state changes
         function readDeviceOrientation() {
-            if (Math.abs(window.orientation) === 90) {
+            if (Math.abs(window.orientation) === 90 && cel == true) {
                 document.getElementById("botonesorigen").style.left = "28%";
                 //Para video
                 document.getElementById("historia").style.left = "15%";
@@ -109,6 +122,24 @@
                 document.getElementById("historia").style.top = "20%";
                 document.getElementById("hist").style.width = "420";
                 document.getElementById("hist").style.height = "250";
+                g = true;
+            }
+            if (Math.abs(window.orientation) === 90 && cel == false) {
+                 //Landscape
+                    document.getElementById("botonesorigen").style.left = "28%";
+                    //Para video
+                    document.getElementById("historia").style.left = "15%";
+                    document.getElementById("historia").style.top = "8%";
+                    document.getElementById("hist").style.width = "820";
+                    document.getElementById("hist").style.height = "650";
+            }
+            if(cel == false && g == true){
+                    document.getElementById("botonesorigen").style.left = "7%";
+                    //Para video
+                    document.getElementById("historia").style.left = "15%";
+                    document.getElementById("historia").style.top = "8%";
+                    document.getElementById("hist").style.width = "820";
+                    document.getElementById("hist").style.height = "650";
             }
         }
         window.onorientationchange = readDeviceOrientation;
