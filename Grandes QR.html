@@ -12,7 +12,6 @@
         function myFunction(x) {
                 if (x.matches) { // If media query matches
                     cel = true;
-                    alert("Celular");
                 } else{
 
                 }
@@ -24,7 +23,6 @@
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90 && cel == true) {
                 //Landscape
-                alert("estiloss");
                 document.getElementById("inf").style.width = "30%";
                 document.getElementById("ima").style.width = "30%";
                 document.getElementById("inf").style.marginTop = "3%";
@@ -46,7 +44,6 @@
             }
             if (Math.abs(window.orientation) === 90 && cel == false) {
                 //Landscape
-                alert("estiloss");
                 document.getElementById("inf").style.width = "30%";
                 document.getElementById("ima").style.width = "30%";
                 document.getElementById("inf").style.marginTop = "3%";
