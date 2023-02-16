@@ -50,8 +50,6 @@
                 //Boton
                 document.getElementById("botonesorigen").style.left = "40%";
             }
-        }
-        function readDeviceOrientationt() {
             if (Math.abs(window.orientation) === 90 && tablet == true) {
                 //Landscape
                 alert("Entro");
@@ -79,8 +77,8 @@
                 document.getElementById("botonesorigen").style.left = "40%";
             }
         }
+
         window.onorientationchange = readDeviceOrientation;
-        window.onorientationchange = readDeviceOrientationt;
     </script>
     <style>
         .qrscanner video {
