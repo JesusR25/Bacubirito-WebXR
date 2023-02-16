@@ -9,44 +9,22 @@
     <script>
         let cel = false;
         let tablet = false;
-        function myFunction(x, xt) {
+        function myFunction(x) {
                 if (x.matches) { // If media query matches
                     cel = true;
                     alert("Celular");
-                } else if(xt.matchMedia) {
-                    tablet = true;
+                } else{
+
                 }
             }
+        
             var x = window.matchMedia("(max-width: 640px)");
-            var xt = window.matchMedia("(max-width: 1280px)");
-            myFunction(x,xt) // Call listener function at run time
+            myFunction(x) // Call listener function at run time
             x.addListener(myFunction) // Attach listener function on state changes
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90 && cel == true) {
                 //Landscape
                 alert("estiloss");
-                document.getElementById("inf").style.width = "30%";
-                document.getElementById("ima").style.width = "30%";
-                document.getElementById("inf").style.marginTop = "3%";
-                document.getElementById("ima").style.marginTop = "3%";
-                document.getElementById("inf").style.marginLeft = "7%";
-                document.getElementById("ima").style.marginLeft = "7%";
-                //Boton
-                document.getElementById("botonesorigen").style.left = "45%";
-            } else {
-                //Portrait
-                document.getElementById("inf").style.width = "80%";
-                document.getElementById("ima").style.width = "80%";
-                document.getElementById("inf").style.marginTop = "10%";
-                document.getElementById("ima").style.marginTop = "10%";
-                document.getElementById("inf").style.marginLeft = "10%";
-                document.getElementById("ima").style.marginLeft = "10%";
-                //Boton
-                document.getElementById("botonesorigen").style.left = "40%";
-            }
-            if (Math.abs(window.orientation) === 90 && tablet == true) {
-                //Landscape
-                alert("estiloss tablett");
                 document.getElementById("inf").style.width = "30%";
                 document.getElementById("ima").style.width = "30%";
                 document.getElementById("inf").style.marginTop = "3%";
@@ -170,8 +148,8 @@
             img {
                 width: auto;
                 height: auto;
-                max-width: 30%;
-                max-height: 50%;
+                max-width: 50%;
+                max-height: 70%;
                 margin-left: 5%;
                 margin-top: 5%;
             }
