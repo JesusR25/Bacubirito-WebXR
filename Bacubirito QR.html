@@ -130,9 +130,19 @@
     <script>
         var activo = false;
         var volteado = false;
+        let cel = false;
+        function myFunction(x) {
+                if (x.matches) { // If media query matches
+                    cel = true;
+                } else{
+
+                }}
+            var x = window.matchMedia("(max-width: 640px)");
+            myFunction(x) // Call listener function at run time
+            x.addListener(myFunction) // Attach listener function on state changes
         //PANTALLA AL GIRAR
             function readDeviceOrientation() {
-                if (Math.abs(window.orientation) === 90) {
+                if (Math.abs(window.orientation) === 90 && cel == true) {
                     //Landscape
                     document.querySelector("#modelo").setAttribute("scale", "1 1 1");
                     document.querySelector("#modelo").setAttribute("position", "0 0.2 -4");
@@ -153,6 +163,17 @@
                     document.getElementById("hist").style.width = "420";
                     document.getElementById("hist").style.height = "250";
                 }
+                if (Math.abs(window.orientation) === 90 && cel == false) {
+                 //Landscape
+                 document.querySelector("#modelo").setAttribute("scale", "1 1 1");
+                    document.querySelector("#modelo").setAttribute("position", "0 0.2 -4");
+                    document.getElementById("botonesorigen").style.left = "28%";
+                    //Para video
+                    document.getElementById("historia").style.left = "15%";
+                    document.getElementById("historia").style.top = "16%";
+                    document.getElementById("hist").style.width = "580";
+                    document.getElementById("hist").style.height = "250";
+            }
             }
             window.onorientationchange = readDeviceOrientation;
         //Boton para mostrar meteoro
