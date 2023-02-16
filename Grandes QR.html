@@ -15,18 +15,8 @@
                 } else {
                 }
             }
-            function myFunctiont(xt) {
-                if (xt.matches) { // If media query matches
-                    alert("Es tablet");
-                    tablet = true;
-                } else {
-                }
-            }
             var x = window.matchMedia("(max-width: 640px)");
-            var xt = window.matchMedia("(max-width: 1280px)");
             myFunction(x) // Call listener function at run time
-            myFunctiont(xt)
-            xt.addEventListener(myFunctiont)
             x.addListener(myFunction) // Attach listener function on state changes
         function readDeviceOrientation() {
             if (Math.abs(window.orientation) === 90 && cel == true) {
@@ -47,32 +37,6 @@
                 document.getElementById("ima").style.marginTop = "10%";
                 document.getElementById("inf").style.marginLeft = "10%";
                 document.getElementById("ima").style.marginLeft = "10%";
-                //Boton
-                document.getElementById("botonesorigen").style.left = "40%";
-            }
-            if (Math.abs(window.orientation) === 90 && tablet == true) {
-                //Landscape
-                alert("Entro");
-                document.getElementById("inf").style.width = "30%";
-                document.getElementById("ima").style.width = "30%";
-                document.getElementById("inf").style.marginTop = "3%";
-                document.getElementById("ima").style.marginTop = "3%";
-                document.getElementById("inf").style.marginLeft = "7%";
-                document.getElementById("ima").style.marginLeft = "7%";
-                //Boton
-                document.getElementById("botonesorigen").style.left = "45%";
-            } else {
-                //Portrait
-                document.getElementById("inf").style.width = "auto";
-                document.getElementById("img").style.width = "auto";
-                document.getElementById("inf").style.height = "auto";
-                document.getElementById("img").style.height = "auto";
-                document.getElementById("inf").style.maxWidth = "50%";
-                document.getElementById("ima").style.maxWidth = "50%";
-                document.getElementById("inf").style.marginTop = "7%";
-                document.getElementById("ima").style.marginTop = "7%";
-                document.getElementById("inf").style.marginLeft = "25%";
-                document.getElementById("ima").style.marginLeft = "25%";
                 //Boton
                 document.getElementById("botonesorigen").style.left = "40%";
             }
