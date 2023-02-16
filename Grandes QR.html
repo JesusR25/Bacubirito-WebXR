@@ -15,8 +15,8 @@
                 } else {
                 }
             }
-            function myFunctiont(x) {
-                if (x.matches) { // If media query matches
+            function myFunctiont(xt) {
+                if (xt.matches) { // If media query matches
                     tablet = true;
                 } else {
                 }
@@ -53,6 +53,7 @@
         function readDeviceOrientationt() {
             if (Math.abs(window.orientation) === 90 && tablet == true) {
                 //Landscape
+                alert("Entro");
                 document.getElementById("inf").style.width = "30%";
                 document.getElementById("ima").style.width = "30%";
                 document.getElementById("inf").style.marginTop = "3%";
