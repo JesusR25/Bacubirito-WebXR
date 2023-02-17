@@ -270,12 +270,16 @@ export const marcador = async () => {
       numant = numact;
       tiempo = doc.get("tiempo")
       numact = tiempo.replace(/[^0-9]+/g, "");
+
       if(numant <= numact){
         console.log(numant + "menor que" + numact);
         mejusu.push(doc);
       }else{
         mejusu.unshift(doc);
       }
+    }
+    if(doc.get("email")){
+      alert("Soy invitado");     
     }
   });
 
