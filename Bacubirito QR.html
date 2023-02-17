@@ -174,7 +174,7 @@
             function readDeviceOrientation() {
                 if (Math.abs(window.orientation) === 90 && cel == true) {
                     //Landscape
-                    document.querySelector("#modelo").setAttribute("scale", "1 1 1");
+                    document.querySelector("#modelo").setAttribute("scale", ".8 1 1.8");
                     document.querySelector("#modelo").setAttribute("position", "0 0.2 -4");
                     document.getElementById("botonesorigen").style.left = "28%";
                     //Para video
@@ -184,7 +184,7 @@
                     document.getElementById("hist").style.height = "250";
                 } else {
                     //Portrait
-                    document.querySelector("#modelo").setAttribute("scale", "1.8 1.8 1.8");
+                    document.querySelector("#modelo").setAttribute("scale", "2.8 1.8 2.8");
                     document.querySelector("#modelo").setAttribute("position", "0 -0.1 -4");
                     document.getElementById("botonesorigen").style.left = "7%";
                     //Para video
@@ -268,7 +268,7 @@
         </a-assets>
         
         <a-entity id="modelo" visible="false" position="0 -0.1 -4" rotation="0 0 0" scale="2.8 1.8 2.8" gltf-model="#bacu"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 30000"></a-entity>
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 15000"></a-entity>
 
         <a-entity camera></a-entity>
     </a-scene>
