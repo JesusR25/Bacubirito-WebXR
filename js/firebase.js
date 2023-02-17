@@ -260,26 +260,40 @@ export const marcador = async () => {
   let cont = 1;
   let tiempo;
   let mejusu = [];
+  let nombre = [];
+  let tiemarr = [];
   resul.forEach((doc) => {
     if(cont == 1){
       tiempo = doc.get("tiempo")
       numact = tiempo.replace(/[^0-9]+/g, "");
+      if(!doc.get("email")){
+        nombre.push(doc.get("invitadoID"));    
+      }else{
+        nombre.push(doc.get("email"));
+      }
+      tiemarr.push(doc.get("tiempo"));
       mejusu.push(doc);
       cont++;
     }else{
       numant = numact;
       tiempo = doc.get("tiempo")
       numact = tiempo.replace(/[^0-9]+/g, "");
-
       if(numant <= numact){
         console.log(numant + "menor que" + numact);
-        mejusu.push(doc);
+        if(!doc.get("email")){
+          nombre.push("Invitado " + doc.get("invitadoID"));    
+        }else{
+          nombre.push(doc.get("email"));
+        }
+        tiemarr.push(doc.get("tiempo"));
       }else{
-        mejusu.unshift(doc);
+        if(!doc.get("email")){
+          nombre.unshift("Invitado " + doc.get("invitadoID"));    
+        }else{
+          nombre.unshift(doc.get("email"));
+        }
+        tiemarr.unshift(doc.get("tiempo"));
       }
-    }
-    if(doc.get("email")){
-      alert("Soy invitado");     
     }
   });
 
@@ -287,7 +301,7 @@ export const marcador = async () => {
   Swal
     .fire({
       title: "Marcador",
-      html:'<b>1.-</b> ' +  mejusu[0].get("email") + " : " + mejusu[0].get("tiempo") + "<br> <b>2.-</b> " +  mejusu[1].get("email") + " : " + mejusu[1].get("tiempo") + "<br> <b>3.-</b> " +  mejusu[2].get("email") + " : " + mejusu[2].get("tiempo") + "<br> <b>4.-</b> " +  mejusu[3].get("email") + " : " + mejusu[3].get("tiempo") + "<br> <b>5.-</b> " +  mejusu[4].get("email") + " : " + mejusu[4].get("tiempo"),
+      html:'<b>1.-</b> ' +  nombre[0] + " : " + tiemarr[0] + "<br> <b>2.-</b> " +  nombre[1] + " : " + tiemarr[1] + "<br> <b>3.-</b> " +  nombre[2] + " : " + tiemarr[2] + "<br> <b>4.-</b> " +  nombre[3] + " : " + tiemarr[3] + "<br> <b>5.-</b> " +  nombre[4] + " : " + tiemarr[4],
       confirmButtonText: "Entendido",
     })
     .then(resultado => {
