@@ -112,6 +112,17 @@
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+    <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
+        arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded>
+        <a-assets>
+            <a-asset-item id="bacu" src="../assets/Bacubirito/Meteoro Hist.glb"></a-asset-item>
+        </a-assets>
+        
+        <a-entity id="modelo" visible="false" position="0 -0.1 -4" rotation="0 0 0" scale="1.8 1.8 1.8" gltf-model="#bacu"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" gesture-handler></a-entity>
+
+        <a-entity camera></a-entity>
+    </a-scene>
     <div id="botonesorigen" style='position: absolute; top: 2%; left: 7%; text-align: center; z-index: 1;'>
         <button class="butt" id="btn7">Menu Principal</button>
         <button class="butt" id="btn5">Meteorito</button>
@@ -232,7 +243,6 @@
             • Desde 1993 hasta la fecha permanece en el Centro de Ciencias de Sinaloa.
         </p>
     </div>
-    
 </body>
 
 </html>
