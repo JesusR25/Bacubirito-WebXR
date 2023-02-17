@@ -242,19 +242,18 @@
 
         <a-entity camera></a-entity>
     </a-scene>
-
+    <script type="text/javascript">
+        function downloadJSAtOnload() {
+        var element = document.createElement("script");
+        element.src = "/js/marcadores/bacubirito.js";
+        document.body.appendChild(element);
+        }
+        if (window.addEventListener)
+        window.addEventListener("load", downloadJSAtOnload, false);
+        else if (window.attachEvent)
+        window.attachEvent("onload", downloadJSAtOnload);
+        else window.onload = downloadJSAtOnload;
+        </script>
 </body>
-<script type="text/javascript">
-    function downloadJSAtOnload() {
-    var element = document.createElement("script");
-    element.src = "/js/marcadores/bacubirito.js";
-    document.body.appendChild(element);
-    }
-    if (window.addEventListener)
-    window.addEventListener("load", downloadJSAtOnload, false);
-    else if (window.attachEvent)
-    window.attachEvent("onload", downloadJSAtOnload);
-    else window.onload = downloadJSAtOnload;
-    </script>
 
 </html>
