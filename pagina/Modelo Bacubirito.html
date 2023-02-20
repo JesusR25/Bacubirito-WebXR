@@ -11,8 +11,9 @@
         <script>
             function readDeviceOrientation() {
                 if (Math.abs(window.orientation) === 90) {
+                    alert("Vuelta");
                     //Landscape
-                    document.querySelector("#modelo").setAttribute("scale", "2.8 1.8 2.8");;
+                    document.querySelector("#modelo").setAttribute("scale", "2.8 2.8 2.8");;
                 } else {
                     //Portrait
                     
