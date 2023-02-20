@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Asteroides</title>
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
     <link href="../css/styles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
+    <script type="text/javascript" src="/js/marcadores/juego.js"></script>
     <script src="../js/script.js" defer></script>
     <style>
         .qrscanner video {
@@ -255,8 +257,16 @@
         <button class="butt" id="btn7">Menu Principal</button>
         <button class="butt" id="btn8">Puntuaciones</button>
     </div>
-    
-    <a-scene vr-mode-ui="enabled: false" loading-screen="enabled:false">
+    <script type="module">
+        import {marcador} from '../js/firebase.js'
+        document.getElementById("btn7").addEventListener("click", (e) => {
+            window.history.back();
+        });
+        document.getElementById("btn8").addEventListener("click", (e) => {
+            marcador();
+        });
+    </script>
+    <a-scene vr-mode-ui="enabled: false" loading-screen="enabled:false" >
 
         <a-assets>
             <img src="../assets/MetImg/Met-Agpalilik.png" id="meteor">
