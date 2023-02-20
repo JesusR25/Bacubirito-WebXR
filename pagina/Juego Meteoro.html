@@ -215,7 +215,8 @@
 
     </script>
     <script>
-        swal({
+        function iniciar() {
+            swal({
                 title: "Instrucciones",
                 text: "Apunta hacia los asteriodes para destruirlos en el menor tiempo posible",
                 buttons: true,
@@ -223,11 +224,12 @@
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        playPause();
+                        playPause()
                     } else {
                         window.history.back();
                     }
                 });
+        }
     </script>
 </head>
 
