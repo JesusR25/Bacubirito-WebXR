@@ -147,14 +147,14 @@
         <button class="butt" id="btn6">Cerrar</button>
         <button class="butt" id="btn8">Reproducir</button>
     </div>
-    <div id="botonvideo" style="position: absolute;text-align: center; z-index: 9999; left: 0%; top: 10%; ">
-        <button class="butt" id="btn7">Menu Principal</button>
+    <div id="botonvideo" style="position: absolute;text-align: center; z-index: 9999; left: 0%; top: 10%; display: none;">
+        <button class="butt" id="btnmp">Menu Principal</button>
         <br>
-        <button class="butt" id="btn5">Meteorito</button>
+        <button class="butt" id="btnm">Meteorito</button>
         <br>
-        <button class="butt" id="btn6">Cerrar</button>
+        <button class="butt" id="btnc">Cerrar</button>
         <br>
-        <button class="butt" id="btn8">Reproducir</button>
+        <button class="butt" id="btnr">Reproducir</button>
     </div>
 
     <div class="qrscanner" id="scanner"></div>
@@ -187,6 +187,8 @@
                     document.querySelector("#modelo").setAttribute("scale", "1.8 2 1.8");
                     document.querySelector("#modelo").setAttribute("position", "0 0.2 -4");
                     document.getElementById("botonesorigen").style.left = "28%";
+                    document.getElementById("botonesorigen").style.display = "none";
+                    document.getElementById("botonvideo").style.display = "block";
                     //Para video
                     document.getElementById("historia").style.left = "5%";
                     document.getElementById("historia").style.top = "0%";
@@ -197,6 +199,8 @@
                     document.querySelector("#modelo").setAttribute("scale", "2.8 1.8 2.8");
                     document.querySelector("#modelo").setAttribute("position", "0 -0.1 -4");
                     document.getElementById("botonesorigen").style.left = "7%";
+                    document.getElementById("botonesorigen").style.display = "block";
+                    document.getElementById("botonvideo").style.display = "none";
                     //Para video
                     document.getElementById("historia").style.left = "0%";
                     document.getElementById("historia").style.top = "20%";
