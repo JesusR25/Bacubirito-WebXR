@@ -186,6 +186,34 @@
             document.querySelector("#hist").play();
                     document.getElementById("historia").style.display = "block";
                 });
+
+         //BOTONES VOLTEADOSSS
+        //Boton para mostrar meteoro
+        document.getElementById("btnm").addEventListener("click", (e) => {
+            document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#cometa").setAttribute("visible", false);
+            document.querySelector("#asteroide").setAttribute("visible", false);
+                });
+
+        //Boton para cerrar el video
+        document.getElementById("btnc").addEventListener("click", (e) => {
+            document.querySelector("#hist").pause();
+                    document.getElementById("historia").style.display = "none";
+                });
+        
+        //Boton para pausar video
+        document.getElementById("btnmp").addEventListener("click", (e) => {
+            window.history.back();
+                });
+
+        //Boton para reproducir video
+        document.getElementById("btnr").addEventListener("click", (e) => {
+            document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#cometa").setAttribute("visible", false);
+            document.querySelector("#asteroide").setAttribute("visible", false);
+            document.querySelector("#hist").play();
+                    document.getElementById("historia").style.display = "block";
+                });
     </script>
     <div class="vid" id="historia">
         <video id="hist" class="veo" controls>
