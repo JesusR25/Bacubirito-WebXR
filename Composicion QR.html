@@ -81,7 +81,7 @@
                 display: none;             
             }
             .veo{
-                width: 100%;
+                width: 420;
                 height: 250;
             }
         }
@@ -106,8 +106,8 @@
         @media screen and (min-width: 1280px) {
             .vid{
                 position: absolute;
-                top: 3%;
-                left: 3%;
+                top: 5%;
+                left: 15%;
                 text-align: center;
                 z-index: 1;   
                 display: none;            
@@ -127,15 +127,6 @@
         <button class="butt" id="btn6">Cerrar</button>
         <button class="butt" id="btn8">Reproducir</button>
     </div>
-    <div id="botonvideo" style="position: absolute;text-align: center; z-index: 9999; left: 0%; top: 10%; display: none;">
-        <button class="butt" id="btnmp">Menu Principal</button>
-        <br>
-        <button class="butt" id="btnm">Composición</button>
-        <br>
-        <button class="butt" id="btnc">Cerrar</button>
-        <br>
-        <button class="butt" id="btnr">Reproducir</button>
-    </div>
     <div class="qrscanner" id="scanner"></div>
 
     <div class="vid" id="composicion">
@@ -149,7 +140,17 @@
         <div id="footer">
             <p id="parrafo">El meteorito de Bacubirito está compuesto por 4 elementos. Utiliza las flechas para ver información sobre cada uno de ellos</p>
         </div>
-    </div>
+
+        <div id="flechas" style='position: absolute;top: 15%;text-align: center; z-index: 9999; right: 0%; display: none;'>
+            <button class="button" id="btnSig">
+                <img src="../assets/sig.png" width="40px"> </button>
+        </div>
+
+        <div id="flechasant" style='position: absolute;top: 15%;text-align: center; z-index: 9999; left: 0%; display: none;'>
+            <button class="button" id="btnAnt">
+                <img src="../assets/ant.png" width="40px">
+            </button>
+        </div>
 
         <script>
             var activo = false;
@@ -178,10 +179,10 @@
                 document.querySelector("#cob").setAttribute("position", "-1.5 0 -4");
                 document.querySelector("#mod").setAttribute("position", "1.5 0 -4");
                 //Para video
-                document.getElementById("composicion").style.left = "10%";
+                document.getElementById("composicion").style.left = "15%";
                 document.getElementById("composicion").style.top = "16%";
-                document.getElementById("comp").style.width = "60%";
-                document.getElementById("comp").style.height = "70%";
+                document.getElementById("comp").style.width = "580";
+                document.getElementById("comp").style.height = "250";
             } else {
                 //Portrait
                 document.getElementById("botonesorigen").style.left = "7%";
@@ -190,7 +191,7 @@
                 //Para video
                 document.getElementById("composicion").style.left = "0%";
                 document.getElementById("composicion").style.top = "20%";
-                document.getElementById("comp").style.width = "100%";
+                document.getElementById("comp").style.width = "420";
                 document.getElementById("comp").style.height = "250";
                 
                 document.querySelector("#mod").setAttribute("scale", "1.5 1 1.5");
@@ -279,28 +280,6 @@
             document.getElementById("btn8").addEventListener("click", (e) => {
                 botonReproducir();
             });
-
-            //BOTONES VOLTEADOSSS
-        //Boton para mostrar meteoro
-        document.getElementById("btnm").addEventListener("click", (e) => {
-            botonPausar();
-                });
-
-        //Boton para cerrar el video
-        document.getElementById("btnc").addEventListener("click", (e) => {
-            botonOcultar();
-                });
-        
-        //Boton para pausar video
-        document.getElementById("btnmp").addEventListener("click", (e) => {
-            window.history.back();
-                });
-
-        //Boton para reproducir video
-        document.getElementById("btnr").addEventListener("click", (e) => {
-            botonReproducir();
-                });
-            
         </script>
         <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
             arjs='sourceType: webcam; debugUIEnabled: false;' id="scene">
