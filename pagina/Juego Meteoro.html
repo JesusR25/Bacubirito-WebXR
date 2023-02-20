@@ -232,6 +232,7 @@
                 cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {
+                    initScene();
                     playPause();
                 }else{
                     window.history.back();
