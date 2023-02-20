@@ -43,7 +43,7 @@
     </style>
     <script type="module">
         import {juego, marcador} from '../js/firebase.js'
-        
+        window.addEventListener('load', initScene)
 
         const meteors = [
             { x: 0, y: 0, z: -30 },
@@ -232,7 +232,6 @@
                 cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    initScene();
                     playPause();
                 }else{
                     window.history.back();
@@ -262,9 +261,6 @@
         import {marcador} from '../js/firebase.js'
         document.getElementById("btn7").addEventListener("click", (e) => {
             window.history.back();
-        });
-        document.getElementById("btn8").addEventListener("click", (e) => {
-            marcador();
         });
     </script>
     <a-scene vr-mode-ui="enabled: false" loading-screen="enabled:false">
