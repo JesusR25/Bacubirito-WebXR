@@ -264,6 +264,43 @@
                     document.getElementById("historia").style.display = "block";
                     activo = true;
                 });
+
+
+
+        //BOTONES VOLTEADOSSS
+        //Boton para mostrar meteoro
+        document.getElementById("btnm").addEventListener("click", (e) => {
+                    //Primero escondemos todo de los 2 videos anteriores
+                activo = false;
+                document.querySelector("#hist").pause();
+                document.getElementById("historia").style.display = "none";
+                //Aqui hacemos todo lo del video del marker correspondiente
+                document.querySelector("#modelo").setAttribute("visible", true);
+                document.getElementById("texto").style.display = "block";
+                });
+
+        //Boton para cerrar el video
+        document.getElementById("btnc").addEventListener("click", (e) => {
+            document.querySelector("#hist").pause();
+                    document.getElementById("historia").style.display = "none";
+                    activo = false;
+                });
+        
+        //Boton para pausar video
+        document.getElementById("btnmp").addEventListener("click", (e) => {
+            window.history.back();
+                });
+
+        //Boton para reproducir video
+        document.getElementById("btnr").addEventListener("click", (e) => {
+                    //Primero escondemos todo de los 2 videos anteriores
+                    //Aqui hacemos todo lo del video del marker correspondiente
+                    document.querySelector("#modelo").setAttribute("visible", false);
+                    document.getElementById("texto").style.display = "none";
+                    document.querySelector("#hist").play();
+                    document.getElementById("historia").style.display = "block";
+                    activo = true;
+                });
             
     </script>
 
