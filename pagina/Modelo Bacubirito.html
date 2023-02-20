@@ -9,16 +9,6 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
         <script>
-            function readDeviceOrientation() {
-                if (Math.abs(window.orientation) === 90) {
-                    //Landscape
-                    document.querySelector("#modelo").setAttribute("scale", "2 3 2");;
-                } else {
-                    //Portrait
-                    
-                }
-            }
-            window.onorientationchange = readDeviceOrientation;
             AFRAME.registerComponent("controller", {
                 init: function () {
                     this.modelVisible = true;
@@ -143,11 +133,28 @@
             <button class="butt" id="btn9">Mostrar</button>
         </div>
         <script>
+            var girado = false;
+            function readDeviceOrientation() {
+                if (Math.abs(window.orientation) === 90) {
+                    //Landscape
+                    girado = true;
+                    document.querySelector("#modelo").setAttribute("scale", "2 3 2");
+                } else {
+                    //Portrait
+                    girado = false;
+                    document.querySelector("#modelo").setAttribute("scale", "2.8 1.8 2.8");
+                }
+            }
+            window.onorientationchange = readDeviceOrientation;
             document.getElementById("btn7").addEventListener("click", (e) => {
                 window.history.back();
             });
             document.getElementById("btn9").addEventListener("click", (e) => {
-                document.querySelector("#modelo").emit("acercar");
+                if (girado){
+                    document.querySelector("#modelo").emit("volteado");
+                }else{
+                    document.querySelector("#modelo").emit("acercar");
+                }
             });
             document.getElementById("btn8").addEventListener("click", (e) => {
                 document.querySelector("#modelo").emit("foo");
@@ -158,7 +165,7 @@
             <a-assets>
                 <a-asset-item id="bacu" src="../assets/Bacubirito/Meteoro Hist.glb"></a-asset-item>
             </a-assets>
-            <a-entity id="modelo" visible="true" position="0 0 -4" rotation="45 0 0" scale="2.8 1.8 2.8" gltf-model="#bacu" animation="property: scale; to: 0 0 0; dur: 3000; easing: linear; startEvents: foo;" animation__2="property: scale; to: 2 2 2; dur: 3000; easing: linear; startEvents: acercar;"></a-entity>
+            <a-entity id="modelo" visible="true" position="0 0 -4" rotation="45 0 0" scale="2.8 1.8 2.8" gltf-model="#bacu" animation="property: scale; to: 0 0 0; dur: 3000; easing: linear; startEvents: foo;" animation__2="property: scale; to: 2 2 2; dur: 3000; easing: linear; startEvents: acercar;" animation__3="property: scale; to: 2 3 2; dur: 3000; easing: linear; startEvents: volteado;"></a-entity>
             <a-marker id="meteo" type='pattern' url='../assets/MarcadoresF/pattern-Meteorito.patt'>
                 <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
             </a-marker>
