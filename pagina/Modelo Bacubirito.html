@@ -9,6 +9,16 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
         <script>
+            function readDeviceOrientation() {
+                if (Math.abs(window.orientation) === 90) {
+                    //Landscape
+                    document.querySelector("#modelo").setAttribute("scale", "2.8 1.8 2.8");;
+                } else {
+                    //Portrait
+                    
+                }
+            }
+            window.onorientationchange = readDeviceOrientation;
             AFRAME.registerComponent("controller", {
                 init: function () {
                     this.modelVisible = true;
