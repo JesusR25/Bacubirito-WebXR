@@ -93,6 +93,15 @@
         <button class="butt" id="btn6">Cerrar</button>
         <button class="butt" id="btn8">Reproducir</button>
     </div>
+    <div id="botonvideo" style="position: absolute;text-align: center; z-index: 9999; left: 0%; top: 10%; display: none;">
+        <button class="butt" id="btnmp">Menu Principal</button>
+        <br>
+        <button class="butt" id="btnm">Ocultar</button>
+        <br>
+        <button class="butt" id="btnc">Cerrar</button>
+        <br>
+        <button class="butt" id="btnr">Reproducir</button>
+    </div>
     <script>
         var activo = false;
         var volteado = false;
@@ -118,6 +127,8 @@
                 document.querySelector("#cometa").setAttribute("scale", "0.3 0.4 0.3");
                 document.querySelector("#asteroide").setAttribute("scale", "1 1.3 1");
                 document.querySelector("#meteorito").setAttribute("scale", "0.5 0.6 0.5");
+                document.getElementById("botonesorigen").style.display = "none";
+                document.getElementById("botonvideo").style.display = "block";
             } else {
                 document.getElementById("botonesorigen").style.left = "7%";
                 //Para video
@@ -128,6 +139,8 @@
                 document.querySelector("#cometa").setAttribute("scale", "0.5 0.5 0.5");
                 document.querySelector("#asteroide").setAttribute("scale", "1.5 1.5 1");
                 document.querySelector("#meteorito").setAttribute("scale", "0.3 0.3 0.3");
+                document.getElementById("botonesorigen").style.display = "block";
+                document.getElementById("botonvideo").style.display = "none";
                 g = true;
             }
             if (Math.abs(window.orientation) === 90 && cel == false) {
