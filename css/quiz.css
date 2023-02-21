@@ -37,9 +37,10 @@ html {
     text-transform: uppercase;
     line-height: 100%;
   }
+
   .question {
     margin: 2rem 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .option {
     padding: 1rem;
