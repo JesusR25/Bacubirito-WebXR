@@ -301,7 +301,7 @@ export const marcador = async () => {
   Swal
     .fire({
       title: "Marcador",
-      html:'<b>1.-</b> ' +  nombre[0] + " : " + tiemarr[0] + "<br> <b>2.-</b> " +  nombre[1] + " : " + tiemarr[1] + "<br> <b>3.-</b> " +  nombre[2] + " : " + tiemarr[2] + "<br> <b>4.-</b> " +  nombre[3] + " : " + tiemarr[3] + "<br> <b>5.-</b> " +  nombre[4] + " : " + tiemarr[4],
+      html:'<table class="content-table"> <thead> <tr> <th>Posición</th> <th>Tiempo</th> <th>Correo</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>'+ nombre[0] + '</td> <td>' + tiemarr[0] + '</td> </tr> <td>2</td> <td>' + nombre[1] + '</td> <td>' + tiemarr[1] + '</td> </tr> <tr> <td>3</td> <td>' + nombre[2] + '</td> <td>' + tiemarr[2] + '</td> </tr> <tr> <td>4</td><td>' + nombre[3] + '</td> <td>' + tiemarr[3] + '</td> </tr><tr><td>5</td><td>' + nombre[4] + '</td><td>' + tiemarr[4] + '</td></tr></tbody> </table>',
       confirmButtonText: "Entendido",
     })
     .then(resultado => {

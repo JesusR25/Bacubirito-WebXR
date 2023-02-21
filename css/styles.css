@@ -75,3 +75,26 @@ main {
     cursor: pointer;
     display: none;
 }
+
+.styled-table thead tr {
+    background-color: #980081;
+    color: #ffffff;
+    text-align: middle;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
