@@ -267,7 +267,7 @@ export const marcador = async () => {
       tiempo = doc.get("tiempo")
       numact = tiempo.replace(/[^0-9]+/g, "");
       if(!doc.get("email")){
-        nombre.push(doc.get("invitadoID"));    
+        nombre.push("Invitado " + doc.get("invitadoID"));    
       }else{
         nombre.push(doc.get("email"));
       }
