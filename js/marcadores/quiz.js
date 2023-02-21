@@ -75,6 +75,7 @@ const questions = [
   let selectedAnswersData = [];
   let Respuestas = [];
   let desempeño = "";
+  let ultima = false;
   let RespCorrectas = ["Bacubirito", "Falso", "Falso", "Verdadero", "Verdadero", "Falso", "Falso", "Meteorito", "Verdadero", "Verdadero"];
   const totalQuestions =questions.length;
   const container = document.querySelector('.quiz-container');
@@ -142,9 +143,11 @@ const questions = [
       if(question.Correcta == valor){
         desempeño = desempeño + "C "
         correctas++;
+        ultima = true;
         console.log(correctas);
       }else{
         desempeño = desempeño + "I "
+        ultima = false;
       }
       selectedAnswersData.push()
       //Finally we incement the current question number ( to be used as the index for each array)
@@ -209,6 +212,11 @@ const questions = [
   function loadPreviousQuestion() {
       //Decrement quentions index
       currentQuestion--;
+      Respuestas.pop();
+      if(ultima){
+        correctas--;
+      }
+      desempeño = desempeño.substring(0, desempeño.length - 2);
       //remove last array value;
       //Generate the question
       generateQuestions(currentQuestion);
