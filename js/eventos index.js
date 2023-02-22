@@ -27,7 +27,7 @@ function advertencia(){
   function meteorito(){
     Swal.fire({
       title: 'Resumen',
-      html: '•	En esta pantalla podrás visualizar una representación en 3D del meteorito de Bacubirito podrás rotarlo con los gestos que utilices en la pantalla. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.' ,
+      html: '•	En esta pantalla podrás visualizar una representación en 3D del Meteorito de Bacubirito, podrás rotarlo con los gestos que utilices en la pantalla. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.' ,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
