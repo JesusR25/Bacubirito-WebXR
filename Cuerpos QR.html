@@ -101,11 +101,11 @@
         <br>
         <button class="butt" id="btnm">Ocultar</button>
         <br>
-        <button class="butt" id="btn9">Cometa</button>
+        <button class="butt" id="btn12">Cometa</button>
         <br>
-        <button class="butt" id="btn10">Asteroide</button>
+        <button class="butt" id="btn13">Asteroide</button>
         <br>
-        <button class="butt" id="btn11">Meteorito</button>
+        <button class="butt" id="btn14">Meteorito</button>
         <br>
         <button class="butt" id="btnc">Cerrar</button>
         <br>
@@ -123,11 +123,33 @@
         document.getElementById("btn10").addEventListener("click", (e) => {
             document.querySelector("#meteorito").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", false);
-            document.querySelector("#asteroide").setAttribute("visible", false);
+            document.querySelector("#asteroide").setAttribute("visible", true);
             document.querySelector("#hist").pause();
             document.getElementById("historia").style.display = "none";
                 });
         document.getElementById("btn11").addEventListener("click", (e) => {
+            document.querySelector("#meteorito").setAttribute("visible", true);
+            document.querySelector("#cometa").setAttribute("visible", false);
+            document.querySelector("#asteroide").setAttribute("visible", false);
+            document.querySelector("#hist").pause();
+            document.getElementById("historia").style.display = "none";
+                });
+
+                document.getElementById("btn12").addEventListener("click", (e) => {
+            document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#cometa").setAttribute("visible", true);
+            document.querySelector("#asteroide").setAttribute("visible", false);
+            document.querySelector("#hist").pause();
+            document.getElementById("historia").style.display = "none";
+                });
+        document.getElementById("btn13").addEventListener("click", (e) => {
+            document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#cometa").setAttribute("visible", false);
+            document.querySelector("#asteroide").setAttribute("visible", true);
+            document.querySelector("#hist").pause();
+            document.getElementById("historia").style.display = "none";
+                });
+        document.getElementById("btn14").addEventListener("click", (e) => {
             document.querySelector("#meteorito").setAttribute("visible", true);
             document.querySelector("#cometa").setAttribute("visible", false);
             document.querySelector("#asteroide").setAttribute("visible", false);
