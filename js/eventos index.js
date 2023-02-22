@@ -10,7 +10,7 @@ function advertencia(){
   function historia(){
     Swal.fire({
       title: 'Resumen',
-      html: '•	En esta escena está disponible el marcador <b> Video. </b> <br><br> •	Conoce los principales acontecimientos del Meteorito, escanea el marcador para reproducir el video. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.',
+      html: '•	En esta escena está disponible el marcador <b> Video. </b> <br><br> •	Conoce los principales acontecimientos del Meteorito, escanea el marcador o presiona el botón <b>Video</b> para reproducir el video. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -44,7 +44,7 @@ function advertencia(){
   function composicion(){
     Swal.fire({
       title: 'Resumen',
-      html: '•	En esta escena están disponibles los marcadores <b> Composición </b> y <b> Video</b>. <br><br>	•	Escanea el marcador <b>Video</b> o presion el botón <b>Video</b> para reproducir el video que relata la composición química del Meteorito de Bacubirito.<br><br>• Escanea el marcador de <b>Composición</b> o presiona el botón <b>Composición</b> para visualizar qué elementos químicos forman parte del meteorito.',
+      html: '•	En esta escena están disponibles los marcadores <b> Composición </b> y <b> Video</b>. <br><br>	•	Escanea el marcador <b>Video</b> o presiona el botón <b>Video</b> para reproducir el video que relata la composición química del Meteorito de Bacubirito.<br><br>• Escanea el marcador de <b>Composición</b> o presiona el botón <b>Composición</b> para visualizar qué elementos químicos forman parte del meteorito.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
