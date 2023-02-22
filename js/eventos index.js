@@ -108,6 +108,7 @@ function advertencia(){
       }
     })
   }
+  
 
   function cuerpos(){
     Swal.fire({
