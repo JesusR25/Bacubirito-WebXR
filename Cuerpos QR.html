@@ -239,6 +239,7 @@
         //Boton para pausar video
         document.getElementById("btn8").addEventListener("click", (e) => {
             //Aqui hacemos todo lo del video del marker correspondiente
+            document.getElementById("btn5").innerHTML = 'Ocultar';
             document.querySelector("#meteorito").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", false);
             document.querySelector("#asteroide").setAttribute("visible", false);
