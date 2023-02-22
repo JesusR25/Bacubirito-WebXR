@@ -35,6 +35,21 @@
             border: 2px solid rgba(235, 152, 78);
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
+        .buttoc {
+            background: url(../assets/Imagenes/btn2.png) center;
+            border: none;
+            color: #F1EA41;
+            padding: 7px;
+            text-align: center;
+            text-decoration: none;
+            display: none;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 2px solid rgba(235, 152, 78);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
         /* Moviles */
         @media screen and (max-width: 640px) {
             .vid{
@@ -89,11 +104,11 @@
     <div class="qrscanner" id="scanner"></div>
     <div id="botonesorigen" style='position: absolute; top: 2%; left: 7%; text-align: center; z-index: 1;'>
         <button class="butt" id="btn7">Menu Principal</button>
-        <button class="butt" id="btn5">Ocultar cuerpo</button>
+        <button class="buttoc" id="btn5">Ocultar cuerpo</button>
         <button class="butt" id="btn9">Cometa</button>
         <button class="butt" id="btn10">Asteroide</button>
         <button class="butt" id="btn11">Meteorito</button>
-        <button class="butt" id="btn6">Cerrar video</button>
+        <button class="buttoc" id="btn6">Cerrar video</button>
         <button class="butt" id="btn8">Reproducir</button>
     </div>
     <div id="botonvideo" style="position: absolute;text-align: center; z-index: 9999; left: 0%; top: 0%; display: none;">
@@ -114,6 +129,8 @@
     <script>
         //Boton para mostrar meteoro
         document.getElementById("btn9").addEventListener("click", (e) => {
+            document.getElementById("btn6").style.display = "none";
+            document.getElementById("btn5").style.display = "inline-block";
             document.getElementById("btn5").innerHTML = 'Ocultar Cometa';
             document.querySelector("#meteorito").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", true);
@@ -122,6 +139,8 @@
             document.getElementById("historia").style.display = "none";
                 });
         document.getElementById("btn10").addEventListener("click", (e) => {
+            document.getElementById("btn5").style.display = "inline-block";
+            document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Asteroide';
             document.querySelector("#meteorito").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", false);
@@ -130,6 +149,8 @@
             document.getElementById("historia").style.display = "none";
                 });
         document.getElementById("btn11").addEventListener("click", (e) => {
+            document.getElementById("btn5").style.display = "inline-block";
+            document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Meteorito';
             document.querySelector("#meteorito").setAttribute("visible", true);
             document.querySelector("#cometa").setAttribute("visible", false);
@@ -139,6 +160,7 @@
                 });
 
                 document.getElementById("btn12").addEventListener("click", (e) => {
+                    document.getElementById("btn6").style.display = "none";
                     document.getElementById("btn5").innerHTML = 'Ocultar Cometa';
             document.querySelector("#meteorito").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", true);
@@ -147,6 +169,7 @@
             document.getElementById("historia").style.display = "none";
                 });
         document.getElementById("btn13").addEventListener("click", (e) => {
+            document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Asteroide';
             document.querySelector("#meteorito").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", false);
@@ -155,6 +178,7 @@
             document.getElementById("historia").style.display = "none";
                 });
         document.getElementById("btn14").addEventListener("click", (e) => {
+            document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Meteorito';
             document.querySelector("#meteorito").setAttribute("visible", true);
             document.querySelector("#cometa").setAttribute("visible", false);
@@ -226,12 +250,15 @@
             window.history.back();
         });
         document.getElementById("btn5").addEventListener("click", (e) => {
+            document.getElementById("btn6").style.display = "none";
             document.querySelector("#meteorito").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", false);
             document.querySelector("#asteroide").setAttribute("visible", false);
         });
         //Boton para cerrar el video
         document.getElementById("btn6").addEventListener("click", (e) => {
+            document.getElementById("btn6").style.display = "none";
+            document.getElementById("btn8").style.display = "inline-block";
             document.querySelector("#hist").pause();
                     document.getElementById("historia").style.display = "none";
                 });
@@ -239,7 +266,10 @@
         //Boton para pausar video
         document.getElementById("btn8").addEventListener("click", (e) => {
             //Aqui hacemos todo lo del video del marker correspondiente
-            document.getElementById("btn5").innerHTML = 'Ocultar';
+            document.getElementById("btn5").style.display = "none";
+            document.getElementById("btn8").style.display = "none";
+            document.getElementById("btn6").style.display = "inline-block";
+            document.getElementById("btn7").innerHTML = 'Ocultar';
             document.querySelector("#meteorito").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", false);
             document.querySelector("#asteroide").setAttribute("visible", false);
