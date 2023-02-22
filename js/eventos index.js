@@ -9,7 +9,7 @@ function advertencia(){
 
   function historia(){
     Swal.fire({
-      title: 'Resumen',
+      title: 'Historia del Meteorito de Bacubirito',
       html: '•	En esta escena está disponible el marcador <b> Video. </b> <br><br> •	Conoce los principales acontecimientos del Meteorito, escanea el marcador o presiona el botón <b>Video</b> para reproducir el video. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.',
       icon: 'warning',
       showCancelButton: true,
@@ -26,8 +26,8 @@ function advertencia(){
 
   function meteorito(){
     Swal.fire({
-      title: 'Resumen',
-      html: '•	En esta pantalla podrás visualizar una representación en 3D del Meteorito de Bacubirito, podrás rotarlo con los gestos que utilices en la pantalla. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.' ,
+      title: 'Meteorito de Bacubirito',
+      html: '•	En esta pantalla podrás visualizar una representación en 3D del Meteorito de Bacubirito, podrás rotarlo, acercarlo o alejarlo con los gestos que utilices en la pantalla. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.' ,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -43,7 +43,7 @@ function advertencia(){
 
   function composicion(){
     Swal.fire({
-      title: 'Resumen',
+      title: 'Composición Quimica del Meteorito',
       html: '•	En esta escena están disponibles los marcadores <b> Composición </b> y <b> Video</b>. <br><br>	•	Escanea el marcador <b>Video</b> o presiona el botón <b>Video</b> para reproducir el video que relata la composición química del Meteorito de Bacubirito.<br><br>• Escanea el marcador de <b>Composición</b> o presiona el botón <b>Composición</b> para visualizar qué elementos químicos forman parte del meteorito.',
       icon: 'warning',
       showCancelButton: true,
@@ -60,7 +60,7 @@ function advertencia(){
 
   function grandes(){
     Swal.fire({
-      title: 'Resumen',
+      title: 'Meteoritos más grandres',
       html: '•	En esta escena se usan todos los marcadores ubicados en el Pasillo A. <br><br>	•	Escanea el marcador que representa a cada meteorito para visualizar su información más relevante acerca de cada uno de los meteoritos encontrados en nuestro planeta. <br><br> •	Da click en la imagen para ocultarla.',
       icon: 'warning',
       showCancelButton: true,
@@ -77,7 +77,7 @@ function advertencia(){
 
   function vista(){
     Swal.fire({
-      title: 'Resumen',
+      title: 'Vista espacial',
       html: '•	En esta escena se puede apreciar nuestro planeta, con efecto de movimiento de rotación. A un costado, se puede ver un asteroide.',
       icon: 'warning',
       showCancelButton: true,
@@ -94,7 +94,7 @@ function advertencia(){
 
   function juego(){
     Swal.fire({
-      title: 'Resumen',
+      title: 'Minijuego',
       html: '•	El objetivo es destruir la mayor cantidad de asteroides en el menor tiempo posible',
       icon: 'warning',
       showCancelButton: true,
@@ -111,8 +111,8 @@ function advertencia(){
 
   function cuerpos(){
     Swal.fire({
-      title: 'Resumen',
-      html: '•	Escanea el marcador <b>video</b> para reproducir un video donde se explica cómo está formado cada uno de los cuerpos celestes. <br><br> <br><br>  •  Presiona el botón <b>meteorito cometa</b> y <b>asteroide</b> respectivamente para visualizar una representación tridimensional en la pantalla.<br><br>•	Se sugiere coloque su dispositivo móvil en <b>posición horizontal</b> con el fin de optimizar la visualización del video.',
+      title: 'Cuerpos Celestes',
+      html: '•	Escanea el marcador <b>Video</b> para reproducir un video donde se explica cómo está formado cada uno de los cuerpos celestes. <br><br>  •  Presiona el botón <b>Meteorito, Cometa</b> y <b>Asteroide</b> respectivamente para visualizar una representación tridimensional en la pantalla.<br><br>•	Se sugiere coloque su dispositivo móvil en <b>posición horizontal</b> con el fin de optimizar la visualización del video.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -128,7 +128,7 @@ function advertencia(){
 
   function cinturon(){
     Swal.fire({
-      title: 'Resumen',
+      title: 'Cinturón de Asteroides',
       html: '•	En esta escena podrás visualizar como orbitan los asteroides en el <b>Cinturón de Asteroides</b>. <br><br> •	Puede interactuar con la pantalla para rotar la vista.',
       icon: 'warning',
       showCancelButton: true,
@@ -145,7 +145,7 @@ function advertencia(){
 
   function quiz(){
     Swal.fire({
-      title: 'Resumen',
+      title: 'Quiz',
       html: '•	En esta escena, deberás responder un examen que contempla los conocimientos adquiridos con la pagina web.',
       icon: 'warning',
       showCancelButton: true,
