@@ -132,7 +132,7 @@ const questions = [
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: '¡Por favor selecicona una respuesta!',
+          text: '¡Por favor selecciona una respuesta!',
         })
           return;
       }
