@@ -112,7 +112,7 @@ function advertencia(){
   function cuerpos(){
     Swal.fire({
       title: 'Cuerpos Celestes',
-      html: '•	Escanea el marcador <b>Video</b> para reproducir un video donde se explica cómo está formado cada uno de los cuerpos celestes. <br><br>  •  Presiona el botón <b>Meteorito, Cometa</b> y <b>Asteroide</b> respectivamente para visualizar una representación tridimensional en la pantalla.<br><br>•	Se sugiere coloque su dispositivo móvil en <b>posición horizontal</b> con el fin de optimizar la visualización del video.',
+      html: '•	Escanea el marcador <b>Video</b> para reproducir un video donde se explica cómo está formado cada uno de los cuerpos celestes. <br><br>  •  Presiona el botón <b>Meteorito, Cometa</b> y <b>Asteroide</b> respectivamente para visualizar su representación tridimensional en la pantalla.<br><br>•	Se sugiere coloque su dispositivo móvil en <b>posición horizontal</b> con el fin de optimizar la visualización del video.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
