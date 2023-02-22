@@ -10,7 +10,7 @@ function advertencia(){
   function historia(){
     Swal.fire({
       title: 'Historia del Meteorito de Bacubirito',
-      html: '•	En esta escena está disponible el marcador <b> Video. </b> <br><br> •	Conoce los principales acontecimientos del Meteorito, escanea el marcador o presiona el botón <b>Video</b> para reproducir el video. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.',
+      html: '•	Conoce los principales acontecimientos del Meteorito, presiona el botón <b>Video</b> para reproducir el video. <br><br> •	Se sugiere coloque su dispositivo móvil en <b>posición vertical</b> con el fin de tener una mejor visualización.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -44,7 +44,7 @@ function advertencia(){
   function composicion(){
     Swal.fire({
       title: 'Composición Química del Meteorito',
-      html: '•	En esta escena están disponibles los marcadores <b> Composición </b> y <b> Video</b>. <br><br>	•	Escanea el marcador <b>Video</b> o presiona el botón <b>Video</b> para reproducir el video que relata la composición química del Meteorito de Bacubirito.<br><br>• Escanea el marcador de <b>Composición</b> o presiona el botón <b>Composición</b> para visualizar qué elementos químicos forman parte del meteorito.',
+      html: '•	Presiona el botón <b>Video</b> para reproducir el video que relata la composición química del Meteorito de Bacubirito.<br><br>• Presiona el botón <b>Composición</b> para visualizar qué elementos químicos forman parte del meteorito.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -113,7 +113,7 @@ function advertencia(){
   function cuerpos(){
     Swal.fire({
       title: 'Cuerpos Celestes',
-      html: '•	Escanea el marcador <b>Video</b> para reproducir un video donde se explica cómo está formado cada uno de los cuerpos celestes. <br><br>  •  Presiona el botón <b>Meteorito, Cometa</b> y <b>Asteroide</b> respectivamente para visualizar su representación tridimensional en la pantalla.<br><br>•	Se sugiere coloque su dispositivo móvil en <b>posición horizontal</b> con el fin de optimizar la visualización del video.',
+      html: '•	Presiona el botón <b>Video</b> para reproducir un video donde se explica cómo está formado cada uno de los cuerpos celestes. <br><br>  •  Presiona el botón <b>Meteorito, Cometa</b> y <b>Asteroide</b> respectivamente para visualizar su representación tridimensional en la pantalla.<br><br>•	Se sugiere coloque su dispositivo móvil en <b>posición horizontal</b> con el fin de optimizar la visualización del video.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
