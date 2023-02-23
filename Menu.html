@@ -5,6 +5,13 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <script src="/js/eventos index.js" defer></script>
+    <script type="module" src="./js/firebase.js"></script>
+    <script type="module">
+      import { cerrar } from './js/firebase.js'
+      document.getElementById("cs").addEventListener("click", function (evento) {
+        cerrar();
+      });
+    </script>
     <style>
       .frame {
         width: 90%;
@@ -109,6 +116,7 @@
       <button class="custom-btn btn-9" onclick="cinturon();">Cinturón de Asteroides</button>
       <button class="custom-btn btn-9" onclick="juego();">Minijuego Asteroides</button>
       <button class="custom-btn btn-9" onclick="quiz();">Quiz</button>
+      <button class="custom-btn btn-9" id="cs">Cerrar Sesión</button>
     </div>
   </body>
 </html>

@@ -12,6 +12,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js";
 import {
   getFirestore,
@@ -308,4 +309,35 @@ export const marcador = async () => {
   
     });
 
+};
+
+export const cerrar = async () => {
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    let timerInterval;
+      Swal.fire({
+        icon: "success",
+        title: "Cerrando sesión",
+        html: "¡Gracias por su visita!",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          window.location.href = "index.html";
+        }
+      });
+  }).catch((error) => {
+    // An error happened.
+  });
 };
