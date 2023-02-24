@@ -5,9 +5,7 @@
     <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script>
     <script type="text/javascript" src="/js/marcadores/cuerpos.js"></script>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .qrscanner video {
@@ -313,8 +311,7 @@
     </div>
 
 
-    <a-scene vr-mode-ui="enabled: false" id="escena" loading-screen="enabled: false;"
-        arjs='sourceType: webcam; debugUIEnabled: false;' id="scene">
+    <a-scene vr-mode-ui="enabled: false" loading-screen="enabled:false">
         <a-assets>
             <a-asset-item id="bacu" src="../assets/Cuerpos/CometaM.glb"></a-asset-item>
             <a-asset-item id="aste" src="../assets/Modelos/Meteoro planeta.glb"></a-asset-item>
