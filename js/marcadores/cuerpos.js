@@ -62,6 +62,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "none";
         document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Agujero';
+            document.getElementById("btn5").style.display = "block";
             document.querySelector("#black").setAttribute("visible", true);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -77,6 +78,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "none";
         document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Sistema';
+            document.getElementById("btn5").style.display = "block";
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -91,6 +93,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "none";
         document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Galaxia';
+            document.getElementById("btn5").style.display = "block";
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", true);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -105,6 +108,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "none";
         document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Satelite';
+            document.getElementById("btn5").style.display = "block";
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
