@@ -99,6 +99,20 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#asteroide").setAttribute("visible", false);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
+    }
+    if(scannedText == 'Satelite'){
+        document.querySelector("#hist").pause();
+        document.getElementById("historia").style.display = "none";
+        document.getElementById("btn6").style.display = "none";
+            document.getElementById("btn5").innerHTML = 'Ocultar Satelite';
+            document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", false);
+            document.querySelector("#sun").setAttribute("visible", true);
+        document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#meteorito").setAttribute("visible", false);
+        document.querySelector("#cometa").setAttribute("visible", false);
         
     }
 }
