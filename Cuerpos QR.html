@@ -322,7 +322,7 @@
             <a-asset-item id="hoyo" response-type="arraybuffer" src="../assets/Cuerpos/blackhole (1).glb"></a-asset-item>
             <a-asset-item id="galaxia" src="../assets/Cuerpos/galaxy.glb"></a-asset-item>
             <a-asset-item id="luna" src="../assets/Cuerpos/moon (1).glb"></a-asset-item>
-            <a-asset-item id="" src="../assets/Cuerpos/need_some_space.glb"></a-asset-item>
+            <a-asset-item id="nebu" src="../assets/Cuerpos/need_some_space.glb"></a-asset-item>
             <a-asset-item id="sistema" src="../assets/Cuerpos/solar_system.glb"></a-asset-item>
             <a-asset-item id="sol" src="../assets/Cuerpos/sun.glb"></a-asset-item>
         </a-assets>
@@ -341,7 +341,8 @@
         <!--HOYO NEGRO-->
         <a-entity id="black" visible="false" position="0 0 -4" rotation="10 0 0" scale="0.5 0.5 0.5" gltf-model="#hoyo" ></a-entity>
         <a-entity id="galaxy" visible="false" position="0 0 -4" rotation="20 0 0" scale="0.5 0.5 0.3" gltf-model="#galaxia"></a-entity>
-        <a-entity id="moon" visible="true" position="0 0 -4" rotation="20 0 0" scale="0.5 0.2 0.5" gltf-model="#luna"></a-entity>
+        <a-entity id="moon" visible="false" position="0 0 -4" rotation="20 0 0" scale="0.5 0.2 0.5" gltf-model="#luna"></a-entity>
+        <a-entity id="losa" visible="true" position="0 0 -4" rotation="0 0 0" scale="1 0.8 1" gltf-model="#sistema"><nebu/a-entity>
         <a-entity camera></a-entity>
     </a-scene>
 </body>
