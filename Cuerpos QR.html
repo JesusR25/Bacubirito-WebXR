@@ -6,6 +6,7 @@
     <script type="text/javascript" src="/js/marcadores/cuerpos.js"></script>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@tagOrCommit/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -319,16 +320,27 @@
             <a-asset-item id="bacu" src="../assets/Cuerpos/CometaM.glb"></a-asset-item>
             <a-asset-item id="aste" src="../assets/Modelos/Meteoro planeta.glb"></a-asset-item>
             <a-asset-item id="as" src="../assets/Cuerpos/Ast.glb"></a-asset-item>
+            <a-asset-item id="hoyo" src="../assets/Cuerpos/blackhole.glb"></a-asset-item>
+            <a-asset-item id="galaxia" src="../assets/Cuerpos/galaxy.glb"></a-asset-item>
+            <a-asset-item id="luna" src="../assets/Cuerpos/moon (1).glb"></a-asset-item>
+            <a-asset-item id="" src="../assets/Cuerpos/need_some_space.glb"></a-asset-item>
+            <a-asset-item id="sistema" src="../assets/Cuerpos/solar_system.glb"></a-asset-item>
+            <a-asset-item id="sol" src="../assets/Cuerpos/sun.glb"></a-asset-item>
         </a-assets>
+        <!--COMETA-->
         <a-entity id="cometa" visible="false" position="-2.5 0 -4" rotation="0 0 90" scale="0.5 0.5 0.5" gltf-model="#bacu"
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
             animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
+        <!--ASTEROIDE-->
         <a-entity id="asteroide" visible="false" position="-2.5 0 -4" rotation="0 0 0" scale="1.5 1.5 1" gltf-model="#aste"
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
             animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
+        <!--METEORITO-->
         <a-entity id="meteorito" visible="false" position="-2.5 0 -4" rotation="0 0 0" scale="0.3 0.3 0.3" gltf-model="#as"
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
             animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
+        <!--HOYO NEGRO-->
+        <a-entity id="black" visible="true" position="0 0 -4" rotation="10 0 0" scale="0.2 0.3 0.3" gltf-model="#hoyo" animation-mixer></a-entity>
         <a-entity camera></a-entity>
     </a-scene>
 </body>
