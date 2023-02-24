@@ -57,6 +57,50 @@ function onQRCodeScanned(scannedText)
             imageAlt: 'Custom image',
           })
     }
+    if(scannedText == 'Agujero Negro'){
+        document.querySelector("#hist").pause();
+        document.getElementById("historia").style.display = "none";
+        document.getElementById("btn6").style.display = "none";
+            document.getElementById("btn5").innerHTML = 'Ocultar Agujero';
+            document.querySelector("#black").setAttribute("visible", true);
+            document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", false);
+            document.querySelector("#sun").setAttribute("visible", false);
+        document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#meteorito").setAttribute("visible", false);
+        document.querySelector("#cometa").setAttribute("visible", false);
+        
+    }
+    if(scannedText == 'Sistema Solar'){
+        document.querySelector("#hist").pause();
+        document.getElementById("historia").style.display = "none";
+        document.getElementById("btn6").style.display = "none";
+            document.getElementById("btn5").innerHTML = 'Ocultar Sistema';
+            document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", true);
+            document.querySelector("#sun").setAttribute("visible", false);
+        document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#meteorito").setAttribute("visible", false);
+        document.querySelector("#cometa").setAttribute("visible", false);
+    }
+    if(scannedText == 'Galaxia'){
+        document.querySelector("#hist").pause();
+        document.getElementById("historia").style.display = "none";
+        document.getElementById("btn6").style.display = "none";
+            document.getElementById("btn5").innerHTML = 'Ocultar Galaxia';
+            document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#galaxy").setAttribute("visible", true);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", false);
+            document.querySelector("#sun").setAttribute("visible", false);
+        document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#meteorito").setAttribute("visible", false);
+        document.querySelector("#cometa").setAttribute("visible", false);
+        
+    }
 }
 
 //funtion returning a promise with a video stream
