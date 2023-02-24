@@ -319,7 +319,7 @@
             <a-asset-item id="bacu" src="../assets/Cuerpos/CometaM.glb"></a-asset-item>
             <a-asset-item id="aste" src="../assets/Modelos/Meteoro planeta.glb"></a-asset-item>
             <a-asset-item id="as" src="../assets/Cuerpos/Ast.glb"></a-asset-item>
-            <a-asset-item id="hoyo" src="../assets/Cuerpos/blackhole.glb"></a-asset-item>
+            <a-asset-item id="hoyo" response-type="arraybuffer" src="../assets/Cuerpos/blackhole.glb"></a-asset-item>
             <a-asset-item id="galaxia" src="../assets/Cuerpos/galaxy.glb"></a-asset-item>
             <a-asset-item id="luna" src="../assets/Cuerpos/moon (1).glb"></a-asset-item>
             <a-asset-item id="" src="../assets/Cuerpos/need_some_space.glb"></a-asset-item>
@@ -339,7 +339,7 @@
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
             animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
         <!--HOYO NEGRO-->
-        <a-entity id="black" visible="true" position="0 0 -4" rotation="10 0 0" scale="0.3 0.3 0.3" gltf-model="#hoyo" animation-mixer></a-entity>
+        <a-entity id="black" visible="true" position="0 0 -4" rotation="10 0 0" scale="0.5 0.5 0.5" gltf-model="#hoyo" animation-mixer="clip:Take 001"></a-entity>
         <a-entity camera></a-entity>
     </a-scene>
 </body>
