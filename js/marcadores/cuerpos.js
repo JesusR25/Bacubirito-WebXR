@@ -5,6 +5,12 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#cometa").setAttribute("visible", false);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", false);
+            document.querySelector("#sun").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
         //Mostrar video
         document.querySelector("#hist").play();
         document.getElementById("historia").style.display = "block";
@@ -16,6 +22,12 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#cometa").setAttribute("visible", true);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", false);
+            document.querySelector("#sun").setAttribute("visible", false);
         Swal.fire({
             title: 'Cometa',
             text: 'Da click en el boton ocultar para ocultar el Cometa',
@@ -32,6 +44,12 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#meteorito").setAttribute("visible", true);
         document.querySelector("#cometa").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", false);
+            document.querySelector("#sun").setAttribute("visible", false);
         Swal.fire({
             title: 'Meteorito',
             text: 'Da click en el boton ocultar para ocultar el Meteorito.',
@@ -48,6 +66,13 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#asteroide").setAttribute("visible", true);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
+        document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", false);
+            document.querySelector("#sun").setAttribute("visible", false);
+        
         Swal.fire({
             title: 'Asteroide',
             text: 'Da click en el boton ocultar para ocultar el Asteroide',
@@ -69,9 +94,18 @@ function onQRCodeScanned(scannedText)
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#metero").setAttribute("visible", false);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
-        
+
+        Swal.fire({
+            title: 'Agujero Negro',
+            text: 'Da click en el boton ocultar para ocultar el Agujero Negro',
+            imageUrl: 'https://codigoespagueti.com/wp-content/uploads/2022/07/agujero-negro.jpg',
+            imageWidth: 200,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+          })
     }
     if(scannedText == 'Sistema Solar'){
         document.querySelector("#hist").pause();
@@ -84,9 +118,19 @@ function onQRCodeScanned(scannedText)
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", true);
             document.querySelector("#sun").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
+
+        Swal.fire({
+            title: 'Sistema Solar',
+            text: 'Da click en el boton ocultar para ocultar el Sistema Solar',
+            imageUrl: 'https://conceptoabc.com/wp-content/uploads/2021/07/Sistema-Solar.jpg',
+            imageWidth: 200,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+          })
     }
     if(scannedText == 'Galaxia'){
         document.querySelector("#hist").pause();
@@ -99,9 +143,19 @@ function onQRCodeScanned(scannedText)
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
+
+        Swal.fire({
+            title: 'Galaxia',
+            text: 'Da click en el boton ocultar para ocultar la Galaxia',
+            imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/640px-NGC_4414_%28NASA-med%29.jpg',
+            imageWidth: 200,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+          })
     }
     if(scannedText == 'Satelite'){
         document.querySelector("#hist").pause();
@@ -114,10 +168,45 @@ function onQRCodeScanned(scannedText)
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", true);
+            document.querySelector("#metero").setAttribute("visible", false);
         document.querySelector("#asteroide").setAttribute("visible", false);
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
+
+        Swal.fire({
+            title: 'Satelite',
+            text: 'Da click en el boton ocultar para ocultar el Satelite',
+            imageUrl: 'https://d1xxa24wwackpg.cloudfront.net/wp-content/uploads/2020/03/303-MAG-6GRADOS-1-e1583794581842.jpg',
+            imageWidth: 200,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+          })
         
+    }
+    if(scannedText == 'Meteoroide'){
+        document.getElementById("btn5").style.display = "block";
+        document.querySelector("#hist").pause();
+        document.getElementById("historia").style.display = "none";
+        document.getElementById("btn6").style.display = "none";
+        document.getElementById("btn5").innerHTML = 'Ocultar Meteoroide';
+        document.querySelector("#black").setAttribute("visible", true);
+        document.querySelector("#galaxy").setAttribute("visible", false);
+        document.querySelector("#moon").setAttribute("visible", false);
+        document.querySelector("#system").setAttribute("visible", false);
+        document.querySelector("#sun").setAttribute("visible", false);
+        document.querySelector("#asteroide").setAttribute("visible", false);
+        document.querySelector("#metero").setAttribute("visible", false);
+        document.querySelector("#meteorito").setAttribute("visible", false);
+        document.querySelector("#cometa").setAttribute("visible", false);
+
+        Swal.fire({
+            title: 'Meteoroide',
+            text: 'Da click en el boton ocultar para ocultar el Meteoroide',
+            imageUrl: 'https://www.periodicoenlace.com/wp-content/uploads/2019/07/meteoroide.jpg',
+            imageWidth: 200,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+          })
     }
 }
 
