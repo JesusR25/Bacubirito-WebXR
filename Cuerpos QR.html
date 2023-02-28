@@ -107,6 +107,7 @@
         <button class="butt" id="btn9">Cometa</button>
         <button class="butt" id="btn10">Asteroide</button>
         <button class="butt" id="btn11">Meteorito</button>
+        <button class="butt" id="btnmeto">Meteoroide</button>
         <button class="butt" id="btn15">Agujero Negro</button>
         <button class="butt" id="btn16">Galaxia</button>
         <button class="butt" id="btn17">Satelite Natural</button>
@@ -127,6 +128,8 @@
         <br>
         <button class="butt" id="btn14">Meteorito</button>
         <br>
+        <button class="butt" id="btnroide">Meteoroide</button>
+        <br>
         <button class="butt" id="btnc">Cerrar video</button>
         <br>
         <button class="butt" id="btnr">Reproducir</button>
@@ -143,12 +146,45 @@
         <button class="butt" id="btn24">Estrella</button>
     </div>
     <script>
+        document.getElementById("btnmeto").addEventListener("click", (e) => {
+            document.getElementById("btn6").style.display = "none";
+            document.getElementById("btn5").style.display = "inline-block";
+            document.getElementById("btn5").innerHTML = 'Ocultar Meteoroide';
+            document.querySelector("#black").setAttribute("visible",false);
+            document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", true);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", false);
+            document.querySelector("#sun").setAttribute("visible", false);
+            document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#cometa").setAttribute("visible", false);
+            document.querySelector("#asteroide").setAttribute("visible", false);
+            document.querySelector("#hist").pause();
+            document.getElementById("historia").style.display = "none";
+            });
+        document.getElementById("btnroide").addEventListener("click", (e) => {
+            document.getElementById("btn6").style.display = "none";
+            document.getElementById("btn5").style.display = "inline-block";
+            document.getElementById("btn5").innerHTML = 'Ocultar Meteoroide';
+            document.querySelector("#black").setAttribute("visible",false);
+            document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", true);
+            document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#system").setAttribute("visible", false);
+            document.querySelector("#sun").setAttribute("visible", false);
+            document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#cometa").setAttribute("visible", false);
+            document.querySelector("#asteroide").setAttribute("visible", false);
+            document.querySelector("#hist").pause();
+            document.getElementById("historia").style.display = "none";
+            });
         document.getElementById("btn15").addEventListener("click", (e) => {
             document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").style.display = "inline-block";
             document.getElementById("btn5").innerHTML = 'Ocultar Agujero';
             document.querySelector("#black").setAttribute("visible", true);
             document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", false);
@@ -164,6 +200,7 @@
             document.querySelector("#black").setAttribute("visible", true);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", false);
             document.querySelector("#meteorito").setAttribute("visible", false);
@@ -176,6 +213,7 @@
             document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").style.display = "inline-block";
             document.getElementById("btn5").innerHTML = 'Ocultar Galaxia';
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", true);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -191,6 +229,7 @@
             document.getElementById("btn6").style.display = "none";
             document.getElementById("btnm").innerHTML = 'Ocultar Galaxia';
             document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", true);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
@@ -205,6 +244,7 @@
             document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").style.display = "inline-block";
             document.getElementById("btn5").innerHTML = 'Ocultar Satelite';
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", true);
@@ -219,6 +259,7 @@
         document.getElementById("btn22").addEventListener("click", (e) => {
             document.getElementById("btn6").style.display = "none";
             document.getElementById("btnm").innerHTML = 'Ocultar Satelite';
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", true);
@@ -235,6 +276,7 @@
             document.getElementById("btn5").style.display = "inline-block";
             document.getElementById("btn5").innerHTML = 'Ocultar Sistema';
             document.querySelector("#black").setAttribute("visible",false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", true);
@@ -250,6 +292,7 @@
             document.getElementById("btnm").innerHTML = 'Ocultar Sistema';
             document.querySelector("#black").setAttribute("visible",false);
             document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", true);
             document.querySelector("#sun").setAttribute("visible", false);
@@ -269,6 +312,7 @@
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", true);
             document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", false);
             document.querySelector("#asteroide").setAttribute("visible", false);
             document.querySelector("#hist").pause();
@@ -280,6 +324,7 @@
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", true);
             document.querySelector("#meteorito").setAttribute("visible", false);
@@ -297,6 +342,7 @@
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", false);
             document.querySelector("#meteorito").setAttribute("visible", false);
@@ -311,6 +357,7 @@
             document.getElementById("btn5").innerHTML = 'Ocultar Asteroide';
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", false);
@@ -325,6 +372,7 @@
             document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Meteorito';
             document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
@@ -341,6 +389,7 @@
                     document.getElementById("btn5").innerHTML = 'Ocultar Cometa';
                     document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", false);
@@ -353,6 +402,7 @@
         document.getElementById("btn13").addEventListener("click", (e) => {
             document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Asteroide';
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -368,6 +418,7 @@
             document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Meteorito';
             document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
@@ -447,6 +498,7 @@
             document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").style.display = "none";
             document.querySelector("#black").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
@@ -469,6 +521,7 @@
             document.getElementById("btn5").style.display = "none";
             document.getElementById("btn8").style.display = "none";
             document.getElementById("btn6").style.display = "inline-block";
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -486,6 +539,7 @@
         document.getElementById("btnm").addEventListener("click", (e) => {
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
             document.querySelector("#system").setAttribute("visible", false);
             document.querySelector("#sun").setAttribute("visible", false);
@@ -508,6 +562,7 @@
         //Boton para reproducir video
         document.getElementById("btnr").addEventListener("click", (e) => {
             document.querySelector("#meteorito").setAttribute("visible", false);
+            document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", false);
             document.querySelector("#asteroide").setAttribute("visible", false);
             document.querySelector("#black").setAttribute("visible", false);
@@ -532,6 +587,7 @@
             <a-asset-item id="bacu" src="../assets/Cuerpos/CometaM.glb"></a-asset-item>
             <a-asset-item id="aste" src="../assets/Modelos/Meteoro planeta.glb"></a-asset-item>
             <a-asset-item id="as" src="../assets/Cuerpos/Ast.glb"></a-asset-item>
+            <a-asset-item id="roide" src="../assets/Cuerpos/meteroide.glb"></a-asset-item>
             <a-asset-item id="hoyo" response-type="arraybuffer" src="../assets/Cuerpos/blackhole (1).glb"></a-asset-item>
             <a-asset-item id="galaxia" src="../assets/Cuerpos/galaxy.glb"></a-asset-item>
             <a-asset-item id="luna" src="../assets/Cuerpos/moon (1).glb"></a-asset-item>
@@ -540,7 +596,7 @@
             <a-asset-item id="so" response-type="arraybuffer" src="../assets/Cuerpos/sun.glb"></a-asset-item>
         </a-assets>
         <!--COMETA-->
-        <a-entity id="cometa" visible="false" position="-2.5 0 -4" rotation="0 0 90" scale="0.5 0.5 0.5" gltf-model="#bacu"
+        <a-entity id="cometa" visible="false" position="-2.5 0 -4" rotation="0 0 90" scale="0.7 0.7 0.7" gltf-model="#bacu"
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
             animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
         <!--ASTEROIDE-->
@@ -548,7 +604,10 @@
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
             animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
         <!--METEORITO-->
-        <a-entity id="meteorito" visible="false" position="-2.5 0 -4" rotation="0 0 0" scale="0.3 0.3 0.3" gltf-model="#as"
+        <a-entity id="meteorito" visible="false" position="-2.5 0 -4" rotation="0 0 0" scale="0.7 0.7 0.7" gltf-model="#as"
+            animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
+            animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
+        <a-entity id="metero" visible="false" position="-2.5 0 -4" rotation="0 0 0" scale="0.03 0.03 0.03" gltf-model="#roide"
             animation="property: position; to: 3 0 -4; dur: 8000; easing: linear; loop: true"
             animation__2="property: rotation; to: 360 0 0; loop: true; dur: 8000"></a-entity>
         <!--HOYO NEGRO-->
