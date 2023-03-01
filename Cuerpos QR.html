@@ -134,7 +134,7 @@
     <div id="botonvideo" style="position: absolute;text-align: center; z-index: 9999; left: 0%; top: 0%; display: none;">
         <button class="buttacos" id="btnmp">Menu Principal</button>
         <br>
-        <button class="buttacos" id="btnm">Ocultar cuerpo</button>
+        <button class="buttoc" id="btnm">Ocultar cuerpo</button>
         <br>
         <button class="buttacos" id="btn12">Cometa</button>
         <br>
@@ -142,7 +142,7 @@
         <br>
         <button class="buttacos" id="btn14">Meteorito</button>
         <br>
-        <button class="buttacos" id="btnc">Cerrar video</button>
+        <button class="buttoc" id="btnc">Cerrar video</button>
         <br>
         <button class="buttacos" id="btnr">Reproducir</button>
     </div>
@@ -564,6 +564,8 @@
 
         //Boton para cerrar el video
         document.getElementById("btnc").addEventListener("click", (e) => {
+            document.getElementById("btnr").style.display = "inline-block";
+            document.getElementById("btnc").style.display = "none";
             document.querySelector("#hist").pause();
                     document.getElementById("historia").style.display = "none";
                 });
@@ -575,6 +577,10 @@
 
         //Boton para reproducir video
         document.getElementById("btnr").addEventListener("click", (e) => {
+            document.getElementById("btnm").style.display = "none";
+            document.getElementById("btnr").style.display = "none";
+            document.getElementById("btnc").style.display = "inline-block";
+
             document.querySelector("#meteorito").setAttribute("visible", false);
             document.querySelector("#metero").setAttribute("visible", false);
             document.querySelector("#cometa").setAttribute("visible", false);

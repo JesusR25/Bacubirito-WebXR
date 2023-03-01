@@ -17,6 +17,7 @@ function onQRCodeScanned(scannedText)
     }
     if(scannedText == 'Cometa'){
         document.getElementById("btn5").innerHTML = 'Ocultar Cometa';
+        document.getElementById("btnm").innerHTML = 'Ocultar Cometa';
         document.querySelector("#hist").pause();
         document.getElementById("historia").style.display = "none";
         document.querySelector("#cometa").setAttribute("visible", true);
@@ -39,6 +40,7 @@ function onQRCodeScanned(scannedText)
     }
     if(scannedText == 'Meteorito'){
         document.getElementById("btn5").innerHTML = 'Ocultar Meteorito';
+        document.getElementById("btnm").innerHTML = 'Ocultar Meteorito';
         document.querySelector("#hist").pause();
         document.getElementById("historia").style.display = "none";
         document.querySelector("#meteorito").setAttribute("visible", true);
@@ -61,6 +63,7 @@ function onQRCodeScanned(scannedText)
     }
     if(scannedText == 'Asteroide'){
         document.getElementById("btn5").innerHTML = 'Ocultar Asteroide';
+        document.getElementById("btnm").innerHTML = 'Ocultar Asteroide';
         document.querySelector("#hist").pause();
         document.getElementById("historia").style.display = "none";
         document.querySelector("#asteroide").setAttribute("visible", true);
@@ -88,6 +91,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "none";
         document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Agujero';
+            document.getElementById("btnm").innerHTML = 'Ocultar Agujero';
             document.querySelector("#black").setAttribute("visible", true);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -113,6 +117,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "none";
         document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Sistema';
+            document.getElementById("btnm").innerHTML = 'Ocultar Sistema';
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -138,6 +143,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "none";
         document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Galaxia';
+            document.getElementById("btnm").innerHTML = 'Ocultar Galaxia';
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", true);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -163,6 +169,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "none";
         document.getElementById("btn6").style.display = "none";
             document.getElementById("btn5").innerHTML = 'Ocultar Satelite';
+            document.getElementById("btnm").innerHTML = 'Ocultar Satelite';
             document.querySelector("#black").setAttribute("visible", false);
             document.querySelector("#galaxy").setAttribute("visible", false);
             document.querySelector("#moon").setAttribute("visible", false);
@@ -189,6 +196,7 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "none";
         document.getElementById("btn6").style.display = "none";
         document.getElementById("btn5").innerHTML = 'Ocultar Meteoroide';
+        document.getElementById("btnm").innerHTML = 'Ocultar Meteoroide';
         document.querySelector("#black").setAttribute("visible", true);
         document.querySelector("#galaxy").setAttribute("visible", false);
         document.querySelector("#moon").setAttribute("visible", false);
