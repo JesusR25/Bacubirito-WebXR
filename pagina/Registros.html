@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <title>Contador de visitas</title>
+    <link rel="stylesheet" href="../css/registros.css">
+    <script type="module" src="../js/firebase.js"></script>
+</head>
+
+<body>
+    <div id="activity">
+        <h1 id="counter">Tienes <span class="hits">0</span> visitas este día.</h1>
+    </div>
+</body>
+
+<script type="module">
+    import {registros} from '../js/firebase.js'
+    registros();
+</script>
+
+
+</html>

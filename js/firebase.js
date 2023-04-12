@@ -142,11 +142,14 @@ export const loginWithEmail = (nombre, email, escolaridad, contra) => {
     .then((userCredential) => {
       // Signed in
       //GUARDAR DOCUMENTO TAMBIEN
+      var today = new Date();
+      var now = today.toLocaleDateString('en-US');
       setDoc(doc(db, "usuarios", email), {
         nombre: nombre,
         email: email,
         escolaridad: escolaridad,
         contraseña: contra,
+        fecha: now,
       });
       Swal.fire({
         icon: "success",
@@ -345,4 +348,22 @@ export const cerrar = async () => {
   }).catch((error) => {
     // An error happened.
   });
+};
+
+export const registros = async () => {
+  var today = new Date();
+  var now = today.toLocaleDateString('en-US');
+  let conteo = 0;
+  const veces = collection(db, "usuarios");
+  const consulta = query(veces);
+  const resul = await getDocs(consulta);
+  resul.forEach((doc) => {
+    let fecha = doc.get("fecha");
+    if(now == fecha){
+      conteo++;
+    }
+  });
+  console.log(conteo);
+  document.getElementById('counter').innerHTML='Tienes <span class="hits">' + conteo + '</span> visitas este día.';
+
 };
