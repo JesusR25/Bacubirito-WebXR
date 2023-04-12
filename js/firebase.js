@@ -57,9 +57,13 @@ export const obtener = async (escolaridad) => {
   final = final + 1;
   var str = final.toString();
   console.log(final);
+  var today = new Date();
+  var now = today.toLocaleDateString('en-US');
+console.log(now);
   setDoc(doc(db, "usuarios", str), {
     invitadoID: final,
     escolaridad: escolaridad,
+    fecha: now,
   });
 };
 
@@ -249,6 +253,7 @@ export const juego = async ( nivel, tiempo) => {
     });
   }
 };
+
 
 
 export const marcador = async () => {
