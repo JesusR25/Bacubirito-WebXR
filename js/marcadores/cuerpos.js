@@ -1,3 +1,5 @@
+boolean sistema = false;
+boolean hoyo = false;
 function onQRCodeScanned(scannedText)
 {
     if(scannedText == 'Reproducir Video'){
@@ -86,6 +88,7 @@ function onQRCodeScanned(scannedText)
           })
     }
     if(scannedText == 'Agujero Negro'){
+
         document.getElementById("btn5").style.display = "block";
         document.querySelector("#hist").pause();
         document.getElementById("historia").style.display = "none";
@@ -102,7 +105,8 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
 
-        Swal.fire({
+        if(hoyo == false){
+             Swal.fire({
             title: 'Agujero Negro',
             text: 'Da click en el boton ocultar para ocultar el Agujero Negro',
             imageUrl: 'https://codigoespagueti.com/wp-content/uploads/2022/07/agujero-negro.jpg',
@@ -110,6 +114,9 @@ function onQRCodeScanned(scannedText)
             imageHeight: 100,
             imageAlt: 'Custom image',
           })
+        }
+       
+        hoyo = true;
     }
     if(scannedText == 'Sistema Solar'){
         document.querySelector("#hist").pause();
@@ -128,7 +135,8 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
 
-        Swal.fire({
+        if(sistema == false){
+            Swal.fire({
             title: 'Sistema Solar',
             text: 'Da click en el boton ocultar para ocultar el Sistema Solar',
             imageUrl: 'https://conceptoabc.com/wp-content/uploads/2021/07/Sistema-Solar.jpg',
@@ -136,6 +144,8 @@ function onQRCodeScanned(scannedText)
             imageHeight: 100,
             imageAlt: 'Custom image',
           })
+        }
+        sistema = true;
     }
     if(scannedText == 'Galaxia'){
         document.querySelector("#hist").pause();
