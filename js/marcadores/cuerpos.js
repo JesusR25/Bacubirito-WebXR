@@ -1,5 +1,5 @@
-boolean siste = false;
-boolean hoyo = false;
+var siste = false;
+var hoyo = false;
 function onQRCodeScanned(scannedText)
 {
     if(scannedText == 'Reproducir Video'){
