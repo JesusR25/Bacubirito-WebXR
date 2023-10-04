@@ -1,4 +1,4 @@
-boolean sistema = false;
+boolean siste = false;
 boolean hoyo = false;
 function onQRCodeScanned(scannedText)
 {
@@ -135,7 +135,7 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#meteorito").setAttribute("visible", false);
         document.querySelector("#cometa").setAttribute("visible", false);
 
-        if(sistema == false){
+        if(siste == false){
             Swal.fire({
             title: 'Sistema Solar',
             text: 'Da click en el boton ocultar para ocultar el Sistema Solar',
@@ -145,7 +145,7 @@ function onQRCodeScanned(scannedText)
             imageAlt: 'Custom image',
           })
         }
-        sistema = true;
+        siste = true;
     }
     if(scannedText == 'Galaxia'){
         document.querySelector("#hist").pause();
