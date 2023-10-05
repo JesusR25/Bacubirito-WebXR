@@ -9,6 +9,13 @@ function onQRCodeScanned(scannedText)
         document.querySelector("#hist").play();
         document.getElementById("historia").style.display = "block";
     }
+    if(scannedText == 'Bacubirito'){
+        document.querySelector("#modelo").setAttribute("visible", false);
+        document.getElementById("texto").style.display = "none";
+        //Mostrar video
+        document.querySelector("#hist").play();
+        document.getElementById("historia").style.display = "block";
+    }
 }
 
 //funtion returning a promise with a video stream
