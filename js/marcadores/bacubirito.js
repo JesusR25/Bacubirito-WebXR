@@ -10,11 +10,11 @@ function onQRCodeScanned(scannedText)
         document.getElementById("historia").style.display = "block";
     }
     if(scannedText == 'Bacubirito'){
-        document.querySelector("#modelo").setAttribute("visible", false);
-        document.getElementById("texto").style.display = "none";
+        document.querySelector("#modelo").setAttribute("visible", true);
+        document.getElementById("texto").style.display = "block";
         //Mostrar video
-        document.querySelector("#hist").play();
-        document.getElementById("historia").style.display = "block";
+        document.querySelector("#hist").stop();
+        document.getElementById("historia").style.display = "none";
     }
 }
 
